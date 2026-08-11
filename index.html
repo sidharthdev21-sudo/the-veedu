@@ -1,0 +1,1376 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --accent: #2f7a52;
+    --accent-dark: #256143;
+    --accent-active: #1d4d35;
+    --accent-bg: #eaf4ec;
+    --alert: #b3402d;
+    --alert-bg: #fbede8;
+    --text: #2a2b24;
+    --text-soft: #6b6f63;
+    --border: #ded9c9;
+    --border-light: #ece8db;
+    --surface: #fffdf9;
+    --surface-muted: #f2f5ee;
+  }
+  *, *::before, *::after { box-sizing: border-box; }
+  body { margin: 0; background: var(--surface); color: var(--text); font-family: "Inter", system-ui, sans-serif; font-size: 15px; line-height: 1.5; -webkit-font-smoothing: antialiased; }
+  h1, h2, h3, h4 { font-family: "Inter", system-ui, sans-serif; font-weight: 700; line-height: 1.2; letter-spacing: -0.02em; margin: 0; }
+  a { color: var(--text); text-decoration: none; }
+  a:hover { color: var(--accent); }
+  input, select, textarea, button { font: inherit; color: inherit; }
+  button { cursor: pointer; }
+  :focus { outline: none; }
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  ::selection { background: color-mix(in srgb, var(--accent) 25%, transparent); }
+  .leaflet-container { font-family: "Inter", system-ui, sans-serif; border-radius: 16px; }
+  input, select, textarea { min-height: 46px; border-radius: 8px; border: 1px solid var(--border); }
+  .listing-card { border-radius: 16px; transition: box-shadow .2s ease; }
+  .listing-card:hover { box-shadow: 0 6px 20px rgba(0,0,0,0.12); }
+  .listing-card-img { transition: transform .4s ease; }
+  .listing-card:hover .listing-card-img { transform: scale(1.05); }
+  @media (max-width: 860px) {
+    .hero-title { font-size: 28px !important; }
+    .detail-grid { grid-template-columns: 1fr !important; gap: 28px !important; }
+    .detail-aside { position: static !important; top: auto !important; }
+    .detail-photos { grid-template-columns: 1fr !important; height: auto !important; }
+    .detail-photos > div:first-child { height: 220px; }
+    .detail-photos-side { grid-template-rows: none !important; grid-template-columns: 1fr 1fr !important; height: 140px; }
+    .detail-video { height: 240px !important; }
+    .host-grid { grid-template-columns: 1fr !important; }
+    .search-pill { flex-direction: column !important; border-radius: 24px !important; align-items: stretch !important; padding: 8px !important; }
+    .search-pill > .seg { border-right: none !important; border-bottom: 1px solid var(--border-light); padding: 12px 16px !important; }
+    .search-pill > .seg:last-of-type { border-bottom: none !important; }
+    .search-pill .search-btn { width: 100%; border-radius: 14px !important; margin-top: 8px; justify-content: center !important; }
+  }
+  @media (max-width: 480px) {
+    .hero-title { font-size: 23px !important; }
+  }
+</style>
+</helmet>
+
+<div style="min-height:100vh; display:flex; flex-direction:column;">
+
+  <header style="position:sticky; top:0; z-index:40; background:var(--surface); border-bottom:1px solid var(--border-light);">
+    <div style="max-width:1240px; margin:0 auto; padding:14px 24px; display:flex; align-items:center; gap:24px; flex-wrap:wrap;">
+      <div onClick="{{ goSearch }}" style="display:flex; align-items:center; gap:10px; cursor:pointer;">
+        <span style="display:flex; align-items:center; justify-content:center; width:36px; height:36px; border-radius:50%; background:var(--accent); color:#fff; flex-shrink:0;">
+          <svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11.5 12 4l9 7.5"/><path d="M5 10v9a1 1 0 0 0 1 1h4v-6h4v6h4a1 1 0 0 0 1-1v-9"/></svg>
+        </span>
+        <div>
+          <div style="font-weight:800; font-size:19px; letter-spacing:-0.02em; color:var(--text); line-height:1.1;">The veedu</div>
+          <div style="font-size:11px; letter-spacing:0.03em; color:var(--accent); font-weight:600;">Peaceful care homes</div>
+        </div>
+      </div>
+      <div style="flex:1;"></div>
+      <nav style="display:flex; gap:2px; background:var(--surface-muted); border-radius:999px; padding:3px;">
+        <button onClick="{{ goSearch }}" style="{{ tabGuest }}">Find a stay</button>
+        <button onClick="{{ goHost }}" style="{{ tabHost }}">Host dashboard</button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ══════════ SEARCH + RESULTS ══════════ -->
+  <sc-if value="{{ isSearch }}" hint-placeholder-val="{{ true }}">
+  <main style="flex:1;">
+    <section style="background:linear-gradient(180deg,#eaf3ec 0%,#fffdf9 65%);">
+      <div style="max-width:1000px; margin:0 auto; padding:56px 24px 40px; text-align:center;">
+        <h1 class="hero-title" style="font-size:42px; text-wrap:balance;">A calm place to stay, close to the hospital.</h1>
+        <p style="margin:14px auto 0; font-size:16px; line-height:1.6; color:var(--text-soft); max-width:52ch; text-wrap:pretty;">Verified homes and serviced apartments near Kochi's major hospitals — chosen for families staying through treatment and recovery. Tell us your dates and we will show what is ready now.</p>
+      </div>
+
+      <div style="max-width:1080px; margin:0 auto; padding:0 24px 48px;">
+        <div class="search-pill" style="display:flex; align-items:stretch; background:var(--surface); border:1px solid var(--border); border-radius:999px; box-shadow:0 6px 20px rgba(0,0,0,0.08);">
+          <div class="seg" style="flex:1.2; min-width:0; padding:10px 24px; border-right:1px solid var(--border-light);">
+            <label style="display:block; font-size:11px; font-weight:700; margin-bottom:2px;">Hospital</label>
+            <select value="{{ fHospital }}" onChange="{{ setHospital }}" style="width:100%; min-height:24px; padding:0; font-size:14px; background:transparent; border:none; color:var(--text-soft);">
+              <option value="all">Any hospital in Kochi</option>
+              <sc-for list="{{ hospitalOptions }}" as="ho" hint-placeholder-count="4">
+                <option value="{{ ho.name }}">{{ ho.name }}</option>
+              </sc-for>
+            </select>
+          </div>
+          <div class="seg" style="flex:1; min-width:0; padding:10px 24px; border-right:1px solid var(--border-light);">
+            <label style="display:block; font-size:11px; font-weight:700; margin-bottom:2px;">Check-in</label>
+            <input type="date" value="{{ fIn }}" onChange="{{ setIn }}" style="width:100%; min-height:24px; padding:0; font-size:14px; background:transparent; border:none; color:var(--text-soft);">
+          </div>
+          <div class="seg" style="flex:1; min-width:0; padding:10px 24px; border-right:1px solid var(--border-light);">
+            <label style="display:block; font-size:11px; font-weight:700; margin-bottom:2px;">Check-out</label>
+            <input type="date" value="{{ fOut }}" onChange="{{ setOut }}" style="width:100%; min-height:24px; padding:0; font-size:14px; background:transparent; border:none; color:var(--text-soft);">
+          </div>
+          <div class="seg" style="flex:1.1; min-width:0; padding:10px 24px; display:flex; gap:14px; align-items:center;">
+            <div style="flex:1; min-width:0;">
+              <label style="display:block; font-size:11px; font-weight:700; margin-bottom:2px;">Adults</label>
+              <input type="number" min="1" value="{{ fAdults }}" onChange="{{ setAdults }}" style="width:100%; min-height:24px; padding:0; font-size:14px; background:transparent; border:none; color:var(--text-soft);">
+            </div>
+            <div style="flex:1; min-width:0;">
+              <label style="display:block; font-size:11px; font-weight:700; margin-bottom:2px;">Children</label>
+              <input type="number" min="0" value="{{ fKids }}" onChange="{{ setKids }}" style="width:100%; min-height:24px; padding:0; font-size:14px; background:transparent; border:none; color:var(--text-soft);">
+            </div>
+            <button onClick="{{ doSearch }}" class="search-btn" style="flex-shrink:0; display:flex; align-items:center; justify-content:center; gap:8px; min-height:48px; width:48px; padding:0; border:none; border-radius:50%; background:var(--accent); color:#fff;" style-hover="background:var(--accent-dark)" style-active="background:var(--accent-active)">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section style="max-width:1240px; margin:0 auto; padding:8px 24px 72px; width:100%;">
+      <div style="display:flex; align-items:baseline; gap:16px; flex-wrap:wrap; padding-bottom:20px;">
+        <h2 style="font-size:22px;">{{ resultCount }}</h2>
+        <span style="font-size:14px; color:var(--text-soft);">{{ resultSummary }}</span>
+        <div style="flex:1;"></div>
+        <label style="display:flex; align-items:center; gap:8px; font-size:14px; cursor:pointer;">
+          <input type="checkbox" checked="{{ readyOnly }}" onChange="{{ toggleReady }}" style="width:16px; height:16px; min-height:16px; accent-color:var(--accent); border-radius:4px;">
+          Ready for occupancy only
+        </label>
+      </div>
+
+      <sc-if value="{{ resultsLoading }}">
+      <p style="margin:24px 0 0; font-size:14px; color:var(--text-soft);">Loading stays…</p>
+      </sc-if>
+      <sc-if value="{{ resultsEmpty }}">
+      <p style="margin:24px 0 0; font-size:14px; color:var(--text-soft);">No stays match these filters yet. Try another hospital or clear "Ready for occupancy only".</p>
+      </sc-if>
+
+      <div style="display:grid; grid-template-columns:repeat(auto-fill,minmax(260px,1fr)); gap:32px 24px;">
+        <sc-for list="{{ results }}" as="p" hint-placeholder-count="6">
+          <article onClick="{{ p.open }}" class="listing-card" style="cursor:pointer; display:flex; flex-direction:column;">
+            <div style="position:relative; height:220px; border-radius:16px; overflow:hidden; margin-bottom:12px;">
+              <div class="listing-card-img" style="position:absolute; inset:0; background:{{ p.coverImage }};"></div>
+              <span style="position:absolute; bottom:10px; left:10px; font-size:12px; font-weight:600; padding:5px 12px; border-radius:999px; background:{{ p.badgeBg }}; color:{{ p.badgeFg }};">{{ p.badgeText }}</span>
+              <span style="position:absolute; top:10px; right:10px; display:flex; align-items:center; justify-content:center; width:28px; height:28px;">
+                <svg viewBox="0 0 32 32" width="20" height="20" fill="rgba(0,0,0,0.45)" stroke="#fff" stroke-width="2"><path d="M16 28s-11.5-7-11.5-14.8C4.5 8.7 8 5.3 12.1 5.3c2.1 0 4 .9 3.9 3.5-.1-2.6 1.8-3.5 3.9-3.5 4.1 0 7.6 3.4 7.6 7.9C27.5 21 16 28 16 28z"/></svg>
+              </span>
+            </div>
+            <div style="display:flex; flex-direction:column; gap:2px; flex:1;">
+              <div style="display:flex; justify-content:space-between; gap:8px;">
+                <div style="font-weight:600; font-size:15px; line-height:1.3;">{{ p.name }}</div>
+              </div>
+              <div style="font-size:14px; color:var(--text-soft);">{{ p.area }}</div>
+              <div style="font-size:14px; color:var(--text-soft);">{{ p.distanceLine }}</div>
+              <div style="font-size:14px; color:var(--text-soft);">{{ p.beds }}</div>
+              <sc-if value="{{ showAmenities }}" hint-placeholder-val="{{ true }}">
+              <div style="display:flex; flex-wrap:wrap; gap:6px; margin-top:6px;">
+                <sc-for list="{{ p.amenities }}" as="a" hint-placeholder-count="3">
+                  <span style="font-size:12px; color:var(--text-soft); background:var(--surface-muted); border-radius:999px; padding:4px 10px;">{{ a }}</span>
+                </sc-for>
+              </div>
+              </sc-if>
+              <div style="margin-top:8px; font-size:15px;"><span style="font-weight:700;">{{ p.priceText }}</span> <span style="color:var(--text-soft); font-weight:400;">night</span></div>
+            </div>
+          </article>
+        </sc-for>
+      </div>
+    </section>
+  </main>
+  </sc-if>
+
+  <!-- ══════════ PROPERTY DETAIL ══════════ -->
+  <sc-if value="{{ isProperty }}">
+  <main style="flex:1; max-width:1160px; margin:0 auto; padding:24px 24px 80px; width:100%;">
+    <button onClick="{{ goSearch }}" style="background:none; border:none; padding:4px 0; margin-bottom:16px; color:var(--text); font-weight:600; font-size:14px; display:flex; align-items:center; gap:6px;" style-hover="color:var(--accent)">
+      <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+      Back to results
+    </button>
+
+    <sc-if value="{{ sel.hasVideo }}">
+    <div class="detail-video" style="height:400px; border-radius:16px; overflow:hidden; margin-bottom:32px; background:#000;">
+      <video src="{{ sel.videoUrl }}" controls="{{ true }}" autoPlay="{{ true }}" muted="{{ true }}" playsInline="{{ true }}" loop="{{ true }}" preload="auto" style="width:100%; height:100%; object-fit:contain; display:block; background:#000;"></video>
+    </div>
+    </sc-if>
+
+    <sc-if value="{{ !sel.hasVideo }}">
+    <div class="detail-photos" style="display:grid; grid-template-columns:2fr 1fr; gap:6px; height:400px; border-radius:16px; overflow:hidden; margin-bottom:32px;">
+      <div style="background:{{ sel.detailImage1 }}; display:flex; align-items:flex-end; padding:14px;">
+        <sc-if value="{{ !sel.hasAnyPhoto }}">
+        <span style="font-size:11px; text-transform:uppercase; letter-spacing:.06em; color:#8a8a8a;">Main photograph — living area</span>
+        </sc-if>
+      </div>
+      <div class="detail-photos-side" style="display:grid; grid-template-rows:1fr 1fr; gap:6px;">
+        <div style="background:{{ sel.detailImage2 }}; display:flex; align-items:flex-end; padding:12px;">
+          <sc-if value="{{ !sel.hasAnyPhoto }}">
+          <span style="font-size:11px; text-transform:uppercase; letter-spacing:.06em; color:#8a8a8a;">Bedroom</span>
+          </sc-if>
+        </div>
+        <div style="background:{{ sel.detailImage3 }}; display:flex; align-items:flex-end; justify-content:space-between; padding:12px;">
+          <sc-if value="{{ !sel.hasAnyPhoto }}">
+          <span style="font-size:11px; text-transform:uppercase; letter-spacing:.06em; color:#8a8a8a;">Kitchen</span>
+          </sc-if>
+          <sc-if value="{{ sel.hasExtraPhotos }}">
+          <span style="font-size:12px; font-weight:600; background:rgba(0,0,0,0.55); color:#fff; padding:4px 12px; border-radius:999px;">+{{ sel.extraPhotosCount }} photos</span>
+          </sc-if>
+        </div>
+      </div>
+    </div>
+    </sc-if>
+
+    <div class="detail-grid" style="display:grid; grid-template-columns:minmax(0,1.7fr) minmax(300px,1fr); gap:56px; align-items:start;">
+      <div>
+        <span style="display:inline-block; font-size:12px; font-weight:600; padding:5px 12px; border-radius:999px; background:{{ sel.badgeBg }}; color:{{ sel.badgeFg }};">{{ sel.badgeText }}</span>
+        <h1 class="hero-title" style="font-size:32px; margin-top:14px;">{{ sel.name }}</h1>
+        <div style="font-size:15px; color:var(--text-soft); margin-top:8px;">{{ sel.area }}</div>
+        <div style="font-size:15px; font-weight:600; color:var(--accent); margin-top:6px;">{{ sel.distanceLine }}</div>
+
+        <p style="margin:28px 0 0; font-size:16px; line-height:1.7; max-width:64ch; text-wrap:pretty; color:var(--text);">{{ sel.description }}</p>
+
+        <hr style="border:0; border-top:1px solid var(--border-light); margin:32px 0;">
+        <h3 style="font-size:20px; margin-bottom:18px;">The space</h3>
+        <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(160px,1fr)); gap:16px;">
+          <sc-for list="{{ sel.facts }}" as="f" hint-placeholder-count="6">
+            <div style="background:var(--surface-muted); border-radius:12px; padding:14px 16px;">
+              <div style="font-size:11px; text-transform:uppercase; letter-spacing:.04em; color:var(--text-soft); font-weight:600;">{{ f.label }}</div>
+              <div style="font-size:14px; margin-top:6px; font-weight:500;">{{ f.value }}</div>
+            </div>
+          </sc-for>
+        </div>
+
+        <hr style="border:0; border-top:1px solid var(--border-light); margin:32px 0;">
+        <h3 style="font-size:20px; margin-bottom:18px;">Distance to hospitals</h3>
+        <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:12px;">
+          <sc-for list="{{ sel.hospitalDistances }}" as="hd" hint-placeholder-count="4">
+            <div style="background:var(--surface-muted); border-radius:12px; padding:12px 16px; display:flex; justify-content:space-between; gap:8px; align-items:baseline;">
+              <span style="font-size:14px; font-weight:500;">{{ hd.name }}</span>
+              <span style="font-size:14px; font-weight:700; color:var(--accent);">{{ hd.kmText }}</span>
+            </div>
+          </sc-for>
+        </div>
+
+        <hr style="border:0; border-top:1px solid var(--border-light); margin:32px 0;">
+        <h3 style="font-size:20px; margin-bottom:18px;">Amenities</h3>
+        <div style="display:flex; flex-wrap:wrap; gap:10px;">
+          <sc-for list="{{ sel.amenities }}" as="a" hint-placeholder-count="6">
+            <span style="font-size:14px; border:1px solid var(--border); border-radius:999px; padding:9px 16px;">{{ a }}</span>
+          </sc-for>
+        </div>
+
+        <hr style="border:0; border-top:1px solid var(--border-light); margin:32px 0;">
+        <h3 style="font-size:20px; margin-bottom:18px;">Location</h3>
+        <div id="prop-map" style="height:360px; border-radius:16px; overflow:hidden; background:var(--surface-muted);"></div>
+        <p style="margin:12px 0 0; font-size:13px; color:var(--text-soft);">{{ sel.mapNote }}</p>
+
+        <hr style="border:0; border-top:1px solid var(--border-light); margin:32px 0;">
+        <h3 style="font-size:20px; margin-bottom:6px;">Getting around</h3>
+        <p style="margin:0 0 18px; font-size:14px; color:var(--text-soft);">Arriving by taxi, or want a backup place to stay nearby? Here's what's around this address.</p>
+
+        <div style="margin-bottom:24px;">
+          <div style="font-size:14px; font-weight:600; margin-bottom:10px;">Book a taxi to this address</div>
+          <div style="display:flex; gap:10px; flex-wrap:wrap;">
+            <a href="{{ sel.olaLink }}" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:8px; padding:11px 20px; border-radius:999px; background:var(--accent); color:#fff; font-weight:700; font-size:14px;" style-hover="background:var(--accent-dark)" style-active="background:var(--accent-active)">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17h14M5 17a2 2 0 1 0 4 0M5 17a2 2 0 1 1 4 0m6 0a2 2 0 1 0 4 0m-4 0a2 2 0 1 1 4 0M5 17V9.5a1 1 0 0 1 .3-.7L7.5 6.6a1 1 0 0 1 .7-.3h7.6a1 1 0 0 1 .7.3l2.2 2.2a1 1 0 0 1 .3.7V17"/></svg>
+              Book with Ola
+            </a>
+            <a href="{{ sel.uberLink }}" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:8px; padding:11px 20px; border-radius:999px; border:1px solid var(--border); background:transparent; color:var(--text); font-weight:700; font-size:14px;" style-hover="background:var(--surface-muted)">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17h14M5 17a2 2 0 1 0 4 0M5 17a2 2 0 1 1 4 0m6 0a2 2 0 1 0 4 0m-4 0a2 2 0 1 1 4 0M5 17V9.5a1 1 0 0 1 .3-.7L7.5 6.6a1 1 0 0 1 .7-.3h7.6a1 1 0 0 1 .7.3l2.2 2.2a1 1 0 0 1 .3.7V17"/></svg>
+              Book with Uber
+            </a>
+          </div>
+
+          <sc-if value="{{ hasNearbyTaxiStands }}">
+          <div style="margin-top:14px;">
+            <div style="font-size:12px; color:var(--text-soft); margin-bottom:8px;">Taxi stands nearby (OpenStreetMap)</div>
+            <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:10px;">
+              <sc-for list="{{ nearbyTaxiStands }}" as="t" hint-placeholder-count="2">
+                <div style="background:var(--surface-muted); border-radius:10px; padding:10px 14px; display:flex; justify-content:space-between; gap:8px; align-items:baseline;">
+                  <span style="font-size:13px;">{{ t.name }}</span>
+                  <span style="font-size:13px; font-weight:700; color:var(--accent);">{{ t.kmText }}</span>
+                </div>
+              </sc-for>
+            </div>
+          </div>
+          </sc-if>
+        </div>
+
+        <div>
+          <div style="font-size:14px; font-weight:600; margin-bottom:10px;">Nearby hotels — a backup option if this stay is full</div>
+          <sc-if value="{{ nearbyLoading }}">
+          <p style="margin:0; font-size:13px; color:var(--text-soft);">Finding nearby hotels…</p>
+          </sc-if>
+          <sc-if value="{{ nearbyError }}">
+          <p style="margin:0; font-size:13px; color:var(--text-soft);">{{ nearbyError }}</p>
+          </sc-if>
+          <sc-if value="{{ hasNearbyHotels }}">
+          <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:10px;">
+            <sc-for list="{{ nearbyHotels }}" as="ht" hint-placeholder-count="4">
+              <div style="background:var(--surface-muted); border-radius:10px; padding:10px 14px; display:flex; justify-content:space-between; gap:8px; align-items:baseline;">
+                <span style="font-size:13px;">{{ ht.name }}</span>
+                <span style="font-size:13px; font-weight:700; color:var(--accent);">{{ ht.kmText }}</span>
+              </div>
+            </sc-for>
+          </div>
+          </sc-if>
+          <sc-if value="{{ nearbyHotelsEmpty }}">
+          <p style="margin:0; font-size:13px; color:var(--text-soft);">No listed hotels within 3 km on OpenStreetMap.</p>
+          </sc-if>
+        </div>
+      </div>
+
+      <aside class="detail-aside" style="position:sticky; top:88px; background:var(--surface); border:1px solid var(--border); border-radius:16px; box-shadow:0 6px 20px rgba(0,0,0,0.1); padding:24px;">
+        <div style="display:flex; align-items:baseline; gap:6px;">
+          <span style="font-weight:700; font-size:22px; letter-spacing:-0.01em;">{{ sel.priceText }}</span>
+          <span style="font-size:14px; color:var(--text-soft);">night</span>
+        </div>
+        <div style="font-size:13px; color:var(--text-soft); margin-top:2px;">{{ sel.monthlyNote }}</div>
+
+        <div style="margin-top:18px; border:1px solid var(--border); border-radius:12px; overflow:hidden;">
+          <div style="display:grid; grid-template-columns:1fr 1fr;">
+            <div style="padding:10px 12px; border-right:1px solid var(--border);">
+              <div style="font-size:10px; letter-spacing:0.04em; text-transform:uppercase; color:var(--text-soft); font-weight:600;">Check-in</div>
+              <div style="font-size:14px; margin-top:3px;">{{ stayIn }}</div>
+            </div>
+            <div style="padding:10px 12px;">
+              <div style="font-size:10px; letter-spacing:0.04em; text-transform:uppercase; color:var(--text-soft); font-weight:600;">Check-out</div>
+              <div style="font-size:14px; margin-top:3px;">{{ stayOut }}</div>
+            </div>
+          </div>
+          <div style="padding:10px 12px; border-top:1px solid var(--border);">
+            <div style="font-size:10px; letter-spacing:0.04em; text-transform:uppercase; color:var(--text-soft); font-weight:600;">Guests</div>
+            <div style="font-size:14px; margin-top:3px;">{{ guestsText }}</div>
+          </div>
+        </div>
+
+        <div style="display:flex; align-items:center; gap:12px; margin-top:20px; padding-top:18px; border-top:1px solid var(--border-light);">
+          <div style="width:44px; height:44px; border-radius:50%; background:var(--surface-muted); display:flex; align-items:center; justify-content:center; font-weight:700; color:var(--text);">{{ sel.hostInitial }}</div>
+          <div>
+            <div style="font-size:14px; font-weight:600;">{{ sel.hostName }}</div>
+            <div style="font-size:12px; color:var(--text-soft);">{{ sel.hostNote }}</div>
+          </div>
+        </div>
+
+        <div style="margin-top:16px;">
+          <label style="display:block; font-size:12px; margin-bottom:5px; color:var(--text-soft);">Your name (for the host)</label>
+          <input value="{{ guestName }}" onChange="{{ setGuestName }}" placeholder="e.g. Rahul Menon" style="width:100%; padding:6px 12px; font-size:14px; background:var(--surface);">
+        </div>
+        <a href="{{ waLink }}" target="_blank" rel="noopener" onClick="{{ sendEnquiry }}" style="display:flex; align-items:center; justify-content:center; gap:8px; width:100%; margin-top:12px; padding:14px 15px; border-radius:999px; background:var(--accent); color:#fff; font-weight:700; font-size:15px;" style-hover="background:var(--accent-dark)" style-active="background:var(--accent-active)">Message host on WhatsApp</a>
+        <p style="margin:14px 0 0; font-size:12px; line-height:1.5; color:var(--text-soft); text-align:center;">No booking fee. You agree dates and payment directly with the host.</p>
+      </aside>
+    </div>
+  </main>
+  </sc-if>
+
+  <!-- ══════════ HOST DASHBOARD ══════════ -->
+  <sc-if value="{{ isHost }}">
+  <main style="flex:1; max-width:1160px; margin:0 auto; padding:36px 24px 80px; width:100%;">
+    <div style="display:flex; align-items:flex-end; gap:16px; flex-wrap:wrap; padding-bottom:24px;">
+      <div>
+        <h1 class="hero-title" style="font-size:32px;">Your properties</h1>
+        <p style="margin:8px 0 0; font-size:15px; color:var(--text-soft);">Keep availability honest — families book on what they see here.</p>
+        <sc-if value="{{ hostSignedIn }}">
+        <p style="margin:8px 0 0; font-size:13px; color:var(--text-soft);">Signed in as {{ authIdentityDisplay }} · <a href="#" onClick="{{ togglePasswordForm }}" style="text-decoration:underline;">Change password</a> · <a href="#" onClick="{{ doSignOut }}" style="text-decoration:underline;">Sign out</a></p>
+        </sc-if>
+      </div>
+      <div style="flex:1;"></div>
+      <sc-if value="{{ hostSignedIn }}">
+      <button onClick="{{ toggleForm }}" style="min-height:48px; padding:12px 24px; border:none; border-radius:999px; background:var(--accent); color:#fff; font-weight:700; font-size:15px;" style-hover="background:var(--accent-dark)" style-active="background:var(--accent-active)">{{ formBtnText }}</button>
+      </sc-if>
+    </div>
+
+    <sc-if value="{{ !hostSignedIn }}">
+    <section style="max-width:420px; background:var(--surface); border:1px solid var(--border); border-radius:16px; box-shadow:0 6px 20px rgba(0,0,0,0.08); padding:28px;">
+      <h3 style="font-size:22px;">{{ authHeading }}</h3>
+      <p style="margin:6px 0 20px; font-size:14px; color:var(--text-soft);">{{ authSub }}</p>
+
+      <sc-if value="{{ authNotice }}">
+      <p style="margin:0 0 16px; font-size:13px; color:var(--accent-active); background:var(--accent-bg); border-radius:10px; padding:10px 14px;">{{ authNotice }}</p>
+      </sc-if>
+      <sc-if value="{{ authError }}">
+      <p style="margin:0 0 16px; font-size:13px; color:var(--alert); background:var(--alert-bg); border-radius:10px; padding:10px 14px;">{{ authError }}</p>
+      </sc-if>
+
+      <sc-if value="{{ isSignUp }}">
+      <div style="margin-bottom:14px;">
+        <label style="display:block; font-size:12px; margin-bottom:5px; color:var(--text-soft);">Your name</label>
+        <input value="{{ authName }}" onChange="{{ setAuthName }}" placeholder="e.g. Meera Nair" style="width:100%; padding:6px 12px; font-size:14px; background:var(--surface);">
+      </div>
+      </sc-if>
+
+      <div style="margin-bottom:14px;">
+        <label style="display:block; font-size:12px; margin-bottom:5px; color:var(--text-soft);">Phone number</label>
+        <input type="tel" value="{{ authPhone }}" onChange="{{ setAuthPhone }}" placeholder="+91 98470 00000" style="width:100%; padding:6px 12px; font-size:14px; background:var(--surface);">
+      </div>
+      <div style="margin-bottom:18px;">
+        <label style="display:block; font-size:12px; margin-bottom:5px; color:var(--text-soft);">Password</label>
+        <input type="password" value="{{ authPassword }}" onChange="{{ setAuthPassword }}" placeholder="At least 6 characters" style="width:100%; padding:6px 12px; font-size:14px; background:var(--surface);">
+      </div>
+
+      <button onClick="{{ submitAuth }}" style="width:100%; min-height:48px; padding:8px 15px; border:none; border-radius:999px; background:var(--accent); color:#fff; font-weight:700; font-size:15px;" style-hover="background:var(--accent-dark)" style-active="background:var(--accent-active)">{{ authSubmitLabel }}</button>
+      <button onClick="{{ toggleAuthMode }}" style="width:100%; min-height:36px; margin-top:10px; padding:7px 15px; border:none; background:transparent; color:var(--text); font-weight:600; font-size:13px; text-decoration:underline;">{{ authToggleLabel }}</button>
+
+      <sc-if value="{{ !isSignUp }}">
+      <button onClick="{{ toggleForgotPassword }}" style="width:100%; min-height:32px; margin-top:2px; padding:7px 15px; border:none; background:transparent; color:var(--text-soft); font-weight:500; font-size:12px; text-decoration:underline;">Forgot password?</button>
+      <sc-if value="{{ showForgotPassword }}">
+      <p style="margin:10px 0 0; font-size:13px; line-height:1.6; color:var(--text-soft); background:var(--surface-muted); border-radius:10px; padding:12px 14px;">We can't send a reset code automatically — password recovery isn't tied to email or SMS on this account. Contact The veedu team with your registered phone number and name, and we'll verify it's you and reset your password manually.</p>
+      </sc-if>
+      </sc-if>
+    </section>
+    </sc-if>
+
+    <sc-if value="{{ hostSignedIn }}">
+
+    <sc-if value="{{ showPasswordForm }}">
+    <section style="max-width:420px; background:var(--surface); border:1px solid var(--border); border-radius:16px; box-shadow:0 6px 20px rgba(0,0,0,0.08); padding:24px; margin-bottom:24px;">
+      <h3 style="font-size:22px;">Change password</h3>
+      <p style="margin:6px 0 20px; font-size:14px; color:var(--text-soft);">Choose a new password for your host account.</p>
+
+      <sc-if value="{{ passwordNotice }}">
+      <p style="margin:0 0 16px; font-size:13px; color:var(--accent-active); background:var(--accent-bg); border-radius:10px; padding:10px 14px;">{{ passwordNotice }}</p>
+      </sc-if>
+      <sc-if value="{{ passwordError }}">
+      <p style="margin:0 0 16px; font-size:13px; color:var(--alert); background:var(--alert-bg); border-radius:10px; padding:10px 14px;">{{ passwordError }}</p>
+      </sc-if>
+
+      <div style="margin-bottom:14px;">
+        <label style="display:block; font-size:12px; margin-bottom:5px; color:var(--text-soft);">New password</label>
+        <input type="password" value="{{ newPassword }}" onChange="{{ setNewPassword }}" placeholder="At least 6 characters" style="width:100%; padding:6px 12px; font-size:14px; background:var(--surface);">
+      </div>
+      <div style="margin-bottom:18px;">
+        <label style="display:block; font-size:12px; margin-bottom:5px; color:var(--text-soft);">Confirm new password</label>
+        <input type="password" value="{{ newPasswordConfirm }}" onChange="{{ setNewPasswordConfirm }}" placeholder="Re-enter password" style="width:100%; padding:6px 12px; font-size:14px; background:var(--surface);">
+      </div>
+
+      <div style="display:flex; gap:12px;">
+        <button onClick="{{ changePassword }}" style="min-height:44px; padding:8px 20px; border:none; border-radius:999px; background:var(--accent); color:#fff; font-weight:700; font-size:14px;" style-hover="background:var(--accent-dark)" style-active="background:var(--accent-active)">{{ passwordSubmitLabel }}</button>
+        <button onClick="{{ togglePasswordForm }}" style="min-height:44px; padding:8px 20px; border:1px solid var(--border); border-radius:999px; background:transparent; font-weight:700; font-size:14px;" style-hover="background:var(--surface-muted)">Cancel</button>
+      </div>
+    </section>
+    </sc-if>
+
+    <sc-if value="{{ showForm }}">
+    <section style="background:var(--surface); border:1px solid var(--border); border-radius:16px; box-shadow:0 6px 20px rgba(0,0,0,0.08); padding:28px; margin-bottom:24px;">
+      <h3 style="font-size:22px;">{{ formHeading }}</h3>
+      <p style="margin:6px 0 24px; font-size:14px; color:var(--text-soft);">Takes about five minutes. You can edit anything later.</p>
+
+      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:16px;">
+        <div>
+          <label style="display:block; font-size:12px; margin-bottom:5px; color:var(--text-soft);">Property name</label>
+          <input value="{{ nName }}" onChange="{{ setNName }}" placeholder="e.g. Palm Court Serviced Flat" style="width:100%; padding:6px 12px; font-size:14px; background:var(--surface);">
+        </div>
+        <div>
+          <label style="display:block; font-size:12px; margin-bottom:5px; color:var(--text-soft);">Area / locality</label>
+          <input value="{{ nArea }}" onChange="{{ setNArea }}" placeholder="e.g. Ponekkara, Kochi" style="width:100%; padding:6px 12px; font-size:14px; background:var(--surface);">
+        </div>
+        <div>
+          <label style="display:block; font-size:12px; margin-bottom:5px; color:var(--text-soft);">Nearest hospital</label>
+          <select value="{{ nHospital }}" onChange="{{ setNHospital }}" style="width:100%; padding:6px 12px; font-size:14px; background:var(--surface);">
+            <sc-for list="{{ hospitalOptions }}" as="ho" hint-placeholder-count="4">
+              <option value="{{ ho.name }}">{{ ho.name }}</option>
+            </sc-for>
+          </select>
+        </div>
+        <div>
+          <label style="display:block; font-size:12px; margin-bottom:5px; color:var(--text-soft);">Travel note (optional — distance is calculated for you below)</label>
+          <input value="{{ nTime }}" onChange="{{ setNTime }}" placeholder="e.g. quick walk via the footbridge" style="width:100%; padding:6px 12px; font-size:14px; background:var(--surface);">
+        </div>
+        <div>
+          <label style="display:block; font-size:12px; margin-bottom:5px; color:var(--text-soft);">Price per night (₹)</label>
+          <input type="number" value="{{ nPrice }}" onChange="{{ setNPrice }}" placeholder="2400" style="width:100%; padding:6px 12px; font-size:14px; background:var(--surface);">
+        </div>
+        <div>
+          <label style="display:block; font-size:12px; margin-bottom:5px; color:var(--text-soft);">Bedrooms · Beds · Sleeps</label>
+          <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:8px;">
+            <input type="number" min="0" value="{{ nBedrooms }}" onChange="{{ setNBedrooms }}" placeholder="Bedrooms" style="width:100%; padding:6px 12px; font-size:14px; background:var(--surface);">
+            <input type="number" min="1" value="{{ nBedsCount }}" onChange="{{ setNBedsCount }}" placeholder="Beds" style="width:100%; padding:6px 12px; font-size:14px; background:var(--surface);">
+            <input type="number" min="1" value="{{ nSleeps }}" onChange="{{ setNSleeps }}" placeholder="Sleeps" style="width:100%; padding:6px 12px; font-size:14px; background:var(--surface);">
+          </div>
+        </div>
+        <div>
+          <label style="display:block; font-size:12px; margin-bottom:5px; color:var(--text-soft);">Available from</label>
+          <input type="date" value="{{ nFrom }}" onChange="{{ setNFrom }}" style="width:100%; padding:6px 12px; font-size:14px; background:var(--surface);">
+        </div>
+        <div>
+          <label style="display:block; font-size:12px; margin-bottom:5px; color:var(--text-soft);">Available until</label>
+          <input type="date" value="{{ nUntil }}" onChange="{{ setNUntil }}" style="width:100%; padding:6px 12px; font-size:14px; background:var(--surface);">
+        </div>
+        <div>
+          <label style="display:block; font-size:12px; margin-bottom:5px; color:var(--text-soft);">WhatsApp number</label>
+          <input value="{{ nPhone }}" onChange="{{ setNPhone }}" placeholder="+91 98470 00000" style="width:100%; padding:6px 12px; font-size:14px; background:var(--surface);">
+        </div>
+      </div>
+
+      <div style="margin-top:16px;">
+        <label style="display:block; font-size:12px; margin-bottom:5px; color:var(--text-soft);">Description</label>
+        <textarea value="{{ nDesc }}" onChange="{{ setNDesc }}" rows="4" placeholder="Tell families what the stay is like — quiet, lift access, kitchen, how far the hospital is on foot." style="width:100%; min-height:90px; padding:12px; font-size:14px; background:var(--surface); border-radius:12px; resize:vertical; line-height:1.6;"></textarea>
+      </div>
+
+      <div style="margin-top:20px;">
+        <div style="font-size:12px; color:var(--text-soft); margin-bottom:8px;">Amenities</div>
+        <div style="display:flex; flex-wrap:wrap; gap:8px;">
+          <sc-for list="{{ amenityChips }}" as="c" hint-placeholder-count="9">
+            <button onClick="{{ c.toggle }}" style="border:1px solid {{ c.border }}; border-radius:999px; background:{{ c.bg }}; color:{{ c.fg }}; font-size:13px; padding:8px 16px;">{{ c.label }}</button>
+          </sc-for>
+        </div>
+      </div>
+
+      <div style="margin-top:20px; display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:16px;">
+        <div>
+          <div style="font-size:12px; color:var(--text-soft); margin-bottom:8px;">Photos</div>
+          <label for="photo-upload" style="display:block; border:1.5px dashed var(--border); border-radius:12px; padding:22px; background:var(--surface-muted); cursor:pointer;" style-hover="background:#f0f0f0">
+            <div style="font-weight:700; font-size:14px;">{{ photoDropText }}</div>
+            <div style="font-size:13px; color:var(--text-soft); margin-top:4px;">Minimum 5 — bedroom, bathroom, kitchen, entrance, street view. Click to choose files from your computer.</div>
+          </label>
+          <input type="file" id="photo-upload" accept="image/*" multiple="{{ true }}" onChange="{{ onPhotoSelect }}" style="position:absolute; width:0; height:0; opacity:0; overflow:hidden;">
+          <sc-if value="{{ nPhotos.length }}">
+          <div style="display:flex; gap:8px; margin-top:10px; flex-wrap:wrap;">
+            <sc-for list="{{ nPhotos }}" as="ph" hint-placeholder-count="3">
+              <div style="position:relative; width:56px; height:44px;">
+                <img src="{{ ph.url }}" style="width:56px; height:44px; object-fit:cover; display:block; border-radius:8px;">
+                <button onClick="{{ ph.remove }}" title="Remove photo" style="position:absolute; top:-6px; right:-6px; width:18px; height:18px; border-radius:50%; border:2px solid #fff; background:var(--text); color:#fff; font-size:11px; line-height:1; padding:0;">×</button>
+              </div>
+            </sc-for>
+          </div>
+          </sc-if>
+          <sc-if value="{{ photoError }}">
+          <p style="margin:8px 0 0; font-size:12px; color:var(--alert);">{{ photoError }}</p>
+          </sc-if>
+        </div>
+        <div>
+          <div style="font-size:12px; color:var(--text-soft); margin-bottom:8px;">Walkthrough video (optional)</div>
+          <sc-if value="{{ !hasNVideo }}">
+          <label for="video-upload" style="display:block; border:1.5px dashed var(--border); border-radius:12px; padding:22px; background:var(--surface-muted); cursor:pointer;" style-hover="background:#f0f0f0">
+            <div style="font-weight:700; font-size:14px;">{{ videoDropText }}</div>
+            <div style="font-size:13px; color:var(--text-soft); margin-top:4px;">A 30–60s walk through the rooms. Up to 100MB. Shown as the main visual on your listing when added.</div>
+          </label>
+          </sc-if>
+          <sc-if value="{{ hasNVideo }}">
+          <div style="position:relative;">
+            <video src="{{ nVideoUrl }}" controls style="width:100%; max-height:160px; border-radius:12px; background:#000; display:block;"></video>
+            <button onClick="{{ removeVideo }}" title="Remove video" style="position:absolute; top:8px; right:8px; padding:5px 12px; border-radius:999px; border:none; background:rgba(0,0,0,0.6); color:#fff; font-size:12px; font-weight:600;">Remove</button>
+          </div>
+          </sc-if>
+          <input type="file" id="video-upload" accept="video/*" onChange="{{ onVideoSelect }}" style="position:absolute; width:0; height:0; opacity:0; overflow:hidden;">
+          <sc-if value="{{ videoError }}">
+          <p style="margin:8px 0 0; font-size:12px; color:var(--alert);">{{ videoError }}</p>
+          </sc-if>
+        </div>
+        <div>
+          <div style="font-size:12px; color:var(--text-soft); margin-bottom:8px;">Pin the location — drag the marker</div>
+          <div id="host-map" style="height:186px; border-radius:12px; overflow:hidden; background:var(--surface-muted);"></div>
+        </div>
+      </div>
+
+      <div style="margin-top:20px;">
+        <div style="font-size:12px; color:var(--text-soft); margin-bottom:8px;">Distance to every hospital on The veedu — calculated automatically from the pin above, so families searching near any of them can find this stay</div>
+        <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:10px;">
+          <sc-for list="{{ nHospitalDistances }}" as="hd" hint-placeholder-count="4">
+            <div style="background:var(--surface-muted); border-radius:10px; padding:10px 14px; display:flex; justify-content:space-between; gap:8px; align-items:baseline;">
+              <span style="font-size:13px;">{{ hd.name }}</span>
+              <span style="font-size:13px; font-weight:700; color:var(--accent);">{{ hd.kmText }}</span>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+
+      <div style="margin-top:22px; padding-top:20px; border-top:1px solid var(--border-light); display:flex; align-items:center; gap:16px; flex-wrap:wrap;">
+        <label style="display:flex; align-items:center; gap:10px; cursor:pointer;">
+          <input type="checkbox" checked="{{ nReady }}" onChange="{{ setNReady }}" style="width:18px; height:18px; min-height:18px; accent-color:var(--accent); border-radius:5px;">
+          <span style="font-size:14px;">Mark as <strong>ready for occupancy</strong> — visible in search today</span>
+        </label>
+        <div style="flex:1;"></div>
+        <button onClick="{{ toggleForm }}" style="min-height:44px; padding:8px 20px; border:1px solid var(--border); border-radius:999px; background:transparent; font-weight:700; font-size:14px;" style-hover="background:var(--surface-muted)">Cancel</button>
+        <button onClick="{{ publish }}" style="min-height:44px; padding:8px 24px; border:none; border-radius:999px; background:var(--accent); color:#fff; font-weight:700; font-size:14px;" style-hover="background:var(--accent-dark)" style-active="background:var(--accent-active)">{{ publishLabel }}</button>
+      </div>
+    </section>
+    </sc-if>
+
+    <div class="host-grid" style="display:grid; grid-template-columns:minmax(0,2fr) minmax(280px,1fr); gap:24px; margin-top:0;">
+      <div style="background:var(--surface); border:1px solid var(--border); border-radius:16px; overflow:hidden;">
+        <sc-if value="{{ hostListEmpty }}">
+        <p style="margin:0; padding:24px; font-size:14px; color:var(--text-soft);">No properties yet — add your first one above.</p>
+        </sc-if>
+        <sc-for list="{{ hostList }}" as="h" hint-placeholder-count="4">
+          <div style="padding:16px 20px; border-bottom:1px solid var(--border-light); display:flex; gap:16px; align-items:center; flex-wrap:wrap;">
+            <div style="width:96px; height:72px; border-radius:12px; background:{{ h.coverImage }};"></div>
+            <div style="flex:1; min-width:180px;">
+              <div style="font-weight:600; font-size:16px; line-height:1.3;">{{ h.name }}</div>
+              <div style="font-size:13px; color:var(--text-soft); margin-top:4px;">{{ h.area }} · {{ h.beds }}</div>
+              <div style="font-size:13px; color:var(--text-soft); margin-top:4px;">{{ h.availability }}</div>
+            </div>
+            <div style="text-align:right;">
+              <div style="font-weight:700; font-size:16px;">{{ h.priceText }}</div>
+              <div style="font-size:12px; color:var(--text-soft);">per night</div>
+            </div>
+            <label style="display:flex; align-items:center; gap:9px; padding-left:16px; border-left:1px solid var(--border-light); cursor:pointer; min-width:170px;">
+              <input type="checkbox" checked="{{ h.ready }}" onChange="{{ h.toggle }}" style="width:17px; height:17px; min-height:17px; accent-color:var(--accent); border-radius:5px;">
+              <span style="font-size:13px; font-weight:600; color:{{ h.readyFg }};">{{ h.readyLabel }}</span>
+            </label>
+            <button onClick="{{ h.edit }}" style="min-height:38px; padding:8px 16px; border:1px solid var(--border); border-radius:999px; background:transparent; font-weight:700; font-size:13px;" style-hover="background:var(--surface-muted)">Edit</button>
+          </div>
+        </sc-for>
+      </div>
+
+      <aside style="background:var(--surface); border:1px solid var(--border); border-radius:16px; padding:20px;">
+        <h4 style="font-size:17px;">Recent enquiries</h4>
+        <p style="margin:6px 0 14px; font-size:13px; color:var(--text-soft);">Guests reach you on WhatsApp.</p>
+        <sc-if value="{{ enquiriesEmpty }}">
+        <p style="margin:0; font-size:13px; color:var(--text-soft);">No enquiries yet.</p>
+        </sc-if>
+        <div style="display:flex; flex-direction:column;">
+          <sc-for list="{{ enquiries }}" as="e" hint-placeholder-count="3">
+            <div style="border-top:1px solid var(--border-light); padding:14px 0;">
+              <div style="display:flex; justify-content:space-between; gap:10px; align-items:baseline;">
+                <span style="font-size:14px; font-weight:600;">{{ e.name }}</span>
+                <span style="font-size:11px; letter-spacing:0.06em; text-transform:uppercase; color:var(--text-soft);">{{ e.when }}</span>
+              </div>
+              <div style="font-size:12px; color:var(--accent); margin-top:3px; font-weight:600;">{{ e.property }} · {{ e.detail }}</div>
+              <div style="font-size:13px; margin-top:6px; line-height:1.5; color:var(--text-soft);">{{ e.message }}</div>
+            </div>
+          </sc-for>
+        </div>
+      </aside>
+    </div>
+    </sc-if>
+  </main>
+  </sc-if>
+
+  <footer style="border-top:1px solid var(--border-light); background:var(--surface-muted);">
+    <div style="max-width:1240px; margin:0 auto; padding:22px 24px; display:flex; gap:20px; flex-wrap:wrap; align-items:center;">
+      <span style="font-size:13px; color:var(--text-soft);">The veedu · Peaceful care homes · Kochi, Kerala</span>
+      <div style="flex:1;"></div>
+      <a href="#" style="color:var(--text-soft); font-size:13px;">Help for families</a>
+      <a href="#" style="color:var(--text-soft); font-size:13px;">List your property</a>
+    </div>
+  </footer>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;showAmenities&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Search results&quot;}}">
+const SUPABASE_URL = "https://uqmlqvpznmtbxgacgntz.supabase.co";
+const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVxbWxxdnB6bm10YnhnYWNnbnR6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODU5MTk3MjIsImV4cCI6MjEwMTQ5NTcyMn0.hZrnJpta7r5My9A8VZWM4-sQoA_GeJRg-IGOQjTTv5c";
+
+const AMENITY_SET = ["Kitchen", "Air conditioning", "Wi-Fi", "Lift", "Wheelchair accessible", "Parking", "Washing machine", "24h security", "Attendant bed"];
+
+const inr = n => "₹" + Number(n).toLocaleString("en-IN");
+const fmtDate = s => { if (!s) return "Add date"; const d = new Date(s + "T00:00:00"); return isNaN(d) ? "Add date" : d.toLocaleDateString("en-GB", { day:"numeric", month:"short" }); };
+const haversineKm = (lat1, lng1, lat2, lng2) => {
+  const R = 6371;
+  const toRad = d => d * Math.PI / 180;
+  const dLat = toRad(lat2 - lat1);
+  const dLng = toRad(lng2 - lng1);
+  const a = Math.sin(dLat / 2) ** 2 + Math.cos(toRad(lat1)) * Math.cos(toRad(lat2)) * Math.sin(dLng / 2) ** 2;
+  return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+};
+const kmText = km => km < 1 ? Math.round(km * 1000) + " m" : km.toFixed(1) + " km";
+const timeAgo = iso => {
+  if (!iso) return "";
+  const mins = Math.floor((Date.now() - new Date(iso).getTime()) / 60000);
+  if (mins < 1) return "just now";
+  if (mins < 60) return mins + "m ago";
+  const hrs = Math.floor(mins / 60);
+  if (hrs < 24) return hrs + "h ago";
+  const days = Math.floor(hrs / 24);
+  if (days === 1) return "Yesterday";
+  if (days < 7) return days + " days ago";
+  return new Date(iso).toLocaleDateString("en-GB", { day:"numeric", month:"short" });
+};
+const phoneToEmail = phone => "p" + phone.replace(/\D/g, "") + "@phone.staynearcare.internal";
+
+class Component extends DCLogic {
+  state = {
+    view: "search",
+    selId: null,
+    hospital: "all",
+    checkIn: "2026-08-12",
+    checkOut: "2026-08-26",
+    adults: 2,
+    kids: 1,
+    readyOnly: true,
+    guestName: "",
+
+    loadingProperties: true,
+    hospitals: [],
+    properties: [],
+
+    session: null,
+    profile: null,
+    authMode: "signin",
+    authName: "",
+    authPhone: "",
+    authPassword: "",
+    authError: "",
+    authNotice: "",
+    authLoading: false,
+    showForgotPassword: false,
+
+    showForm: false,
+    editingId: null,
+    publishing: false,
+    photoUploading: false,
+    photoError: "",
+    videoUploading: false,
+    videoError: "",
+    n: { name:"", area:"", hospital:"Amrita Hospital", travel:"", price:"", bedrooms:1, bedsCount:1, sleeps:2, from:"", until:"", phone:"", desc:"", lat:null, lng:null, photos:[], videoUrl:null, amenities:["Kitchen","Air conditioning","Wi-Fi"], ready:true },
+
+    showPasswordForm: false,
+    newPassword: "",
+    newPasswordConfirm: "",
+    passwordError: "",
+    passwordNotice: "",
+    passwordSaving: false,
+
+    nearbyHotels: [],
+    nearbyTaxiStands: [],
+    nearbyLoading: false,
+    nearbyError: "",
+
+    enquiries: []
+  };
+
+  setN = (k, v) => this.setState(s => ({ n: { ...s.n, [k]: v } }));
+
+  onPhotoSelect = e => {
+    const files = Array.from(e.target.files || []);
+    e.target.value = "";
+    if (!files.length || !this.sb || !this.state.session) return;
+    const uid = this.state.session.user.id;
+    this.setState({ photoUploading: true, photoError: "" });
+    Promise.all(files.map(file => {
+      const safeName = file.name.replace(/[^a-zA-Z0-9._-]/g, "_");
+      const path = uid + "/" + Date.now() + "-" + Math.random().toString(36).slice(2) + "-" + safeName;
+      return this.sb.storage.from("property-photos").upload(path, file).then(({ error }) => {
+        if (error) throw error;
+        return this.sb.storage.from("property-photos").getPublicUrl(path).data.publicUrl;
+      });
+    })).then(urls => {
+      this.setState(x => ({ photoUploading: false, n: { ...x.n, photos: [...x.n.photos, ...urls] } }));
+    }).catch(err => {
+      this.setState({ photoUploading: false, photoError: (err && err.message) || "Upload failed. Try again." });
+    });
+  };
+
+  removePhoto = url => {
+    this.setState(x => ({ n: { ...x.n, photos: x.n.photos.filter(u => u !== url) } }));
+  };
+
+  onVideoSelect = e => {
+    const file = (e.target.files || [])[0];
+    e.target.value = "";
+    if (!file || !this.sb || !this.state.session) return;
+    if (!file.type.startsWith("video/")) { this.setState({ videoError: "Please choose a video file." }); return; }
+    const uid = this.state.session.user.id;
+    this.setState({ videoUploading: true, videoError: "" });
+    const safeName = file.name.replace(/[^a-zA-Z0-9._-]/g, "_");
+    const path = uid + "/" + Date.now() + "-" + Math.random().toString(36).slice(2) + "-" + safeName;
+    this.sb.storage.from("property-videos").upload(path, file).then(({ error }) => {
+      if (error) throw error;
+      const url = this.sb.storage.from("property-videos").getPublicUrl(path).data.publicUrl;
+      this.setState(x => ({ videoUploading: false, n: { ...x.n, videoUrl: url } }));
+    }).catch(err => {
+      this.setState({ videoUploading: false, videoError: (err && err.message) || "Video upload failed. Try again." });
+    });
+  };
+
+  removeVideo = () => {
+    this.setN("videoUrl", null);
+  };
+
+  loadSupabase() {
+    if (window.__supabasePromise) return window.__supabasePromise;
+    window.__supabasePromise = new Promise((resolve, reject) => {
+      if (window.supabase && window.supabase.createClient) return resolve(window.supabase);
+      const sc = document.createElement("script");
+      sc.src = "https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js";
+      sc.async = true;
+      sc.onload = () => resolve(window.supabase);
+      sc.onerror = () => reject(new Error("failed to load supabase-js"));
+      document.head.appendChild(sc);
+    });
+    return window.__supabasePromise;
+  }
+
+  fetchHospitals() {
+    this.sb.from("hospitals").select("*").order("name").then(({ data, error }) => {
+      if (error) { console.error(error); return; }
+      this.setState({ hospitals: data || [] });
+    });
+  }
+
+  fetchProperties() {
+    this.sb.from("properties").select("*, hospital:hospitals(id,name,lat,lng)").order("created_at", { ascending: false }).then(({ data, error }) => {
+      if (error) { console.error(error); this.setState({ loadingProperties: false }); return; }
+      this.setState(s => ({
+        properties: data || [],
+        loadingProperties: false,
+        selId: s.selId == null && data && data.length ? data[0].id : s.selId
+      }));
+    });
+  }
+
+  loadHostData() {
+    if (!this.sb) return;
+    this.sb.auth.getUser().then(({ data }) => {
+      const uid = data && data.user && data.user.id;
+      if (!uid) return;
+      this.sb.from("profiles").select("*").eq("id", uid).single().then(({ data: profile }) => {
+        this.setState(x => ({ profile, n: x.n.phone ? x.n : { ...x.n, phone: (profile && profile.phone) || "" } }));
+      });
+      this.sb.from("enquiries").select("*, property:properties(name)").order("created_at", { ascending: false }).then(({ data, error }) => {
+        if (error) { console.error(error); return; }
+        this.setState({ enquiries: data || [] });
+      });
+    });
+  }
+
+  doSignIn = () => {
+    if (!this.sb) return;
+    const phone = this.state.authPhone.trim();
+    if (!phone) { this.setState({ authError: "Phone number is required." }); return; }
+    this.setState({ authLoading: true, authError: "", authNotice: "" });
+    this.sb.auth.signInWithPassword({ email: phoneToEmail(phone), password: this.state.authPassword }).then(({ error }) => {
+      if (error) { this.setState({ authLoading: false, authError: "Incorrect phone number or password." }); return; }
+      this.setState({ authLoading: false, authPhone: "", authPassword: "" });
+    });
+  };
+
+  doSignUp = () => {
+    if (!this.sb) return;
+    const phone = this.state.authPhone.trim();
+    if (!phone) { this.setState({ authError: "Phone number is required." }); return; }
+    this.setState({ authLoading: true, authError: "", authNotice: "" });
+    this.sb.auth.signUp({
+      email: phoneToEmail(phone),
+      password: this.state.authPassword,
+      options: { data: { full_name: this.state.authName || "Host", phone } }
+    }).then(({ data, error }) => {
+      if (error) {
+        const msg = /already registered|already exists/i.test(error.message) ? "That phone number is already registered — try signing in instead." : error.message;
+        this.setState({ authLoading: false, authError: msg });
+        return;
+      }
+      if (data.session) {
+        this.setState({ authLoading: false, authPassword: "", authName: "", authPhone: "" });
+      } else {
+        this.setState({ authLoading: false, authMode: "signin", authPassword: "", authName: "", authPhone: "", authNotice: "Account created — sign in with your phone number and password." });
+      }
+    });
+  };
+
+  doSignOut = e => {
+    if (e && e.preventDefault) e.preventDefault();
+    if (this.sb) this.sb.auth.signOut();
+    this.setState({ profile: null, enquiries: [], showForm: false });
+  };
+
+  togglePasswordForm = e => {
+    if (e && e.preventDefault) e.preventDefault();
+    this.setState(x => ({
+      showPasswordForm: !x.showPasswordForm,
+      newPassword: "", newPasswordConfirm: "", passwordError: "", passwordNotice: ""
+    }));
+  };
+
+  changePassword = () => {
+    if (!this.sb || !this.state.session) return;
+    const { newPassword, newPasswordConfirm } = this.state;
+    if (!newPassword || newPassword.length < 6) { this.setState({ passwordError: "Password must be at least 6 characters." }); return; }
+    if (newPassword !== newPasswordConfirm) { this.setState({ passwordError: "Passwords do not match." }); return; }
+    this.setState({ passwordSaving: true, passwordError: "" });
+    this.sb.auth.updateUser({ password: newPassword }).then(({ error }) => {
+      if (error) { this.setState({ passwordSaving: false, passwordError: error.message }); return; }
+      this.setState({
+        passwordSaving: false,
+        newPassword: "", newPasswordConfirm: "", passwordNotice: "Password updated."
+      });
+    });
+  };
+
+  sendEnquiry = () => {
+    if (!this.sb) return;
+    const s = this.state;
+    const rawSel = s.properties.find(p => p.id === s.selId);
+    if (!rawSel) return;
+    const guests = Number(s.adults || 0) + Number(s.kids || 0);
+    this.sb.from("enquiries").insert({
+      property_id: rawSel.id,
+      guest_name: s.guestName || "Family",
+      check_in: s.checkIn || null,
+      check_out: s.checkOut || null,
+      adults: Number(s.adults) || 1,
+      kids: Number(s.kids) || 0,
+      message: "Sent a WhatsApp enquiry for " + fmtDate(s.checkIn) + " – " + fmtDate(s.checkOut) + " · " + guests + " guests."
+    }).then(({ error }) => { if (error) console.error(error); });
+  };
+
+  blankN = () => ({ name:"", area:"", hospital:"Amrita Hospital", travel:"", price:"", bedrooms:1, bedsCount:1, sleeps:2, from:"", until:"", phone:"", desc:"", lat:null, lng:null, photos:[], videoUrl:null, amenities:["Kitchen","Air conditioning","Wi-Fi"], ready:true });
+
+  openAddForm = () => {
+    this.setState({ showForm: true, editingId: null, n: this.blankN() });
+  };
+
+  openEditForm = p => {
+    this.setState({
+      showForm: true,
+      editingId: p.id,
+      n: {
+        name: p.name, area: p.area, hospital: p.hospital ? p.hospital.name : "Amrita Hospital",
+        travel: p.travel_time, price: String(p.price_per_night),
+        bedrooms: p.bedrooms, bedsCount: p.beds, sleeps: p.sleeps,
+        from: p.available_from || "", until: p.available_until || "",
+        phone: p.whatsapp_phone, desc: p.description,
+        lat: p.lat, lng: p.lng, photos: p.photos || [], videoUrl: p.video_url || null,
+        amenities: p.amenities || [], ready: p.ready
+      }
+    });
+  };
+
+  closeForm = () => {
+    this.setState({ showForm: false, editingId: null });
+  };
+
+  publish = () => {
+    const s = this.state;
+    const n = s.n;
+    if (!n.name || !this.sb || !s.session) { this.closeForm(); return; }
+    const hospital = s.hospitals.find(h => h.name === n.hospital);
+    if (!hospital) return;
+    this.setState({ publishing: true });
+    const payload = {
+      hospital_id: hospital.id,
+      name: n.name,
+      area: n.area || "Kochi",
+      travel_time: n.travel || "nearby",
+      description: n.desc || ("Newly listed stay near " + n.hospital + "."),
+      price_per_night: Number(n.price) || 2000,
+      bedrooms: Number(n.bedrooms) || 0,
+      beds: Number(n.bedsCount) || 1,
+      sleeps: Number(n.sleeps) || 2,
+      amenities: n.amenities,
+      ready: n.ready,
+      accessible: n.amenities.includes("Wheelchair accessible"),
+      available_from: n.from || null,
+      available_until: n.until || null,
+      lat: n.lat != null ? n.lat : hospital.lat,
+      lng: n.lng != null ? n.lng : hospital.lng,
+      whatsapp_phone: (n.phone || "919847000000").replace(/\D/g, ""),
+      photos: n.photos,
+      video_url: n.videoUrl || null
+    };
+    const editingId = s.editingId;
+    const query = editingId
+      ? this.sb.from("properties").update(payload).eq("id", editingId)
+      : this.sb.from("properties").insert({
+          ...payload,
+          host_id: s.session.user.id,
+          host_name: (s.profile && s.profile.full_name) || "You",
+          host_note: "New listing"
+        });
+    query.select("*, hospital:hospitals(id,name,lat,lng)").single().then(({ data, error }) => {
+      if (error) { console.error(error); this.setState({ publishing: false }); return; }
+      this.setState(x => ({
+        publishing: false,
+        showForm: false,
+        editingId: null,
+        properties: editingId ? x.properties.map(q => q.id === data.id ? data : q) : [data, ...x.properties],
+        n: this.blankN()
+      }));
+    });
+  };
+
+  toggleReady = p => {
+    if (!this.sb) return;
+    const next = !p.ready;
+    this.sb.from("properties").update({ ready: next }).eq("id", p.id).then(({ error }) => {
+      if (error) { console.error(error); return; }
+      this.setState(x => ({ properties: x.properties.map(q => q.id === p.id ? { ...q, ready: next } : q) }));
+    });
+  };
+
+  nearestKm(p) {
+    const hospitals = this.state.hospitals || [];
+    if (p.lat == null || p.lng == null || !hospitals.length) return Infinity;
+    return Math.min(...hospitals.map(h => haversineKm(p.lat, p.lng, h.lat, h.lng)));
+  }
+
+  kmTo(p, hospital) {
+    if (p.lat == null || p.lng == null || !hospital) return Infinity;
+    return haversineKm(p.lat, p.lng, hospital.lat, hospital.lng);
+  }
+
+  filtered() {
+    const { properties, hospital, readyOnly, adults, kids, hospitals } = this.state;
+    const guests = Number(adults || 0) + Number(kids || 0);
+    const target = hospital === "all" ? null : hospitals.find(h => h.name === hospital);
+    // We rank every ready listing by real distance to the hospital the guest cares about
+    // (rather than only showing listings whose host happened to tag that hospital as "nearest") —
+    // otherwise a genuinely close property gets buried behind slower competitor sites that do this right.
+    return properties
+      .filter(p => (!readyOnly || p.ready) && (isNaN(guests) || guests < 1 || p.sleeps >= guests))
+      .map(p => ({ ...p, __sortKm: target ? this.kmTo(p, target) : this.nearestKm(p) }))
+      .sort((a, b) => a.__sortKm - b.__sortKm);
+  }
+
+  loadLeaflet() {
+    if (window.__leafletPromise) return window.__leafletPromise;
+    window.__leafletPromise = new Promise(resolve => {
+      if (window.L) return resolve(true);
+      const css = document.createElement("link");
+      css.rel = "stylesheet"; css.href = "https://unpkg.com/leaflet@1.9.4/dist/leaflet.css";
+      document.head.appendChild(css);
+      const sc = document.createElement("script");
+      sc.src = "https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"; sc.async = true;
+      let done = false;
+      const finish = ok => { if (done) return; done = true; resolve(ok && !!window.L); };
+      sc.onload = () => finish(true);
+      sc.onerror = () => finish(false);
+      setTimeout(() => finish(false), 6000);
+      document.head.appendChild(sc);
+    });
+    return window.__leafletPromise;
+  }
+
+  componentDidMount() {
+    this.loadSupabase().then(lib => {
+      this.sb = lib.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+      this.sb.auth.getSession().then(({ data }) => {
+        this.setState({ session: data.session });
+        if (data.session) this.loadHostData();
+      });
+      this.sb.auth.onAuthStateChange((_event, session) => {
+        this.setState({ session });
+        if (session) this.loadHostData(); else this.setState({ profile: null, enquiries: [] });
+      });
+      this.fetchHospitals();
+      this.fetchProperties();
+    }).catch(e => { console.error(e); this.setState({ loadingProperties: false }); });
+
+    this.loadLeaflet().then(ok => { this._leaflet = ok ? "ready" : "failed"; this.syncMaps(); });
+    this.syncMaps();
+    this.syncNearby();
+  }
+  componentWillUnmount() { this.teardown(); }
+  componentDidUpdate() { this.syncMaps(); this.syncNearby(); }
+
+  syncNearby() {
+    const s = this.state;
+    if (s.view !== "property" || !s.selId) return;
+    if (this._nearbyFor === s.selId) return;
+    const sel = s.properties.find(p => p.id === s.selId);
+    if (!sel || sel.lat == null || sel.lng == null) return;
+    this._nearbyFor = s.selId;
+    this.loadNearby(sel.lat, sel.lng);
+  }
+
+  loadNearby(lat, lng) {
+    this.setState({ nearbyLoading: true, nearbyError: "", nearbyHotels: [], nearbyTaxiStands: [] });
+    const query = "[out:json][timeout:15];(node[\"tourism\"~\"^(hotel|guest_house|motel)$\"](around:3000," + lat + "," + lng + ");node[\"amenity\"=\"taxi\"](around:5000," + lat + "," + lng + "););out body 20;";
+    fetch("https://overpass-api.de/api/interpreter?data=" + encodeURIComponent(query))
+      .then(r => { if (!r.ok) throw new Error("Overpass request failed: HTTP " + r.status); return r.json(); })
+      .then(data => {
+        const els = (data && data.elements) || [];
+        const withDist = els
+          .filter(e => e.tags && e.tags.name && e.lat != null && e.lon != null)
+          .map(e => ({ name: e.tags.name, km: haversineKm(lat, lng, e.lat, e.lon), isTaxi: e.tags.amenity === "taxi" }))
+          .sort((a, b) => a.km - b.km);
+        this.setState({
+          nearbyLoading: false,
+          nearbyHotels: withDist.filter(x => !x.isTaxi).slice(0, 6).map(x => ({ name: x.name, kmText: kmText(x.km) })),
+          nearbyTaxiStands: withDist.filter(x => x.isTaxi).slice(0, 4).map(x => ({ name: x.name, kmText: kmText(x.km) }))
+        });
+      })
+      .catch(err => {
+        console.error(err);
+        this.setState({ nearbyLoading: false, nearbyError: "Couldn't load nearby places right now." });
+      });
+  }
+
+  teardown() {
+    if (this._map) { this._map.remove(); this._map = null; this._mapEl = null; this._drawnFor = null; }
+    if (this._hmap) { this._hmap.remove(); this._hmap = null; this._hmapEl = null; this._hmarker = null; }
+  }
+
+  syncMaps() {
+    const s = this.state;
+    const wantProp = s.view === "property";
+    const wantHost = s.view === "host" && s.showForm && s.session;
+    if (!wantProp && !wantHost) { this.teardown(); return; }
+    if (!window.L) {
+      if (this._leaflet === "failed") {
+        ["prop-map", "host-map"].forEach(id => {
+          const n = document.getElementById(id);
+          if (n && !n.dataset.fallback) {
+            n.dataset.fallback = "1";
+            n.style.display = "flex"; n.style.alignItems = "center"; n.style.justifyContent = "center";
+            n.style.backgroundImage = "repeating-linear-gradient(135deg,#e7e4d6 0 10px,#f2f5ee 10px 20px)";
+            n.textContent = "Map unavailable offline";
+            n.style.fontSize = "13px"; n.style.color = "#717171";
+          }
+        });
+      }
+      return;
+    }
+
+    if (wantProp) {
+      const sel = s.properties.find(p => p.id === s.selId);
+      const el = document.getElementById("prop-map");
+      if (el && sel && sel.hospital) {
+        let fresh = false;
+        const coords = [sel.lat, sel.lng];
+        if (this._map && this._mapEl !== el) { this._map.remove(); this._map = null; }
+        if (!this._map) {
+          fresh = true;
+          this._mapEl = el;
+          this._drawnFor = null;
+          this._map = L.map(el, { scrollWheelZoom: false }).setView(coords, 14);
+          L.tileLayer("https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png", { attribution: "© OpenStreetMap, © CARTO", maxZoom: 19 }).addTo(this._map);
+          this._layer = L.layerGroup().addTo(this._map);
+        }
+        if (this._drawnFor !== sel.id) {
+          this._drawnFor = sel.id;
+          this._layer.clearLayers();
+          const hc = [sel.hospital.lat, sel.hospital.lng];
+          L.circleMarker(coords, { radius:8, color:"#2f7a52", fillColor:"#2f7a52", fillOpacity:1, weight:3, opacity:0.3 }).addTo(this._layer).bindPopup("<b>" + sel.name + "</b>");
+          L.circleMarker(hc, { radius:7, color:"#222222", fillColor:"#ffffff", fillOpacity:1, weight:3 }).addTo(this._layer).bindPopup(sel.hospital.name);
+          L.polyline([coords, hc], { color:"#222222", weight:2, dashArray:"5,6", opacity:0.55 }).addTo(this._layer);
+          this._map.fitBounds(L.latLngBounds([coords, hc]).pad(0.5));
+          fresh = true;
+        }
+        if (fresh) { const m = this._map; setTimeout(() => { try { m.invalidateSize(); } catch (e) {} }, 80); }
+      }
+    } else if (this._map) { this._map.remove(); this._map = null; this._mapEl = null; this._drawnFor = null; }
+
+    if (wantHost) {
+      const hel = document.getElementById("host-map");
+      const hospital = s.hospitals.find(h => h.name === s.n.hospital) || s.hospitals[0];
+      const start = (s.n.lat != null && s.n.lng != null) ? [s.n.lat, s.n.lng] : (hospital ? [hospital.lat, hospital.lng] : [10.0269, 76.3082]);
+      if (hel && (!this._hmap || this._hmapEl !== hel)) {
+        if (this._hmap) this._hmap.remove();
+        this._hmapEl = hel;
+        this._hmap = L.map(hel, { scrollWheelZoom:false }).setView(start, 13);
+        L.tileLayer("https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png", { attribution:"© OpenStreetMap, © CARTO", maxZoom:19 }).addTo(this._hmap);
+        this._hmarker = L.marker(start, { draggable:true }).addTo(this._hmap);
+        this._hmarker.on("dragend", () => {
+          const ll = this._hmarker.getLatLng();
+          this.setN("lat", ll.lat);
+          this.setN("lng", ll.lng);
+        });
+        const m = this._hmap;
+        setTimeout(() => { try { m.invalidateSize(); } catch (e) {} }, 80);
+      }
+    } else if (this._hmap) { this._hmap.remove(); this._hmap = null; this._hmapEl = null; this._hmarker = null; }
+  }
+
+  tabStyle(active) {
+    return active
+      ? "min-height:36px; padding:8px 18px; border:none; border-radius:999px; background:#fff; color:#222222; font-weight:600; font-size:14px; box-shadow:0 1px 3px rgba(0,0,0,0.12);"
+      : "min-height:36px; padding:8px 18px; border:none; border-radius:999px; background:transparent; color:#717171; font-weight:600; font-size:14px;";
+  }
+
+  decorate = (p, targetHospitalName) => {
+    const hospitalName = p.hospital ? p.hospital.name : "";
+    const bedsText = p.bedrooms === 0
+      ? "Studio · " + p.beds + " bed" + (p.beds === 1 ? "" : "s") + " · sleeps " + p.sleeps
+      : p.bedrooms + " bedroom" + (p.bedrooms === 1 ? "" : "s") + " · " + p.beds + " bed" + (p.beds === 1 ? "" : "s") + " · sleeps " + p.sleeps;
+    const photos = p.photos || [];
+    const placeholderBg = "repeating-linear-gradient(135deg,#e7e4d6 0 10px,#f2f5ee 10px 20px)";
+    const coverFor = i => photos[i] ? "url('" + photos[i].replace(/'/g, "%27") + "') center/cover no-repeat" : placeholderBg;
+
+    // Distance to every registered hospital, not just the one the host tagged as "nearest" —
+    // a guest searching for a specific hospital should see how close this stay actually is to it.
+    const hospitals = this.state.hospitals || [];
+    const hasCoords = p.lat != null && p.lng != null;
+    const hospitalDistances = hasCoords
+      ? hospitals.map(h => ({ name: h.name, km: haversineKm(p.lat, p.lng, h.lat, h.lng) })).sort((a, b) => a.km - b.km)
+      : [];
+    const nearest = hospitalDistances[0] || null;
+    const target = targetHospitalName ? hospitalDistances.find(h => h.name === targetHospitalName) : null;
+    const primary = target || nearest;
+
+    return {
+      ...p,
+      photoLabel: photos.length ? "" : "Property photograph",
+      coverImage: coverFor(0),
+      detailImage1: coverFor(0),
+      detailImage2: coverFor(1),
+      detailImage3: coverFor(2),
+      extraPhotosCount: Math.max(0, photos.length - 3),
+      hasExtraPhotos: photos.length > 3,
+      hasAnyPhoto: photos.length > 0,
+      hasVideo: !!p.video_url,
+      videoUrl: p.video_url || null,
+      olaLink: hasCoords ? "https://book.olacabs.com/?lat=" + p.lat + "&lng=" + p.lng + "&pickup_name=" + encodeURIComponent(p.name) : "https://www.olacabs.com",
+      uberLink: hasCoords ? "https://m.uber.com/ul/?action=setPickup&pickup%5Blatitude%5D=" + p.lat + "&pickup%5Blongitude%5D=" + p.lng + "&pickup%5Bnickname%5D=" + encodeURIComponent(p.name) : "https://m.uber.com",
+      badgeText: p.ready ? "Ready for occupancy" : (p.available_from ? "Available from " + fmtDate(p.available_from) : "Not yet available"),
+      badgeBg: p.ready ? "#eaf4ec" : "#f2f0e6",
+      badgeFg: p.ready ? "#1d4d35" : "#5c5a4a",
+      distanceLine: primary
+        ? kmText(primary.km) + " to " + primary.name + (p.travel_time ? " · " + p.travel_time : "")
+        : (p.travel_time ? p.travel_time + " to " + hospitalName : "Distance unavailable"),
+      beds: bedsText,
+      priceText: inr(p.price_per_night),
+      monthlyNote: inr(Math.round(p.price_per_night * 26)) + " for a 30-night stay",
+      hostName: p.host_name,
+      hostInitial: (p.host_name || "?").charAt(0),
+      mapNote: "Exact address shared on WhatsApp. The dashed line shows the route distance to " + (primary ? primary.name : hospitalName) + ".",
+      description: p.description,
+      hospitalName,
+      hospitalDistances: hospitalDistances.map(h => ({ name: h.name, kmText: kmText(h.km), isNearest: h.name === (nearest && nearest.name) })),
+      facts: [
+        { label:"Sleeps", value: bedsText },
+        { label: primary ? "Distance to " + primary.name : "Nearest hospital", value: primary ? kmText(primary.km) : hospitalName },
+        { label:"Accessibility", value: p.accessible ? "Step-free · wheelchair friendly" : "Stairs or lift required" },
+        { label:"Minimum stay", value: "3 nights" },
+        { label:"House rules", value: "No smoking · attendants welcome" }
+      ]
+    };
+  };
+
+  renderVals() {
+    const s = this.state;
+    const showAmenities = this.props.showAmenities ?? true;
+    const targetHospitalName = s.hospital === "all" ? null : s.hospital;
+    const results = this.filtered().map(p => ({ ...this.decorate(p, targetHospitalName), open: () => this.setState({ view:"property", selId:p.id }) }));
+    const rawSel = s.properties.find(p => p.id === s.selId);
+    const sel = rawSel ? this.decorate(rawSel, targetHospitalName) : null;
+    const guests = Number(s.adults || 0) + Number(s.kids || 0);
+    const nights = (() => { const a = new Date(s.checkIn), b = new Date(s.checkOut); const d = Math.round((b - a) / 86400000); return d > 0 ? d : 0; })();
+
+    const hostList = s.session ? s.properties.filter(p => p.host_id === s.session.user.id).map(p => {
+      const d = this.decorate(p);
+      return {
+        name: p.name, area: p.area, beds: d.beds, coverImage: d.coverImage, priceText: inr(p.price_per_night), ready: p.ready,
+        availability: p.ready ? "Open now · minimum 3 nights" : (p.available_from ? "Blocked until " + fmtDate(p.available_from) : "Not accepting guests"),
+        readyLabel: p.ready ? "Ready for occupancy" : "Not accepting guests",
+        readyFg: p.ready ? "#2f7a52" : "#6b6f63",
+        toggle: () => this.toggleReady(p),
+        edit: () => this.openEditForm(p)
+      };
+    }) : [];
+
+    return {
+      isSearch: s.view === "search", isProperty: s.view === "property", isHost: s.view === "host",
+      tabGuest: this.tabStyle(s.view !== "host"), tabHost: this.tabStyle(s.view === "host"),
+      goSearch: () => this.setState({ view:"search" }),
+      goHost: () => this.setState({ view:"host" }),
+      showAmenities,
+
+      hospitalOptions: s.hospitals,
+
+      fHospital: s.hospital, fIn: s.checkIn, fOut: s.checkOut, fAdults: s.adults, fKids: s.kids,
+      setHospital: e => this.setState({ hospital: e.target.value }),
+      setIn: e => this.setState({ checkIn: e.target.value }),
+      setOut: e => this.setState({ checkOut: e.target.value }),
+      setAdults: e => this.setState({ adults: e.target.value }),
+      setKids: e => this.setState({ kids: e.target.value }),
+      doSearch: () => this.forceUpdate(),
+      readyOnly: s.readyOnly,
+      toggleReady: () => this.setState(x => ({ readyOnly: !x.readyOnly })),
+
+      results,
+      resultsLoading: s.loadingProperties,
+      resultsEmpty: !s.loadingProperties && results.length === 0,
+      resultCount: results.length + (results.length === 1 ? " stay" : " stays"),
+      resultSummary: (s.hospital === "all" ? "near Kochi hospitals" : "near " + s.hospital) + " · " + fmtDate(s.checkIn) + " – " + fmtDate(s.checkOut) + (nights ? " · " + nights + " nights" : "") + " · " + guests + " guests",
+
+      sel: sel || {},
+      nearbyHotels: s.nearbyHotels,
+      nearbyTaxiStands: s.nearbyTaxiStands,
+      hasNearbyHotels: s.nearbyHotels.length > 0,
+      hasNearbyTaxiStands: s.nearbyTaxiStands.length > 0,
+      nearbyHotelsEmpty: !s.nearbyLoading && !s.nearbyError && s.nearbyHotels.length === 0,
+      nearbyLoading: s.nearbyLoading,
+      nearbyError: s.nearbyError,
+      guestName: s.guestName,
+      setGuestName: e => this.setState({ guestName: e.target.value }),
+      sendEnquiry: this.sendEnquiry,
+      stayIn: fmtDate(s.checkIn), stayOut: fmtDate(s.checkOut),
+      guestsText: s.adults + " adults" + (Number(s.kids) > 0 ? " · " + s.kids + " child" : ""),
+      waLink: sel ? "https://wa.me/" + rawSel.whatsapp_phone + "?text=" + encodeURIComponent("Hello " + rawSel.host_name + ", I found " + rawSel.name + " on The veedu. We need a stay near " + sel.hospitalName + " from " + fmtDate(s.checkIn) + " to " + fmtDate(s.checkOut) + " for " + guests + " guests. Is it available?") : "#",
+
+      hostSignedIn: !!s.session,
+      authIdentityDisplay: s.session ? ((s.profile && s.profile.full_name) || (s.session.user.user_metadata && s.session.user.user_metadata.full_name) || "Host") + ((s.profile && s.profile.phone) ? " · " + s.profile.phone : "") : "",
+      isSignUp: s.authMode === "signup",
+      authHeading: s.authMode === "signup" ? "Create a host account" : "Sign in to your host account",
+      authSub: s.authMode === "signup" ? "List your property in about five minutes." : "Manage your listings and see enquiries.",
+      authSubmitLabel: s.authLoading ? "Please wait…" : (s.authMode === "signup" ? "Create account" : "Sign in"),
+      authToggleLabel: s.authMode === "signup" ? "Already have an account? Sign in" : "New host? Create an account",
+      authName: s.authName, authPhone: s.authPhone, authPassword: s.authPassword, authError: s.authError, authNotice: s.authNotice,
+      setAuthName: e => this.setState({ authName: e.target.value }),
+      setAuthPhone: e => this.setState({ authPhone: e.target.value }),
+      setAuthPassword: e => this.setState({ authPassword: e.target.value }),
+      toggleAuthMode: () => this.setState(x => ({ authMode: x.authMode === "signup" ? "signin" : "signup", authError: "", authNotice: "", showForgotPassword: false })),
+      submitAuth: () => s.authMode === "signup" ? this.doSignUp() : this.doSignIn(),
+      showForgotPassword: s.showForgotPassword,
+      toggleForgotPassword: () => this.setState(x => ({ showForgotPassword: !x.showForgotPassword })),
+      doSignOut: this.doSignOut,
+
+      showPasswordForm: s.showPasswordForm,
+      togglePasswordForm: this.togglePasswordForm,
+      newPassword: s.newPassword, newPasswordConfirm: s.newPasswordConfirm,
+      setNewPassword: e => this.setState({ newPassword: e.target.value }),
+      setNewPasswordConfirm: e => this.setState({ newPasswordConfirm: e.target.value }),
+      passwordError: s.passwordError, passwordNotice: s.passwordNotice,
+      passwordSubmitLabel: s.passwordSaving ? "Saving…" : "Save password",
+      changePassword: this.changePassword,
+
+      showForm: s.showForm,
+      isEditing: !!s.editingId,
+      formHeading: s.editingId ? "Edit property" : "Add a property",
+      formBtnText: s.showForm ? "Close form" : "Add property",
+      publishLabel: s.publishing ? "Saving…" : (s.editingId ? "Save changes" : "Publish listing"),
+      toggleForm: () => s.showForm ? this.closeForm() : this.openAddForm(),
+      nName:s.n.name, nArea:s.n.area, nHospital:s.n.hospital, nTime:s.n.travel, nPrice:s.n.price,
+      nBedrooms: s.n.bedrooms, nBedsCount: s.n.bedsCount, nSleeps: s.n.sleeps,
+      nFrom:s.n.from, nUntil:s.n.until, nPhone:s.n.phone, nDesc:s.n.desc, nReady:s.n.ready,
+      setNName:e=>this.setN("name",e.target.value), setNArea:e=>this.setN("area",e.target.value),
+      setNHospital:e=>this.setN("hospital",e.target.value), setNTime:e=>this.setN("travel",e.target.value),
+      setNPrice:e=>this.setN("price",e.target.value),
+      setNBedrooms:e=>this.setN("bedrooms",e.target.value), setNBedsCount:e=>this.setN("bedsCount",e.target.value), setNSleeps:e=>this.setN("sleeps",e.target.value),
+      setNFrom:e=>this.setN("from",e.target.value), setNUntil:e=>this.setN("until",e.target.value),
+      setNPhone:e=>this.setN("phone",e.target.value), setNDesc:e=>this.setN("desc",e.target.value),
+      setNReady:e=>this.setN("ready",e.target.checked),
+      photoDropText: s.photoUploading ? "Uploading…" : "Click to add photos",
+      photoError: s.photoError,
+      onPhotoSelect: this.onPhotoSelect,
+      nPhotos: s.n.photos.map(url => ({ url, remove: () => this.removePhoto(url) })),
+      videoDropText: s.videoUploading ? "Uploading video…" : "Click to add a walkthrough video",
+      videoError: s.videoError,
+      onVideoSelect: this.onVideoSelect,
+      nVideoUrl: s.n.videoUrl,
+      hasNVideo: !!s.n.videoUrl,
+      removeVideo: this.removeVideo,
+      nHospitalDistances: (() => {
+        const chosen = s.hospitals.find(h => h.name === s.n.hospital);
+        const lat = s.n.lat != null ? s.n.lat : (chosen ? chosen.lat : null);
+        const lng = s.n.lng != null ? s.n.lng : (chosen ? chosen.lng : null);
+        if (lat == null || lng == null) return [];
+        return s.hospitals
+          .map(h => ({ name: h.name, km: haversineKm(lat, lng, h.lat, h.lng) }))
+          .sort((a, b) => a.km - b.km)
+          .map((h, i) => ({ name: h.name, kmText: kmText(h.km), isNearest: i === 0 }));
+      })(),
+      amenityChips: AMENITY_SET.map(a => {
+        const on = s.n.amenities.includes(a);
+        return { label:a, bg: on ? "#2f7a52" : "transparent", fg: on ? "#ffffff" : "#2a2b24", border: on ? "#2f7a52" : "#ded9c9",
+          toggle: () => this.setState(x => ({ n: { ...x.n, amenities: on ? x.n.amenities.filter(v => v !== a) : [...x.n.amenities, a] } })) };
+      }),
+      publish: this.publish,
+
+      hostList,
+      hostListEmpty: !!s.session && hostList.length === 0,
+      enquiries: s.enquiries.map(e => ({
+        name: e.guest_name,
+        when: timeAgo(e.created_at),
+        property: e.property ? e.property.name : "",
+        detail: fmtDate(e.check_in) + " – " + fmtDate(e.check_out) + " · " + e.adults + " adults" + (e.kids > 0 ? ", " + e.kids + " child" : ""),
+        message: e.message
+      })),
+      enquiriesEmpty: s.enquiries.length === 0
+    };
+  }
+}
+
+</script>
+</body>
+</html>
