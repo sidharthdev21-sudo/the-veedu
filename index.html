@@ -573,14 +573,19 @@
         </div>
       </div>
 
-      <div style="margin-top:22px; padding-top:20px; border-top:1px solid var(--border-light); display:flex; align-items:center; gap:16px; flex-wrap:wrap;">
-        <label style="display:flex; align-items:center; gap:10px; cursor:pointer;">
-          <input type="checkbox" checked="{{ nReady }}" onChange="{{ setNReady }}" style="width:18px; height:18px; min-height:18px; accent-color:var(--accent); border-radius:5px;">
-          <span style="font-size:14px;">Mark as <strong>ready for occupancy</strong> — visible in search today</span>
-        </label>
-        <div style="flex:1;"></div>
-        <button onClick="{{ cancelPropertyForm }}" style="min-height:44px; padding:8px 20px; border:1px solid var(--border); border-radius:999px; background:transparent; font-weight:700; font-size:14px;" style-hover="background:var(--surface-muted)">Cancel</button>
-        <button onClick="{{ publish }}" style="min-height:44px; padding:8px 24px; border:none; border-radius:999px; background:var(--accent); color:#fff; font-weight:700; font-size:14px;" style-hover="background:var(--accent-dark)" style-active="background:var(--accent-active)">{{ publishLabel }}</button>
+      <div style="margin-top:22px; padding-top:20px; border-top:1px solid var(--border-light);">
+        <sc-if value="{{ publishError }}">
+        <p style="margin:0 0 16px; font-size:13px; color:var(--alert); background:var(--alert-bg); border-radius:10px; padding:10px 14px;">{{ publishError }}</p>
+        </sc-if>
+        <div style="display:flex; align-items:center; gap:16px; flex-wrap:wrap;">
+          <label style="display:flex; align-items:center; gap:10px; cursor:pointer;">
+            <input type="checkbox" checked="{{ nReady }}" onChange="{{ setNReady }}" style="width:18px; height:18px; min-height:18px; accent-color:var(--accent); border-radius:5px;">
+            <span style="font-size:14px;">Mark as <strong>ready for occupancy</strong> — visible in search today</span>
+          </label>
+          <div style="flex:1;"></div>
+          <button onClick="{{ cancelPropertyForm }}" style="min-height:44px; padding:8px 20px; border:1px solid var(--border); border-radius:999px; background:transparent; font-weight:700; font-size:14px;" style-hover="background:var(--surface-muted)">Cancel</button>
+          <button onClick="{{ publish }}" style="min-height:44px; padding:8px 24px; border:none; border-radius:999px; background:var(--accent); color:#fff; font-weight:700; font-size:14px;" style-hover="background:var(--accent-dark)" style-active="background:var(--accent-active)">{{ publishLabel }}</button>
+        </div>
       </div>
     </section>
     </sc-if>
@@ -719,6 +724,7 @@ class Component extends DCLogic {
     showForm: false,
     editingId: null,
     publishing: false,
+    publishError: "",
     photoUploading: false,
     photoError: "",
     videoUploading: false,
@@ -934,7 +940,7 @@ class Component extends DCLogic {
   blankN = () => ({ name:"", area:"", hospital:"Amrita Hospital", travel:"", price:"", bedrooms:1, bedsCount:1, sleeps:2, from:"", until:"", phone:"", desc:"", lat:null, lng:null, photos:[], videoUrl:null, amenities:["Kitchen","Air conditioning","Wi-Fi"], ready:true });
 
   openAddForm = () => {
-    this.setState({ showForm: true, editingId: null, n: this.blankN() });
+    this.setState({ showForm: true, editingId: null, publishError: "", n: this.blankN() });
   };
 
   openEditForm = p => {
@@ -942,6 +948,7 @@ class Component extends DCLogic {
     this.setState({
       showForm: true,
       editingId: p.id,
+      publishError: "",
       n: {
         name: p.name, area: p.area, hospital: p.hospital ? p.hospital.name : "Amrita Hospital",
         travel: p.travel_time, price: String(p.price_per_night),
@@ -962,10 +969,14 @@ class Component extends DCLogic {
     const s = this.state;
     const n = s.n;
     this.track(s.editingId ? "host_form_save_edit" : "host_form_publish", { editing_id: s.editingId || null });
-    if (!n.name || !this.sb || !s.session) { this.closeForm(); return; }
+    if (!this.sb || !s.session) { this.setState({ publishError: "Your session has expired — please sign in again and retry." }); return; }
+    if (!n.name || !n.name.trim()) { this.setState({ publishError: "Please enter a property name." }); return; }
     const hospital = s.hospitals.find(h => h.name === n.hospital);
-    if (!hospital) return;
-    this.setState({ publishing: true });
+    if (!hospital) {
+      this.setState({ publishError: s.hospitals.length ? "Please choose a hospital from the list." : "Still loading hospitals — wait a second and try again." });
+      return;
+    }
+    this.setState({ publishing: true, publishError: "" });
     const payload = {
       hospital_id: hospital.id,
       name: n.name,
@@ -997,9 +1008,10 @@ class Component extends DCLogic {
           host_note: "New listing"
         });
     query.select("*, hospital:hospitals(id,name,lat,lng)").single().then(({ data, error }) => {
-      if (error) { console.error(error); this.setState({ publishing: false }); return; }
+      if (error) { console.error(error); this.setState({ publishing: false, publishError: error.message || "Something went wrong publishing your listing. Please try again." }); return; }
       this.setState(x => ({
         publishing: false,
+        publishError: "",
         showForm: false,
         editingId: null,
         properties: editingId ? x.properties.map(q => q.id === data.id ? data : q) : [data, ...x.properties],
@@ -1355,6 +1367,7 @@ class Component extends DCLogic {
       formHeading: s.editingId ? "Edit property" : "Add a property",
       formBtnText: s.showForm ? "Close form" : "Add property",
       publishLabel: s.publishing ? "Saving…" : (s.editingId ? "Save changes" : "Publish listing"),
+      publishError: s.publishError,
       toggleForm: () => { this.track(s.showForm ? "host_form_close_toggle" : "host_form_open"); return s.showForm ? this.closeForm() : this.openAddForm(); },
       cancelPropertyForm: () => { this.track("host_form_cancel", { editing_id: s.editingId || null }); this.closeForm(); },
       nName:s.n.name, nArea:s.n.area, nHospital:s.n.hospital, nTime:s.n.travel, nPrice:s.n.price,
