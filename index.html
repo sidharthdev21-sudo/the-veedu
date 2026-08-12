@@ -316,6 +316,59 @@
           <p style="margin:0; font-size:13px; color:var(--text-soft);">No listed hotels within 3 km on OpenStreetMap.</p>
           </sc-if>
         </div>
+
+        <hr style="border:0; border-top:1px solid var(--border-light); margin:32px 0;">
+        <h3 style="font-size:20px; margin-bottom:6px;">Reviews</h3>
+        <div style="display:flex; align-items:baseline; gap:10px; margin-bottom:18px;">
+          <span style="font-size:15px; font-weight:700;">{{ avgRatingText }}</span>
+          <span style="font-size:13px; color:var(--text-soft);">{{ reviewCountText }}</span>
+        </div>
+
+        <sc-if value="{{ hasReviews }}">
+        <div style="display:flex; flex-direction:column; gap:14px; margin-bottom:24px;">
+          <sc-for list="{{ reviewsList }}" as="rv" hint-placeholder-count="2">
+            <div style="background:var(--surface-muted); border-radius:12px; padding:14px 16px;">
+              <div style="display:flex; justify-content:space-between; align-items:baseline; gap:8px;">
+                <span style="font-size:14px; font-weight:600;">{{ rv.guest_name }}</span>
+                <span style="font-size:13px; color:var(--accent); font-weight:700;">{{ rv.stars }}</span>
+              </div>
+              <sc-if value="{{ rv.comment }}">
+              <p style="margin:8px 0 0; font-size:14px; line-height:1.5; color:var(--text);">{{ rv.comment }}</p>
+              </sc-if>
+              <div style="margin-top:6px; font-size:11px; color:var(--text-soft);">{{ rv.dateText }}</div>
+            </div>
+          </sc-for>
+        </div>
+        </sc-if>
+        <sc-if value="{{ !hasReviews }}">
+        <p style="margin:0 0 24px; font-size:14px; color:var(--text-soft);">No reviews yet.</p>
+        </sc-if>
+
+        <sc-if value="{{ canReview }}">
+        <div style="background:var(--surface-muted); border-radius:12px; padding:18px 20px;">
+          <div style="font-size:14px; font-weight:600; margin-bottom:2px;">Rate your stay</div>
+          <div style="font-size:12px; color:var(--text-soft); margin-bottom:12px;">Open for 5 days after your checkout date</div>
+          <div style="display:flex; gap:6px; margin-bottom:12px;">
+            <sc-for list="{{ starButtons }}" as="sbtn" hint-placeholder-count="5">
+              <button onClick="{{ sbtn.pick }}" style="{{ sbtn.style }}">★</button>
+            </sc-for>
+          </div>
+          <textarea value="{{ reviewComment }}" onChange="{{ setReviewComment }}" placeholder="How was your stay? (optional)" rows="3" style="width:100%; padding:10px 12px; font-size:14px; background:var(--surface); border-radius:10px; resize:vertical;"></textarea>
+          <sc-if value="{{ reviewError }}">
+          <p style="margin:8px 0 0; font-size:12px; color:var(--alert);">{{ reviewError }}</p>
+          </sc-if>
+          <button onClick="{{ submitReview }}" style="margin-top:12px; min-height:40px; padding:8px 20px; border:none; border-radius:999px; background:var(--accent); color:#fff; font-weight:700; font-size:14px;" style-hover="background:var(--accent-dark)" style-active="background:var(--accent-active)">{{ reviewSubmitLabel }}</button>
+        </div>
+        </sc-if>
+        <sc-if value="{{ reviewNotice }}">
+        <p style="margin:12px 0 0; font-size:13px; color:var(--accent); font-weight:600;">{{ reviewNotice }}</p>
+        </sc-if>
+        <sc-if value="{{ reviewWindowClosed }}">
+        <p style="margin:0; font-size:13px; color:var(--text-soft);">The 5-day review window for your stay has closed.</p>
+        </sc-if>
+        <sc-if value="{{ reviewNotYetOpen }}">
+        <p style="margin:0; font-size:13px; color:var(--text-soft);">{{ reviewNotYetOpenText }}</p>
+        </sc-if>
       </div>
 
       <aside class="detail-aside" style="position:sticky; top:88px; background:var(--surface); border:1px solid var(--border); border-radius:16px; box-shadow:0 6px 20px rgba(0,0,0,0.1); padding:24px;">
@@ -699,6 +752,23 @@ const getSessionId = () => {
     return "no-storage";
   }
 };
+// Guests aren't signed in, so review eligibility is tied to "this browser sent this
+// enquiry" rather than a user account — the enquiry id then gets re-verified server-side
+// (checkout date + 5-day window) by submit_review() before any write is allowed.
+const MY_ENQUIRIES_KEY = "svc_my_enquiries";
+const getMyEnquiry = propertyId => {
+  try {
+    const all = JSON.parse(localStorage.getItem(MY_ENQUIRIES_KEY) || "{}");
+    return all[propertyId] || null;
+  } catch (e) { return null; }
+};
+const saveMyEnquiry = (propertyId, enquiry) => {
+  try {
+    const all = JSON.parse(localStorage.getItem(MY_ENQUIRIES_KEY) || "{}");
+    all[propertyId] = enquiry;
+    localStorage.setItem(MY_ENQUIRIES_KEY, JSON.stringify(all));
+  } catch (e) {}
+};
 
 class Component extends DCLogic {
   state = {
@@ -751,7 +821,16 @@ class Component extends DCLogic {
     nearbyLoading: false,
     nearbyError: "",
 
-    enquiries: []
+    enquiries: [],
+
+    reviews: [],
+    myEnquiry: null,
+    myReviewExists: false,
+    reviewRating: 0,
+    reviewComment: "",
+    reviewSubmitting: false,
+    reviewError: "",
+    reviewNotice: ""
   };
 
   setN = (k, v) => this.setState(s => ({ n: { ...s.n, [k]: v } }));
@@ -965,7 +1044,11 @@ class Component extends DCLogic {
     if (!rawSel) return;
     this.track("whatsapp_message_host", { property_id: rawSel.id });
     const guests = Number(s.adults || 0) + Number(s.kids || 0);
+    // Guests can only INSERT into enquiries (not read it back — that would let anyone read
+    // every guest's name/phone/dates), so we mint the id client-side instead of selecting it back.
+    const enquiryId = crypto.randomUUID ? crypto.randomUUID() : (Date.now() + "-" + Math.random().toString(36).slice(2));
     this.sb.from("enquiries").insert({
+      id: enquiryId,
       property_id: rawSel.id,
       guest_name: s.guestName || "Family",
       check_in: s.checkIn || null,
@@ -973,7 +1056,12 @@ class Component extends DCLogic {
       adults: Number(s.adults) || 1,
       kids: Number(s.kids) || 0,
       message: "Sent a WhatsApp enquiry for " + fmtDate(s.checkIn) + " – " + fmtDate(s.checkOut) + " · " + guests + " guests."
-    }).then(({ error }) => { if (error) console.error(error); });
+    }).then(({ error }) => {
+      if (error) { console.error(error); return; }
+      const mine = { enquiryId, checkOut: s.checkOut || null };
+      saveMyEnquiry(rawSel.id, mine);
+      if (s.selId === rawSel.id) this.setState({ myEnquiry: mine, myReviewExists: false });
+    });
   };
 
   blankN = () => ({ name:"", area:"", hospital:"Amrita Hospital", travel:"", price:"", bedrooms:1, bedsCount:1, sleeps:2, from:"", until:"", phone:"", desc:"", lat:null, lng:null, photos:[], videoUrl:null, amenities:["Kitchen","Air conditioning","Wi-Fi"], ready:true });
@@ -1130,9 +1218,56 @@ class Component extends DCLogic {
     this.loadLeaflet().then(ok => { this._leaflet = ok ? "ready" : "failed"; this.syncMaps(); });
     this.syncMaps();
     this.syncNearby();
+    this.syncReviews();
   }
   componentWillUnmount() { this.teardown(); }
-  componentDidUpdate() { this.syncMaps(); this.syncNearby(); }
+  componentDidUpdate() { this.syncMaps(); this.syncNearby(); this.syncReviews(); }
+
+  syncReviews() {
+    const s = this.state;
+    if (s.view !== "property" || !s.selId) return;
+    if (this._reviewsFor === s.selId) return;
+    this._reviewsFor = s.selId;
+    this.loadReviews(s.selId);
+    const my = getMyEnquiry(s.selId);
+    this.setState({ myEnquiry: my, myReviewExists: false, reviewRating: 0, reviewComment: "", reviewError: "", reviewNotice: "" });
+    if (my && this.sb) {
+      this.sb.from("reviews").select("id").eq("enquiry_id", my.enquiryId).maybeSingle().then(({ data }) => {
+        if (data) this.setState({ myReviewExists: true });
+      });
+    }
+  }
+
+  loadReviews(propertyId) {
+    if (!this.sb) return;
+    this.sb.from("reviews").select("*").eq("property_id", propertyId).order("created_at", { ascending: false }).then(({ data, error }) => {
+      if (error) { console.error(error); return; }
+      this.setState({ reviews: data || [] });
+    });
+  }
+
+  submitReview = () => {
+    const s = this.state;
+    if (!this.sb || !s.myEnquiry) return;
+    if (!s.reviewRating) { this.setState({ reviewError: "Please select a star rating." }); return; }
+    this.track("guest_review_submit", { property_id: s.selId, rating: s.reviewRating });
+    this.setState({ reviewSubmitting: true, reviewError: "" });
+    this.sb.rpc("submit_review", {
+      p_enquiry_id: s.myEnquiry.enquiryId,
+      p_rating: s.reviewRating,
+      p_comment: s.reviewComment || ""
+    }).then(({ data, error }) => {
+      if (error) { this.setState({ reviewSubmitting: false, reviewError: error.message }); return; }
+      this.setState(x => ({
+        reviewSubmitting: false,
+        myReviewExists: true,
+        reviewNotice: "Thanks — your review is posted.",
+        reviews: [data, ...x.reviews],
+        reviewRating: 0,
+        reviewComment: ""
+      }));
+    });
+  };
 
   syncNearby() {
     const s = this.state;
@@ -1379,6 +1514,45 @@ class Component extends DCLogic {
       stayIn: fmtDate(s.checkIn), stayOut: fmtDate(s.checkOut),
       guestsText: s.adults + " adults" + (Number(s.kids) > 0 ? " · " + s.kids + " child" : ""),
       waLink: sel ? "https://wa.me/" + rawSel.whatsapp_phone + "?text=" + encodeURIComponent("Hello " + rawSel.host_name + ", I found " + rawSel.name + " on The veedu. We need a stay near " + sel.hospitalName + " from " + fmtDate(s.checkIn) + " to " + fmtDate(s.checkOut) + " for " + guests + " guests. Is it available?") : "#",
+
+      ...(() => {
+        const reviews = s.reviews;
+        const count = reviews.length;
+        const avg = count ? (reviews.reduce((sum, r) => sum + r.rating, 0) / count) : 0;
+        const checkoutMs = s.myEnquiry && s.myEnquiry.checkOut ? new Date(s.myEnquiry.checkOut + "T00:00:00").getTime() : null;
+        const windowEnd = checkoutMs != null ? checkoutMs + 5 * 86400000 : null;
+        const now = Date.now();
+        const canReview = !!s.myEnquiry && checkoutMs != null && now >= checkoutMs && now <= windowEnd && !s.myReviewExists;
+        const reviewWindowClosed = !!s.myEnquiry && checkoutMs != null && now > windowEnd && !s.myReviewExists;
+        const reviewNotYetOpen = !!s.myEnquiry && checkoutMs != null && now < checkoutMs;
+        return {
+          hasReviews: count > 0,
+          avgRatingText: count ? avg.toFixed(1) + " ★" : "No reviews yet",
+          reviewCountText: count ? count + (count === 1 ? " review" : " reviews") : "",
+          reviewsList: reviews.map(rv => ({
+            guest_name: rv.guest_name,
+            comment: rv.comment,
+            stars: "★".repeat(rv.rating) + "☆".repeat(5 - rv.rating),
+            dateText: fmtDate(rv.created_at.slice(0, 10))
+          })),
+          canReview,
+          reviewWindowClosed,
+          reviewNotYetOpen,
+          reviewNotYetOpenText: reviewNotYetOpen ? "You can review this stay after your checkout date (" + fmtDate(s.myEnquiry.checkOut) + ")." : "",
+          myReviewExists: s.myReviewExists,
+          starButtons: [1, 2, 3, 4, 5].map(n => ({
+            n,
+            pick: () => this.setState({ reviewRating: n }),
+            style: "background:none; border:none; font-size:26px; line-height:1; cursor:pointer; padding:0; color:" + (n <= s.reviewRating ? "var(--accent)" : "var(--border)") + ";"
+          })),
+          reviewComment: s.reviewComment,
+          setReviewComment: e => this.setState({ reviewComment: e.target.value }),
+          reviewError: s.reviewError,
+          reviewNotice: s.reviewNotice,
+          reviewSubmitLabel: s.reviewSubmitting ? "Submitting…" : "Submit review",
+          submitReview: this.submitReview
+        };
+      })(),
 
       hostSignedIn: !!s.session,
       authIdentityDisplay: s.session ? ((s.profile && s.profile.full_name) || (s.session.user.user_metadata && s.session.user.user_metadata.full_name) || "Host") + ((s.profile && s.profile.phone) ? " · " + s.profile.phone : "") : "",
