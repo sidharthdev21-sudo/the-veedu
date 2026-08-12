@@ -66,7 +66,7 @@
 
   <header style="position:sticky; top:0; z-index:40; background:var(--surface); border-bottom:1px solid var(--border-light);">
     <div style="max-width:1240px; margin:0 auto; padding:14px 24px; display:flex; align-items:center; gap:24px; flex-wrap:wrap;">
-      <div onClick="{{ goSearch }}" style="display:flex; align-items:center; gap:10px; cursor:pointer;">
+      <div onClick="{{ goSearchLogo }}" style="display:flex; align-items:center; gap:10px; cursor:pointer;">
         <span style="display:flex; align-items:center; justify-content:center; width:36px; height:36px; border-radius:50%; background:var(--accent); color:#fff; flex-shrink:0;">
           <svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11.5 12 4l9 7.5"/><path d="M5 10v9a1 1 0 0 0 1 1h4v-6h4v6h4a1 1 0 0 0 1-1v-9"/></svg>
         </span>
@@ -182,7 +182,7 @@
   <!-- ══════════ PROPERTY DETAIL ══════════ -->
   <sc-if value="{{ isProperty }}">
   <main style="flex:1; max-width:1160px; margin:0 auto; padding:24px 24px 80px; width:100%;">
-    <button onClick="{{ goSearch }}" style="background:none; border:none; padding:4px 0; margin-bottom:16px; color:var(--text); font-weight:600; font-size:14px; display:flex; align-items:center; gap:6px;" style-hover="color:var(--accent)">
+    <button onClick="{{ goSearchBack }}" style="background:none; border:none; padding:4px 0; margin-bottom:16px; color:var(--text); font-weight:600; font-size:14px; display:flex; align-items:center; gap:6px;" style-hover="color:var(--accent)">
       <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
       Back to results
     </button>
@@ -269,11 +269,11 @@
         <div style="margin-bottom:24px;">
           <div style="font-size:14px; font-weight:600; margin-bottom:10px;">Book a taxi to this address</div>
           <div style="display:flex; gap:10px; flex-wrap:wrap;">
-            <a href="{{ sel.olaLink }}" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:8px; padding:11px 20px; border-radius:999px; background:var(--accent); color:#fff; font-weight:700; font-size:14px;" style-hover="background:var(--accent-dark)" style-active="background:var(--accent-active)">
+            <a href="{{ sel.olaLink }}" target="_blank" rel="noopener" onClick="{{ trackOla }}" style="display:inline-flex; align-items:center; gap:8px; padding:11px 20px; border-radius:999px; background:var(--accent); color:#fff; font-weight:700; font-size:14px;" style-hover="background:var(--accent-dark)" style-active="background:var(--accent-active)">
               <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17h14M5 17a2 2 0 1 0 4 0M5 17a2 2 0 1 1 4 0m6 0a2 2 0 1 0 4 0m-4 0a2 2 0 1 1 4 0M5 17V9.5a1 1 0 0 1 .3-.7L7.5 6.6a1 1 0 0 1 .7-.3h7.6a1 1 0 0 1 .7.3l2.2 2.2a1 1 0 0 1 .3.7V17"/></svg>
               Book with Ola
             </a>
-            <a href="{{ sel.uberLink }}" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:8px; padding:11px 20px; border-radius:999px; border:1px solid var(--border); background:transparent; color:var(--text); font-weight:700; font-size:14px;" style-hover="background:var(--surface-muted)">
+            <a href="{{ sel.uberLink }}" target="_blank" rel="noopener" onClick="{{ trackUber }}" style="display:inline-flex; align-items:center; gap:8px; padding:11px 20px; border-radius:999px; border:1px solid var(--border); background:transparent; color:var(--text); font-weight:700; font-size:14px;" style-hover="background:var(--surface-muted)">
               <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17h14M5 17a2 2 0 1 0 4 0M5 17a2 2 0 1 1 4 0m6 0a2 2 0 1 0 4 0m-4 0a2 2 0 1 1 4 0M5 17V9.5a1 1 0 0 1 .3-.7L7.5 6.6a1 1 0 0 1 .7-.3h7.6a1 1 0 0 1 .7.3l2.2 2.2a1 1 0 0 1 .3.7V17"/></svg>
               Book with Uber
             </a>
@@ -443,7 +443,7 @@
 
       <div style="display:flex; gap:12px;">
         <button onClick="{{ changePassword }}" style="min-height:44px; padding:8px 20px; border:none; border-radius:999px; background:var(--accent); color:#fff; font-weight:700; font-size:14px;" style-hover="background:var(--accent-dark)" style-active="background:var(--accent-active)">{{ passwordSubmitLabel }}</button>
-        <button onClick="{{ togglePasswordForm }}" style="min-height:44px; padding:8px 20px; border:1px solid var(--border); border-radius:999px; background:transparent; font-weight:700; font-size:14px;" style-hover="background:var(--surface-muted)">Cancel</button>
+        <button onClick="{{ cancelPasswordForm }}" style="min-height:44px; padding:8px 20px; border:1px solid var(--border); border-radius:999px; background:transparent; font-weight:700; font-size:14px;" style-hover="background:var(--surface-muted)">Cancel</button>
       </div>
     </section>
     </sc-if>
@@ -579,7 +579,7 @@
           <span style="font-size:14px;">Mark as <strong>ready for occupancy</strong> — visible in search today</span>
         </label>
         <div style="flex:1;"></div>
-        <button onClick="{{ toggleForm }}" style="min-height:44px; padding:8px 20px; border:1px solid var(--border); border-radius:999px; background:transparent; font-weight:700; font-size:14px;" style-hover="background:var(--surface-muted)">Cancel</button>
+        <button onClick="{{ cancelPropertyForm }}" style="min-height:44px; padding:8px 20px; border:1px solid var(--border); border-radius:999px; background:transparent; font-weight:700; font-size:14px;" style-hover="background:var(--surface-muted)">Cancel</button>
         <button onClick="{{ publish }}" style="min-height:44px; padding:8px 24px; border:none; border-radius:999px; background:var(--accent); color:#fff; font-weight:700; font-size:14px;" style-hover="background:var(--accent-dark)" style-active="background:var(--accent-active)">{{ publishLabel }}</button>
       </div>
     </section>
@@ -676,6 +676,18 @@ const timeAgo = iso => {
   return new Date(iso).toLocaleDateString("en-GB", { day:"numeric", month:"short" });
 };
 const phoneToEmail = phone => "p" + phone.replace(/\D/g, "") + "@phone.staynearcare.internal";
+const getSessionId = () => {
+  try {
+    let id = localStorage.getItem("svc_session_id");
+    if (!id) {
+      id = (crypto.randomUUID ? crypto.randomUUID() : (Date.now() + "-" + Math.random().toString(36).slice(2)));
+      localStorage.setItem("svc_session_id", id);
+    }
+    return id;
+  } catch (e) {
+    return "no-storage";
+  }
+};
 
 class Component extends DCLogic {
   state = {
@@ -729,6 +741,19 @@ class Component extends DCLogic {
   };
 
   setN = (k, v) => this.setState(s => ({ n: { ...s.n, [k]: v } }));
+
+  track = (eventName, metadata) => {
+    if (!this.sb) return;
+    const s = this.state;
+    this.sb.from("analytics_events").insert({
+      event_name: eventName,
+      view: s.view,
+      property_id: s.selId || null,
+      session_id: getSessionId(),
+      user_id: (s.session && s.session.user.id) || null,
+      metadata: metadata || null
+    }).then(({ error }) => { if (error) console.error("[track]", error); });
+  };
 
   onPhotoSelect = e => {
     const files = Array.from(e.target.files || []);
@@ -858,12 +883,13 @@ class Component extends DCLogic {
   };
 
   doSignOut = e => {
+    this.track("host_sign_out");
     if (e && e.preventDefault) e.preventDefault();
     if (this.sb) this.sb.auth.signOut();
     this.setState({ profile: null, enquiries: [], showForm: false });
   };
 
-  togglePasswordForm = e => {
+  togglePasswordFormRaw = e => {
     if (e && e.preventDefault) e.preventDefault();
     this.setState(x => ({
       showPasswordForm: !x.showPasswordForm,
@@ -872,6 +898,7 @@ class Component extends DCLogic {
   };
 
   changePassword = () => {
+    this.track("host_change_password_submit");
     if (!this.sb || !this.state.session) return;
     const { newPassword, newPasswordConfirm } = this.state;
     if (!newPassword || newPassword.length < 6) { this.setState({ passwordError: "Password must be at least 6 characters." }); return; }
@@ -891,6 +918,7 @@ class Component extends DCLogic {
     const s = this.state;
     const rawSel = s.properties.find(p => p.id === s.selId);
     if (!rawSel) return;
+    this.track("whatsapp_message_host", { property_id: rawSel.id });
     const guests = Number(s.adults || 0) + Number(s.kids || 0);
     this.sb.from("enquiries").insert({
       property_id: rawSel.id,
@@ -910,6 +938,7 @@ class Component extends DCLogic {
   };
 
   openEditForm = p => {
+    this.track("host_listing_edit", { property_id: p.id });
     this.setState({
       showForm: true,
       editingId: p.id,
@@ -932,6 +961,7 @@ class Component extends DCLogic {
   publish = () => {
     const s = this.state;
     const n = s.n;
+    this.track(s.editingId ? "host_form_save_edit" : "host_form_publish", { editing_id: s.editingId || null });
     if (!n.name || !this.sb || !s.session) { this.closeForm(); return; }
     const hospital = s.hospitals.find(h => h.name === n.hospital);
     if (!hospital) return;
@@ -981,6 +1011,7 @@ class Component extends DCLogic {
   toggleReady = p => {
     if (!this.sb) return;
     const next = !p.ready;
+    this.track("host_listing_ready_toggle", { property_id: p.id, ready: next });
     this.sb.from("properties").update({ ready: next }).eq("id", p.id).then(({ error }) => {
       if (error) { console.error(error); return; }
       this.setState(x => ({ properties: x.properties.map(q => q.id === p.id ? { ...q, ready: next } : q) }));
@@ -1230,7 +1261,7 @@ class Component extends DCLogic {
     const s = this.state;
     const showAmenities = this.props.showAmenities ?? true;
     const targetHospitalName = s.hospital === "all" ? null : s.hospital;
-    const results = this.filtered().map(p => ({ ...this.decorate(p, targetHospitalName), open: () => this.setState({ view:"property", selId:p.id }) }));
+    const results = this.filtered().map(p => ({ ...this.decorate(p, targetHospitalName), open: () => { this.track("property_card_open", { property_id: p.id, name: p.name }); this.setState({ view:"property", selId:p.id }); } }));
     const rawSel = s.properties.find(p => p.id === s.selId);
     const sel = rawSel ? this.decorate(rawSel, targetHospitalName) : null;
     const guests = Number(s.adults || 0) + Number(s.kids || 0);
@@ -1251,21 +1282,23 @@ class Component extends DCLogic {
     return {
       isSearch: s.view === "search", isProperty: s.view === "property", isHost: s.view === "host",
       tabGuest: this.tabStyle(s.view !== "host"), tabHost: this.tabStyle(s.view === "host"),
-      goSearch: () => this.setState({ view:"search" }),
-      goHost: () => this.setState({ view:"host" }),
+      goSearch: () => { this.track("nav_find_a_stay_tab"); this.setState({ view:"search" }); },
+      goHost: () => { this.track("nav_host_dashboard_tab"); this.setState({ view:"host" }); },
+      goSearchLogo: () => { this.track("nav_logo_click"); this.setState({ view:"search" }); },
+      goSearchBack: () => { this.track("property_back_to_results"); this.setState({ view:"search" }); },
       showAmenities,
 
       hospitalOptions: s.hospitals,
 
       fHospital: s.hospital, fIn: s.checkIn, fOut: s.checkOut, fAdults: s.adults, fKids: s.kids,
-      setHospital: e => this.setState({ hospital: e.target.value }),
+      setHospital: e => { this.track("search_filter_hospital", { hospital: e.target.value }); this.setState({ hospital: e.target.value }); },
       setIn: e => this.setState({ checkIn: e.target.value }),
       setOut: e => this.setState({ checkOut: e.target.value }),
       setAdults: e => this.setState({ adults: e.target.value }),
       setKids: e => this.setState({ kids: e.target.value }),
-      doSearch: () => this.forceUpdate(),
+      doSearch: () => { this.track("search_submit", { hospital: s.hospital, check_in: s.checkIn, check_out: s.checkOut, adults: s.adults, kids: s.kids }); this.forceUpdate(); },
       readyOnly: s.readyOnly,
-      toggleReady: () => this.setState(x => ({ readyOnly: !x.readyOnly })),
+      toggleReady: () => { this.track("search_toggle_ready_only", { next: !s.readyOnly }); this.setState(x => ({ readyOnly: !x.readyOnly })); },
 
       results,
       resultsLoading: s.loadingProperties,
@@ -1274,6 +1307,8 @@ class Component extends DCLogic {
       resultSummary: (s.hospital === "all" ? "near Kochi hospitals" : "near " + s.hospital) + " · " + fmtDate(s.checkIn) + " – " + fmtDate(s.checkOut) + (nights ? " · " + nights + " nights" : "") + " · " + guests + " guests",
 
       sel: sel || {},
+      trackOla: () => this.track("taxi_book_ola", { property_id: s.selId }),
+      trackUber: () => this.track("taxi_book_uber", { property_id: s.selId }),
       nearbyHotels: s.nearbyHotels,
       nearbyTaxiStands: s.nearbyTaxiStands,
       hasNearbyHotels: s.nearbyHotels.length > 0,
@@ -1299,14 +1334,15 @@ class Component extends DCLogic {
       setAuthName: e => this.setState({ authName: e.target.value }),
       setAuthPhone: e => this.setState({ authPhone: e.target.value }),
       setAuthPassword: e => this.setState({ authPassword: e.target.value }),
-      toggleAuthMode: () => this.setState(x => ({ authMode: x.authMode === "signup" ? "signin" : "signup", authError: "", authNotice: "", showForgotPassword: false })),
-      submitAuth: () => s.authMode === "signup" ? this.doSignUp() : this.doSignIn(),
+      toggleAuthMode: () => { this.track("auth_toggle_mode", { to: s.authMode === "signup" ? "signin" : "signup" }); this.setState(x => ({ authMode: x.authMode === "signup" ? "signin" : "signup", authError: "", authNotice: "", showForgotPassword: false })); },
+      submitAuth: () => { this.track("auth_submit", { mode: s.authMode }); return s.authMode === "signup" ? this.doSignUp() : this.doSignIn(); },
       showForgotPassword: s.showForgotPassword,
-      toggleForgotPassword: () => this.setState(x => ({ showForgotPassword: !x.showForgotPassword })),
+      toggleForgotPassword: () => { this.track("auth_toggle_forgot_password", { next: !s.showForgotPassword }); this.setState(x => ({ showForgotPassword: !x.showForgotPassword })); },
       doSignOut: this.doSignOut,
 
       showPasswordForm: s.showPasswordForm,
-      togglePasswordForm: this.togglePasswordForm,
+      togglePasswordForm: e => { this.track("host_change_password_open"); this.togglePasswordFormRaw(e); },
+      cancelPasswordForm: e => { this.track("host_change_password_cancel"); this.togglePasswordFormRaw(e); },
       newPassword: s.newPassword, newPasswordConfirm: s.newPasswordConfirm,
       setNewPassword: e => this.setState({ newPassword: e.target.value }),
       setNewPasswordConfirm: e => this.setState({ newPasswordConfirm: e.target.value }),
@@ -1319,27 +1355,28 @@ class Component extends DCLogic {
       formHeading: s.editingId ? "Edit property" : "Add a property",
       formBtnText: s.showForm ? "Close form" : "Add property",
       publishLabel: s.publishing ? "Saving…" : (s.editingId ? "Save changes" : "Publish listing"),
-      toggleForm: () => s.showForm ? this.closeForm() : this.openAddForm(),
+      toggleForm: () => { this.track(s.showForm ? "host_form_close_toggle" : "host_form_open"); return s.showForm ? this.closeForm() : this.openAddForm(); },
+      cancelPropertyForm: () => { this.track("host_form_cancel", { editing_id: s.editingId || null }); this.closeForm(); },
       nName:s.n.name, nArea:s.n.area, nHospital:s.n.hospital, nTime:s.n.travel, nPrice:s.n.price,
       nBedrooms: s.n.bedrooms, nBedsCount: s.n.bedsCount, nSleeps: s.n.sleeps,
       nFrom:s.n.from, nUntil:s.n.until, nPhone:s.n.phone, nDesc:s.n.desc, nReady:s.n.ready,
       setNName:e=>this.setN("name",e.target.value), setNArea:e=>this.setN("area",e.target.value),
-      setNHospital:e=>this.setN("hospital",e.target.value), setNTime:e=>this.setN("travel",e.target.value),
+      setNHospital:e=>{ this.track("host_form_hospital_select", { hospital: e.target.value }); this.setN("hospital",e.target.value); }, setNTime:e=>this.setN("travel",e.target.value),
       setNPrice:e=>this.setN("price",e.target.value),
       setNBedrooms:e=>this.setN("bedrooms",e.target.value), setNBedsCount:e=>this.setN("bedsCount",e.target.value), setNSleeps:e=>this.setN("sleeps",e.target.value),
       setNFrom:e=>this.setN("from",e.target.value), setNUntil:e=>this.setN("until",e.target.value),
       setNPhone:e=>this.setN("phone",e.target.value), setNDesc:e=>this.setN("desc",e.target.value),
-      setNReady:e=>this.setN("ready",e.target.checked),
+      setNReady:e=>{ this.track("host_form_ready_toggle", { next: e.target.checked }); this.setN("ready",e.target.checked); },
       photoDropText: s.photoUploading ? "Uploading…" : "Click to add photos",
       photoError: s.photoError,
       onPhotoSelect: this.onPhotoSelect,
-      nPhotos: s.n.photos.map(url => ({ url, remove: () => this.removePhoto(url) })),
+      nPhotos: s.n.photos.map(url => ({ url, remove: () => { this.track("host_photo_remove"); this.removePhoto(url); } })),
       videoDropText: s.videoUploading ? "Uploading video…" : "Click to add a walkthrough video",
       videoError: s.videoError,
       onVideoSelect: this.onVideoSelect,
       nVideoUrl: s.n.videoUrl,
       hasNVideo: !!s.n.videoUrl,
-      removeVideo: this.removeVideo,
+      removeVideo: () => { this.track("host_video_remove"); this.removeVideo(); },
       nHospitalDistances: (() => {
         const chosen = s.hospitals.find(h => h.name === s.n.hospital);
         const lat = s.n.lat != null ? s.n.lat : (chosen ? chosen.lat : null);
@@ -1353,7 +1390,10 @@ class Component extends DCLogic {
       amenityChips: AMENITY_SET.map(a => {
         const on = s.n.amenities.includes(a);
         return { label:a, bg: on ? "#2f7a52" : "transparent", fg: on ? "#ffffff" : "#2a2b24", border: on ? "#2f7a52" : "#ded9c9",
-          toggle: () => this.setState(x => ({ n: { ...x.n, amenities: on ? x.n.amenities.filter(v => v !== a) : [...x.n.amenities, a] } })) };
+          toggle: () => {
+            this.track("host_amenity_chip_toggle", { amenity: a, next: !on });
+            this.setState(x => ({ n: { ...x.n, amenities: on ? x.n.amenities.filter(v => v !== a) : [...x.n.amenities, a] } }));
+          } };
       }),
       publish: this.publish,
 
