@@ -842,10 +842,20 @@ class Component extends DCLogic {
   loadHostData() {
     if (!this.sb) return;
     this.sb.auth.getUser().then(({ data }) => {
-      const uid = data && data.user && data.user.id;
+      const user = data && data.user;
+      const uid = user && user.id;
       if (!uid) return;
-      this.sb.from("profiles").select("*").eq("id", uid).single().then(({ data: profile }) => {
-        this.setState(x => ({ profile, n: x.n.phone ? x.n : { ...x.n, phone: (profile && profile.phone) || "" } }));
+      this.sb.from("profiles").select("*").eq("id", uid).maybeSingle().then(({ data: profile }) => {
+        if (profile) {
+          this.setState(x => ({ profile, n: x.n.phone ? x.n : { ...x.n, phone: profile.phone || "" } }));
+          return;
+        }
+        // Self-heal: the signup trigger should always create this row, but if it's ever missing,
+        // publishing a listing would otherwise fail on the properties_host_id_fkey constraint.
+        const meta = user.user_metadata || {};
+        this.sb.from("profiles").upsert({ id: uid, full_name: meta.full_name || "Host", phone: meta.phone || null }).select("*").single().then(({ data: created }) => {
+          this.setState(x => ({ profile: created, n: x.n.phone ? x.n : { ...x.n, phone: (created && created.phone) || "" } }));
+        });
       });
       this.sb.from("enquiries").select("*, property:properties(name)").order("created_at", { ascending: false }).then(({ data, error }) => {
         if (error) { console.error(error); return; }
