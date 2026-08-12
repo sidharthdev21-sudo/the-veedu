@@ -556,8 +556,14 @@
           </sc-if>
         </div>
         <div>
-          <div style="font-size:12px; color:var(--text-soft); margin-bottom:8px;">Pin the location — drag the marker</div>
+          <div style="display:flex; align-items:center; justify-content:space-between; gap:8px; margin-bottom:8px;">
+            <div style="font-size:12px; color:var(--text-soft);">Pin the location — drag the marker</div>
+            <button onClick="{{ useMyLocation }}" disabled="{{ locating }}" style="min-height:28px; padding:4px 12px; border:1px solid var(--border); border-radius:999px; background:var(--surface); color:var(--accent); font-weight:700; font-size:12px; white-space:nowrap;" style-hover="background:var(--surface-muted)">{{ locateLabel }}</button>
+          </div>
           <div id="host-map" style="height:186px; border-radius:12px; overflow:hidden; background:var(--surface-muted);"></div>
+          <sc-if value="{{ locateError }}">
+          <p style="margin:8px 0 0; font-size:12px; color:var(--alert);">{{ locateError }}</p>
+          </sc-if>
         </div>
       </div>
 
@@ -725,6 +731,8 @@ class Component extends DCLogic {
     editingId: null,
     publishing: false,
     publishError: "",
+    locating: false,
+    locateError: "",
     photoUploading: false,
     photoError: "",
     videoUploading: false,
@@ -805,6 +813,27 @@ class Component extends DCLogic {
 
   removeVideo = () => {
     this.setN("videoUrl", null);
+  };
+
+  useMyLocation = () => {
+    this.track("host_form_use_my_location");
+    if (!navigator.geolocation) { this.setState({ locateError: "Location isn't supported on this browser." }); return; }
+    this.setState({ locating: true, locateError: "" });
+    navigator.geolocation.getCurrentPosition(
+      pos => {
+        this.setState(x => ({
+          locating: false,
+          n: { ...x.n, lat: pos.coords.latitude, lng: pos.coords.longitude }
+        }));
+      },
+      err => {
+        const msg = err.code === err.PERMISSION_DENIED
+          ? "Location permission was denied. Enable it for this site in your browser settings, or drag the pin manually."
+          : "Couldn't get your location. Please drag the pin manually.";
+        this.setState({ locating: false, locateError: msg });
+      },
+      { enableHighAccuracy: true, timeout: 15000, maximumAge: 0 }
+    );
   };
 
   loadSupabase() {
@@ -1210,6 +1239,12 @@ class Component extends DCLogic {
         });
         const m = this._hmap;
         setTimeout(() => { try { m.invalidateSize(); } catch (e) {} }, 80);
+      } else if (this._hmap && this._hmarker && s.n.lat != null && s.n.lng != null) {
+        const cur = this._hmarker.getLatLng();
+        if (cur.lat !== s.n.lat || cur.lng !== s.n.lng) {
+          this._hmarker.setLatLng(start);
+          this._hmap.setView(start, 16);
+        }
       }
     } else if (this._hmap) { this._hmap.remove(); this._hmap = null; this._hmapEl = null; this._hmarker = null; }
   }
@@ -1400,6 +1435,10 @@ class Component extends DCLogic {
       nVideoUrl: s.n.videoUrl,
       hasNVideo: !!s.n.videoUrl,
       removeVideo: () => { this.track("host_video_remove"); this.removeVideo(); },
+      useMyLocation: this.useMyLocation,
+      locating: s.locating,
+      locateLabel: s.locating ? "Locating…" : "📍 Use my location",
+      locateError: s.locateError,
       nHospitalDistances: (() => {
         const chosen = s.hospitals.find(h => h.name === s.n.hospital);
         const lat = s.n.lat != null ? s.n.lat : (chosen ? chosen.lat : null);
