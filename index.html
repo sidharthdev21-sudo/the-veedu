@@ -162,6 +162,12 @@
       <sc-if value="{{ resultsEmpty }}">
       <p style="margin:24px 0 0; font-size:14px; color:var(--text-soft);">No stays match these filters yet. Try another hospital or clear "Ready for occupancy only".</p>
       </sc-if>
+      <sc-if value="{{ loadError }}">
+      <div style="margin:24px 0 0; padding:16px 20px; background:var(--alert-bg); border-radius:12px; display:flex; align-items:center; gap:16px; flex-wrap:wrap;">
+        <p style="margin:0; font-size:14px; color:var(--alert); flex:1; min-width:200px;">{{ loadError }}</p>
+        <button onClick="{{ retryLoad }}" style="min-height:36px; padding:8px 18px; border:none; border-radius:999px; background:var(--alert); color:#fff; font-weight:700; font-size:13px;">Try again</button>
+      </div>
+      </sc-if>
 
       <div style="display:grid; grid-template-columns:repeat(auto-fill,minmax(260px,1fr)); gap:32px 24px;">
         <sc-for list="{{ results }}" as="p" hint-placeholder-count="6">
@@ -746,6 +752,9 @@ const AMENITY_SET = ["Kitchen", "Air conditioning", "Wi-Fi", "Lift", "Wheelchair
 
 const inr = n => "₹" + Number(n).toLocaleString("en-IN");
 const fmtDate = s => { if (!s) return "Add date"; const d = new Date(s + "T00:00:00"); return isNaN(d) ? "Add date" : d.toLocaleDateString("en-GB", { day:"numeric", month:"short" }); };
+const isoDatePlusDays = days => { const d = new Date(); d.setDate(d.getDate() + days); return d.toISOString().slice(0, 10); };
+const DEFAULT_CHECK_IN = isoDatePlusDays(0);
+const DEFAULT_CHECK_OUT = isoDatePlusDays(14);
 const haversineKm = (lat1, lng1, lat2, lng2) => {
   const R = 6371;
   const toRad = d => d * Math.PI / 180;
@@ -803,8 +812,8 @@ class Component extends DCLogic {
     view: "search",
     selId: null,
     hospital: "all",
-    checkIn: "2026-08-12",
-    checkOut: "2026-08-26",
+    checkIn: DEFAULT_CHECK_IN,
+    checkOut: DEFAULT_CHECK_OUT,
     adults: 2,
     kids: 1,
     readyOnly: true,
@@ -813,6 +822,8 @@ class Component extends DCLogic {
     loadingProperties: true,
     hospitals: [],
     properties: [],
+    hospitalsError: "",
+    propertiesError: "",
 
     session: null,
     profile: null,
@@ -958,15 +969,17 @@ class Component extends DCLogic {
   }
 
   fetchHospitals() {
+    this.setState({ hospitalsError: "" });
     this.sb.from("hospitals").select("*").order("name").then(({ data, error }) => {
-      if (error) { console.error(error); return; }
+      if (error) { console.error(error); this.setState({ hospitalsError: "Couldn't load hospitals — check your connection." }); return; }
       this.setState({ hospitals: data || [] });
     });
   }
 
   fetchProperties() {
+    this.setState({ loadingProperties: true, propertiesError: "" });
     this.sb.from("properties").select("*, hospital:hospitals(id,name,lat,lng)").order("created_at", { ascending: false }).then(({ data, error }) => {
-      if (error) { console.error(error); this.setState({ loadingProperties: false }); return; }
+      if (error) { console.error(error); this.setState({ loadingProperties: false, propertiesError: "Couldn't load stays — check your connection and try again." }); return; }
       this.setState(s => ({
         properties: data || [],
         loadingProperties: false,
@@ -974,6 +987,12 @@ class Component extends DCLogic {
       }));
     });
   }
+
+  retryLoad = () => {
+    if (!this.sb) return;
+    this.fetchHospitals();
+    this.fetchProperties();
+  };
 
   loadHostData() {
     if (!this.sb) return;
@@ -1131,10 +1150,17 @@ class Component extends DCLogic {
       this.setState({ publishError: s.hospitals.length ? "Please choose a hospital from the list." : "Still loading hospitals — wait a second and try again." });
       return;
     }
+    // No fallback stub number here on purpose — a guest silently WhatsApping a placeholder
+    // number instead of the real host is worse than blocking publish until it's fixed.
+    const phoneDigits = (n.phone || "").replace(/\D/g, "");
+    if (phoneDigits.length < 10) {
+      this.setState({ publishError: "Please enter a valid WhatsApp number (at least 10 digits)." });
+      return;
+    }
     this.setState({ publishing: true, publishError: "" });
     const payload = {
       hospital_id: hospital.id,
-      name: n.name,
+      name: n.name.trim(),
       area: n.area || "Kochi",
       travel_time: n.travel || "nearby",
       description: n.desc || ("Newly listed stay near " + n.hospital + "."),
@@ -1149,7 +1175,7 @@ class Component extends DCLogic {
       available_until: n.until || null,
       lat: n.lat != null ? n.lat : hospital.lat,
       lng: n.lng != null ? n.lng : hospital.lng,
-      whatsapp_phone: (n.phone || "919847000000").replace(/\D/g, ""),
+      whatsapp_phone: phoneDigits,
       photos: n.photos,
       video_url: n.videoUrl || null
     };
@@ -1197,14 +1223,22 @@ class Component extends DCLogic {
   }
 
   filtered() {
-    const { properties, hospital, readyOnly, adults, kids, hospitals } = this.state;
+    const { properties, hospital, readyOnly, adults, kids, hospitals, checkIn, checkOut } = this.state;
     const guests = Number(adults || 0) + Number(kids || 0);
     const target = hospital === "all" ? null : hospitals.find(h => h.name === hospital);
+    // A property is only bookable for the guest's dates if those dates fall inside its
+    // available_from/available_until window — being "ready" doesn't override that window.
+    const availableForDates = p => {
+      if (!checkIn || !checkOut) return true;
+      if (p.available_until && checkIn > p.available_until) return false;
+      if (p.available_from && checkOut < p.available_from) return false;
+      return true;
+    };
     // We rank every ready listing by real distance to the hospital the guest cares about
     // (rather than only showing listings whose host happened to tag that hospital as "nearest") —
     // otherwise a genuinely close property gets buried behind slower competitor sites that do this right.
     return properties
-      .filter(p => (!readyOnly || p.ready) && (isNaN(guests) || guests < 1 || p.sleeps >= guests))
+      .filter(p => (!readyOnly || p.ready) && (isNaN(guests) || guests < 1 || p.sleeps >= guests) && availableForDates(p))
       .map(p => ({ ...p, __sortKm: target ? this.kmTo(p, target) : this.nearestKm(p) }))
       .sort((a, b) => a.__sortKm - b.__sortKm);
   }
@@ -1522,7 +1556,9 @@ class Component extends DCLogic {
 
       results,
       resultsLoading: s.loadingProperties,
-      resultsEmpty: !s.loadingProperties && results.length === 0,
+      resultsEmpty: !s.loadingProperties && !s.propertiesError && results.length === 0,
+      loadError: s.propertiesError || s.hospitalsError,
+      retryLoad: this.retryLoad,
       resultCount: results.length + (results.length === 1 ? " stay" : " stays"),
       resultSummary: (s.hospital === "all" ? "near Kochi hospitals" : "near " + s.hospital) + " · " + fmtDate(s.checkIn) + " – " + fmtDate(s.checkOut) + (nights ? " · " + nights + " nights" : "") + " · " + guests + " guests",
 
