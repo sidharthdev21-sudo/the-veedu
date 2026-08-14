@@ -100,16 +100,57 @@
     </div>
   </header>
 
+  <!-- ══════════ WELCOME / LANDING ══════════ -->
+  <sc-if value="{{ isWelcome }}">
+  <main style="flex:1;">
+    <section style="background:linear-gradient(180deg,#eaf3ec 0%,#fffdf9 70%); padding:60px 24px 8px;">
+      <div style="max-width:640px; margin:0 auto; text-align:center;">
+        <svg viewBox="0 0 200 150" width="176" height="132" fill="none" stroke="var(--accent)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom:20px;">
+          <path d="M28 74 100 18 172 74"/>
+          <path d="M42 68v56a5 5 0 0 0 5 5h106a5 5 0 0 0 5-5V68"/>
+          <path d="M84 129V90h32v39"/>
+          <path d="M100 10c-4.5-6.5-15-6.5-17 2.2-2 8.6 8.6 15 17 21.4 8.4-6.4 19-12.8 17-21.4-2-8.7-12.5-8.7-17-2.2z" fill="var(--accent)" stroke="none"/>
+        </svg>
+        <h1 class="hero-title" style="font-size:38px; text-wrap:balance;">A calm place to stay, close to the hospital.</h1>
+        <p style="margin:16px auto 0; font-size:16px; line-height:1.6; color:var(--text-soft); max-width:50ch; text-wrap:pretty;">Verified homes and serviced apartments near Kochi's major hospitals — chosen for families staying through treatment and recovery. Tell us your dates and we will show what is ready now.</p>
+        <button onClick="{{ goBookStay }}" style="margin-top:28px; min-height:52px; padding:14px 40px; border:none; border-radius:999px; background:var(--accent); color:#fff; font-weight:700; font-size:16px;" style-hover="background:var(--accent-dark)" style-active="background:var(--accent-active)">Book stay</button>
+      </div>
+    </section>
+
+    <section style="max-width:960px; margin:0 auto; padding:48px 24px 72px;">
+      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:28px;">
+        <div style="text-align:center; padding:8px 12px;">
+          <span style="display:inline-flex; align-items:center; justify-content:center; width:48px; height:48px; border-radius:50%; background:var(--accent-bg); color:var(--accent); margin-bottom:14px;">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v6c0 4.5-3 8-7 9-4-1-7-4.5-7-9V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg>
+          </span>
+          <h3 style="font-size:16px;">Verified & ready</h3>
+          <p style="margin:6px 0 0; font-size:14px; line-height:1.5; color:var(--text-soft);">Every home is checked before it's listed — what you see is what's actually available today.</p>
+        </div>
+        <div style="text-align:center; padding:8px 12px;">
+          <span style="display:inline-flex; align-items:center; justify-content:center; width:48px; height:48px; border-radius:50%; background:var(--accent-bg); color:var(--accent); margin-bottom:14px;">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-6.5 7-12a7 7 0 1 0-14 0c0 5.5 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/></svg>
+          </span>
+          <h3 style="font-size:16px;">Minutes from the hospital</h3>
+          <p style="margin:6px 0 0; font-size:14px; line-height:1.5; color:var(--text-soft);">Every stay is ranked by real distance to Kochi's major hospitals, not guesswork.</p>
+        </div>
+        <div style="text-align:center; padding:8px 12px;">
+          <span style="display:inline-flex; align-items:center; justify-content:center; width:48px; height:48px; border-radius:50%; background:var(--accent-bg); color:var(--accent); margin-bottom:14px;">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-8.4 8.4 8.3 8.3 0 0 1-4-1L3 20l1.2-5.4a8.3 8.3 0 0 1-1-4A8.4 8.4 0 0 1 11.6 2.2h.4a8.4 8.4 0 0 1 8.4 8.4v.9z"/></svg>
+          </span>
+          <h3 style="font-size:16px;">Talk to the host directly</h3>
+          <p style="margin:6px 0 0; font-size:14px; line-height:1.5; color:var(--text-soft);">Message on WhatsApp with no booking fees — you agree the dates and payment directly.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+  </sc-if>
+
   <!-- ══════════ SEARCH + RESULTS ══════════ -->
   <sc-if value="{{ isSearch }}" hint-placeholder-val="{{ true }}">
   <main style="flex:1;">
     <section style="background:linear-gradient(180deg,#eaf3ec 0%,#fffdf9 65%);">
-      <div style="max-width:1000px; margin:0 auto; padding:56px 24px 40px; text-align:center;">
-        <h1 class="hero-title" style="font-size:42px; text-wrap:balance;">A calm place to stay, close to the hospital.</h1>
-        <p style="margin:14px auto 0; font-size:16px; line-height:1.6; color:var(--text-soft); max-width:52ch; text-wrap:pretty;">Verified homes and serviced apartments near Kochi's major hospitals — chosen for families staying through treatment and recovery. Tell us your dates and we will show what is ready now.</p>
-      </div>
-
-      <div style="max-width:1080px; margin:0 auto; padding:0 24px 48px;">
+      <div style="max-width:1080px; margin:0 auto; padding:48px 24px 48px;">
+        <h1 style="font-size:22px; text-align:center; margin-bottom:20px;">Find your stay</h1>
         <div class="search-pill" style="display:flex; align-items:stretch; background:var(--surface); border:1px solid var(--border); border-radius:999px; box-shadow:0 6px 20px rgba(0,0,0,0.08);">
           <div class="seg" style="flex:1.2; min-width:0; padding:10px 24px; border-right:1px solid var(--border-light);">
             <label style="display:block; font-size:11px; font-weight:700; margin-bottom:2px;">Hospital</label>
@@ -809,7 +850,7 @@ const saveMyEnquiry = (propertyId, enquiry) => {
 
 class Component extends DCLogic {
   state = {
-    view: "search",
+    view: "welcome",
     selId: null,
     hospital: "all",
     checkIn: DEFAULT_CHECK_IN,
@@ -1534,12 +1575,13 @@ class Component extends DCLogic {
     }) : [];
 
     return {
-      isSearch: s.view === "search", isProperty: s.view === "property", isHost: s.view === "host",
-      tabGuest: this.tabStyle(s.view !== "host"), tabHost: this.tabStyle(s.view === "host"),
+      isWelcome: s.view === "welcome", isSearch: s.view === "search", isProperty: s.view === "property", isHost: s.view === "host",
+      tabGuest: this.tabStyle(s.view === "search" || s.view === "property"), tabHost: this.tabStyle(s.view === "host"),
       goSearch: () => { this.track("nav_find_a_stay_tab"); this.setState({ view:"search" }); },
       goHost: () => { this.track("nav_host_dashboard_tab"); this.setState({ view:"host" }); },
       goSearchLogo: () => { this.track("nav_logo_click"); this.setState({ view:"search" }); },
       goSearchBack: () => { this.track("property_back_to_results"); this.setState({ view:"search" }); },
+      goBookStay: () => { this.track("welcome_book_stay_click"); this.setState({ view:"search" }); },
       showAmenities,
 
       hospitalOptions: s.hospitals,
