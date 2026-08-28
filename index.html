@@ -472,8 +472,13 @@
           <input value="{{ guestName }}" onChange="{{ setGuestName }}" placeholder="e.g. Rahul Menon" style="width:100%; padding:6px 12px; font-size:14px; background:var(--surface);">
         </div>
         <div class="aside-cta-block">
+          <sc-if value="{{ !selUnavailableForDates }}">
           <a href="{{ waLink }}" target="_blank" rel="noopener" onClick="{{ sendEnquiry }}" style="display:flex; align-items:center; justify-content:center; gap:8px; width:100%; margin-top:12px; padding:14px 15px; border-radius:999px; background:var(--accent); color:#fff; font-weight:700; font-size:15px;" style-hover="background:var(--accent-dark)" style-active="background:var(--accent-active)">Message host on WhatsApp</a>
           <p style="margin:14px 0 0; font-size:12px; line-height:1.5; color:var(--text-soft); text-align:center;">No booking fee. You agree dates and payment directly with the host.</p>
+          </sc-if>
+          <sc-if value="{{ selUnavailableForDates }}">
+          <p style="margin:12px 0 0; font-size:14px; line-height:1.5; color:var(--alert); background:var(--alert-bg); border-radius:10px; padding:12px 14px; text-align:center;">Not available for these dates — try different dates or another stay.</p>
+          </sc-if>
         </div>
       </aside>
     </div>
@@ -483,7 +488,12 @@
       <div>
         <div style="font-weight:700; font-size:17px; letter-spacing:-0.01em;">{{ sel.priceText }}<span style="font-size:12px; font-weight:400; color:var(--text-soft);"> /night</span></div>
       </div>
+      <sc-if value="{{ !selUnavailableForDates }}">
       <a href="{{ waLink }}" target="_blank" rel="noopener" onClick="{{ sendEnquiry }}" style="display:flex; align-items:center; justify-content:center; gap:8px; flex:1; padding:13px 15px; border-radius:999px; background:var(--accent); color:#fff; font-weight:700; font-size:14px; white-space:nowrap;" style-hover="background:var(--accent-dark)" style-active="background:var(--accent-active)">Message on WhatsApp</a>
+      </sc-if>
+      <sc-if value="{{ selUnavailableForDates }}">
+      <span style="flex:1; text-align:center; font-size:13px; font-weight:600; color:var(--alert);">Not available for these dates</span>
+      </sc-if>
     </div>
     <div class="property-scroll-pad"></div>
   </main>
@@ -708,6 +718,65 @@
       </div>
 
       <div style="margin-top:22px; padding-top:20px; border-top:1px solid var(--border-light);">
+        <h4 style="font-size:16px; margin-bottom:4px;">Airbnb calendar sync</h4>
+        <p style="margin:0 0 12px; font-size:13px; color:var(--text-soft); line-height:1.5;">Paste the "Export Calendar" link from your Airbnb listing (Availability → Export Calendar) to pull in its booked dates automatically, checked hourly.</p>
+        <input value="{{ nAirbnbIcalUrl }}" onChange="{{ setNAirbnbIcalUrl }}" placeholder="https://www.airbnb.com/calendar/ical/....ics" style="width:100%; padding:6px 12px; font-size:14px; background:var(--surface);">
+
+        <sc-if value="{{ isEditingProperty }}">
+        <div style="margin-top:10px; display:flex; align-items:center; gap:12px; flex-wrap:wrap;">
+          <sc-if value="{{ hasAirbnbUrl }}">
+          <button onClick="{{ syncAirbnbNow }}" disabled="{{ syncingAirbnb }}" style="min-height:36px; padding:7px 18px; border:1px solid var(--border); border-radius:999px; background:var(--surface); color:var(--accent); font-weight:700; font-size:13px;" style-hover="background:var(--surface-muted)">{{ syncLabel }}</button>
+          <span style="font-size:12px; color:var(--text-soft);">{{ lastSyncedText }}</span>
+          </sc-if>
+        </div>
+        <sc-if value="{{ syncNotice }}">
+        <p style="margin:8px 0 0; font-size:12px; color:var(--accent); font-weight:600;">{{ syncNotice }}</p>
+        </sc-if>
+        <sc-if value="{{ syncError }}">
+        <p style="margin:8px 0 0; font-size:12px; color:var(--alert);">{{ syncError }}</p>
+        </sc-if>
+        <sc-if value="{{ airbnbSyncErrorOnRecord }}">
+        <p style="margin:8px 0 0; font-size:12px; color:var(--alert);">Last automatic sync failed: {{ airbnbSyncErrorOnRecord }}</p>
+        </sc-if>
+
+        <div style="margin-top:16px;">
+          <div style="font-size:12px; color:var(--text-soft); margin-bottom:5px;">To sync the other way, paste this link into Airbnb's "Import Calendar" for this listing:</div>
+          <input value="{{ icalFeedUrl }}" readonly style="width:100%; padding:6px 12px; font-size:12px; background:var(--surface-muted); color:var(--text-soft);" onClick="{{ selectAllText }}">
+        </div>
+
+        <div style="margin-top:18px;">
+          <div style="font-size:12px; color:var(--text-soft); margin-bottom:8px;">Block dates you've booked directly (e.g. via WhatsApp) — this also feeds the link above</div>
+          <div style="display:flex; gap:10px; flex-wrap:wrap; align-items:flex-end;">
+            <div>
+              <label style="display:block; font-size:11px; margin-bottom:4px; color:var(--text-soft);">From</label>
+              <input type="date" value="{{ blockStart }}" onChange="{{ setBlockStart }}" style="padding:6px 12px; font-size:13px; background:var(--surface);">
+            </div>
+            <div>
+              <label style="display:block; font-size:11px; margin-bottom:4px; color:var(--text-soft);">Until</label>
+              <input type="date" value="{{ blockEnd }}" onChange="{{ setBlockEnd }}" style="padding:6px 12px; font-size:13px; background:var(--surface);">
+            </div>
+            <button onClick="{{ addBlockedDate }}" style="min-height:38px; padding:8px 18px; border:none; border-radius:999px; background:var(--accent); color:#fff; font-weight:700; font-size:13px;" style-hover="background:var(--accent-dark)">{{ blockAddLabel }}</button>
+          </div>
+          <sc-if value="{{ blockError }}">
+          <p style="margin:8px 0 0; font-size:12px; color:var(--alert);">{{ blockError }}</p>
+          </sc-if>
+          <sc-if value="{{ hasPropertyBlocks }}">
+          <div style="display:flex; flex-direction:column; gap:6px; margin-top:12px;">
+            <sc-for list="{{ propertyBlocksList }}" as="bk" hint-placeholder-count="2">
+              <div style="display:flex; align-items:center; justify-content:space-between; gap:10px; background:var(--surface-muted); border-radius:10px; padding:8px 14px;">
+                <span style="font-size:13px;">{{ bk.rangeText }} <span style="color:var(--text-soft); font-size:11px;">· {{ bk.sourceLabel }}</span></span>
+                <sc-if value="{{ bk.canRemove }}">
+                <button onClick="{{ bk.remove }}" style="background:none; border:none; color:var(--alert); font-size:12px; font-weight:600; padding:2px 4px;">Remove</button>
+                </sc-if>
+              </div>
+            </sc-for>
+          </div>
+          </sc-if>
+        </div>
+        </sc-if>
+      </div>
+
+      <div style="margin-top:22px; padding-top:20px; border-top:1px solid var(--border-light);">
         <sc-if value="{{ publishError }}">
         <p style="margin:0 0 16px; font-size:13px; color:var(--alert); background:var(--alert-bg); border-radius:10px; padding:10px 14px;">{{ publishError }}</p>
         </sc-if>
@@ -887,7 +956,17 @@ class Component extends DCLogic {
     photoError: "",
     videoUploading: false,
     videoError: "",
-    n: { name:"", area:"", hospital:"Amrita Hospital", travel:"", price:"", bedrooms:1, bedsCount:1, sleeps:2, from:"", until:"", phone:"", desc:"", lat:null, lng:null, photos:[], videoUrl:null, amenities:["Kitchen","Air conditioning","Wi-Fi"], ready:true },
+    n: { name:"", area:"", hospital:"Amrita Hospital", travel:"", price:"", bedrooms:1, bedsCount:1, sleeps:2, from:"", until:"", phone:"", desc:"", lat:null, lng:null, photos:[], videoUrl:null, amenities:["Kitchen","Air conditioning","Wi-Fi"], ready:true, airbnbIcalUrl:"" },
+
+    blockedDates: [],
+    propertyBlocks: [],
+    blockStart: "",
+    blockEnd: "",
+    blockError: "",
+    blockSaving: false,
+    syncingAirbnb: false,
+    syncError: "",
+    syncNotice: "",
 
     showPasswordForm: false,
     newPassword: "",
@@ -995,6 +1074,66 @@ class Component extends DCLogic {
     );
   };
 
+  loadPropertyBlocks(propertyId) {
+    if (!this.sb) return;
+    this.sb.from("blocked_dates").select("*").eq("property_id", propertyId).order("start_date").then(({ data, error }) => {
+      if (error) { console.error(error); return; }
+      this.setState({ propertyBlocks: data || [] });
+    });
+  }
+
+  addBlockedDate = () => {
+    const s = this.state;
+    if (!this.sb || !s.editingId) return;
+    if (!s.blockStart || !s.blockEnd) { this.setState({ blockError: "Pick both a start and end date." }); return; }
+    if (s.blockEnd <= s.blockStart) { this.setState({ blockError: "End date must be after the start date." }); return; }
+    this.track("host_block_dates_add", { property_id: s.editingId });
+    this.setState({ blockSaving: true, blockError: "" });
+    this.sb.from("blocked_dates").insert({
+      property_id: s.editingId, start_date: s.blockStart, end_date: s.blockEnd, source: "host"
+    }).then(({ error }) => {
+      if (error) { this.setState({ blockSaving: false, blockError: error.message }); return; }
+      this.setState({ blockSaving: false, blockStart: "", blockEnd: "" });
+      this.loadPropertyBlocks(s.editingId);
+      this.fetchBlockedDates();
+    });
+  };
+
+  removeBlockedDate = id => {
+    if (!this.sb || !this.state.editingId) return;
+    const propertyId = this.state.editingId;
+    this.track("host_block_dates_remove");
+    this.sb.from("blocked_dates").delete().eq("id", id).then(({ error }) => {
+      if (error) { this.setState({ blockError: error.message }); return; }
+      this.loadPropertyBlocks(propertyId);
+      this.fetchBlockedDates();
+    });
+  };
+
+  syncAirbnbNow = () => {
+    const s = this.state;
+    if (!this.sb || !s.editingId) return;
+    this.track("host_airbnb_sync_now", { property_id: s.editingId });
+    this.setState({ syncingAirbnb: true, syncError: "", syncNotice: "" });
+    this.sb.functions.invoke("sync-airbnb-calendar", { body: { property_id: s.editingId } }).then(({ data, error }) => {
+      if (error || (data && data.error)) {
+        this.setState({ syncingAirbnb: false, syncError: (data && data.error) || error.message });
+        return;
+      }
+      if (data && data.ok === false) {
+        this.setState({ syncingAirbnb: false, syncError: data.error || "Sync failed." });
+        return;
+      }
+      this.setState({
+        syncingAirbnb: false,
+        syncNotice: "Synced — " + (data.blocked_ranges || 0) + " blocked date ranges pulled from Airbnb."
+      });
+      this.loadPropertyBlocks(s.editingId);
+      this.fetchBlockedDates();
+      this.fetchProperties();
+    });
+  };
+
   loadSupabase() {
     if (window.__supabasePromise) return window.__supabasePromise;
     window.__supabasePromise = new Promise((resolve, reject) => {
@@ -1033,7 +1172,17 @@ class Component extends DCLogic {
     if (!this.sb) return;
     this.fetchHospitals();
     this.fetchProperties();
+    this.fetchBlockedDates();
   };
+
+  // Every property's blocked ranges (Airbnb-synced + host-entered), fetched in one go so
+  // search-time availability filtering doesn't need a query per listing.
+  fetchBlockedDates() {
+    this.sb.from("blocked_dates").select("property_id, start_date, end_date, source").then(({ data, error }) => {
+      if (error) { console.error(error); return; }
+      this.setState({ blockedDates: data || [] });
+    });
+  }
 
   loadHostData() {
     if (!this.sb) return;
@@ -1152,10 +1301,10 @@ class Component extends DCLogic {
     });
   };
 
-  blankN = () => ({ name:"", area:"", hospital:"Amrita Hospital", travel:"", price:"", bedrooms:1, bedsCount:1, sleeps:2, from:"", until:"", phone:"", desc:"", lat:null, lng:null, photos:[], videoUrl:null, amenities:["Kitchen","Air conditioning","Wi-Fi"], ready:true });
+  blankN = () => ({ name:"", area:"", hospital:"Amrita Hospital", travel:"", price:"", bedrooms:1, bedsCount:1, sleeps:2, from:"", until:"", phone:"", desc:"", lat:null, lng:null, photos:[], videoUrl:null, amenities:["Kitchen","Air conditioning","Wi-Fi"], ready:true, airbnbIcalUrl:"" });
 
   openAddForm = () => {
-    this.setState({ showForm: true, editingId: null, publishError: "", n: this.blankN() });
+    this.setState({ showForm: true, editingId: null, publishError: "", n: this.blankN(), propertyBlocks: [], syncError: "", syncNotice: "" });
   };
 
   openEditForm = p => {
@@ -1164,6 +1313,11 @@ class Component extends DCLogic {
       showForm: true,
       editingId: p.id,
       publishError: "",
+      syncError: "",
+      syncNotice: "",
+      blockStart: "",
+      blockEnd: "",
+      blockError: "",
       n: {
         name: p.name, area: p.area, hospital: p.hospital ? p.hospital.name : "Amrita Hospital",
         travel: p.travel_time, price: String(p.price_per_night),
@@ -1171,9 +1325,10 @@ class Component extends DCLogic {
         from: p.available_from || "", until: p.available_until || "",
         phone: p.whatsapp_phone, desc: p.description,
         lat: p.lat, lng: p.lng, photos: p.photos || [], videoUrl: p.video_url || null,
-        amenities: p.amenities || [], ready: p.ready
+        amenities: p.amenities || [], ready: p.ready, airbnbIcalUrl: p.airbnb_ical_url || ""
       }
     });
+    this.loadPropertyBlocks(p.id);
   };
 
   closeForm = () => {
@@ -1218,7 +1373,8 @@ class Component extends DCLogic {
       lng: n.lng != null ? n.lng : hospital.lng,
       whatsapp_phone: phoneDigits,
       photos: n.photos,
-      video_url: n.videoUrl || null
+      video_url: n.videoUrl || null,
+      airbnb_ical_url: n.airbnbIcalUrl ? n.airbnbIcalUrl.trim() : null
     };
     const editingId = s.editingId;
     const query = editingId
@@ -1264,7 +1420,7 @@ class Component extends DCLogic {
   }
 
   filtered() {
-    const { properties, hospital, readyOnly, adults, kids, hospitals, checkIn, checkOut } = this.state;
+    const { properties, hospital, readyOnly, adults, kids, hospitals, checkIn, checkOut, blockedDates } = this.state;
     const guests = Number(adults || 0) + Number(kids || 0);
     const target = hospital === "all" ? null : hospitals.find(h => h.name === hospital);
     // A property is only bookable for the guest's dates if those dates fall inside its
@@ -1275,11 +1431,18 @@ class Component extends DCLogic {
       if (p.available_from && checkOut < p.available_from) return false;
       return true;
     };
+    // Real-time-ish availability: exclude a property if the guest's date range overlaps any
+    // range blocked_dates carries for it — whether that block came from the host manually
+    // marking a WhatsApp booking, or from the periodic Airbnb calendar sync.
+    const notBlockedForDates = p => {
+      if (!checkIn || !checkOut) return true;
+      return !blockedDates.some(b => b.property_id === p.id && checkIn < b.end_date && checkOut > b.start_date);
+    };
     // We rank every ready listing by real distance to the hospital the guest cares about
     // (rather than only showing listings whose host happened to tag that hospital as "nearest") —
     // otherwise a genuinely close property gets buried behind slower competitor sites that do this right.
     return properties
-      .filter(p => (!readyOnly || p.ready) && (isNaN(guests) || guests < 1 || p.sleeps >= guests) && availableForDates(p))
+      .filter(p => (!readyOnly || p.ready) && (isNaN(guests) || guests < 1 || p.sleeps >= guests) && availableForDates(p) && notBlockedForDates(p))
       .map(p => ({ ...p, __sortKm: target ? this.kmTo(p, target) : this.nearestKm(p) }))
       .sort((a, b) => a.__sortKm - b.__sortKm);
   }
@@ -1316,6 +1479,7 @@ class Component extends DCLogic {
       });
       this.fetchHospitals();
       this.fetchProperties();
+      this.fetchBlockedDates();
     }).catch(e => { console.error(e); this.setState({ loadingProperties: false }); });
 
     this.loadLeaflet().then(ok => { this._leaflet = ok ? "ready" : "failed"; this.syncMaps(); });
@@ -1620,6 +1784,9 @@ class Component extends DCLogic {
       stayIn: fmtDate(s.checkIn), stayOut: fmtDate(s.checkOut),
       guestsText: s.adults + " adults" + (Number(s.kids) > 0 ? " · " + s.kids + " child" : ""),
       waLink: sel ? "https://wa.me/" + rawSel.whatsapp_phone + "?text=" + encodeURIComponent("Hello " + rawSel.host_name + ", I found " + rawSel.name + " on The veedu. We need a stay near " + sel.hospitalName + " from " + fmtDate(s.checkIn) + " to " + fmtDate(s.checkOut) + " for " + guests + " guests. Is it available?") : "#",
+      // A guest can land on a property page directly (bookmark/shared link) bypassing the
+      // search-results filtering, so the booking CTA itself needs its own availability check too.
+      selUnavailableForDates: !!(sel && s.checkIn && s.checkOut && s.blockedDates.some(b => b.property_id === sel.id && s.checkIn < b.end_date && s.checkOut > b.start_date)),
 
       ...(() => {
         const reviews = s.reviews;
@@ -1738,6 +1905,44 @@ class Component extends DCLogic {
           } };
       }),
       publish: this.publish,
+
+      ...(() => {
+        const editingProperty = s.editingId ? s.properties.find(p => p.id === s.editingId) : null;
+        const lastSyncedText = editingProperty && editingProperty.ical_last_synced_at
+          ? "Last synced " + timeAgo(editingProperty.ical_last_synced_at)
+          : "Not synced yet";
+        return {
+          nAirbnbIcalUrl: s.n.airbnbIcalUrl,
+          setNAirbnbIcalUrl: e => this.setN("airbnbIcalUrl", e.target.value),
+          isEditingProperty: !!s.editingId,
+          hasAirbnbUrl: !!(s.n.airbnbIcalUrl && s.n.airbnbIcalUrl.trim()),
+          syncAirbnbNow: this.syncAirbnbNow,
+          syncLabel: s.syncingAirbnb ? "Syncing…" : "Sync now",
+          syncingAirbnb: s.syncingAirbnb,
+          syncError: s.syncError,
+          syncNotice: s.syncNotice,
+          lastSyncedText,
+          airbnbSyncErrorOnRecord: editingProperty ? editingProperty.ical_sync_error : null,
+          icalFeedUrl: s.editingId ? SUPABASE_URL + "/functions/v1/ical-feed?property_id=" + s.editingId : "",
+          selectAllText: e => e.target.select(),
+
+          blockStart: s.blockStart,
+          blockEnd: s.blockEnd,
+          setBlockStart: e => this.setState({ blockStart: e.target.value }),
+          setBlockEnd: e => this.setState({ blockEnd: e.target.value }),
+          addBlockedDate: this.addBlockedDate,
+          blockAddLabel: s.blockSaving ? "Adding…" : "Block dates",
+          blockError: s.blockError,
+          hasPropertyBlocks: s.propertyBlocks.length > 0,
+          propertyBlocksList: s.propertyBlocks.map(b => ({
+            id: b.id,
+            rangeText: fmtDate(b.start_date) + " – " + fmtDate(b.end_date),
+            sourceLabel: b.source === "airbnb" ? "Synced from Airbnb" : "Marked by you",
+            canRemove: b.source === "host",
+            remove: () => this.removeBlockedDate(b.id)
+          }))
+        };
+      })(),
 
       hostList,
       hostListEmpty: !!s.session && hostList.length === 0,
