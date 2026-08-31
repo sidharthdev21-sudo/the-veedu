@@ -794,6 +794,9 @@
         <sc-if value="{{ hostListEmpty }}">
         <p style="margin:0; padding:24px; font-size:14px; color:var(--text-soft);">No properties yet — add your first one above.</p>
         </sc-if>
+        <sc-if value="{{ deleteError }}">
+        <p style="margin:0; padding:14px 20px; font-size:13px; color:var(--alert); background:var(--alert-bg);">{{ deleteError }}</p>
+        </sc-if>
         <sc-for list="{{ hostList }}" as="h" hint-placeholder-count="4">
           <div style="padding:16px 20px; border-bottom:1px solid var(--border-light); display:flex; gap:16px; align-items:center; flex-wrap:wrap;">
             <div style="width:96px; height:72px; border-radius:12px; background:{{ h.coverImage }};"></div>
@@ -810,7 +813,15 @@
               <div style="font-size:12px; font-weight:600; color:{{ h.syncFg }};">{{ h.syncLabel }}</div>
               <div style="font-size:11px; color:var(--text-soft); margin-top:2px;">{{ h.syncDetail }}</div>
             </div>
+            <sc-if value="{{ !h.isConfirmingDelete }}">
             <button onClick="{{ h.edit }}" style="min-height:38px; padding:8px 16px; border:1px solid var(--border); border-radius:999px; background:transparent; font-weight:700; font-size:13px;" style-hover="background:var(--surface-muted)">Edit</button>
+            <button onClick="{{ h.askDelete }}" style="min-height:38px; padding:8px 16px; border:1px solid var(--border); border-radius:999px; background:transparent; color:var(--alert); font-weight:700; font-size:13px;" style-hover="background:var(--alert-bg)">Delete</button>
+            </sc-if>
+            <sc-if value="{{ h.isConfirmingDelete }}">
+            <span style="font-size:13px; color:var(--alert); font-weight:600;">Delete this listing?</span>
+            <button onClick="{{ h.confirmDelete }}" style="min-height:38px; padding:8px 16px; border:none; border-radius:999px; background:var(--alert); color:#fff; font-weight:700; font-size:13px;">{{ h.deleteLabel }}</button>
+            <button onClick="{{ h.cancelDelete }}" style="min-height:38px; padding:8px 16px; border:1px solid var(--border); border-radius:999px; background:transparent; font-weight:700; font-size:13px;" style-hover="background:var(--surface-muted)">Cancel</button>
+            </sc-if>
           </div>
         </sc-for>
       </div>
@@ -963,6 +974,10 @@ class Component extends DCLogic {
     syncingAirbnb: false,
     syncError: "",
     syncNotice: "",
+
+    deleteConfirmId: null,
+    deletingProperty: false,
+    deleteError: "",
 
     showPasswordForm: false,
     newPassword: "",
@@ -1329,6 +1344,31 @@ class Component extends DCLogic {
 
   closeForm = () => {
     this.setState({ showForm: false, editingId: null });
+  };
+
+  askDeleteProperty = id => {
+    this.track("host_listing_delete_prompt", { property_id: id });
+    this.setState({ deleteConfirmId: id, deleteError: "" });
+  };
+
+  cancelDeleteProperty = () => {
+    this.setState({ deleteConfirmId: null, deleteError: "" });
+  };
+
+  confirmDeleteProperty = id => {
+    if (!this.sb) return;
+    this.track("host_listing_delete_confirm", { property_id: id });
+    this.setState({ deletingProperty: true, deleteError: "" });
+    this.sb.from("properties").delete().eq("id", id).then(({ error }) => {
+      if (error) { this.setState({ deletingProperty: false, deleteError: error.message }); return; }
+      this.setState(x => ({
+        deletingProperty: false,
+        deleteConfirmId: null,
+        properties: x.properties.filter(p => p.id !== id),
+        editingId: x.editingId === id ? null : x.editingId,
+        showForm: x.editingId === id ? false : x.showForm
+      }));
+    });
   };
 
   publish = () => {
@@ -1731,10 +1771,16 @@ class Component extends DCLogic {
         syncLabel = "Not linked to Airbnb"; syncFg = "#6b6f63"; syncDetail = "Add a calendar link in Edit";
       }
       return {
+        id: p.id,
         name: p.name, area: p.area, beds: d.beds, coverImage: d.coverImage, priceText: inr(p.price_per_night),
         availability: blockedCount ? blockedCount + " blocked date range" + (blockedCount === 1 ? "" : "s") : "No blocked dates",
         syncLabel, syncFg, syncDetail,
-        edit: () => this.openEditForm(p)
+        edit: () => this.openEditForm(p),
+        isConfirmingDelete: s.deleteConfirmId === p.id,
+        askDelete: () => this.askDeleteProperty(p.id),
+        cancelDelete: this.cancelDeleteProperty,
+        confirmDelete: () => this.confirmDeleteProperty(p.id),
+        deleteLabel: s.deletingProperty && s.deleteConfirmId === p.id ? "Deleting…" : "Yes, delete"
       };
     }) : [];
 
@@ -1945,6 +1991,7 @@ class Component extends DCLogic {
 
       hostList,
       hostListEmpty: !!s.session && hostList.length === 0,
+      deleteError: s.deleteError,
       enquiries: s.enquiries.map(e => ({
         name: e.guest_name,
         when: timeAgo(e.created_at),
