@@ -3,6 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The veedu — Safe, peaceful stays in Kochi</title>
+<meta name="description" content="Verified homes and serviced apartments across Kochi, chosen for safety, care and peace of mind.">
+<meta name="theme-color" content="#2f7a52">
 <script src="./support.js"></script>
 </head>
 <body>
@@ -89,7 +92,7 @@
         </span>
         <div>
           <div style="font-weight:800; font-size:19px; letter-spacing:-0.02em; color:var(--text); line-height:1.1;">The veedu</div>
-          <div style="font-size:11px; letter-spacing:0.03em; color:var(--accent); font-weight:600;">Peaceful care homes</div>
+          <div style="font-size:11px; letter-spacing:0.03em; color:var(--accent); font-weight:600;">Safe, peaceful stays in Kochi</div>
         </div>
       </div>
       <div style="flex:1;"></div>
@@ -111,8 +114,8 @@
           <path d="M84 129V90h32v39"/>
           <path d="M100 10c-4.5-6.5-15-6.5-17 2.2-2 8.6 8.6 15 17 21.4 8.4-6.4 19-12.8 17-21.4-2-8.7-12.5-8.7-17-2.2z" fill="var(--accent)" stroke="none"/>
         </svg>
-        <h1 class="hero-title" style="font-size:38px; text-wrap:balance;">A calm place to stay, close to the hospital.</h1>
-        <p style="margin:16px auto 0; font-size:16px; line-height:1.6; color:var(--text-soft); max-width:50ch; text-wrap:pretty;">Verified homes and serviced apartments near Kochi's major hospitals — chosen for families staying through treatment and recovery. Tell us your dates and we will show what is ready now.</p>
+        <h1 class="hero-title" style="font-size:38px; text-wrap:balance;">A safe, peaceful place to call home in Kochi.</h1>
+        <p style="margin:16px auto 0; font-size:16px; line-height:1.6; color:var(--text-soft); max-width:50ch; text-wrap:pretty;">Verified homes and serviced apartments across Kochi, chosen with care for your safety and peace of mind. Tell us your dates and we will show what is ready now.</p>
         <button onClick="{{ goBookStay }}" style="margin-top:28px; min-height:52px; padding:14px 40px; border:none; border-radius:999px; background:var(--accent); color:#fff; font-weight:700; font-size:16px;" style-hover="background:var(--accent-dark)" style-active="background:var(--accent-active)">Book stay</button>
       </div>
     </section>
@@ -130,8 +133,8 @@
           <span style="display:inline-flex; align-items:center; justify-content:center; width:48px; height:48px; border-radius:50%; background:var(--accent-bg); color:var(--accent); margin-bottom:14px;">
             <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-6.5 7-12a7 7 0 1 0-14 0c0 5.5 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/></svg>
           </span>
-          <h3 style="font-size:16px;">Minutes from the hospital</h3>
-          <p style="margin:6px 0 0; font-size:14px; line-height:1.5; color:var(--text-soft);">Every stay is ranked by real distance to Kochi's major hospitals, not guesswork.</p>
+          <h3 style="font-size:16px;">Close to what matters</h3>
+          <p style="margin:6px 0 0; font-size:14px; line-height:1.5; color:var(--text-soft);">See real distances to hospitals, transport and landmarks, so you know exactly where you'll be.</p>
         </div>
         <div style="text-align:center; padding:8px 12px;">
           <span style="display:inline-flex; align-items:center; justify-content:center; width:48px; height:48px; border-radius:50%; background:var(--accent-bg); color:var(--accent); margin-bottom:14px;">
@@ -153,9 +156,9 @@
         <h1 style="font-size:22px; text-align:center; margin-bottom:20px;">Find your stay</h1>
         <div class="search-pill" style="display:flex; align-items:stretch; background:var(--surface); border:1px solid var(--border); border-radius:999px; box-shadow:0 6px 20px rgba(0,0,0,0.08);">
           <div class="seg" style="flex:1.2; min-width:0; padding:10px 24px; border-right:1px solid var(--border-light);">
-            <label style="display:block; font-size:11px; font-weight:700; margin-bottom:2px;">Hospital</label>
+            <label style="display:block; font-size:11px; font-weight:700; margin-bottom:2px;">Near</label>
             <select value="{{ fHospital }}" onChange="{{ setHospital }}" style="width:100%; min-height:24px; padding:0; font-size:14px; background:transparent; border:none; color:var(--text-soft);">
-              <option value="all">Any hospital in Kochi</option>
+              <option value="all">Any place in Kochi</option>
               <sc-for list="{{ hospitalOptions }}" as="ho" hint-placeholder-count="4">
                 <option value="{{ ho.name }}">{{ ho.name }}</option>
               </sc-for>
@@ -193,7 +196,7 @@
         <div style="flex:1;"></div>
         <label style="display:flex; align-items:center; gap:8px; font-size:14px; cursor:pointer;">
           <input type="checkbox" checked="{{ readyOnly }}" onChange="{{ toggleReady }}" style="width:16px; height:16px; min-height:16px; accent-color:var(--accent); border-radius:4px;">
-          Ready for occupancy only
+          Available now only
         </label>
       </div>
 
@@ -201,7 +204,7 @@
       <p style="margin:24px 0 0; font-size:14px; color:var(--text-soft);">Loading stays…</p>
       </sc-if>
       <sc-if value="{{ resultsEmpty }}">
-      <p style="margin:24px 0 0; font-size:14px; color:var(--text-soft);">No stays match these filters yet. Try another hospital or clear "Ready for occupancy only".</p>
+      <p style="margin:24px 0 0; font-size:14px; color:var(--text-soft);">No stays match these filters yet. Try another place or clear "Available now only".</p>
       </sc-if>
       <sc-if value="{{ loadError }}">
       <div style="margin:24px 0 0; padding:16px 20px; background:var(--alert-bg); border-radius:12px; display:flex; align-items:center; gap:16px; flex-wrap:wrap;">
@@ -303,7 +306,7 @@
         </div>
 
         <hr style="border:0; border-top:1px solid var(--border-light); margin:32px 0;">
-        <h3 style="font-size:20px; margin-bottom:18px;">Distance to hospitals</h3>
+        <h3 style="font-size:20px; margin-bottom:18px;">Nearby places</h3>
         <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:12px;">
           <sc-for list="{{ sel.hospitalDistances }}" as="hd" hint-placeholder-count="4">
             <div style="background:var(--surface-muted); border-radius:12px; padding:12px 16px; display:flex; justify-content:space-between; gap:8px; align-items:baseline;">
@@ -505,7 +508,7 @@
     <div style="display:flex; align-items:flex-end; gap:16px; flex-wrap:wrap; padding-bottom:24px;">
       <div>
         <h1 class="hero-title" style="font-size:32px;">Your properties</h1>
-        <p style="margin:8px 0 0; font-size:15px; color:var(--text-soft);">Keep availability honest — families book on what they see here.</p>
+        <p style="margin:8px 0 0; font-size:15px; color:var(--text-soft);">Keep availability honest — guests book on what they see here.</p>
         <sc-if value="{{ hostSignedIn }}">
         <p style="margin:8px 0 0; font-size:13px; color:var(--text-soft);">Signed in as {{ authIdentityDisplay }} · <a href="#" onClick="{{ togglePasswordForm }}" style="text-decoration:underline;">Change password</a> · <a href="#" onClick="{{ doSignOut }}" style="text-decoration:underline;">Sign out</a></p>
         </sc-if>
@@ -601,7 +604,7 @@
           <input value="{{ nArea }}" onChange="{{ setNArea }}" placeholder="e.g. Ponekkara, Kochi" style="width:100%; padding:6px 12px; font-size:14px; background:var(--surface);">
         </div>
         <div>
-          <label style="display:block; font-size:12px; margin-bottom:5px; color:var(--text-soft);">Nearest hospital</label>
+          <label style="display:block; font-size:12px; margin-bottom:5px; color:var(--text-soft);">Nearest landmark</label>
           <select value="{{ nHospital }}" onChange="{{ setNHospital }}" style="width:100%; padding:6px 12px; font-size:14px; background:var(--surface);">
             <sc-for list="{{ hospitalOptions }}" as="ho" hint-placeholder-count="4">
               <option value="{{ ho.name }}">{{ ho.name }}</option>
@@ -640,7 +643,7 @@
 
       <div style="margin-top:16px;">
         <label style="display:block; font-size:12px; margin-bottom:5px; color:var(--text-soft);">Description</label>
-        <textarea value="{{ nDesc }}" onChange="{{ setNDesc }}" rows="4" placeholder="Tell families what the stay is like — quiet, lift access, kitchen, how far the hospital is on foot." style="width:100%; min-height:90px; padding:12px; font-size:14px; background:var(--surface); border-radius:12px; resize:vertical; line-height:1.6;"></textarea>
+        <textarea value="{{ nDesc }}" onChange="{{ setNDesc }}" rows="4" placeholder="Tell guests what the stay is like — quiet, safe neighbourhood, lift access, kitchen, what is nearby." style="width:100%; min-height:90px; padding:12px; font-size:14px; background:var(--surface); border-radius:12px; resize:vertical; line-height:1.6;"></textarea>
       </div>
 
       <div style="margin-top:20px;">
@@ -706,7 +709,7 @@
       </div>
 
       <div style="margin-top:20px;">
-        <div style="font-size:12px; color:var(--text-soft); margin-bottom:8px;">Distance to every hospital on The veedu — calculated automatically from the pin above, so families searching near any of them can find this stay</div>
+        <div style="font-size:12px; color:var(--text-soft); margin-bottom:8px;">Distance to every landmark on The veedu — calculated automatically from the pin above, so guests searching near any of them can find this stay</div>
         <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:10px;">
           <sc-for list="{{ nHospitalDistances }}" as="hd" hint-placeholder-count="4">
             <div style="background:var(--surface-muted); border-radius:10px; padding:10px 14px; display:flex; justify-content:space-between; gap:8px; align-items:baseline;">
@@ -852,9 +855,9 @@
 
   <footer style="border-top:1px solid var(--border-light); background:var(--surface-muted);">
     <div style="max-width:1240px; margin:0 auto; padding:22px 24px; display:flex; gap:20px; flex-wrap:wrap; align-items:center;">
-      <span style="font-size:13px; color:var(--text-soft);">The veedu · Peaceful care homes · Kochi, Kerala</span>
+      <span style="font-size:13px; color:var(--text-soft);">The veedu · Safe, peaceful stays · Kochi, Kerala</span>
       <div style="flex:1;"></div>
-      <a href="#" style="color:var(--text-soft); font-size:13px;">Help for families</a>
+      <a href="#" style="color:var(--text-soft); font-size:13px;">Help and support</a>
       <a href="#" style="color:var(--text-soft); font-size:13px;">List your property</a>
     </div>
   </footer>
@@ -963,7 +966,7 @@ class Component extends DCLogic {
     photoError: "",
     videoUploading: false,
     videoError: "",
-    n: { name:"", area:"", hospital:"Amrita Hospital", travel:"", price:"", bedrooms:1, bedsCount:1, sleeps:2, from:"", until:"", phone:"", desc:"", lat:null, lng:null, photos:[], videoUrl:null, amenities:["Kitchen","Air conditioning","Wi-Fi"], airbnbIcalUrl:"" },
+    n: { name:"", area:"", hospital:"", travel:"", price:"", bedrooms:1, bedsCount:1, sleeps:2, from:"", until:"", phone:"", desc:"", lat:null, lng:null, photos:[], videoUrl:null, amenities:["Kitchen","Air conditioning","Wi-Fi"], airbnbIcalUrl:"" },
 
     blockedDates: [],
     propertyBlocks: [],
@@ -1162,8 +1165,11 @@ class Component extends DCLogic {
   fetchHospitals() {
     this.setState({ hospitalsError: "" });
     this.sb.from("hospitals").select("*").order("name").then(({ data, error }) => {
-      if (error) { console.error(error); this.setState({ hospitalsError: "Couldn't load hospitals — check your connection." }); return; }
-      this.setState({ hospitals: data || [] });
+      if (error) { console.error(error); this.setState({ hospitalsError: "Couldn't load places — check your connection." }); return; }
+      const list = data || [];
+      const cur = this.state.n || {};
+      const keep = list.some(h => h.name === cur.hospital);
+      this.setState({ hospitals: list, n: keep || !list.length ? cur : { ...cur, hospital: list[0].name } });
     });
   }
 
@@ -1312,7 +1318,7 @@ class Component extends DCLogic {
     });
   };
 
-  blankN = () => ({ name:"", area:"", hospital:"Amrita Hospital", travel:"", price:"", bedrooms:1, bedsCount:1, sleeps:2, from:"", until:"", phone:"", desc:"", lat:null, lng:null, photos:[], videoUrl:null, amenities:["Kitchen","Air conditioning","Wi-Fi"], airbnbIcalUrl:"" });
+  blankN = () => ({ name:"", area:"", hospital:"", travel:"", price:"", bedrooms:1, bedsCount:1, sleeps:2, from:"", until:"", phone:"", desc:"", lat:null, lng:null, photos:[], videoUrl:null, amenities:["Kitchen","Air conditioning","Wi-Fi"], airbnbIcalUrl:"" });
 
   openAddForm = () => {
     this.setState({ showForm: true, editingId: null, publishError: "", n: this.blankN(), propertyBlocks: [], syncError: "", syncNotice: "" });
@@ -1330,7 +1336,7 @@ class Component extends DCLogic {
       blockEnd: "",
       blockError: "",
       n: {
-        name: p.name, area: p.area, hospital: p.hospital ? p.hospital.name : "Amrita Hospital",
+        name: p.name, area: p.area, hospital: p.hospital ? p.hospital.name : "",
         travel: p.travel_time, price: String(p.price_per_night),
         bedrooms: p.bedrooms, bedsCount: p.beds, sleeps: p.sleeps,
         from: p.available_from || "", until: p.available_until || "",
@@ -1379,7 +1385,7 @@ class Component extends DCLogic {
     if (!n.name || !n.name.trim()) { this.setState({ publishError: "Please enter a property name." }); return; }
     const hospital = s.hospitals.find(h => h.name === n.hospital);
     if (!hospital) {
-      this.setState({ publishError: s.hospitals.length ? "Please choose a hospital from the list." : "Still loading hospitals — wait a second and try again." });
+      this.setState({ publishError: s.hospitals.length ? "Please choose the nearest landmark from the list." : "Still loading landmarks — wait a second and try again." });
       return;
     }
     // No fallback stub number here on purpose — a guest silently WhatsApping a placeholder
@@ -1395,7 +1401,7 @@ class Component extends DCLogic {
       name: n.name.trim(),
       area: n.area || "Kochi",
       travel_time: n.travel || "nearby",
-      description: n.desc || ("Newly listed stay near " + n.hospital + "."),
+      description: n.desc || ("A newly listed, peaceful stay near " + n.hospital + "."),
       price_per_night: Number(n.price) || 2000,
       bedrooms: Number(n.bedrooms) || 0,
       beds: Number(n.bedsCount) || 1,
@@ -1721,7 +1727,7 @@ class Component extends DCLogic {
       uberLink: hasCoords ? "https://m.uber.com/ul/?action=setPickup&pickup%5Blatitude%5D=" + p.lat + "&pickup%5Blongitude%5D=" + p.lng + "&pickup%5Bnickname%5D=" + encodeURIComponent(p.name) : "https://m.uber.com",
       // Every property that reaches a card is already availability-filtered (blocked_dates +
       // available_from/until), so the badge is just a static "this listing is live" indicator now.
-      badgeText: "Ready for occupancy",
+      badgeText: "Available now",
       badgeBg: "#eaf4ec",
       badgeFg: "#1d4d35",
       distanceLine: primary
@@ -1738,7 +1744,7 @@ class Component extends DCLogic {
       hospitalDistances: hospitalDistances.map(h => ({ name: h.name, kmText: kmText(h.km), isNearest: h.name === (nearest && nearest.name) })),
       facts: [
         { label:"Sleeps", value: bedsText },
-        { label: primary ? "Distance to " + primary.name : "Nearest hospital", value: primary ? kmText(primary.km) : hospitalName },
+        { label: primary ? "Distance to " + primary.name : "Nearest landmark", value: primary ? kmText(primary.km) : hospitalName },
         { label:"Accessibility", value: p.accessible ? "Step-free · wheelchair friendly" : "Stairs or lift required" },
         { label:"Minimum stay", value: "3 nights" },
         { label:"House rules", value: "No smoking · attendants welcome" }
@@ -1812,7 +1818,7 @@ class Component extends DCLogic {
       loadError: s.propertiesError || s.hospitalsError,
       retryLoad: this.retryLoad,
       resultCount: results.length + (results.length === 1 ? " stay" : " stays"),
-      resultSummary: (s.hospital === "all" ? "near Kochi hospitals" : "near " + s.hospital) + " · " + fmtDate(s.checkIn) + " – " + fmtDate(s.checkOut) + (nights ? " · " + nights + " nights" : "") + " · " + guests + " guests",
+      resultSummary: (s.hospital === "all" ? "across Kochi" : "near " + s.hospital) + " · " + fmtDate(s.checkIn) + " – " + fmtDate(s.checkOut) + (nights ? " · " + nights + " nights" : "") + " · " + guests + " guests",
 
       sel: sel || {},
       trackOla: () => this.track("taxi_book_ola", { property_id: s.selId }),
@@ -1829,7 +1835,7 @@ class Component extends DCLogic {
       sendEnquiry: this.sendEnquiry,
       stayIn: fmtDate(s.checkIn), stayOut: fmtDate(s.checkOut),
       guestsText: s.adults + " adults" + (Number(s.kids) > 0 ? " · " + s.kids + " child" : ""),
-      waLink: sel ? "https://wa.me/" + rawSel.whatsapp_phone + "?text=" + encodeURIComponent("Hello " + rawSel.host_name + ", I found " + rawSel.name + " on The veedu. We need a stay near " + sel.hospitalName + " from " + fmtDate(s.checkIn) + " to " + fmtDate(s.checkOut) + " for " + guests + " guests. Is it available?") : "#",
+      waLink: sel ? "https://wa.me/" + rawSel.whatsapp_phone + "?text=" + encodeURIComponent("Hello " + rawSel.host_name + ", I found " + rawSel.name + " on The veedu. I would like to book a stay near " + sel.hospitalName + " from " + fmtDate(s.checkIn) + " to " + fmtDate(s.checkOut) + " for " + guests + " guests. Is it available?") : "#",
       // A guest can land on a property page directly (bookmark/shared link) bypassing the
       // search-results filtering, so the booking CTA itself needs its own availability check too.
       selUnavailableForDates: !!(sel && s.checkIn && s.checkOut && s.blockedDates.some(b => b.property_id === sel.id && s.checkIn < b.end_date && s.checkOut > b.start_date)),
