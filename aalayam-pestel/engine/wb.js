@@ -5,6 +5,7 @@
 //   render  : Board.render(ctx, t, cam) — board, ghosts, ink (with erasers), texture, objects
 import { clamp, lerp, vnoise, hash, mulberry, TAU } from '/core/lib.js';
 
+export const SCR = { w: 1920, h: 1080 };            // output frame; set before building a vertical film
 export const INK = { black: '#23262c', blue: '#2a5cb3', orange: '#d97757', red: '#c8413a', green: '#2e7a4d' };
 const RGB = h => [1, 3, 5].map(i => parseInt(h.slice(i, i + 2), 16));
 
@@ -305,10 +306,10 @@ export class Camera {
     const za = a.z, zb = b.z, z = Math.exp(lz), wgt = Math.abs(zb - za) > 1e-4 ? (1 / za - 1 / z) / (1 / za - 1 / zb) : e;
     return { x: lerp(a.x, b.x, wgt), y: lerp(a.y, b.y, wgt), z, r: lerp(a.r, b.r, e) };
   }
-  toWorld(sx, sy, t) { const c = this.at(t), dx = (sx - 960) / c.z, dy = (sy - 540) / c.z, cs = Math.cos(-c.r), sn = Math.sin(-c.r); return [c.x + dx * cs - dy * sn, c.y + dx * sn + dy * cs]; }
+  toWorld(sx, sy, t) { const c = this.at(t), dx = (sx - SCR.w / 2) / c.z, dy = (sy - SCR.h / 2) / c.z, cs = Math.cos(-c.r), sn = Math.sin(-c.r); return [c.x + dx * cs - dy * sn, c.y + dx * sn + dy * cs]; }
 }
-export function applyCam(ctx, c) { ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.translate(960, 540); ctx.rotate(c.r); ctx.scale(c.z, c.z); ctx.translate(-c.x, -c.y); }
-export function toScreen(c, x, y) { const dx = (x - c.x) * c.z, dy = (y - c.y) * c.z, cs = Math.cos(c.r), sn = Math.sin(c.r); return [960 + dx * cs - dy * sn, 540 + dx * sn + dy * cs]; }
+export function applyCam(ctx, c) { ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.translate(SCR.w / 2, SCR.h / 2); ctx.rotate(c.r); ctx.scale(c.z, c.z); ctx.translate(-c.x, -c.y); }
+export function toScreen(c, x, y) { const dx = (x - c.x) * c.z, dy = (y - c.y) * c.z, cs = Math.cos(c.r), sn = Math.sin(c.r); return [SCR.w / 2 + dx * cs - dy * sn, SCR.h / 2 + dx * sn + dy * cs]; }
 
 // ───────────────────────── textures
 function noiseTile(seed) {                          // dry-marker speckle & streaks (used with destination-out)
@@ -339,7 +340,7 @@ export class Board {
   // o: {W,H, frame, tray, ghosts:Stroke[], wall}
   constructor(tl, o = {}) {
     this.tl = tl; this.W = o.W ?? 8000; this.H = o.H ?? 4500; this.ghosts = o.ghosts || [];
-    this.ink = new OffscreenCanvas(1920, 1080); this.ig = this.ink.getContext('2d');
+    this.ink = new OffscreenCanvas(SCR.w, SCR.h); this.ig = this.ink.getContext('2d');
     this.nt = noiseTile(7); this.bt = boardTile(11);
     this.objs = [];                                 // {draw(ctx, t, cam)} in world, drawn after ink
     this.overlays = [];                             // {draw(ctx, t, cam)} in screen space
@@ -348,7 +349,7 @@ export class Board {
     const c = cam.at(t), W = this.W, H = this.H;
     ctx.setTransform(1, 0, 0, 1, 0, 0);
     // wall (only visible on wide shots)
-    ctx.fillStyle = '#d8d3ca'; ctx.fillRect(0, 0, 1920, 1080);
+    ctx.fillStyle = '#d8d3ca'; ctx.fillRect(0, 0, SCR.w, SCR.h);
     applyCam(ctx, c);
     if (c.z < .5) this.frame(ctx, c);
     // board surface
@@ -361,8 +362,8 @@ export class Board {
     for (const s of this.ghosts) { ctx.fillStyle = s.color || '#9aa0a8'; ctx.globalAlpha = s.alpha; ctx.beginPath(); ribbon(ctx, s, s.len, 1.5); ctx.fill(); }
     ctx.restore();
     // ink layer
-    const ig = this.ig; ig.setTransform(1, 0, 0, 1, 0, 0); ig.clearRect(0, 0, 1920, 1080); applyCam(ig, c);
-    const vw = 1400 / c.z, vx0 = c.x - vw, vx1 = c.x + vw, vy0 = c.y - vw, vy1 = c.y + vw;
+    const ig = this.ig; ig.setTransform(1, 0, 0, 1, 0, 0); ig.clearRect(0, 0, SCR.w, SCR.h); applyCam(ig, c);
+    const vw = Math.max(SCR.w, SCR.h) * .73 / c.z, vx0 = c.x - vw, vx1 = c.x + vw, vy0 = c.y - vw, vy1 = c.y + vw;
     const E = this.tl.erasers; let ep = 0;
     const flushErasers = upto => {
       while (ep < upto) {
@@ -397,10 +398,10 @@ export class Board {
     // specular sheen: a soft window reflection that drifts slower than the board (sells the gloss)
     ctx.save(); applyCam(ctx, c); ctx.beginPath(); ctx.rect(0, 0, W, H); ctx.clip();
     ctx.setTransform(1, 0, 0, 1, 0, 0);
-    const sx = -c.x * c.z * .35 + 900, sh = ctx.createLinearGradient(sx - 700, 0, sx + 700, 1080);
+    const sx = -c.x * c.z * .35 + 900, sh = ctx.createLinearGradient(sx - 700, 0, sx + 700, SCR.h);
     sh.addColorStop(0, 'rgba(255,255,255,0)'); sh.addColorStop(.45, 'rgba(255,255,255,.10)'); sh.addColorStop(.5, 'rgba(255,255,255,.16)');
     sh.addColorStop(.55, 'rgba(255,255,255,.10)'); sh.addColorStop(1, 'rgba(255,255,255,0)');
-    ctx.fillStyle = sh; ctx.fillRect(0, 0, 1920, 1080); ctx.restore();
+    ctx.fillStyle = sh; ctx.fillRect(0, 0, SCR.w, SCR.h); ctx.restore();
     // world objects (magnets, pens, eraser)
     for (const o of this.objs) { ctx.save(); o.draw(ctx, t, c, cam); ctx.restore(); }
     ctx.setTransform(1, 0, 0, 1, 0, 0);

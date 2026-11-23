@@ -7,7 +7,7 @@ from core.audio.sfx import SR, bp, lp, hp, add, compress, limit
 from core.audio import sampler as S
 from scipy.signal import lfilter
 HERE = os.path.dirname(os.path.abspath(__file__))
-ev = json.load(open(os.path.join(HERE, 'events.json'))); E = ev['ev']; DUR = ev['dur']
+ev = json.load(open(os.path.join(HERE, os.environ.get('EVENTS', 'events.json')))); E = ev['ev']; DUR = ev['dur']
 C = next(e for e in E if e['type'] == 'cues')
 rng = np.random.default_rng(11)
 NS = int((DUR + 1) * SR)
@@ -141,4 +141,4 @@ for _ in range(3):
 tp = np.abs(soxr.resample(mix, SR, SR * 4)).max()
 if tp > db(-1.0): mix = mix * db(-1.05) / tp                     # last trim, if the limiter left an inter-sample peak
 print('loudness', round(lufs(mix), 2), 'LUFS · true peak', round(20 * np.log10(np.abs(soxr.resample(mix, SR, SR * 4)).max()), 2), 'dBTP')
-sf.write(os.path.join(HERE, 'out', 'mix.wav'), mix.astype(np.float32), SR, subtype='PCM_24')
+sf.write(os.path.join(HERE, 'out', os.environ.get('MIXOUT', 'mix.wav')), mix.astype(np.float32), SR, subtype='PCM_24')

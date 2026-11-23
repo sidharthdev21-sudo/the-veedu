@@ -21,4 +21,10 @@ node core/render/video.mjs "$HERE" --fps 24 --workers 4 --out "$HERE/out/video.m
 ffmpeg -y -loglevel error -i "$HERE/out/video.mp4" -i "$HERE/out/mix.wav" -map 0:v -map 1:a -c:v copy -c:a aac -b:a 192k -shortest -movflags +faststart "$HERE/aalayam-pestel.mp4"
 node "$HERE/tools/subs.mjs" "$HERE" && $PY core/render/srt.py "$HERE/out/subs.json" "$HERE/subtitles_en.srt"
 node core/render/still.mjs "$HERE" 77.6 --q nosubs=1 --prefix poster_ --out "$HERE/out" && cp "$HERE/out/poster_77.6.jpg" "$HERE/poster.jpg"
-echo "built $HERE/aalayam-pestel.mp4"
+# 9:16 Reel: the same timeline on a tall board (film.js picks the layout from the frame size)
+node core/render/events.mjs "$HERE" --size 1080x1920 --out "$HERE/events_v.json"
+EVENTS=events_v.json MIXOUT=mix_v.wav $PY "$HERE/mix.py"
+node core/render/video.mjs "$HERE" --size 1080x1920 --fps 24 --workers 4 --out "$HERE/out/video_v.mp4"
+ffmpeg -y -loglevel error -i "$HERE/out/video_v.mp4" -i "$HERE/out/mix_v.wav" -map 0:v -map 1:a -c:v copy -c:a aac -b:a 192k -shortest -movflags +faststart "$HERE/aalayam-pestel-reel.mp4"
+node core/render/still.mjs "$HERE" 77.6 --size 1080x1920 --q nosubs=1 --prefix poster_v_ --out "$HERE/out" && cp "$HERE/out/poster_v_77.6.jpg" "$HERE/poster-reel.jpg"
+echo "built $HERE/aalayam-pestel.mp4 and $HERE/aalayam-pestel-reel.mp4"

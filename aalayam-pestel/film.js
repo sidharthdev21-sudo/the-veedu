@@ -14,7 +14,22 @@ const VOFF = 1.25;                                             // VO starts this
 export const VO = { v01: 1.0, v02: 3.6, v03: 6.2, v10: FIN + .6, v11: FIN + 6.6 };
 ['v04', 'v05', 'v06', 'v07', 'v08', 'v09'].forEach((id, k) => VO[id] = +(SK[k] + VOFF).toFixed(3));
 
-const C = [4000, 2150];                                        // the brand magnet
+// Two layouts on one timeline: a wide board for 16:9, a tall board for the 9:16 Reel (chosen by the frame size).
+const V = () => W.SCR.h > W.SCR.w;
+const LAND = {
+  BW: 8000, BH: 4500, C: [4000, 2150], nameY: 2420, pestY: 1870, subY: 2560, tagY: 2850, ell: [2310, 760, 420],
+  park: [[2250, 1350], [2350, 1150], [2150, 1450]],
+  reg: [[450, 850, [[3720, 2120], [3050, 1720], [2480, 1250]]], [2950, 650, [[4200, 2000], [4520, 1640], [4330, 1180]]],
+    [5550, 850, [[4290, 2120], [4950, 1720], [5520, 1250]]], [5550, 3150, [[4380, 2400], [5000, 2820], [5520, 2960]]],
+    [2950, 3350, [[3580, 2420], [3420, 2850], [3650, 3060]]], [450, 3150, [[3620, 2400], [3000, 2820], [2480, 2960]]]],
+};
+const PORT = {
+  BW: 4500, BH: 8000, C: [2250, 3760], nameY: 4030, pestY: 3480, subY: 4170, tagY: 4560, ell: [3900, 600, 520],
+  park: [[1300, 2150], [1400, 1950], [1250, 2300]],
+  reg: [[250, 1150, [[1860, 3600], [1450, 2900], [900, 2250]]], [2500, 1150, [[2640, 3600], [3050, 2900], [3150, 2250]]],
+    [3120, 3350, [[2420, 3690], [2750, 3540], [3060, 3410]]], [2500, 5950, [[2500, 4300], [3000, 4950], [3150, 5620]]],
+    [250, 5950, [[2000, 4300], [1500, 4950], [900, 5620]]], [200, 3350, [[2080, 3690], [1750, 3540], [1420, 3410]]]],
+};
 
 export async function build() {
   await W.loadFont('tech', 'fonts/EMSTech.json');
@@ -27,10 +42,11 @@ export async function build() {
   };
   const atS = (id, w) => at(id, w, 0, 1), atE = (id, w) => at(id, w, 0, 2);
 
+  const LY = V() ? PORT : LAND, C = LY.C, SW = W.SCR.w, SH = W.SCR.h;
   const tl = new W.Timeline();
-  const N = new W.Pen('navy', NAVY, { park: [2250, 1350] });
-  const T = new W.Pen('teal', TEAL, { park: [2350, 1150] });
-  const R = new W.Pen('red', RED, { park: [2150, 1450] });
+  const N = new W.Pen('navy', NAVY, { park: LY.park[0] });
+  const T = new W.Pen('teal', TEAL, { park: LY.park[1] });
+  const R = new W.Pen('red', RED, { park: LY.park[2] });
   const PENS = [N, T, R];
   const D = (pen, shapes, a, b, o = {}) => tl.draw(pen, shapes, a, { by: b, ...o });
   const X = W.text;
@@ -38,7 +54,7 @@ export async function build() {
   // ghosts of an old planning meeting, never fully wiped
   const ghosts = [], gR = mulberry(2024);
   for (let i = 0; i < 40; i++) {
-    const x = gR() * 7600 + 200, y = gR() * 4100 + 200, k = gR();
+    const x = gR() * (LY.BW - 400) + 200, y = gR() * (LY.BH - 400) + 200, k = gR();
     const o = { w: 12, alpha: .05 + gR() * .045, color: gR() < .2 ? '#8aa0c8' : '#9aa0a8' };
     if (k < .3) ghosts.push(...X(['Q3', 'mtg 4pm', 'SKU 12', 'ok!', 'Diwali?', 'v2', 'ship fri', 'reels', 'n = 40'][i % 9], x, y, { h: 50 + gR() * 40, ...o }));
     else if (k < .55) ghosts.push(W.circle(x, y, 40 + gR() * 110, o));
@@ -48,9 +64,9 @@ export async function build() {
 
   // ═════════ HOOK: the magnet, the name, the tool (0–10)
   const DROP = .6;
-  D(N, X('AALAYAM', C[0], 2420, { h: 150, w: 17, align: 'center' }), VO.v02 + .45, atE('v02', 'AALAYAM') + .25, { minGap: .03, maxGap: .08 });
-  D(T, X('PESTEL', C[0], 1870, { h: 110, w: 13, align: 'center', spacing: 1.08 }), VO.v03 - .05, atE('v03', 'PESTEL') + .35, { minGap: .03, maxGap: .07 });
-  D(N, X('six forces outside the brand', C[0], 2560, { h: 52, w: 7, align: 'center' }), atS('v03', 'six') - .05, atE('v03', 'brand') + .1, { minGap: .02, maxGap: .05 });
+  D(N, X('AALAYAM', C[0], LY.nameY, { h: 150, w: 17, align: 'center' }), VO.v02 + .45, atE('v02', 'AALAYAM') + .25, { minGap: .03, maxGap: .08 });
+  D(T, X('PESTEL', C[0], LY.pestY, { h: 110, w: 13, align: 'center', spacing: 1.08 }), VO.v03 - .05, atE('v03', 'PESTEL') + .35, { minGap: .03, maxGap: .07 });
+  D(N, X('six forces outside the brand', C[0], LY.subY, { h: 52, w: 7, align: 'center' }), atS('v03', 'six') - .05, atE('v03', 'brand') + .1, { minGap: .02, maxGap: .05 });
 
   // ═════════ SIX FORCES
   const REG = [
@@ -96,6 +112,10 @@ export async function build() {
   };
 
   const REGT = [];                                             // per section: framing + times, for camera and cues
+  REG.forEach((g, k) => { [g.ax, g.ay, g.line] = LY.reg[k]; });
+  // vertical: icon under the heading, labels under the icon; wide: icon to the right, labels under the heading
+  const ICON_AT = g => V() ? [g.ax + 450, g.ay + 360] : [g.ax + 1700, g.ay + 60];
+  const LAB_Y = (g, i) => V() ? g.ay + 680 + i * 105 : g.ay + 200 + i * 105;
   REG.forEach((g, k) => {
     const s = SK[k], vo = g.vo;
     D(T, W.curve(g.line, { w: 10, over: 10 }), s + .45, s + 1.3, { travel: 6000 });
@@ -105,10 +125,10 @@ export async function build() {
     const head = X(g.name, hx, g.ay, { h: 110, w: 12 });
     const hEnd = Math.max(s + 2.1, atE(vo, g.name.slice(0, 5)) + .1);
     D(N, head, s + 1.35, hEnd, { minGap: .02, maxGap: .06 });
-    const ic = ICON[g.icon](g.ax + 1700, g.ay + 60);
+    const ic = ICON[g.icon](...ICON_AT(g));
     // labels, each finishing on its keyword
     const labs = g.lab.map(([txt, kw, red], i) => {
-      const y = g.ay + 200 + i * 105, pen = red ? R : N;
+      const y = LAB_Y(g, i), pen = red ? R : N;
       const sh = [W.line(g.ax + 40, y - 24, g.ax + 85, y - 26, { w: 7 }), ...X(txt, g.ax + 115, y, { h: 62, w: 8 })];
       const t0 = Math.max(atS(vo, kw) - .15, hEnd + .05);
       return { pen, sh, t0, t1: t0 + clamp(txt.length * .045, .55, .95) };
@@ -119,7 +139,8 @@ export async function build() {
     const icEnd = Math.min(icT + 1.1, s + SEC - .4);
     [...labs, { pen: N, sh: ic, t0: icT, t1: icEnd }].sort((p, q) => p.t0 - q.t0).forEach(l => D(l.pen, l.sh, l.t0, l.t1, { minGap: .02, maxGap: .05 }));
     tl.cue(s, 'section', { k });
-    REGT.push({ cx: g.ax + 960, cy: g.ay + 95, s });
+    const wC = Math.max(hx + head.width - g.ax + 40, 950);   // vertical: frame the widest line of the region
+    REGT.push(V() ? { cx: g.ax + wC / 2, cy: g.ay + 500, s, z: Math.min(.94, 990 / wC) } : { cx: g.ax + 960, cy: g.ay + 95, s });
   });
 
   // ═════════ FINALE: arrows into the brand, the whole board, the circle
@@ -129,8 +150,8 @@ export async function build() {
   });
   heads.forEach((h, i) => { const t = FIN + .1 + i * BEAT * .5; D(T, h, t, t + .22, { minGap: .02, maxGap: .04 }); });
   const CIRC0 = FIN + 8.1;
-  D(R, W.circle(C[0], 2310, 760, { w: 14, ry: 420, a0: -2.5, lap: TAU + .35 }), CIRC0, CIRC0 + 1.5);
-  D(N, X("designing for what's next", C[0], 2850, { h: 70, w: 9, align: 'center' }), atS('v11', 'design') - .1, atE('v11', 'next') + .4, { minGap: .02, maxGap: .05 });
+  D(R, W.circle(C[0], LY.ell[0], LY.ell[1], { w: 14, ry: LY.ell[2], a0: -2.5, lap: TAU + .35 }), CIRC0, CIRC0 + 1.5);
+  D(N, X("designing for what's next", C[0], LY.tagY, { h: 70, w: 9, align: 'center' }), atS('v11', 'design') - .1, atE('v11', 'next') + .4, { minGap: .02, maxGap: .05 });
   const CAPON = FIN + 12.0;
   tl.cue(.3, 'cap'); tl.cue(CAPON, 'capOn');
   tl.end();
@@ -159,23 +180,25 @@ export async function build() {
   }
 
   // ───────── camera (t, x, y, zoom, roll, ease)
-  const keys = [[0, C[0], 2190, 2.3], [1.0, C[0], 2190, 2.22, 0, 's'], [5.4, C[0], 2300, 1.05, 0, 'io'], [6.1, C[0], 2250, 1.0, 0, 'l'], [S0, C[0], 2230, .95, 0, 'l']];
-  REGT.forEach(({ cx, cy, s }, k) => {
+  const cz = V() ? { open: .86, mid: .5, reg: .98, push: .04, end: .72, wide: .2, wideY: 4250, fy: 200, ey: 330 } : { open: 1.0, mid: .62, reg: .9, push: .05, end: .9, wide: .205, wideY: 2290, fy: 140, ey: 270 };
+  const keys = V() ? [[0, C[0], C[1] + 40, 2.3], [1.0, C[0], C[1] + 40, 2.22, 0, 's'], [5.4, C[0], C[1] + 180, .88, 0, 'io'], [6.1, C[0], C[1] + 130, .86, 0, 'l'], [S0, C[0], C[1] + 120, .83, 0, 'l']] :
+    [[0, C[0], 2190, 2.3], [1.0, C[0], 2190, 2.22, 0, 's'], [5.4, C[0], 2300, 1.05, 0, 'io'], [6.1, C[0], 2250, 1.0, 0, 'l'], [S0, C[0], 2230, .95, 0, 'l']];
+  REGT.forEach(({ cx, cy, s, z }, k) => {
     const mid = [lerp(C[0], cx, .35), lerp(C[1] + 80, cy, .35)];
-    if (k > 0) keys.push([s + .55, mid[0], mid[1], .62, 0, 'io']);          // back towards the brand, where every journey starts
-    keys.push([s + 1.55, cx, cy, .9, 0, 'io']);                              // ride the line out to the region
-    keys.push([s + SEC - (k === 5 ? 0 : .02), cx + (k % 2 ? -25 : 25), cy + 10, .95, 0, 'l']);   // slow push while it fills
+    if (k > 0) keys.push([s + .55, mid[0], mid[1], cz.mid, 0, 'io']);          // back towards the brand, where every journey starts
+    keys.push([s + 1.55, cx, cy, z ?? cz.reg, 0, 'io']);                              // ride the line out to the region
+    keys.push([s + SEC - (k === 5 ? 0 : .02), cx + (k % 2 ? -25 : 25), cy + 10, (z ?? cz.reg) + cz.push, 0, 'l']);   // slow push while it fills
   });
-  keys.push([FIN - .7, REGT[5].cx + 20, REGT[5].cy + 10, .955, 0, 'l']);        // hold in the silence
-  keys.push([FIN - .12, C[0], 2290, 1.0, 0, 'io']);                           // whip back to the brand
-  keys.push([FIN + 1.3, C[0], 2290, 1.0, 0, 'l']);
-  keys.push([FIN + 4.4, C[0], 2290, .205, 0, 'io']);                          // the whole board, on the wall
-  keys.push([FIN + 6.3, C[0], 2290, .2, 0, 'l']);
-  keys.push([FIN + 8.0, C[0], 2420, .9, 0, 'io']);                           // back to the brand
-  keys.push([END, C[0], 2430, .94, 0, 'l']);
+  keys.push([FIN - .7, REGT[5].cx + 20, REGT[5].cy + 10, (REGT[5].z ?? cz.reg) + cz.push + .005, 0, 'l']);        // hold in the silence
+  keys.push([FIN - .12, C[0], C[1] + cz.fy, cz.open, 0, 'io']);               // whip back to the brand
+  keys.push([FIN + 1.3, C[0], C[1] + cz.fy, cz.open, 0, 'l']);
+  keys.push([FIN + 4.4, C[0], cz.wideY, cz.wide, 0, 'io']);                   // the whole board, on the wall
+  keys.push([FIN + 6.3, C[0], cz.wideY, cz.wide * .975, 0, 'l']);
+  keys.push([FIN + 8.0, C[0], C[1] + cz.ey, cz.end, 0, 'io']);                // back to the brand
+  keys.push([END, C[0], C[1] + cz.ey + 10, cz.end + (V() ? .02 : .04), 0, 'l']);
   const cam = new W.Camera(keys);
 
-  const board = new W.Board(tl, { ghosts });
+  const board = new W.Board(tl, { ghosts, W: LY.BW, H: LY.BH });
   board.objs.push({ draw: (ctx, t, c) => { const p = magPose(t); if (p) drawDisc(ctx, c, p); } });
   if (!new URLSearchParams(location.search).has('nopens')) board.objs.push({ draw: (ctx, t, c) => { for (const p of PENS) W.drawMarker(ctx, p, W.penPose(p, t, cam), c, t); } });
 
@@ -200,26 +223,27 @@ export async function build() {
     draw: (ctx, t) => {
       const s = subs.find(s => t >= s.t0 && t < s.t1); if (!s) return;
       const a = Math.min(1, (t - s.t0) / .12, (s.t1 - t) / .12);
-      ctx.font = '44px AD';
+      const FS = V() ? 50 : 44, LH = FS * 1.18, MAXW = V() ? 860 : 1250, YB = V() ? 1600 : 1040, MX = SW / 2;
+      ctx.font = `${FS}px AD`;
       let rows = [s.text];
-      if (ctx.measureText(s.text).width > 1250) {
+      if (ctx.measureText(s.text).width > MAXW) {
         const ws = s.text.split(' '); let best = 1, bd = 1e9;
         for (let i = 1; i < ws.length; i++) { const d = Math.abs(ctx.measureText(ws.slice(0, i).join(' ')).width - ctx.measureText(ws.slice(i).join(' ')).width); if (d < bd) { bd = d; best = i; } }
         rows = [ws.slice(0, best).join(' '), ws.slice(best).join(' ')];
       }
-      const w = Math.max(...rows.map(r => ctx.measureText(r).width)) + 64, h = 70 + (rows.length - 1) * 52, y0 = 1040 - h;
+      const w = Math.max(...rows.map(r => ctx.measureText(r).width)) + 64, h = FS + 26 + (rows.length - 1) * LH, y0 = YB - h;
       ctx.globalAlpha = a * .9; ctx.fillStyle = '#fdfcf8'; ctx.shadowColor = 'rgba(30,30,40,.18)'; ctx.shadowBlur = 18; ctx.shadowOffsetY = 4;
-      ctx.beginPath(); ctx.roundRect(960 - w / 2, y0, w, h, 14); ctx.fill();
+      ctx.beginPath(); ctx.roundRect(MX - w / 2, y0, w, h, 14); ctx.fill();
       ctx.shadowColor = 'transparent'; ctx.globalAlpha = a;
-      ctx.fillStyle = RED; ctx.fillRect(960 - w / 2 + 22, y0 + h - 12, 36, 4);
+      ctx.fillStyle = RED; ctx.fillRect(MX - w / 2 + 22, y0 + h - 12, 36, 4);
       ctx.fillStyle = NAVY; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
-      rows.forEach((r, i) => ctx.fillText(r, 960, y0 + 37 + i * 52));
+      rows.forEach((r, i) => ctx.fillText(r, MX, y0 + (FS + 26) / 2 + i * LH));
     }
   });
   if (new URLSearchParams(location.search).has('nosubs')) board.overlays.length = 0;
 
   // ───────── frame render with motion blur on fast moves
-  const off = new OffscreenCanvas(1920, 1080), oc = off.getContext('2d');
+  const off = new OffscreenCanvas(SW, SH), oc = off.getContext('2d');
   function render(ctx, t) {
     const dt = 1 / 24, a = cam.at(t), b = cam.at(Math.max(0, t - dt));
     const sp = Math.hypot((a.x - b.x) * a.z, (a.y - b.y) * a.z) + Math.abs(Math.log(a.z / b.z)) * 900;
@@ -232,6 +256,6 @@ export async function build() {
   }
 
   const ev = [...tl.ev, ...Object.entries(VO).map(([id, t]) => ({ t, type: 'vo', id }))].sort((a, b) => a.t - b.t);
-  for (const e of ev) if (e.x != null) { const c = cam.at(e.t), [px, py] = W.toScreen(c, e.x, e.y); e.pan = +clamp((px - 960) / 1400, -.7, .7).toFixed(2); e.z = +c.z.toFixed(2); e.on = px > -100 && px < 2020 && py > -100 && py < 1180 ? 1 : 0; }
+  for (const e of ev) if (e.x != null) { const c = cam.at(e.t), [px, py] = W.toScreen(c, e.x, e.y); e.pan = +clamp((px - SW / 2) / (SW * .73), -.7, .7).toFixed(2); e.z = +c.z.toFixed(2); e.on = px > -100 && px < SW + 100 && py > -100 && py < SH + 100 ? 1 : 0; }
   return { dur: END, render, ev, subs, cues: { BPM, BEAT, BAR, S0, SEC, SK, SIL, FIN, DROP, LIFT0, CIRC0, CAPON } };
 }
