@@ -1,0 +1,14 @@
+AALAYAM — PESTEL on the Board (Whiteboard Explainer style)
+All pictures are drawn by code (engine/wb.js, film.js). No generated images, no third-party artwork, no stock footage.
+
+Lettering (on the board)
+  EMS Tech — SIL Open Font License 1.1. Single-line font by Sheldon B. Michaels, derived from
+  "Architects Daughter" by Kimberly Geswein; SVG conversion by Windell H. Oskay (Evil Mad Scientist).
+Subtitles
+  Architects Daughter — Kimberly Geswein, SIL Open Font License 1.1 (fonts/OFL-ArchitectsDaughter.txt).
+Voice
+  Kokoro-82M (Apache 2.0) via kokoro-onnx, voice af_heart, lang en-us. Synthetic voice.
+Score, foley and sound design
+  Original, synthesised in music.py and mix.py (no samples).
+Drawing engine
+  Lemo-Opuscar whiteboard engine (MIT), copied into engine/.
