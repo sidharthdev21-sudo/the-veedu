@@ -88,5 +88,5 @@ A mapping board, **Force → Strategic direction**. Each row's arrow draws as it
 ## Review questions
 
 1. **Specific findings from your primary research.** You've done customer interviews and surveys, supplier quotes and discussions, and competitor product observation. If any of them produced clear, non-confidential findings, send them and I'll use them in the "What we observed" step for each force. Examples: what customers said makes them switch brands, typical minimum order quantities you were quoted, or how competitor fabrics compared. Without them, the video keeps the general, structural observations written above and makes no specific claims.
-2. **Length:** the narration is about 640 words, which comes out near 3:55 at the Part 1 pace. If anything is cut it will be in Scene 3.
+2. **Length:** the narration is about 600 words, which comes out near 3:55 at the Part 1 pace. If anything is cut it will be in Scene 3.
 3. **Conclusion quote:** your closing lines are shortened slightly for speech ("how it can build a position that's truly its own"). Say if you want them word for word.
