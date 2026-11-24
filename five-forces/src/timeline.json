@@ -1,0 +1,326 @@
+{
+ "fps": 30,
+ "durationInFrames": 7107,
+ "scenes": [
+  {
+   "id": "recap",
+   "title": "Continuing from PESTEL",
+   "from": 0,
+   "durationInFrames": 713,
+   "lines": [
+    {
+     "id": "r1",
+     "text": "In Part 1, we used PESTEL to understand the big outside forces shaping Aalayam by Anamika.",
+     "from": 15,
+     "durationInFrames": 169
+    },
+    {
+     "id": "r2",
+     "text": "But that's only the beginning. Next, we needed to understand the competition: who else is selling, how much power customers and suppliers have, and how easy it is for new brands to join in.",
+     "from": 191,
+     "durationInFrames": 324
+    },
+    {
+     "id": "r3",
+     "text": "For that, we used Michael Porter's Five Forces: rivalry, new entrants, suppliers, buyers and substitutes.",
+     "from": 521,
+     "durationInFrames": 181
+    }
+   ]
+  },
+  {
+   "id": "method",
+   "title": "How we approached the research",
+   "from": 713,
+   "durationInFrames": 904,
+   "lines": [
+    {
+     "id": "m1",
+     "text": "We followed five steps.",
+     "from": 15,
+     "durationInFrames": 38
+    },
+    {
+     "id": "m2",
+     "text": "First, we revisited the business: Aalayam's products, its customers, and its place in Indian women's fashion.",
+     "from": 60,
+     "durationInFrames": 185
+    },
+    {
+     "id": "m3",
+     "text": "Second, we wrote research questions for each force, like: how easily can a shopper find a similar outfit somewhere else?",
+     "from": 251,
+     "durationInFrames": 198
+    },
+    {
+     "id": "m4",
+     "text": "Third, we collected data, online and in person.",
+     "from": 456,
+     "durationInFrames": 79
+    },
+    {
+     "id": "m5",
+     "text": "Fourth, we organised everything under the five forces, comparing competitors, prices, product types and customer feedback.",
+     "from": 542,
+     "durationInFrames": 209
+    },
+    {
+     "id": "m6",
+     "text": "And fifth, we analysed the pressure from each force, and turned it into recommendations.",
+     "from": 758,
+     "durationInFrames": 135
+    }
+   ]
+  },
+  {
+   "id": "sources",
+   "title": "Where did we collect our data?",
+   "from": 1617,
+   "durationInFrames": 1175,
+   "lines": [
+    {
+     "id": "d1",
+     "text": "So, where did our data come from?",
+     "from": 15,
+     "durationInFrames": 49
+    },
+    {
+     "id": "d2",
+     "text": "Google Search gave us industry information and trends. On Myntra, AJIO and Amazon India, we compared competitor products, prices, ratings and reviews.",
+     "from": 71,
+     "durationInFrames": 275
+    },
+    {
+     "id": "d3",
+     "text": "Instagram showed how independent fashion brands market themselves, Google Trends showed what people search for, and Shopify and other marketplaces showed how easy it is to start selling online.",
+     "from": 353,
+     "durationInFrames": 330
+    },
+    {
+     "id": "d4",
+     "text": "We then checked this against our own primary research: customer interviews and surveys, supplier quotes and conversations, and a close look at competitor products.",
+     "from": 689,
+     "durationInFrames": 270
+    },
+    {
+     "id": "d5",
+     "text": "One more source we'd suggest for next time is IndiaMART, to compare fabric suppliers and manufacturers more widely.",
+     "from": 965,
+     "durationInFrames": 198
+    }
+   ]
+  },
+  {
+   "id": "rivalry",
+   "title": "Competitive rivalry",
+   "from": 2792,
+   "durationInFrames": 606,
+   "lines": [
+    {
+     "id": "f11",
+     "text": "Force one: competitive rivalry, or how intense the competition is.",
+     "from": 15,
+     "durationInFrames": 119
+    },
+    {
+     "id": "f12",
+     "text": "We compared competitors' prices, product types, reviews and branding on Myntra, AJIO, Amazon and Instagram.",
+     "from": 141,
+     "durationInFrames": 190
+    },
+    {
+     "id": "f13",
+     "text": "Shoppers see many similar outfits side by side.",
+     "from": 337,
+     "durationInFrames": 84
+    },
+    {
+     "id": "f14",
+     "text": "So Aalayam should stand out through comfort, design and a recognisable brand, not on price alone.",
+     "from": 428,
+     "durationInFrames": 167
+    }
+   ]
+  },
+  {
+   "id": "entrants",
+   "title": "Threat of new entrants",
+   "from": 3398,
+   "durationInFrames": 554,
+   "lines": [
+    {
+     "id": "f21",
+     "text": "Force two: the threat of new entrants.",
+     "from": 15,
+     "durationInFrames": 56
+    },
+    {
+     "id": "f22",
+     "text": "We looked at Shopify, marketplaces and Instagram to see how easy it is to start a clothing brand.",
+     "from": 78,
+     "durationInFrames": 168
+    },
+    {
+     "id": "f23",
+     "text": "Getting started online is relatively easy, so new competitors can appear quickly.",
+     "from": 252,
+     "durationInFrames": 135
+    },
+    {
+     "id": "f24",
+     "text": "Aalayam's best defence is loyalty: a consistent style, and customers who come back.",
+     "from": 394,
+     "durationInFrames": 149
+    }
+   ]
+  },
+  {
+   "id": "suppliers",
+   "title": "Bargaining power of suppliers",
+   "from": 3952,
+   "durationInFrames": 538,
+   "lines": [
+    {
+     "id": "f31",
+     "text": "Force three: the power of suppliers.",
+     "from": 15,
+     "durationInFrames": 58
+    },
+    {
+     "id": "f32",
+     "text": "Through supplier quotes and conversations, we looked at fabric costs, minimum order sizes, reliability and delivery times.",
+     "from": 79,
+     "durationInFrames": 212
+    },
+    {
+     "id": "f33",
+     "text": "Relying on a single supplier is a risk.",
+     "from": 298,
+     "durationInFrames": 60
+    },
+    {
+     "id": "f34",
+     "text": "Aalayam could compare costs, keep quality checks, and build relationships with more than one supplier.",
+     "from": 365,
+     "durationInFrames": 162
+    }
+   ]
+  },
+  {
+   "id": "buyers",
+   "title": "Bargaining power of buyers",
+   "from": 4490,
+   "durationInFrames": 469,
+   "lines": [
+    {
+     "id": "f41",
+     "text": "Force four: the power of buyers.",
+     "from": 15,
+     "durationInFrames": 52
+    },
+    {
+     "id": "f42",
+     "text": "Reviews, search trends, surveys and interviews showed us how customers compare prices and move between brands.",
+     "from": 73,
+     "durationInFrames": 190
+    },
+    {
+     "id": "f43",
+     "text": "With so many choices, customers have real power.",
+     "from": 270,
+     "durationInFrames": 84
+    },
+    {
+     "id": "f44",
+     "text": "Good quality, transparent prices and trust can bring them back.",
+     "from": 360,
+     "durationInFrames": 97
+    }
+   ]
+  },
+  {
+   "id": "substitutes",
+   "title": "Threat of substitutes",
+   "from": 4959,
+   "durationInFrames": 620,
+   "lines": [
+    {
+     "id": "f51",
+     "text": "Force five: the threat of substitutes, meaning other ways to meet the same need, like local boutiques, tailored outfits, or different styles altogether.",
+     "from": 15,
+     "durationInFrames": 250
+    },
+    {
+     "id": "f52",
+     "text": "We looked at listings, competitor sites and customer interviews.",
+     "from": 271,
+     "durationInFrames": 93
+    },
+    {
+     "id": "f53",
+     "text": "Customers always have other options to choose from.",
+     "from": 371,
+     "durationInFrames": 78
+    },
+    {
+     "id": "f54",
+     "text": "Aalayam can stay the natural choice by focusing on comfort, practicality and good value.",
+     "from": 455,
+     "durationInFrames": 153
+    }
+   ]
+  },
+  {
+   "id": "insights",
+   "title": "From research to business insights",
+   "from": 5579,
+   "durationInFrames": 784,
+   "lines": [
+    {
+     "id": "i1",
+     "text": "Here's how the findings turn into strategy. These are recommendations, not things Aalayam does today.",
+     "from": 15,
+     "durationInFrames": 173
+    },
+    {
+     "id": "i2",
+     "text": "Rivalry points to brand differentiation. New entrants point to loyalty and recognition. Supplier power points to a smarter sourcing plan.",
+     "from": 195,
+     "durationInFrames": 244
+    },
+    {
+     "id": "i3",
+     "text": "Buyer power points to a better customer experience and clearer value. And substitutes point to stronger product positioning.",
+     "from": 445,
+     "durationInFrames": 211
+    },
+    {
+     "id": "i4",
+     "text": "Together, they can help Aalayam build an advantage that's hard to copy.",
+     "from": 663,
+     "durationInFrames": 109
+    }
+   ]
+  },
+  {
+   "id": "conclusion",
+   "title": "Conclusion",
+   "from": 6363,
+   "durationInFrames": 744,
+   "lines": [
+    {
+     "id": "c1",
+     "text": "So that's the journey: understand the business, ask the questions, collect the data, analyse the five forces, find the insights, and turn them into recommendations.",
+     "from": 15,
+     "durationInFrames": 275
+    },
+    {
+     "id": "c2",
+     "text": "Through PESTEL, we understood the outside environment. Through Porter's Five Forces, we understood the competition. Together, they show where Aalayam operates, what challenges it faces, and how it can build a position that's truly its own.",
+     "from": 297,
+     "durationInFrames": 400
+    }
+   ]
+  }
+ ]
+}

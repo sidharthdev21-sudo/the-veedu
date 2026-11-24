@@ -1,0 +1,20 @@
+{
+  "name": "aalayam-five-forces",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Porter's Five Forces explainer for Aalayam by Anamika (Part 2), built with Remotion",
+  "scripts": {
+    "studio": "remotion studio",
+    "render": "remotion render FiveForces out/video.mp4 --browser-executable=/opt/pw-browsers/chromium-1243/chrome-linux/chrome",
+    "still": "remotion still FiveForces"
+  },
+  "dependencies": {
+    "@remotion/cli": "^4.0.539",
+    "@remotion/google-fonts": "^4.0.539",
+    "@types/react": "^18.3.12",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "remotion": "^4.0.539",
+    "typescript": "^5.6.3"
+  }
+}

@@ -1,0 +1,159 @@
+1
+00:00:00,500 --> 00:00:06,431
+In Part 1, we used PESTEL to understand the big outside forces shaping Aalayam by Anamika.
+
+2
+00:00:06,351 --> 00:00:17,448
+But that's only the beginning. Next, we needed to understand the competition: who else is selling, how much power customers and suppliers have, and how easy it is for new brands to join in.
+
+3
+00:00:17,368 --> 00:00:23,687
+For that, we used Michael Porter's Five Forces: rivalry, new entrants, suppliers, buyers and substitutes.
+
+4
+00:00:24,267 --> 00:00:25,848
+We followed five steps.
+
+5
+00:00:25,768 --> 00:00:32,228
+First, we revisited the business: Aalayam's products, its customers, and its place in Indian women's fashion.
+
+6
+00:00:32,148 --> 00:00:39,059
+Second, we wrote research questions for each force, like: how easily can a shopper find a similar outfit somewhere else?
+
+7
+00:00:38,979 --> 00:00:41,911
+Third, we collected data, online and in person.
+
+8
+00:00:41,831 --> 00:00:49,099
+Fourth, we organised everything under the five forces, comparing competitors, prices, product types and customer feedback.
+
+9
+00:00:49,019 --> 00:00:53,821
+And fifth, we analysed the pressure from each force, and turned it into recommendations.
+
+10
+00:00:54,401 --> 00:00:56,340
+So, where did our data come from?
+
+11
+00:00:56,260 --> 00:01:05,733
+Google Search gave us industry information and trends. On Myntra, AJIO and Amazon India, we compared competitor products, prices, ratings and reviews.
+
+12
+00:01:05,653 --> 00:01:16,938
+Instagram showed how independent fashion brands market themselves, Google Trends showed what people search for, and Shopify and other marketplaces showed how easy it is to start selling online.
+
+13
+00:01:16,858 --> 00:01:26,158
+We then checked this against our own primary research: customer interviews and surveys, supplier quotes and conversations, and a close look at competitor products.
+
+14
+00:01:26,078 --> 00:01:32,976
+One more source we'd suggest for next time is IndiaMART, to compare fabric suppliers and manufacturers more widely.
+
+15
+00:01:33,556 --> 00:01:37,835
+Force one: competitive rivalry, or how intense the competition is.
+
+16
+00:01:37,755 --> 00:01:44,386
+We compared competitors' prices, product types, reviews and branding on Myntra, AJIO, Amazon and Instagram.
+
+17
+00:01:44,306 --> 00:01:47,412
+Shoppers see many similar outfits side by side.
+
+18
+00:01:47,332 --> 00:01:53,190
+So Aalayam should stand out through comfort, design and a recognisable brand, not on price alone.
+
+19
+00:01:53,770 --> 00:01:55,932
+Force two: the threat of new entrants.
+
+20
+00:01:55,852 --> 00:02:01,737
+We looked at Shopify, marketplaces and Instagram to see how easy it is to start a clothing brand.
+
+21
+00:02:01,657 --> 00:02:06,471
+Getting started online is relatively easy, so new competitors can appear quickly.
+
+22
+00:02:06,391 --> 00:02:11,644
+Aalayam's best defence is loyalty: a consistent style, and customers who come back.
+
+23
+00:02:12,224 --> 00:02:14,453
+Force three: the power of suppliers.
+
+24
+00:02:14,373 --> 00:02:21,739
+Through supplier quotes and conversations, we looked at fabric costs, minimum order sizes, reliability and delivery times.
+
+25
+00:02:21,659 --> 00:02:23,975
+Relying on a single supplier is a risk.
+
+26
+00:02:23,895 --> 00:02:29,593
+Aalayam could compare costs, keep quality checks, and build relationships with more than one supplier.
+
+27
+00:02:30,173 --> 00:02:32,196
+Force four: the power of buyers.
+
+28
+00:02:32,116 --> 00:02:38,747
+Reviews, search trends, surveys and interviews showed us how customers compare prices and move between brands.
+
+29
+00:02:38,667 --> 00:02:41,759
+With so many choices, customers have real power.
+
+30
+00:02:41,679 --> 00:02:45,208
+Good quality, transparent prices and trust can bring them back.
+
+31
+00:02:45,788 --> 00:02:54,412
+Force five: the threat of substitutes, meaning other ways to meet the same need, like local boutiques, tailored outfits, or different styles altogether.
+
+32
+00:02:54,332 --> 00:02:57,742
+We looked at listings, competitor sites and customer interviews.
+
+33
+00:02:57,662 --> 00:03:00,546
+Customers always have other options to choose from.
+
+34
+00:03:00,466 --> 00:03:05,882
+Aalayam can stay the natural choice by focusing on comfort, practicality and good value.
+
+35
+00:03:06,462 --> 00:03:12,544
+Here's how the findings turn into strategy. These are recommendations, not things Aalayam does today.
+
+36
+00:03:12,464 --> 00:03:20,894
+Rivalry points to brand differentiation. New entrants point to loyalty and recognition. Supplier power points to a smarter sourcing plan.
+
+37
+00:03:20,814 --> 00:03:28,155
+Buyer power points to a better customer experience and clearer value. And substitutes point to stronger product positioning.
+
+38
+00:03:28,075 --> 00:03:32,013
+Together, they can help Aalayam build an advantage that's hard to copy.
+
+39
+00:03:32,593 --> 00:03:42,070
+So that's the journey: understand the business, ask the questions, collect the data, analyse the five forces, find the insights, and turn them into recommendations.
+
+40
+00:03:41,990 --> 00:03:55,632
+Through PESTEL, we understood the outside environment. Through Porter's Five Forces, we understood the competition. Together, they show where Aalayam operates, what challenges it faces, and how it can build a position that's truly its own.

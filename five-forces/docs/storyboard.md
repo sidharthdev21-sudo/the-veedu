@@ -1,8 +1,8 @@
 # Porter's Five Forces: How We Analysed the Competition
 ## Aalayam by Anamika · Part 2 of the Business Research Explainer Series
-### Storyboard and narration (draft for review)
+### Storyboard and narration (final)
 
-**Format:** 1920 × 1080, 30 fps, English narration (the same voice as Part 1), subtle instrumental music. **Target length:** about 3 min 50 s.
+**Format:** 1920 × 1080, 30 fps, English narration (the same voice as Part 1), subtle instrumental music. **Length:** 3:56.
 
 **Continuity with Part 1** (`pestel-explainer`, the beige-and-rose explainer): the same palette (ivory, beige, dark brown, muted rose, white), DM Serif Display headlines with Poppins body text, the same animated character in a co-ord set, white cards, rounded chips, the same slide-up transitions, and the same top-right step tracker. Part 1 used a three-step tracker (*What it means → How it affects Aalayam → What to consider*). Here each force gets a six-step one: *Meaning → Investigated → Sources → Observed → Why it matters → Action*. A small "Part 2" tag sits in the corner throughout.
 
@@ -16,15 +16,15 @@
 
 ---
 
-### Scene 1: Continuing from PESTEL (0:00 – 0:25)
+### Scene 1: Continuing from PESTEL (0:00 – 0:23)
 
 | Picture | Narration |
 |---|---|
 | A "Part 1" card shows the six PESTEL tiles from the first video, arranged around the Aalayam store. The tiles drift outward and fade to soft outlines: *the outside world*. | In Part 1, we used PESTEL to understand the big outside forces shaping Aalayam by Anamika. |
 | The camera moves closer. The store now sits on a busy street of other little storefronts (unnamed). Three question chips pop up as they're spoken: *Who else is selling?*, *How much power do customers and suppliers have?*, *How easy is it to join in?* | But that's only the beginning. Next, we needed to understand the competition: who else is selling, how much power customers and suppliers have, and how easy it is for new brands to join in. |
-| Title card **Porter's Five Forces · Part 2**. Five rose-and-beige cards arrange themselves around a central *Competitive rivalry* circle (the classic diagram): New entrants above, Suppliers left, Buyers right, Substitutes below. Each lights up as it's named. | For that, we used Michael Porter's Five Forces: rivalry, new entrants, suppliers, buyers and substitutes. |
+| Title card **Porter's Five Forces · Part 2**. Five rose-and-beige cards arrange themselves around a central *Competitive rivalry* circle (Porter's classic layout): New entrants above, Suppliers left, Buyers right, Substitutes below. Each lights up as it's named. | For that, we used Michael Porter's Five Forces: rivalry, new entrants, suppliers, buyers and substitutes. |
 
-### Scene 2: How we approached the research (0:25 – 1:02) → *the research methodology animation*
+### Scene 2: How we approached the research (0:23 – 0:53) → *the research methodology animation*
 
 A five-node path in the Part 1 card style. Each node lights rose as it's spoken; done nodes get a tick. The panel below shows that step's detail.
 
@@ -37,7 +37,7 @@ A five-node path in the Part 1 card style. Each node lights rose as it's spoken;
 | **4 Data organisation.** Cards fly into five labelled columns (one per force). A small comparison grid appears: *Competitors · Prices · Product types · Feedback*. | Fourth, we organised everything under the five forces, comparing competitors, prices, product types and customer feedback. |
 | **5 Analysis.** Each column gets a pressure gauge. A gauge swings, then an arrow leads to a *Recommendation* card. Gauges are illustrative only and carry no values. | And fifth, we analysed the pressure from each force, and turned it into recommendations. |
 
-### Scene 3: Where did we collect our data? (1:02 – 1:45) → *the research sources visualisation*
+### Scene 3: Where did we collect our data? (0:53 – 1:33) → *the research sources visualisation*
 
 A browser window frames the scene. Source cards slide in as tabs; each shows a generic icon, the platform's name, what we collected (2–4 short chips) and a badge.
 
@@ -49,13 +49,12 @@ A browser window frames the scene. Source cards slide in as tabs; each shows a g
 | The browser slides aside and a *Primary research* panel opens with four cards badged **Conducted**: *Customer interviews*, *Customer surveys*, *Supplier quotes & discussions*, *Competitor product observation*. Arrows run from these cards to the secondary cards: *checked against*. | We then checked this against our own primary research: customer interviews and surveys, supplier quotes and conversations, and a close look at competitor products. |
 | A dashed card slides in: **IndiaMART**, badged **Suggested next** (fabric suppliers, manufacturers, sourcing alternatives). | One more source we'd suggest for next time is IndiaMART, to compare fabric suppliers and manufacturers more widely. |
 
-### Scene 4: The five forces analysis (1:45 – 3:10) → *the animated Five Forces framework*
+### Scene 4: The five forces analysis (1:33 – 3:05) → *the animated Five Forces framework*
 
-Each force gets about 17 seconds in the same layout:
+Each force gets about 18 seconds in the same layout:
 - **Left:** a force illustration with the character.
 - **Right:** a white card that steps through the six questions in time with the narration.
 - **Top right:** the six-step tracker.
-- **Bottom left:** a mini Five Forces diagram with the current force highlighted.
 
 | Force | Picture | Narration |
 |---|---|---|
@@ -63,9 +62,9 @@ Each force gets about 17 seconds in the same layout:
 | **2 · Threat of new entrants** | A laptop shows a "Launch store" button; little new storefronts pop up one after another. Sources: *Shopify · marketplaces · Instagram* (Used). Action: **Build loyalty and a consistent identity.** | Force two: the threat of new entrants. We looked at Shopify, marketplaces and Instagram to see how easy it is to start a clothing brand. Getting started online is relatively easy, so new competitors can appear quickly. Aalayam's best defence is loyalty: a consistent style, and customers who come back. |
 | **3 · Bargaining power of suppliers** | Fabric rolls and a supplier quote sheet (no figures); one supplier node, then two more appear, joined by lines. Sources: *Supplier quotes & discussions* (Conducted) · *IndiaMART* (Suggested). Action: **More than one supplier, compare costs, keep quality checks.** | Force three: the power of suppliers. Through supplier quotes and conversations, we looked at fabric costs, minimum order sizes, reliability and delivery times. Relying on a single supplier is a risk. Aalayam could compare costs, keep quality checks, and build relationships with more than one supplier. |
 | **4 · Bargaining power of buyers** | The character holds a phone and swipes between outfit cards from different (unnamed) brands; a review bubble and a cart appear. Sources: *Amazon · Myntra · AJIO · Google Trends* (Used) · *Surveys & interviews* (Conducted). Action: **Quality, transparent pricing, trust, repeat purchases.** | Force four: the power of buyers. Reviews, search trends, surveys and interviews showed us how customers compare prices and move between brands. With so many choices, customers have real power. Good quality, transparent prices and trust can bring them back. |
-| **5 · Threat of substitutes** | Alternatives fan out around a co-ord set: a boutique storefront, a tailor's sewing machine, an ethnic outfit, a western outfit. Sources: *Marketplace listings · competitor sites* (Used) · *Customer interviews* (Conducted). Action: **Comfort, practicality, value.** | Force five: the threat of substitutes, meaning other ways to meet the same need, like local boutiques, tailored outfits, or different styles altogether. We looked at listings, competitor sites and customer interviews. Aalayam can stay the natural choice by focusing on comfort, practicality and good value. |
+| **5 · Threat of substitutes** | Alternatives fan out around a co-ord set: a boutique storefront, a tailor's sewing machine, an ethnic outfit, a western outfit. Sources: *Marketplace listings · competitor sites* (Used) · *Customer interviews* (Conducted). Action: **Comfort, practicality, value.** | Force five: the threat of substitutes, meaning other ways to meet the same need, like local boutiques, tailored outfits, or different styles altogether. We looked at listings, competitor sites and customer interviews. Customers always have other options to choose from. Aalayam can stay the natural choice by focusing on comfort, practicality and good value. |
 
-### Scene 5: From research to business insights (3:10 – 3:35) → *business implications and recommendations*
+### Scene 5: From research to business insights (3:05 – 3:32) → *business implications and recommendations*
 
 A mapping board, **Force → Strategic direction**. Each row's arrow draws as it's spoken. The banner **Recommendations: not current capabilities** stays on screen throughout. At the end, all five arrows converge on one card: *A differentiated, hard-to-copy position*.
 
@@ -76,7 +75,7 @@ A mapping board, **Force → Strategic direction**. Each row's arrow draws as it
 | *Buyer power → Customer experience & perceived value* · *Substitutes → Stronger product positioning* | Buyer power points to a better customer experience and clearer value. And substitutes point to stronger product positioning. |
 | The five arrows meet at the *Sustainable competitive advantage* card. | Together, they can help Aalayam build an advantage that's hard to copy. |
 
-### Scene 6: Conclusion (3:35 – 3:52)
+### Scene 6: Conclusion (3:32 – 3:56)
 
 | Picture | Narration |
 |---|---|
@@ -85,8 +84,7 @@ A mapping board, **Force → Strategic direction**. Each row's arrow draws as it
 
 ---
 
-## Review questions
+## Notes
 
-1. **Specific findings from your primary research.** You've done customer interviews and surveys, supplier quotes and discussions, and competitor product observation. If any of them produced clear, non-confidential findings, send them and I'll use them in the "What we observed" step for each force. Examples: what customers said makes them switch brands, typical minimum order quantities you were quoted, or how competitor fabrics compared. Without them, the video keeps the general, structural observations written above and makes no specific claims.
-2. **Length:** the narration is about 600 words, which comes out near 3:55 at the Part 1 pace. If anything is cut it will be in Scene 3.
-3. **Conclusion quote:** your closing lines are shortened slightly for speech ("how it can build a position that's truly its own"). Say if you want them word for word.
+- **Observations are general.** The "What we observed" step uses general, structural observations only. Specific results from the team's interviews, surveys and supplier discussions were not supplied, so none are presented as findings. To add them, edit `observed` in `src/scenes/Forces.tsx` and re-render.
+- **Narration changes from the draft:** one sentence was added to the substitutes force (*"Customers always have other options to choose from."*) so that every force has its own observed step. The voice speed matches the Part 2 research video, to keep the length under four minutes.
