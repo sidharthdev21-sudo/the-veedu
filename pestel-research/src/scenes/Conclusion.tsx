@@ -36,7 +36,7 @@ export const Conclusion: React.FC<{ lines: Line[] }> = ({ lines }) => {
         {JOURNEY.map((n, i) => {
           const at = wordAt(l0, n.w), lit = interpolate(f, [at, at + 10], [0, 1], clamp);
           return (
-            <Pop key={n.t} at={at - 6} style={{ left: X(i), top: Y(i) }}>
+            <Pop key={n.t} at={4 + i * 4} style={{ left: X(i), top: Y(i), opacity: 0.35 + 0.65 * lit }}>
               <div style={{ width: 270, display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
                 <IconBadge color={n.c} size={160} on={lit}><n.I size={84} color={n.c} /></IconBadge>
                 <div className="head" style={{ fontSize: 28, marginTop: 20, lineHeight: 1.2 }}>{n.t}</div>
@@ -46,7 +46,7 @@ export const Conclusion: React.FC<{ lines: Line[] }> = ({ lines }) => {
         })}
       </div>
       {/* back to the brand, now surrounded by its six understood forces */}
-      <Reveal at={l1.from} dir="none" style={{ left: 0, top: 0, width: 1920, height: 1080 }}>
+      <Reveal at={l1.from - 12} dir="none" style={{ left: 0, top: 0, width: 1920, height: 1080 }}>
         {FACTORS.map((fa, i) => {
           const a = -Math.PI / 2 + (i / 6) * Math.PI * 2, x = 960 + Math.cos(a) * 560, y = 470 + Math.sin(a) * 300, Icon = FACTOR_ICON[fa.id];
           return (
