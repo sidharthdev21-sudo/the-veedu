@@ -1,0 +1,15 @@
+/* Base styling. Motion is driven frame by frame from React (useCurrentFrame), which keeps every render identical;
+   CSS here handles layout, type, colour, shadows and the static look of each element. */
+.stage { position: absolute; inset: 0; overflow: hidden; font-family: 'Poppins', sans-serif; color: #4A3326; }
+.serif { font-family: 'DM Serif Display', Georgia, serif; font-weight: 400; }
+.card {
+  position: absolute; background: #FFFFFF; border-radius: 28px;
+  box-shadow: 0 18px 40px rgba(74, 51, 38, 0.10), 0 2px 6px rgba(74, 51, 38, 0.06);
+}
+.chip {
+  display: inline-flex; align-items: center; gap: 14px; padding: 14px 26px; border-radius: 999px;
+  background: #FFFFFF; font-size: 32px; font-weight: 500; line-height: 1.2; white-space: nowrap;
+  box-shadow: 0 10px 24px rgba(74, 51, 38, 0.10);
+}
+.eyebrow { font-size: 24px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #AD6C70; }
+.label { font-size: 28px; font-weight: 500; color: #7B5E4C; }

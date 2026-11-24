@@ -1,0 +1,181 @@
+[
+ {
+  "scene": "intro",
+  "title": "Introduction",
+  "lines": [
+   [
+    "i1",
+    "Meet Aalayam by Anamika, an Indian clothing brand that makes co-ords and sarees for modern women."
+   ],
+   [
+    "i2",
+    "Like every business, it's shaped by changes happening outside the brand."
+   ],
+   [
+    "i3",
+    "PESTEL is a simple way to look at those outside forces."
+   ],
+   [
+    "i4",
+    "It stands for Political, Economic, Social, Technological, Environmental and Legal. Let's take them one at a time."
+   ]
+  ]
+ },
+ {
+  "scene": "political",
+  "title": "Political",
+  "lines": [
+   [
+    "p1",
+    "Political factors are about government decisions."
+   ],
+   [
+    "p2",
+    "For a clothing brand, that means G S T on garments, rules for the textile industry, and schemes like Make in India that support local manufacturing.",
+    "For a clothing brand, that means GST on garments, rules for the textile industry, and schemes like Make in India that support local manufacturing."
+   ],
+   [
+    "p3",
+    "A change in tax can change what an outfit costs the customer."
+   ],
+   [
+    "p4",
+    "So Aalayam should keep an eye on new policies, and make the most of support for Indian-made textiles."
+   ]
+  ]
+ },
+ {
+  "scene": "economic",
+  "title": "Economic",
+  "lines": [
+   [
+    "e1",
+    "Economic factors are about money: how much things cost, and how much people can spend."
+   ],
+   [
+    "e2",
+    "When inflation rises, fabric gets more expensive, and shoppers think twice before buying."
+   ],
+   [
+    "e3",
+    "And with so many brands competing online, price really matters."
+   ],
+   [
+    "e4",
+    "Aalayam should price carefully, plan for rising fabric costs, and show customers clear value."
+   ]
+  ]
+ },
+ {
+  "scene": "social",
+  "title": "Social",
+  "lines": [
+   [
+    "s1",
+    "Social factors are about people: how they live, what they like, and how they shop."
+   ],
+   [
+    "s2",
+    "Today, more women want clothes that look good and feel comfortable, from workdays to weekends."
+   ],
+   [
+    "s3",
+    "They discover fashion on Instagram, trust real reviews, and happily shop on their phones."
+   ],
+   [
+    "s4",
+    "So Aalayam should design for comfort, follow trends, and stay active where its customers spend time."
+   ]
+  ]
+ },
+ {
+  "scene": "technological",
+  "title": "Technological",
+  "lines": [
+   [
+    "t1",
+    "Technological factors are about the tools that help a business grow."
+   ],
+   [
+    "t2",
+    "An online store lets Aalayam sell across India, and social commerce turns a post into a purchase."
+   ],
+   [
+    "t3",
+    "A I recommendations can suggest the right outfit, and simple analytics show what customers love.",
+    "AI recommendations can suggest the right outfit, and simple analytics show what customers love."
+   ],
+   [
+    "t4",
+    "The brand should build a smooth shopping experience, and use its data to make smarter choices."
+   ]
+  ]
+ },
+ {
+  "scene": "environmental",
+  "title": "Environmental",
+  "lines": [
+   [
+    "n1",
+    "Environmental factors are about our planet."
+   ],
+   [
+    "n2",
+    "Fashion creates a lot of textile waste, and more shoppers now ask how their clothes are made."
+   ],
+   [
+    "n3",
+    "Sustainable fabrics, less waste, and eco-friendly packaging all make a difference."
+   ],
+   [
+    "n4",
+    "Small steps like natural fabrics and recyclable packaging can build trust and set Aalayam apart."
+   ]
+  ]
+ },
+ {
+  "scene": "legal",
+  "title": "Legal",
+  "lines": [
+   [
+    "l1",
+    "Legal factors are the rules every business has to follow."
+   ],
+   [
+    "l2",
+    "Selling online means following consumer protection and e-commerce rules, like clear prices and fair returns."
+   ],
+   [
+    "l3",
+    "Every garment needs a proper label, G S T must be filed correctly, and customer data has to be kept safe.",
+    "Every garment needs a proper label, GST must be filed correctly, and customer data has to be kept safe."
+   ],
+   [
+    "l4",
+    "Getting this right protects Aalayam, and earns its customers' confidence."
+   ]
+  ]
+ },
+ {
+  "scene": "conclusion",
+  "title": "Conclusion",
+  "lines": [
+   [
+    "c1",
+    "Put all six together, and you get a clear picture of the world around the brand."
+   ],
+   [
+    "c2",
+    "Rules, money, people, technology and the planet all shape what the brand can do."
+   ],
+   [
+    "c3",
+    "By watching these forces, Aalayam by Anamika can make better decisions and spot new opportunities early."
+   ],
+   [
+    "c4",
+    "That's PESTEL: six simple questions about the world outside your business."
+   ]
+  ]
+ }
+]

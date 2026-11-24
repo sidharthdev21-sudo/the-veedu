@@ -1,0 +1,262 @@
+{
+ "fps": 30,
+ "durationInFrames": 5348,
+ "scenes": [
+  {
+   "id": "intro",
+   "title": "Introduction",
+   "from": 0,
+   "durationInFrames": 676,
+   "lines": [
+    {
+     "id": "i1",
+     "text": "Meet Aalayam by Anamika, an Indian clothing brand that makes co-ords and sarees for modern women.",
+     "from": 21,
+     "durationInFrames": 178
+    },
+    {
+     "id": "i2",
+     "text": "Like every business, it's shaped by changes happening outside the brand.",
+     "from": 208,
+     "durationInFrames": 120
+    },
+    {
+     "id": "i3",
+     "text": "PESTEL is a simple way to look at those outside forces.",
+     "from": 337,
+     "durationInFrames": 92
+    },
+    {
+     "id": "i4",
+     "text": "It stands for Political, Economic, Social, Technological, Environmental and Legal. Let's take them one at a time.",
+     "from": 437,
+     "durationInFrames": 220
+    }
+   ]
+  },
+  {
+   "id": "political",
+   "title": "Political",
+   "from": 676,
+   "durationInFrames": 705,
+   "lines": [
+    {
+     "id": "p1",
+     "text": "Political factors are about government decisions.",
+     "from": 21,
+     "durationInFrames": 80
+    },
+    {
+     "id": "p2",
+     "text": "For a clothing brand, that means G S T on garments, rules for the textile industry, and schemes like Make in India that support local manufacturing.",
+     "from": 110,
+     "durationInFrames": 282
+    },
+    {
+     "id": "p3",
+     "text": "A change in tax can change what an outfit costs the customer.",
+     "from": 401,
+     "durationInFrames": 103
+    },
+    {
+     "id": "p4",
+     "text": "So Aalayam should keep an eye on new policies, and make the most of support for Indian-made textiles.",
+     "from": 512,
+     "durationInFrames": 174
+    }
+   ]
+  },
+  {
+   "id": "economic",
+   "title": "Economic",
+   "from": 1381,
+   "durationInFrames": 646,
+   "lines": [
+    {
+     "id": "e1",
+     "text": "Economic factors are about money: how much things cost, and how much people can spend.",
+     "from": 21,
+     "durationInFrames": 149
+    },
+    {
+     "id": "e2",
+     "text": "When inflation rises, fabric gets more expensive, and shoppers think twice before buying.",
+     "from": 178,
+     "durationInFrames": 158
+    },
+    {
+     "id": "e3",
+     "text": "And with so many brands competing online, price really matters.",
+     "from": 346,
+     "durationInFrames": 103
+    },
+    {
+     "id": "e4",
+     "text": "Aalayam should price carefully, plan for rising fabric costs, and show customers clear value.",
+     "from": 458,
+     "durationInFrames": 170
+    }
+   ]
+  },
+  {
+   "id": "social",
+   "title": "Social",
+   "from": 2027,
+   "durationInFrames": 677,
+   "lines": [
+    {
+     "id": "s1",
+     "text": "Social factors are about people: how they live, what they like, and how they shop.",
+     "from": 21,
+     "durationInFrames": 133
+    },
+    {
+     "id": "s2",
+     "text": "Today, more women want clothes that look good and feel comfortable, from workdays to weekends.",
+     "from": 162,
+     "durationInFrames": 148
+    },
+    {
+     "id": "s3",
+     "text": "They discover fashion on Instagram, trust real reviews, and happily shop on their phones.",
+     "from": 319,
+     "durationInFrames": 154
+    },
+    {
+     "id": "s4",
+     "text": "So Aalayam should design for comfort, follow trends, and stay active where its customers spend time.",
+     "from": 482,
+     "durationInFrames": 177
+    }
+   ]
+  },
+  {
+   "id": "technological",
+   "title": "Technological",
+   "from": 2704,
+   "durationInFrames": 684,
+   "lines": [
+    {
+     "id": "t1",
+     "text": "Technological factors are about the tools that help a business grow.",
+     "from": 21,
+     "durationInFrames": 113
+    },
+    {
+     "id": "t2",
+     "text": "An online store lets Aalayam sell across India, and social commerce turns a post into a purchase.",
+     "from": 143,
+     "durationInFrames": 182
+    },
+    {
+     "id": "t3",
+     "text": "A I recommendations can suggest the right outfit, and simple analytics show what customers love.",
+     "from": 335,
+     "durationInFrames": 172
+    },
+    {
+     "id": "t4",
+     "text": "The brand should build a smooth shopping experience, and use its data to make smarter choices.",
+     "from": 516,
+     "durationInFrames": 150
+    }
+   ]
+  },
+  {
+   "id": "environmental",
+   "title": "Environmental",
+   "from": 3388,
+   "durationInFrames": 606,
+   "lines": [
+    {
+     "id": "n1",
+     "text": "Environmental factors are about our planet.",
+     "from": 21,
+     "durationInFrames": 75
+    },
+    {
+     "id": "n2",
+     "text": "Fashion creates a lot of textile waste, and more shoppers now ask how their clothes are made.",
+     "from": 105,
+     "durationInFrames": 150
+    },
+    {
+     "id": "n3",
+     "text": "Sustainable fabrics, less waste, and eco-friendly packaging all make a difference.",
+     "from": 264,
+     "durationInFrames": 137
+    },
+    {
+     "id": "n4",
+     "text": "Small steps like natural fabrics and recyclable packaging can build trust and set Aalayam apart.",
+     "from": 410,
+     "durationInFrames": 178
+    }
+   ]
+  },
+  {
+   "id": "legal",
+   "title": "Legal",
+   "from": 3994,
+   "durationInFrames": 680,
+   "lines": [
+    {
+     "id": "l1",
+     "text": "Legal factors are the rules every business has to follow.",
+     "from": 21,
+     "durationInFrames": 100
+    },
+    {
+     "id": "l2",
+     "text": "Selling online means following consumer protection and e-commerce rules, like clear prices and fair returns.",
+     "from": 130,
+     "durationInFrames": 195
+    },
+    {
+     "id": "l3",
+     "text": "Every garment needs a proper label, G S T must be filed correctly, and customer data has to be kept safe.",
+     "from": 334,
+     "durationInFrames": 199
+    },
+    {
+     "id": "l4",
+     "text": "Getting this right protects Aalayam, and earns its customers' confidence.",
+     "from": 542,
+     "durationInFrames": 120
+    }
+   ]
+  },
+  {
+   "id": "conclusion",
+   "title": "Conclusion",
+   "from": 4674,
+   "durationInFrames": 674,
+   "lines": [
+    {
+     "id": "c1",
+     "text": "Put all six together, and you get a clear picture of the world around the brand.",
+     "from": 21,
+     "durationInFrames": 118
+    },
+    {
+     "id": "c2",
+     "text": "Rules, money, people, technology and the planet all shape what the brand can do.",
+     "from": 148,
+     "durationInFrames": 140
+    },
+    {
+     "id": "c3",
+     "text": "By watching these forces, Aalayam by Anamika can make better decisions and spot new opportunities early.",
+     "from": 297,
+     "durationInFrames": 192
+    },
+    {
+     "id": "c4",
+     "text": "That's PESTEL: six simple questions about the world outside your business.",
+     "from": 497,
+     "durationInFrames": 122
+    }
+   ]
+  }
+ ]
+}
