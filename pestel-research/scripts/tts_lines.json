@@ -1,0 +1,275 @@
+[
+ {
+  "id": "i1",
+  "text": "This is Aalayam by Anamika, an Indian brand making comfortable co-ords and sarees for women.",
+  "voice": "af_heart",
+  "speed": 1.15,
+  "lang": "en-us"
+ },
+ {
+  "id": "i2",
+  "text": "Like every business, it grows inside a bigger world: tax, prices, trends, technology, the planet and the law.",
+  "voice": "af_heart",
+  "speed": 1.15,
+  "lang": "en-us"
+ },
+ {
+  "id": "i3",
+  "text": "We wanted to understand that world properly, so we ran a Pestle analysis.",
+  "voice": "af_heart",
+  "speed": 1.15,
+  "lang": "en-us"
+ },
+ {
+  "id": "i4",
+  "text": "Pestle looks at six outside forces: Political, Economic, Social, Technological, Environmental and Legal. Here's how we did it.",
+  "voice": "af_heart",
+  "speed": 1.15,
+  "lang": "en-us"
+ },
+ {
+  "id": "a1",
+  "text": "We worked in four steps.",
+  "voice": "af_heart",
+  "speed": 1.15,
+  "lang": "en-us"
+ },
+ {
+  "id": "a2",
+  "text": "First, we got to know the business: what Aalayam sells, who it sells to, and where it fits in Indian women's fashion.",
+  "voice": "af_heart",
+  "speed": 1.15,
+  "lang": "en-us"
+ },
+ {
+  "id": "a3",
+  "text": "Second, we split Pestle into its six parts and wrote questions for a clothing brand, like: how does G S T affect the price of an outfit?",
+  "voice": "af_heart",
+  "speed": 1.15,
+  "lang": "en-us"
+ },
+ {
+  "id": "a4",
+  "text": "Third, we collected information: government publications, industry reports, fashion trends and news on online shopping.",
+  "voice": "af_heart",
+  "speed": 1.15,
+  "lang": "en-us"
+ },
+ {
+  "id": "a5",
+  "text": "Fourth, we analysed it, asking of each finding: is this an opportunity or a threat, and what does it mean for Aalayam?",
+  "voice": "af_heart",
+  "speed": 1.15,
+  "lang": "en-us"
+ },
+ {
+  "id": "k1",
+  "text": "Here's the toolkit we used.",
+  "voice": "af_heart",
+  "speed": 1.15,
+  "lang": "en-us"
+ },
+ {
+  "id": "k2",
+  "text": "Google Search helped us find reports and trends, and government websites gave reliable facts on G S T, textile policy and consumer rules.",
+  "voice": "af_heart",
+  "speed": 1.15,
+  "lang": "en-us"
+ },
+ {
+  "id": "k3",
+  "text": "Google Trends showed which styles people were searching for, and industry reports described the wider apparel market.",
+  "voice": "af_heart",
+  "speed": 1.15,
+  "lang": "en-us"
+ },
+ {
+  "id": "k4",
+  "text": "Claude helped us organise our findings and spot patterns. Chat G P T helped us brainstorm questions and draft recommendations.",
+  "voice": "af_heart",
+  "speed": 1.15,
+  "lang": "en-us"
+ },
+ {
+  "id": "k5",
+  "text": "Google Sheets kept every finding sorted under its Pestle heading, and Canva helped us present the result.",
+  "voice": "af_heart",
+  "speed": 1.15,
+  "lang": "en-us"
+ },
+ {
+  "id": "k6",
+  "text": "A I tools sped up the work, but we checked the facts against the original sources. Next, we'd recommend customer interviews and Aalayam's own sales data.",
+  "voice": "af_heart",
+  "speed": 1.15,
+  "lang": "en-us"
+ },
+ {
+  "id": "p1",
+  "text": "Political. We looked at textile policy, Make in India, G S T and trade rules.",
+  "voice": "af_heart",
+  "speed": 1.15,
+  "lang": "en-us"
+ },
+ {
+  "id": "p2",
+  "text": "The government actively supports Indian textile manufacturing, and the G S T on a garment depends on its price.",
+  "voice": "af_heart",
+  "speed": 1.15,
+  "lang": "en-us"
+ },
+ {
+  "id": "p3",
+  "text": "That shapes where Aalayam sources fabric, and how it prices each collection.",
+  "voice": "af_heart",
+  "speed": 1.15,
+  "lang": "en-us"
+ },
+ {
+  "id": "e1",
+  "text": "Economic. We looked at inflation, incomes, fabric costs and competition.",
+  "voice": "af_heart",
+  "speed": 1.15,
+  "lang": "en-us"
+ },
+ {
+  "id": "e2",
+  "text": "Shoppers are price-conscious, fabric costs can change quickly, and online competition is strong.",
+  "voice": "af_heart",
+  "speed": 1.15,
+  "lang": "en-us"
+ },
+ {
+  "id": "e3",
+  "text": "So pricing has to be clear, fair and carefully planned.",
+  "voice": "af_heart",
+  "speed": 1.15,
+  "lang": "en-us"
+ },
+ {
+  "id": "s1",
+  "text": "Social. We looked at what women want to wear, and how they shop.",
+  "voice": "af_heart",
+  "speed": 1.15,
+  "lang": "en-us"
+ },
+ {
+  "id": "s2",
+  "text": "Comfort is a priority from workdays to weekends, and social media drives how new styles are discovered.",
+  "voice": "af_heart",
+  "speed": 1.15,
+  "lang": "en-us"
+ },
+ {
+  "id": "s3",
+  "text": "That suits a brand built on comfortable everyday fashion.",
+  "voice": "af_heart",
+  "speed": 1.15,
+  "lang": "en-us"
+ },
+ {
+  "id": "t1",
+  "text": "Technological. We looked at online stores, A I recommendations, digital marketing and analytics.",
+  "voice": "af_heart",
+  "speed": 1.15,
+  "lang": "en-us"
+ },
+ {
+  "id": "t2",
+  "text": "Small brands can now reach customers across India by phone, and data shows what people actually like.",
+  "voice": "af_heart",
+  "speed": 1.15,
+  "lang": "en-us"
+ },
+ {
+  "id": "t3",
+  "text": "That's a real chance for Aalayam to grow online.",
+  "voice": "af_heart",
+  "speed": 1.15,
+  "lang": "en-us"
+ },
+ {
+  "id": "n1",
+  "text": "Environmental. We looked at sustainable fabrics, textile waste and packaging.",
+  "voice": "af_heart",
+  "speed": 1.15,
+  "lang": "en-us"
+ },
+ {
+  "id": "n2",
+  "text": "More shoppers care how their clothes are made, and India has banned many single-use plastics.",
+  "voice": "af_heart",
+  "speed": 1.15,
+  "lang": "en-us"
+ },
+ {
+  "id": "n3",
+  "text": "Responsible choices can build trust.",
+  "voice": "af_heart",
+  "speed": 1.15,
+  "lang": "en-us"
+ },
+ {
+  "id": "l1",
+  "text": "Legal. We looked at consumer protection, e-commerce rules, labelling, G S T compliance and data privacy.",
+  "voice": "af_heart",
+  "speed": 1.15,
+  "lang": "en-us"
+ },
+ {
+  "id": "l2",
+  "text": "Online sellers must show clear prices and return policies, label products properly, and protect customer data.",
+  "voice": "af_heart",
+  "speed": 1.15,
+  "lang": "en-us"
+ },
+ {
+  "id": "l3",
+  "text": "Getting this right keeps the business safe and trusted.",
+  "voice": "af_heart",
+  "speed": 1.15,
+  "lang": "en-us"
+ },
+ {
+  "id": "r1",
+  "text": "Next, we turned the findings into ideas: recommendations to consider, not things Aalayam already does.",
+  "voice": "af_heart",
+  "speed": 1.15,
+  "lang": "en-us"
+ },
+ {
+  "id": "r2",
+  "text": "Political: understand tax and textile policy before pricing and choosing suppliers. Economic: try affordable collections and outfit bundles.",
+  "voice": "af_heart",
+  "speed": 1.15,
+  "lang": "en-us"
+ },
+ {
+  "id": "r3",
+  "text": "Social: make comfortable everyday fashion the heart of the brand. Technological: explore A I assisted marketing and personalised recommendations.",
+  "voice": "af_heart",
+  "speed": 1.15,
+  "lang": "en-us"
+ },
+ {
+  "id": "r4",
+  "text": "Environmental: consider sustainable packaging and responsible sourcing. Legal: make sure listings, prices, labels and online processes follow the rules.",
+  "voice": "af_heart",
+  "speed": 1.15,
+  "lang": "en-us"
+ },
+ {
+  "id": "c1",
+  "text": "So that was our journey: understand the business, ask questions, gather information, analyse it with A I's help, sort it into Pestle, and turn it into insights.",
+  "voice": "af_heart",
+  "speed": 1.15,
+  "lang": "en-us"
+ },
+ {
+  "id": "c2",
+  "text": "Pestle doesn't predict the future, but it helps Aalayam by Anamika see its world clearly and make better-informed decisions.",
+  "voice": "af_heart",
+  "speed": 1.15,
+  "lang": "en-us"
+ }
+]

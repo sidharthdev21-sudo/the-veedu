@@ -1,0 +1,238 @@
+[
+ {
+  "scene": "intro",
+  "title": "Introduction",
+  "lines": [
+   [
+    "i1",
+    "This is Aalayam by Anamika, an Indian brand making comfortable co-ords and sarees for women."
+   ],
+   [
+    "i2",
+    "Like every business, it grows inside a bigger world: tax, prices, trends, technology, the planet and the law."
+   ],
+   [
+    "i3",
+    "We wanted to understand that world properly, so we ran a PESTEL analysis.",
+    "We wanted to understand that world properly, so we ran a Pestle analysis."
+   ],
+   [
+    "i4",
+    "PESTEL looks at six outside forces: Political, Economic, Social, Technological, Environmental and Legal. Here's how we did it.",
+    "Pestle looks at six outside forces: Political, Economic, Social, Technological, Environmental and Legal. Here's how we did it."
+   ]
+  ]
+ },
+ {
+  "scene": "approach",
+  "title": "How we approached the research",
+  "lines": [
+   [
+    "a1",
+    "We worked in four steps."
+   ],
+   [
+    "a2",
+    "First, we got to know the business: what Aalayam sells, who it sells to, and where it fits in Indian women's fashion."
+   ],
+   [
+    "a3",
+    "Second, we split PESTEL into its six parts and wrote questions for a clothing brand, like: how does GST affect the price of an outfit?",
+    "Second, we split Pestle into its six parts and wrote questions for a clothing brand, like: how does G S T affect the price of an outfit?"
+   ],
+   [
+    "a4",
+    "Third, we collected information: government publications, industry reports, fashion trends and news on online shopping."
+   ],
+   [
+    "a5",
+    "Fourth, we analysed it, asking of each finding: is this an opportunity or a threat, and what does it mean for Aalayam?"
+   ]
+  ]
+ },
+ {
+  "scene": "toolkit",
+  "title": "Our research toolkit",
+  "lines": [
+   [
+    "k1",
+    "Here's the toolkit we used."
+   ],
+   [
+    "k2",
+    "Google Search helped us find reports and trends, and government websites gave reliable facts on GST, textile policy and consumer rules.",
+    "Google Search helped us find reports and trends, and government websites gave reliable facts on G S T, textile policy and consumer rules."
+   ],
+   [
+    "k3",
+    "Google Trends showed which styles people were searching for, and industry reports described the wider apparel market."
+   ],
+   [
+    "k4",
+    "Claude helped us organise our findings and spot patterns. ChatGPT helped us brainstorm questions and draft recommendations.",
+    "Claude helped us organise our findings and spot patterns. Chat G P T helped us brainstorm questions and draft recommendations."
+   ],
+   [
+    "k5",
+    "Google Sheets kept every finding sorted under its PESTEL heading, and Canva helped us present the result.",
+    "Google Sheets kept every finding sorted under its Pestle heading, and Canva helped us present the result."
+   ],
+   [
+    "k6",
+    "AI tools sped up the work, but we checked the facts against the original sources. Next, we'd recommend customer interviews and Aalayam's own sales data.",
+    "A I tools sped up the work, but we checked the facts against the original sources. Next, we'd recommend customer interviews and Aalayam's own sales data."
+   ]
+  ]
+ },
+ {
+  "scene": "political",
+  "title": "Political",
+  "lines": [
+   [
+    "p1",
+    "Political. We looked at textile policy, Make in India, GST and trade rules.",
+    "Political. We looked at textile policy, Make in India, G S T and trade rules."
+   ],
+   [
+    "p2",
+    "The government actively supports Indian textile manufacturing, and the GST on a garment depends on its price.",
+    "The government actively supports Indian textile manufacturing, and the G S T on a garment depends on its price."
+   ],
+   [
+    "p3",
+    "That shapes where Aalayam sources fabric, and how it prices each collection."
+   ]
+  ]
+ },
+ {
+  "scene": "economic",
+  "title": "Economic",
+  "lines": [
+   [
+    "e1",
+    "Economic. We looked at inflation, incomes, fabric costs and competition."
+   ],
+   [
+    "e2",
+    "Shoppers are price-conscious, fabric costs can change quickly, and online competition is strong."
+   ],
+   [
+    "e3",
+    "So pricing has to be clear, fair and carefully planned."
+   ]
+  ]
+ },
+ {
+  "scene": "social",
+  "title": "Social",
+  "lines": [
+   [
+    "s1",
+    "Social. We looked at what women want to wear, and how they shop."
+   ],
+   [
+    "s2",
+    "Comfort is a priority from workdays to weekends, and social media drives how new styles are discovered."
+   ],
+   [
+    "s3",
+    "That suits a brand built on comfortable everyday fashion."
+   ]
+  ]
+ },
+ {
+  "scene": "technological",
+  "title": "Technological",
+  "lines": [
+   [
+    "t1",
+    "Technological. We looked at online stores, AI recommendations, digital marketing and analytics.",
+    "Technological. We looked at online stores, A I recommendations, digital marketing and analytics."
+   ],
+   [
+    "t2",
+    "Small brands can now reach customers across India by phone, and data shows what people actually like."
+   ],
+   [
+    "t3",
+    "That's a real chance for Aalayam to grow online."
+   ]
+  ]
+ },
+ {
+  "scene": "environmental",
+  "title": "Environmental",
+  "lines": [
+   [
+    "n1",
+    "Environmental. We looked at sustainable fabrics, textile waste and packaging."
+   ],
+   [
+    "n2",
+    "More shoppers care how their clothes are made, and India has banned many single-use plastics."
+   ],
+   [
+    "n3",
+    "Responsible choices can build trust."
+   ]
+  ]
+ },
+ {
+  "scene": "legal",
+  "title": "Legal",
+  "lines": [
+   [
+    "l1",
+    "Legal. We looked at consumer protection, e-commerce rules, labelling, GST compliance and data privacy.",
+    "Legal. We looked at consumer protection, e-commerce rules, labelling, G S T compliance and data privacy."
+   ],
+   [
+    "l2",
+    "Online sellers must show clear prices and return policies, label products properly, and protect customer data."
+   ],
+   [
+    "l3",
+    "Getting this right keeps the business safe and trusted."
+   ]
+  ]
+ },
+ {
+  "scene": "insights",
+  "title": "From research to business insights",
+  "lines": [
+   [
+    "r1",
+    "Next, we turned the findings into ideas: recommendations to consider, not things Aalayam already does."
+   ],
+   [
+    "r2",
+    "Political: understand tax and textile policy before pricing and choosing suppliers. Economic: try affordable collections and outfit bundles."
+   ],
+   [
+    "r3",
+    "Social: make comfortable everyday fashion the heart of the brand. Technological: explore AI-assisted marketing and personalised recommendations.",
+    "Social: make comfortable everyday fashion the heart of the brand. Technological: explore A I assisted marketing and personalised recommendations."
+   ],
+   [
+    "r4",
+    "Environmental: consider sustainable packaging and responsible sourcing. Legal: make sure listings, prices, labels and online processes follow the rules."
+   ]
+  ]
+ },
+ {
+  "scene": "conclusion",
+  "title": "Conclusion",
+  "lines": [
+   [
+    "c1",
+    "So that was our journey: understand the business, ask questions, gather information, analyse it with AI's help, sort it into PESTEL, and turn it into insights.",
+    "So that was our journey: understand the business, ask questions, gather information, analyse it with A I's help, sort it into Pestle, and turn it into insights."
+   ],
+   [
+    "c2",
+    "PESTEL doesn't predict the future, but it helps Aalayam by Anamika see its world clearly and make better-informed decisions.",
+    "Pestle doesn't predict the future, but it helps Aalayam by Anamika see its world clearly and make better-informed decisions."
+   ]
+  ]
+ }
+]

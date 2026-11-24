@@ -1,0 +1,155 @@
+1
+00:00:00,500 --> 00:00:06,338
+This is Aalayam by Anamika, an Indian brand making comfortable co-ords and sarees for women.
+
+2
+00:00:06,258 --> 00:00:12,842
+Like every business, it grows inside a bigger world: tax, prices, trends, technology, the planet and the law.
+
+3
+00:00:12,762 --> 00:00:16,826
+We wanted to understand that world properly, so we ran a PESTEL analysis.
+
+4
+00:00:16,746 --> 00:00:25,021
+PESTEL looks at six outside forces: Political, Economic, Social, Technological, Environmental and Legal. Here's how we did it.
+
+5
+00:00:25,601 --> 00:00:27,206
+We worked in four steps.
+
+6
+00:00:27,126 --> 00:00:33,515
+First, we got to know the business: what Aalayam sells, who it sells to, and where it fits in Indian women's fashion.
+
+7
+00:00:33,435 --> 00:00:41,364
+Second, we split PESTEL into its six parts and wrote questions for a clothing brand, like: how does GST affect the price of an outfit?
+
+8
+00:00:41,284 --> 00:00:48,486
+Third, we collected information: government publications, industry reports, fashion trends and news on online shopping.
+
+9
+00:00:48,406 --> 00:00:55,316
+Fourth, we analysed it, asking of each finding: is this an opportunity or a threat, and what does it mean for Aalayam?
+
+10
+00:00:55,896 --> 00:00:57,586
+Here's the toolkit we used.
+
+11
+00:00:57,506 --> 00:01:06,574
+Google Search helped us find reports and trends, and government websites gave reliable facts on GST, textile policy and consumer rules.
+
+12
+00:01:06,494 --> 00:01:12,912
+Google Trends showed which styles people were searching for, and industry reports described the wider apparel market.
+
+13
+00:01:12,832 --> 00:01:21,086
+Claude helped us organise our findings and spot patterns. ChatGPT helped us brainstorm questions and draft recommendations.
+
+14
+00:01:21,006 --> 00:01:26,710
+Google Sheets kept every finding sorted under its PESTEL heading, and Canva helped us present the result.
+
+15
+00:01:26,630 --> 00:01:35,785
+AI tools sped up the work, but we checked the facts against the original sources. Next, we'd recommend customer interviews and Aalayam's own sales data.
+
+16
+00:01:36,365 --> 00:01:41,508
+Political. We looked at textile policy, Make in India, GST and trade rules.
+
+17
+00:01:41,428 --> 00:01:48,234
+The government actively supports Indian textile manufacturing, and the GST on a garment depends on its price.
+
+18
+00:01:48,154 --> 00:01:52,431
+That shapes where Aalayam sources fabric, and how it prices each collection.
+
+19
+00:01:53,011 --> 00:01:57,656
+Economic. We looked at inflation, incomes, fabric costs and competition.
+
+20
+00:01:57,576 --> 00:02:03,226
+Shoppers are price-conscious, fabric costs can change quickly, and online competition is strong.
+
+21
+00:02:03,146 --> 00:02:06,401
+So pricing has to be clear, fair and carefully planned.
+
+22
+00:02:06,981 --> 00:02:10,390
+Social. We looked at what women want to wear, and how they shop.
+
+23
+00:02:10,310 --> 00:02:16,064
+Comfort is a priority from workdays to weekends, and social media drives how new styles are discovered.
+
+24
+00:02:15,984 --> 00:02:19,073
+That suits a brand built on comfortable everyday fashion.
+
+25
+00:02:19,653 --> 00:02:25,578
+Technological. We looked at online stores, AI recommendations, digital marketing and analytics.
+
+26
+00:02:25,498 --> 00:02:31,618
+Small brands can now reach customers across India by phone, and data shows what people actually like.
+
+27
+00:02:31,538 --> 00:02:34,414
+That's a real chance for Aalayam to grow online.
+
+28
+00:02:34,994 --> 00:02:39,763
+Environmental. We looked at sustainable fabrics, textile waste and packaging.
+
+29
+00:02:39,683 --> 00:02:44,788
+More shoppers care how their clothes are made, and India has banned many single-use plastics.
+
+30
+00:02:44,708 --> 00:02:46,986
+Responsible choices can build trust.
+
+31
+00:02:47,566 --> 00:02:54,257
+Legal. We looked at consumer protection, e-commerce rules, labelling, GST compliance and data privacy.
+
+32
+00:02:54,177 --> 00:03:00,990
+Online sellers must show clear prices and return policies, label products properly, and protect customer data.
+
+33
+00:03:00,910 --> 00:03:03,817
+Getting this right keeps the business safe and trusted.
+
+34
+00:03:04,397 --> 00:03:10,687
+Next, we turned the findings into ideas: recommendations to consider, not things Aalayam already does.
+
+35
+00:03:10,607 --> 00:03:19,504
+Political: understand tax and textile policy before pricing and choosing suppliers. Economic: try affordable collections and outfit bundles.
+
+36
+00:03:19,424 --> 00:03:28,236
+Social: make comfortable everyday fashion the heart of the brand. Technological: explore AI-assisted marketing and personalised recommendations.
+
+37
+00:03:28,156 --> 00:03:37,777
+Environmental: consider sustainable packaging and responsible sourcing. Legal: make sure listings, prices, labels and online processes follow the rules.
+
+38
+00:03:38,357 --> 00:03:47,622
+So that was our journey: understand the business, ask questions, gather information, analyse it with AI's help, sort it into PESTEL, and turn it into insights.
+
+39
+00:03:47,542 --> 00:03:54,775
+PESTEL doesn't predict the future, but it helps Aalayam by Anamika see its world clearly and make better-informed decisions.
