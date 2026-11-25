@@ -3,7 +3,7 @@
 
 Contents: **A.** sentiment findings and review examples · **B.** market sizing with formulas and assumptions · **C.** scene-by-scene storyboard with the full narration · **D.** questions for you.
 
-**Format:** 1920 × 1080, 30 fps, English voiceover (same voice as earlier episodes), subtle ambient electronic music. **Target length:** about 4 min 40 s.
+**Format:** 1920 × 1080, 30 fps, English voiceover (same voice as earlier episodes), subtle ambient electronic music. **Target length:** about 4 min 50 s.
 **Look:** the exact dark palette you specified, in every scene. Deep Obsidian `#08090C` background, Charcoal `#0E1015` cards, Soft White `#ECECF1` text, Cool Grey `#A3A5B0` captions. Electric Cyan `#6CF0FF` is for data and key metrics, Soft Violet `#B48CFF` for analytical elements, Neon Lime `#D4FF6A` for findings and opportunities, and Success Green `#5EE6A8` for positive sentiment. Negative sentiment uses Soft Violet rather than a red, so the palette stays exact. It reuses the Episode 1 and 3 dark components (Space Grotesk and Inter, glowing lines, icon badges, evidence chips) as a separate project; earlier episodes stay untouched.
 
 ---
@@ -121,13 +121,13 @@ Note: the report's text gives women's Indian wear in FY2029 as ₹2,450 bn, but 
 | Reach → store visit | 6% | 6% | 6% | Assumption |
 | Visit → first purchase | 1.5% | 1.5% | 1.5% | Assumption; no reliable Indian fashion benchmark found |
 | **New buyers** | **450** | **1,080** | **2,250** | Calculated |
-| Returning buyers (25% of all earlier buyers each year) | 0 | 113 | 383 | Assumption; Indian D2C 90-day repeat is often cited at ~20–30% |
-| **Active buyers** | **450** | **1,193** | **2,633** | Calculated (customer count) |
+| Returning buyers (25% of all earlier buyers each year) | 0 | 112 | 382 | Assumption; Indian D2C 90-day repeat is often cited at ~20–30% |
+| **Active buyers** | **450** | **1,192** | **2,632** | Calculated (customer count) |
 | Orders per active buyer per year | 1.3 | 1.3 | 1.3 | Assumption |
 | Average order value | ₹1,500 | ₹1,500 | ₹1,500 | Brief: ₹1,000–1,700 per piece |
-| **Gross revenue** | **₹8.8 lakh** | **₹23.3 lakh** | **₹51.3 lakh** | Calculated |
+| **Gross revenue** | **₹8.8 lakh** | **₹23.2 lakh** | **₹51.3 lakh** | Calculated |
 | Net of returns (25% assumed) | ₹6.6 lakh | ₹17.4 lakh | ₹38.5 lakh | Apparel returns are often cited at 20–35% |
-| Orders per month (capacity check) | ~50 | ~130 | ~285 | About 10 a day by Year 3: manageable for a small team, but inventory must keep up |
+| Orders per month (capacity check) | ~49 | ~129 | ~285 | About 10 a day by Year 3: manageable for a small team, but inventory must keep up |
 
 ### Top-down vs bottom-up
 
@@ -156,7 +156,7 @@ Every scene uses the dark palette. Evidence chips (**Verified fact**, **Observed
 | 10 | **Top-down vs bottom-up** (4:30–4:45) | Two bars: "1% of SAM = ₹23 crore" (dim, struck through) vs "Bottom-up Year 3 = ₹0.5 crore" (lime). | That's about two hundredths of one percent of SAM. Simply taking one percent of SAM would suggest twenty-three crore, far more than this plan could support. So the bottom-up number is the realistic one, and every input can be replaced with Aalayam's real data. |
 | 11 | **Business insights and close** (4:45–5:05) | Sentiment (heart icon) + Market sizing (circles) merge into a decision card: *Priority segment: women 20–40 · Focus: comfortable everyday sets and sarees · Improve: fit and fabric information · Plan: growth from real numbers · Test first: size guidance and photos*. The four episode tiles line up and the wordmark appears. | Together, these tell Aalayam where to focus: women aged twenty to forty, comfortable everyday sets and sarees, better fit and fabric information, and growth plans built on real numbers. · Through our competitive analysis, we understood the market. Through sentiment analysis, we began to understand the customer. And through TAM, SAM and SOM, we estimated the business opportunity. · Together, these insights help us move from research to informed product and business decisions. |
 
-Narration is about 760 words, which should run about 4 min 40 s at the earlier episodes' pace.
+Narration is about 795 words, which should run about 4 min 50 s at the earlier episodes' pace.
 
 ---
 
