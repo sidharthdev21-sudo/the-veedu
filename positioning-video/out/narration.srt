@@ -1,0 +1,119 @@
+1
+00:00:00,500 --> 00:00:09,227
+In Part 1, PESTEL showed us the world around Aalayam by Anamika. In Part 2, Porter's Five Forces showed us how competitive the industry is.
+
+2
+00:00:09,147 --> 00:00:15,498
+In Part 3, we ask a sharper question: who exactly does Aalayam compete with, and where could it stand apart?
+
+3
+00:00:15,418 --> 00:00:20,440
+To answer it, we used two tools: the four levels of competition, and perceptual mapping.
+
+4
+00:00:21,020 --> 00:00:22,610
+Here's how we researched it.
+
+5
+00:00:22,530 --> 00:00:32,079
+We started from Aalayam's brief: co-ord sets and sarees for women aged twenty to forty, at about one thousand to seventeen hundred rupees, sold online first.
+
+6
+00:00:31,999 --> 00:00:40,888
+Then we searched marketplaces like Nykaa, Flipkart and Amazon, brand websites and news profiles, and recorded real prices from product listings.
+
+7
+00:00:40,808 --> 00:00:48,189
+Every point is labelled: a verified fact, something we observed, our interpretation, a hypothesis, or a recommendation.
+
+8
+00:00:48,769 --> 00:00:58,653
+First, a key distinction. Direct competitors sell a similar product, to the same customer, at a similar price. Indirect competitors meet the same need in a different way.
+
+9
+00:00:58,573 --> 00:01:06,918
+Level one is brand competition: Libas, Janasya, Juniper, Pink Fort and unbranded marketplace co-ords, plus Suta for sarees.
+
+10
+00:01:06,838 --> 00:01:15,537
+Level two is the wider industry: kurta-set and craft brands like Fabindia, comfort labels like Mulmul, and stores like Westside and Zudio.
+
+11
+00:01:15,457 --> 00:01:21,511
+Level three is a different product form: custom stitching, tailor-made outfits, or buying dress material.
+
+12
+00:01:21,431 --> 00:01:29,860
+And level four is the basic need itself: a local boutique, renting, buying second-hand, or simply wearing what's already in the wardrobe.
+
+13
+00:01:30,440 --> 00:01:32,612
+Next, we built a competitor matrix.
+
+14
+00:01:32,532 --> 00:01:42,827
+Libas, Janasya, Juniper and Pink Fort all had co-ord listings between about eleven hundred and eighteen hundred rupees, and unbranded sets sold for around five hundred.
+
+15
+00:01:42,747 --> 00:01:48,619
+Nearly every listing showed a big discount, from twenty-six to sixty-nine percent off the printed price.
+
+16
+00:01:48,539 --> 00:01:52,850
+Some brands we couldn't price at all, so we left them off the maps rather than guess.
+
+17
+00:01:53,430 --> 00:01:59,918
+Then we drew our first perceptual map: price from affordable to premium, and design from basic to design-led.
+
+18
+00:01:59,838 --> 00:02:08,692
+The middle of the map is crowded: discount-led co-ords between one and two thousand rupees. Design-led brands like Suta sit well above that price.
+
+19
+00:02:08,612 --> 00:02:14,851
+Aalayam's stated price puts it right in the crowd. To stand out, it would need a much stronger design signature.
+
+20
+00:02:14,771 --> 00:02:20,053
+This map is a hypothesis, placed from prices and listings, not from customer opinion.
+
+21
+00:02:20,633 --> 00:02:27,185
+Price and design hide something important: comfort, which is Aalayam's core promise. So we drew a second map.
+
+22
+00:02:27,105 --> 00:02:31,506
+Mass market to niche, and basic everyday wear to comfort-led lifestyle wear.
+
+23
+00:02:31,426 --> 00:02:38,871
+The brands that own comfort, Mulmul and Suta, are premium. The brands in Aalayam's price band compete on reach and print.
+
+24
+00:02:38,791 --> 00:02:44,376
+That leaves a possible gap: comfort-led clothing with a distinct identity, at an accessible price.
+
+25
+00:02:44,956 --> 00:02:56,578
+So where does this leave Aalayam? Today, it competes in the most crowded band. Its strongest direct threats are mass brands with marketplace reach, while tailors and boutiques pull customers indirectly.
+
+26
+00:02:56,498 --> 00:03:08,604
+Our draft positioning: for women who want everyday clothes that feel as good as they look, Aalayam offers comfortable co-ords and sarees, rooted in Kerala, at honest prices, showing exactly what you're buying.
+
+27
+00:03:09,184 --> 00:03:14,661
+We suggest four moves to test. These are recommendations, not things Aalayam does today.
+
+28
+00:03:14,581 --> 00:03:27,834
+Make comfort provable with fabric and fit details on every product. Keep one honest price instead of inflated discounts. Build a recognisable Kerala-rooted design signature. And offer fit help to compete with tailoring.
+
+29
+00:03:28,414 --> 00:03:35,701
+Before any of this is final, we need to validate it: a customer perception survey, interviews, and Aalayam's own price list.
+
+30
+00:03:35,621 --> 00:03:43,502
+PESTEL showed the environment. Five Forces showed the industry. And now we know who Aalayam competes with, and where it could stand apart.

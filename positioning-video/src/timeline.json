@@ -1,0 +1,258 @@
+{
+ "fps": 30,
+ "durationInFrames": 6743,
+ "scenes": [
+  {
+   "id": "recap",
+   "title": "Continuing the series",
+   "from": 0,
+   "durationInFrames": 616,
+   "lines": [
+    {
+     "id": "s1",
+     "text": "In Part 1, PESTEL showed us the world around Aalayam by Anamika. In Part 2, Porter's Five Forces showed us how competitive the industry is.",
+     "from": 15,
+     "durationInFrames": 253
+    },
+    {
+     "id": "s2",
+     "text": "In Part 3, we ask a sharper question: who exactly does Aalayam compete with, and where could it stand apart?",
+     "from": 274,
+     "durationInFrames": 182
+    },
+    {
+     "id": "s3",
+     "text": "To answer it, we used two tools: the four levels of competition, and perceptual mapping.",
+     "from": 463,
+     "durationInFrames": 142
+    }
+   ]
+  },
+  {
+   "id": "method",
+   "title": "How we researched it",
+   "from": 616,
+   "durationInFrames": 832,
+   "lines": [
+    {
+     "id": "m1",
+     "text": "Here's how we researched it.",
+     "from": 15,
+     "durationInFrames": 39
+    },
+    {
+     "id": "m2",
+     "text": "We started from Aalayam's brief: co-ord sets and sarees for women aged twenty to forty, at about one thousand to seventeen hundred rupees, sold online first.",
+     "from": 60,
+     "durationInFrames": 277
+    },
+    {
+     "id": "m3",
+     "text": "Then we searched marketplaces like Nykaa, Flipkart and Amazon, brand websites and news profiles, and recorded real prices from product listings.",
+     "from": 344,
+     "durationInFrames": 258
+    },
+    {
+     "id": "m4",
+     "text": "Every point is labelled: a verified fact, something we observed, our interpretation, a hypothesis, or a recommendation.",
+     "from": 608,
+     "durationInFrames": 212
+    }
+   ]
+  },
+  {
+   "id": "levels",
+   "title": "The four levels of competition",
+   "from": 1448,
+   "durationInFrames": 1250,
+   "lines": [
+    {
+     "id": "l1",
+     "text": "First, a key distinction. Direct competitors sell a similar product, to the same customer, at a similar price. Indirect competitors meet the same need in a different way.",
+     "from": 15,
+     "durationInFrames": 288
+    },
+    {
+     "id": "l2",
+     "text": "Level one is brand competition: Libas, Janasya, Juniper, Pink Fort and unbranded marketplace co-ords, plus Suta for sarees.",
+     "from": 309,
+     "durationInFrames": 241
+    },
+    {
+     "id": "l3",
+     "text": "Level two is the wider industry: kurta-set and craft brands like Fabindia, comfort labels like Mulmul, and stores like Westside and Zudio.",
+     "from": 557,
+     "durationInFrames": 252
+    },
+    {
+     "id": "l4",
+     "text": "Level three is a different product form: custom stitching, tailor-made outfits, or buying dress material.",
+     "from": 816,
+     "durationInFrames": 173
+    },
+    {
+     "id": "l5",
+     "text": "And level four is the basic need itself: a local boutique, renting, buying second-hand, or simply wearing what's already in the wardrobe.",
+     "from": 995,
+     "durationInFrames": 244
+    }
+   ]
+  },
+  {
+   "id": "matrix",
+   "title": "The competitor matrix",
+   "from": 2698,
+   "durationInFrames": 690,
+   "lines": [
+    {
+     "id": "x1",
+     "text": "Next, we built a competitor matrix.",
+     "from": 15,
+     "durationInFrames": 56
+    },
+    {
+     "id": "x2",
+     "text": "Libas, Janasya, Juniper and Pink Fort all had co-ord listings between about eleven hundred and eighteen hundred rupees, and unbranded sets sold for around five hundred.",
+     "from": 78,
+     "durationInFrames": 300
+    },
+    {
+     "id": "x3",
+     "text": "Nearly every listing showed a big discount, from twenty-six to sixty-nine percent off the printed price.",
+     "from": 384,
+     "durationInFrames": 167
+    },
+    {
+     "id": "x4",
+     "text": "Some brands we couldn't price at all, so we left them off the maps rather than guess.",
+     "from": 558,
+     "durationInFrames": 120
+    }
+   ]
+  },
+  {
+   "id": "map1",
+   "title": "Perceptual map: price and design",
+   "from": 3388,
+   "durationInFrames": 816,
+   "lines": [
+    {
+     "id": "p1",
+     "text": "Then we drew our first perceptual map: price from affordable to premium, and design from basic to design-led.",
+     "from": 15,
+     "durationInFrames": 186
+    },
+    {
+     "id": "p2",
+     "text": "The middle of the map is crowded: discount-led co-ords between one and two thousand rupees. Design-led brands like Suta sit well above that price.",
+     "from": 207,
+     "durationInFrames": 257
+    },
+    {
+     "id": "p3",
+     "text": "Aalayam's stated price puts it right in the crowd. To stand out, it would need a much stronger design signature.",
+     "from": 470,
+     "durationInFrames": 178
+    },
+    {
+     "id": "p4",
+     "text": "This map is a hypothesis, placed from prices and listings, not from customer opinion.",
+     "from": 655,
+     "durationInFrames": 149
+    }
+   ]
+  },
+  {
+   "id": "map2",
+   "title": "Perceptual map: reach and comfort",
+   "from": 4204,
+   "durationInFrames": 730,
+   "lines": [
+    {
+     "id": "q1",
+     "text": "Price and design hide something important: comfort, which is Aalayam's core promise. So we drew a second map.",
+     "from": 15,
+     "durationInFrames": 188
+    },
+    {
+     "id": "q2",
+     "text": "Mass market to niche, and basic everyday wear to comfort-led lifestyle wear.",
+     "from": 209,
+     "durationInFrames": 123
+    },
+    {
+     "id": "q3",
+     "text": "The brands that own comfort, Mulmul and Suta, are premium. The brands in Aalayam's price band compete on reach and print.",
+     "from": 339,
+     "durationInFrames": 214
+    },
+    {
+     "id": "q4",
+     "text": "That leaves a possible gap: comfort-led clothing with a distinct identity, at an accessible price.",
+     "from": 560,
+     "durationInFrames": 159
+    }
+   ]
+  },
+  {
+   "id": "insights",
+   "title": "Insights and positioning",
+   "from": 4934,
+   "durationInFrames": 727,
+   "lines": [
+    {
+     "id": "i1",
+     "text": "So where does this leave Aalayam? Today, it competes in the most crowded band. Its strongest direct threats are mass brands with marketplace reach, while tailors and boutiques pull customers indirectly.",
+     "from": 15,
+     "durationInFrames": 340
+    },
+    {
+     "id": "i2",
+     "text": "Our draft positioning: for women who want everyday clothes that feel as good as they look, Aalayam offers comfortable co-ords and sarees, rooted in Kerala, at honest prices, showing exactly what you're buying.",
+     "from": 361,
+     "durationInFrames": 354
+    }
+   ]
+  },
+  {
+   "id": "recs",
+   "title": "Recommendations",
+   "from": 5661,
+   "durationInFrames": 576,
+   "lines": [
+    {
+     "id": "r1",
+     "text": "We suggest four moves to test. These are recommendations, not things Aalayam does today.",
+     "from": 15,
+     "durationInFrames": 155
+    },
+    {
+     "id": "r2",
+     "text": "Make comfort provable with fabric and fit details on every product. Keep one honest price instead of inflated discounts. Build a recognisable Kerala-rooted design signature. And offer fit help to compete with tailoring.",
+     "from": 176,
+     "durationInFrames": 389
+    }
+   ]
+  },
+  {
+   "id": "close",
+   "title": "Next steps",
+   "from": 6237,
+   "durationInFrames": 506,
+   "lines": [
+    {
+     "id": "c1",
+     "text": "Before any of this is final, we need to validate it: a customer perception survey, interviews, and Aalayam's own price list.",
+     "from": 15,
+     "durationInFrames": 210
+    },
+    {
+     "id": "c2",
+     "text": "PESTEL showed the environment. Five Forces showed the industry. And now we know who Aalayam competes with, and where it could stand apart.",
+     "from": 232,
+     "durationInFrames": 227
+    }
+   ]
+  }
+ ]
+}

@@ -1,8 +1,8 @@
 # Who Aalayam Competes With: Four Levels of Competition & Perceptual Mapping
 ## Aalayam by Anamika · Part 3 of the Business Research Series
-### Storyboard and narration (draft for review)
+### Storyboard and narration (final)
 
-**Format:** 1920 × 1080, 30 fps, English narration (the same voice as the earlier parts), subtle instrumental music. **Target length:** about 3 min 50 s.
+**Format:** 1920 × 1080, 30 fps, English narration (the same voice as the earlier parts), subtle instrumental music. **Length:** 3:44.
 
 **Look: the dark research style of Part 1** ("How we conducted a PESTEL analysis"). Deep Obsidian background with a faint dot grid and slow glows, Charcoal cards, Soft White and Cool Grey text, Space Grotesk headlines with Inter body text. Electric Cyan is the main accent, Soft Violet the second, Neon Lime for highlights, Success Green for ticks. The same glowing connector lines, icon badges and slide-up transitions are reused from that project.
 
@@ -17,7 +17,7 @@
 
 ---
 
-### Scene 1: Continuing the series (0:00 – 0:22)
+### Scene 1: Continuing the series (0:00 – 0:20)
 
 | Picture | Narration |
 |---|---|
@@ -25,7 +25,7 @@
 | A third tile, **Part 3**, lights up cyan. Inside it, a question types out: *Who does Aalayam really compete with, and where could it stand apart?* | In Part 3, we ask a sharper question: who exactly does Aalayam compete with, and where could it stand apart? |
 | The tile splits into two tool cards: **Four levels of competition** (concentric rings icon) and **Perceptual mapping** (scatter-plot icon). | To answer it, we used two tools: the four levels of competition, and perceptual mapping. |
 
-### Scene 2: How we researched it (0:22 – 0:55)
+### Scene 2: How we researched it (0:20 – 0:48)
 
 | Picture | Narration |
 |---|---|
@@ -34,7 +34,7 @@
 | Source cards stack in: *Nykaa Fashion*, *Flipkart*, *Amazon India*, *Brand websites*, *News & brand profiles*. A listing card shows "₹1,480 · MRP ₹1,999" being copied into a sheet. | Then we searched marketplaces like Nykaa, Flipkart and Amazon, brand websites and news profiles, and recorded real prices from product listings. |
 | The five evidence chips pop in one by one as each is named. | Every point is labelled: a verified fact, something we observed, our interpretation, a hypothesis, or a recommendation. |
 
-### Scene 3: The four levels of competition (0:55 – 1:40)
+### Scene 3: The four levels of competition (0:48 – 1:29)
 
 | Picture | Narration |
 |---|---|
@@ -44,7 +44,7 @@
 | Ring 3 (lime) lights: *Custom stitching, Tailor-made, Dress material*. | Level three is a different product form: custom stitching, tailor-made outfits, or buying dress material. |
 | Ring 4 (green) lights: *Local boutique, Rental, Second-hand, Your own wardrobe*. A **Direct ↔ Indirect** gradient appears along the radius. | And level four is the basic need itself: a local boutique, renting, buying second-hand, or simply wearing what's already in the wardrobe. |
 
-### Scene 4: The competitor matrix (1:40 – 2:10)
+### Scene 4: The competitor matrix (1:29 – 1:52)
 
 | Picture | Narration |
 |---|---|
@@ -53,7 +53,7 @@
 | A "% off MRP" column lights lime on every row: *26% … 69%*. | Nearly every listing showed a big discount, from twenty-six to sixty-nine percent off the printed price. |
 | Two rows (*Bunaai*, *Mulmul*) show **Couldn't confirm** in grey and a small "kept off the map" tag. | Some brands we couldn't price at all, so we left them off the maps rather than guess. |
 
-### Scene 5: Perceptual map 1, price × design (2:10 – 2:40)
+### Scene 5: Perceptual map 1, price × design (1:52 – 2:20)
 
 | Picture | Narration |
 |---|---|
@@ -62,7 +62,7 @@
 | A hollow violet ring, **Aalayam · Proposed**, settles inside the crowded zone, then an arrow nudges it upward: *needs a stronger design signature*. | Aalayam's stated price puts it right in the crowd. To stand out, it would need a much stronger design signature. |
 | The banner brightens. | This map is a hypothesis, placed from prices and listings, not from customer opinion. |
 
-### Scene 6: Perceptual map 2, reach × comfort (2:40 – 3:05)
+### Scene 6: Perceptual map 2, reach × comfort (2:20 – 2:44)
 
 | Picture | Narration |
 |---|---|
@@ -71,21 +71,21 @@
 | Marketplace brands cluster bottom-left; Mulmul and Suta glow top-right with *premium* tags. | The brands that own comfort, Mulmul and Suta, are premium. The brands in Aalayam's price band compete on reach and print. |
 | A soft violet zone opens top-centre: *comfort-led + distinct identity + accessible price*. Aalayam's hollow ring moves into it. | That leaves a possible gap: comfort-led clothing with a distinct identity, at an accessible price. |
 
-### Scene 7: Insights and positioning (3:05 – 3:30)
+### Scene 7: Insights and positioning (2:44 – 3:08)
 
 | Picture | Narration |
 |---|---|
 | Three insight cards: *Competes in the most crowded band*, *Direct threats: mass brands with marketplace reach*, *Indirect pull: tailors and boutiques*. | So where does this leave Aalayam? Today, it competes in the most crowded band. Its strongest direct threats are mass brands with marketplace reach, while tailors and boutiques pull customers indirectly. |
 | A large card types out the positioning statement, labelled **Draft for validation**. | Our draft positioning: for women who want everyday clothes that feel as good as they look, Aalayam offers comfortable co-ords and sarees, rooted in Kerala, at honest prices, showing exactly what you're buying. |
 
-### Scene 8: Recommendations (3:30 – 3:48)
+### Scene 8: Recommendations (3:08 – 3:27)
 
 | Picture | Narration |
 |---|---|
 | A banner: **Recommendations: not current capabilities**. | We suggest four moves to test. These are recommendations, not things Aalayam does today. |
 | Four cards light lime in turn: *Prove comfort on every product page* · *One honest price* · *Kerala-rooted design signature* · *Fit help vs tailoring*. | Make comfort provable with fabric and fit details on every product. Keep one honest price instead of inflated discounts. Build a recognisable Kerala-rooted design signature. And offer fit help to compete with tailoring. |
 
-### Scene 9: Next steps and series close (3:48 – 4:05)
+### Scene 9: Next steps and series close (3:27 – 3:44)
 
 | Picture | Narration |
 |---|---|
@@ -94,8 +94,7 @@
 
 ---
 
-## Review questions
+## Notes
 
-1. **Length:** the narration is about 600 words, close to four minutes at the earlier pace. If you want it nearer 3:30, I'd shorten Scene 4 and Scene 9.
-2. **Naming competitors:** the video names Libas, Janasya, Juniper, Pink Fort, Suta, Fabindia, Mulmul, Westside and Zudio, with their observed listing prices. Say if you'd rather show them as "Brand A, B, C…" in a video that may be shared publicly.
-3. **Anything to add:** if you've checked Aalayam's own prices or run any customer research since Part 3, send it and Aalayam's dot can stop being "proposed".
+- Built as reviewed. Competitor names are kept and the narration is unchanged. The voice runs at the same pace as the Part 1 research video.
+- The matrix shows Unbranded as "up to 77%" off: that single listing sits outside the 26–69% range the narration gives for branded listings.
