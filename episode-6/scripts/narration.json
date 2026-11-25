@@ -1,0 +1,61 @@
+[
+ {"scene": "recap", "title": "Recap", "lines": [
+  ["a1", "In Episode 5, three frameworks agreed: comfort co-ords are Aalayam's best bet, sarees should stay a focused Kerala line, and the business needs evidence before it scales."],
+  ["a2", "That told us where to focus. Now the question is how to grow."]
+ ]},
+ {"scene": "challenge", "title": "The growth challenge", "lines": [
+  ["b1", "Growth isn't simply launching more products or entering more markets. For a small brand, every new direction spreads the same team and budget thinner."],
+  ["b2", "And in the thousand to two thousand rupee band, competitors already sell similar co-ords, at twenty-six to sixty-nine percent off M R P."],
+  ["b3", "So the real question is: how can Aalayam grow, and stand out, without competing only on price?"],
+  ["b4", "We used three tools. The Ansoff Matrix picks a growth direction. Blue Ocean Strategy looks for value competitors aren't offering. And the ERRC grid turns that into specific changes.", "We used three tools. The Ansoff Matrix picks a growth direction. Blue Ocean Strategy looks for value competitors aren't offering. And the E R R C grid turns that into specific changes."]
+ ]},
+ {"scene": "ansoff", "title": "Ansoff Matrix", "lines": [
+  ["c1", "The Ansoff Matrix crosses products with markets, giving four growth directions. We scored thirteen ideas on attractiveness and feasibility."],
+  ["c2", "Market penetration: sell more of today's products to today's customers. Fit-transparent product pages and a WhatsApp review loop score high, because they're cheap and fix known doubts. But deeper discounts? Avoid. That's a price war Aalayam can't win."],
+  ["c3", "Market development: Malayali women in Bengaluru, Chennai and Mumbai are a good next step. NRI shipping is attractive but risky, because international exchanges are slow and costly. So that stays a waitlist."],
+  ["c4", "Product development: new products for today's customers. The top idea is a fit-confident comfort co-ord, where top and bottom come in separate sizes, with a Kerala design detail."],
+  ["c5", "Diversification, into kidswear, tailoring or home textiles, would spread a small team even thinner. Not now."],
+  ["c6", "So the primary direction is product development. Penetration ideas score as high, but any competitor can copy a size chart. They become the enablers, not the strategy."]
+ ]},
+ {"scene": "landscape", "title": "Competitive landscape", "lines": [
+  ["d1", "Next, why fit? Look at how competitors actually compete."],
+  ["d2", "Mass brands and unbranded sellers compete on price, discounts and range. Libas alone lists about three hundred co-ords. And almost everyone sells a set in one size for top and bottom."],
+  ["d3", "Meanwhile, fit is the main complaint in reviews, and industry estimates put fashion returns at twenty to thirty percent, driven mostly by size and fit."],
+  ["d4", "Custom fit does exist, but mostly at premium prices, often with weeks of waiting and no returns."]
+ ]},
+ {"scene": "blueocean", "title": "Blue Ocean opportunities", "lines": [
+  ["e1", "Blue Ocean Strategy asks a different question: instead of beating rivals on the same factors, what value could Aalayam create that the market isn't offering?"],
+  ["e2", "We developed three potential concepts. One: fit-confident comfort co-ords. Two: Kerala everyday, a regional design for daily wear, not just festivals. Three: winning women who skip online clothing and go to a tailor instead."],
+  ["e3", "None of these is a proven blue ocean yet. But the first has the strongest evidence, so we take it forward, with the Kerala detail as its design layer."]
+ ]},
+ {"scene": "canvas", "title": "Strategy canvas", "lines": [
+  ["f1", "Here's the strategy canvas. Each line is a value curve across eight factors customers weigh. The scores are our research-based estimates, not customer ratings."],
+  ["f2", "Unbranded sellers and mass brands follow the same shape: high on discounts and range, low on fit information and flexibility."],
+  ["f3", "Premium brands solve fit, but at two to three times the price."],
+  ["f4", "Aalayam's proposed curve breaks away. Fewer discounts, a narrower range, and much more fit information, fit flexibility and personal help, at a mid price. These are targets, not current performance."]
+ ]},
+ {"scene": "errc", "title": "ERRC grid", "lines": [
+  ["g1", "The ERRC grid makes that concrete.", "The E R R C grid makes that concrete."],
+  ["g2", "Eliminate: the inflated M R P with constant discounts, and the rule that a set comes in one size."],
+  ["g3", "Reduce: the range, to six to eight core silhouettes, and dependence on marketplaces."],
+  ["g4", "Raise: fit information, with garment measurements, model size, fit notes and daylight photos. Make one size exchange free. And strengthen the Kerala identity."],
+  ["g5", "Create: split sizing with an adjustable waist and two lengths, and a WhatsApp fit check that remembers each customer's sizes."],
+  ["g6", "The value proposition shifts from comfortable, stylish and accessible, which everyone claims, to comfort co-ords that fit the first time."]
+ ]},
+ {"scene": "synthesis", "title": "Strategic synthesis", "lines": [
+  ["h1", "Put together: Ansoff points to product development. Blue Ocean points to fit confidence at a mid price. And ERRC defines the offer."],
+  ["h2", "This builds on Episode 5. Same hero category, same Kerala signature. What's new is that fit moves from a supporting action to the core of the positioning."],
+  ["h3", "The target customer: women aged twenty-four to thirty-eight, in Kerala and in Indian metros, buying everyday co-ords online, who've struggled with fit."],
+  ["h4", "It needs separate top and bottom stock, measured garments, and time on WhatsApp. The risks: demand for split sizing may be small, inventory can fall out of balance, and exchanges cost money. So we test first."]
+ ]},
+ {"scene": "roadmap", "title": "90-day roadmap", "lines": [
+  ["j1", "Days one to thirty: validate. Interview fifteen to twenty customers, survey how often top and bottom sizes differ, audit five competitors, and record a baseline from Shopify."],
+  ["j2", "Days thirty-one to sixty: experiment. Launch a six-piece fit-confident capsule on pre-order, with fit-transparent pages, a WhatsApp fit check and one honest price."],
+  ["j3", "Days sixty-one to ninety: decide. Compare conversion, size-related returns and exchange costs with the baseline. Then scale, iterate or stop. The next milestone is Malayali women in the metros."],
+  ["j4", "No targets are invented here. Every goal is set against Aalayam's own baseline."]
+ ]},
+ {"scene": "close", "title": "Closing", "lines": [
+  ["k1", "Aalayam doesn't need to be the cheapest, or the biggest. It can grow by solving the problem customers complain about most, and making fit its promise."],
+  ["k2", "That's Episode 6 of the Aalayam business research series."]
+ ]}
+]
