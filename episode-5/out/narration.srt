@@ -1,0 +1,139 @@
+1
+00:00:00,500 --> 00:00:13,499
+In Episode 4, we listened to customers and sized the market. Shoppers praised comfort, struggled with fit, and doubted product photos. And we estimated a serviceable market of about two thousand three hundred crore rupees.
+
+2
+00:00:13,419 --> 00:00:16,540
+Now comes the harder part: deciding where to focus.
+
+3
+00:00:17,120 --> 00:00:24,131
+Aalayam sells co-ord sets, sarees and kurta sets, through its website, Instagram, marketplaces and exhibitions.
+
+4
+00:00:24,051 --> 00:00:30,758
+A small brand can't invest equally in all of them. So the question is: where should Aalayam focus its resources?
+
+5
+00:00:30,678 --> 00:00:42,975
+We used three frameworks. SWOT diagnoses the brand's position. The BCG matrix checks market growth and share. And the GE-McKinsey matrix weighs market attractiveness against competitive strength.
+
+6
+00:00:42,895 --> 00:00:50,868
+One note: Aalayam's internal sales data isn't available yet, so this analysis is provisional, and every assumption is labelled.
+
+7
+00:00:51,448 --> 00:00:52,659
+Start with SWOT.
+
+8
+00:00:52,579 --> 00:01:02,897
+Strengths: an accessible price, right at the twelve-hundred-rupee mid-price benchmark, a comfort-first promise, and Kerala roots, in the region that buys half of India's sarees.
+
+9
+00:01:02,817 --> 00:01:10,491
+Weaknesses: no public reviews yet, no category-level data, and a small team spread across three categories and four channels.
+
+10
+00:01:10,411 --> 00:01:19,842
+Opportunities: women's apparel is growing about twelve percent a year, online's share is rising to a quarter, and sets and separates are growing faster than sarees.
+
+11
+00:01:19,762 --> 00:01:27,792
+Threats: discounts of up to sixty-nine percent, five-hundred-rupee unbranded sets, expanding value retailers, and costly returns.
+
+12
+00:01:28,372 --> 00:01:33,534
+Next, TOWS turns that diagnosis into action, by pairing each side of the matrix.
+
+13
+00:01:33,454 --> 00:01:39,139
+Strengths with opportunities: make comfort co-ords with a Kerala design signature the hero line.
+
+14
+00:01:39,059 --> 00:01:43,629
+Weaknesses with opportunities: build social proof, and start measuring everything.
+
+15
+00:01:43,549 --> 00:01:48,584
+Strengths against threats: compete on transparency and one honest price, not discounts.
+
+16
+00:01:48,504 --> 00:01:53,520
+And weaknesses against threats: prune generic kurta sets, and stay out of the price war.
+
+17
+00:01:54,100 --> 00:01:59,040
+Now the BCG matrix. It plots market growth against relative market share.
+
+18
+00:01:58,960 --> 00:02:05,288
+From Technopak's data, sets grow about eleven percent a year, separates about fifteen, and sarees about eight.
+
+19
+00:02:05,208 --> 00:02:14,917
+Aalayam's market share can't be measured yet, and followers or product counts aren't market share. As a young brand, its share is far below the leaders in every category.
+
+20
+00:02:14,837 --> 00:02:25,007
+So co-ords and kurta sets land as Question Marks, and sarees as a provisional Dog. There are no Stars or Cash Cows yet, which is normal for an early-stage brand.
+
+21
+00:02:25,587 --> 00:02:32,969
+Because every share is low, BCG can't tell the categories apart very well. The GE-McKinsey matrix looks deeper.
+
+22
+00:02:32,889 --> 00:02:40,232
+We scored industry attractiveness on six weighted criteria, such as market size, growth, competition and regional fit.
+
+23
+00:02:40,152 --> 00:02:47,053
+And competitive strength on six more, such as differentiation, price competitiveness, channels and repeat potential.
+
+24
+00:02:46,973 --> 00:02:56,594
+Co-ords score highest on both, at three point six and three point four. Sarees follow, helped by the South Indian market. Kurta sets score lowest on strength.
+
+25
+00:02:56,514 --> 00:03:03,551
+All three sit in the middle band. No category has earned heavy investment yet. Aalayam's strength still has to be proven.
+
+26
+00:03:04,131 --> 00:03:06,323
+Now, put the three frameworks together.
+
+27
+00:03:06,243 --> 00:03:12,854
+They agree on two things: co-ord sets are the best bet, and generic kurta sets are the weakest place to invest.
+
+28
+00:03:12,774 --> 00:03:22,737
+They disagree on sarees. BCG sees slow growth. GE and SWOT see a regional asset. So sarees become a focused Kerala line, not a national push.
+
+29
+00:03:23,317 --> 00:03:25,275
+That leads to three priorities.
+
+30
+00:03:25,195 --> 00:03:31,583
+One: make comfort co-ords the hero category, with a Kerala design signature and full fit transparency.
+
+31
+00:03:31,503 --> 00:03:36,564
+Two: keep sarees as a focused Kerala line, sold through exhibitions and Instagram.
+
+32
+00:03:36,484 --> 00:03:44,494
+Three: build the evidence engine. Track sales, returns, repeat purchases and reviews, and prune kurta sets to proven bestsellers.
+
+33
+00:03:44,414 --> 00:03:55,887
+Over the next ninety days: measure in the first month, test a six-piece Kerala co-ord capsule and fit-transparent product pages in the second, and re-score every matrix with real data in the third.
+
+34
+00:03:56,467 --> 00:04:00,072
+Strategy isn't doing everything. It's choosing where not to spend.
+
+35
+00:03:59,992 --> 00:04:08,339
+With evidence instead of guesses, Aalayam by Anamika can focus its limited resources where they'll build a stronger, more sustainable business.
