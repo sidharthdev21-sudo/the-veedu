@@ -1,0 +1,254 @@
+[
+ {
+  "id": "a1",
+  "text": "In Episode 3, we mapped Aalayam's competitors and used perceptual maps to find where the brand could stand apart.",
+  "voice": "af_heart",
+  "speed": 1.15,
+  "lang": "en-us"
+ },
+ {
+  "id": "a2",
+  "text": "But knowing the competition is only half the story. We also need to understand the customers: what they like, what frustrates them, and what they're still looking for.",
+  "voice": "af_heart",
+  "speed": 1.15,
+  "lang": "en-us"
+ },
+ {
+  "id": "a3",
+  "text": "So in Episode 4, we move from competitive positioning to customer sentiment, and to the size of the opportunity.",
+  "voice": "af_heart",
+  "speed": 1.15,
+  "lang": "en-us"
+ },
+ {
+  "id": "b1",
+  "text": "Customer sentiment analysis means reading what people say about products, in reviews, comments and conversations, and working out how they feel.",
+  "voice": "af_heart",
+  "speed": 1.15,
+  "lang": "en-us"
+ },
+ {
+  "id": "b2",
+  "text": "In clothing, people rarely talk only about the design. They talk about comfort, fabric, fit, sizing, durability, price, and whether it looks like the pictures.",
+  "voice": "af_heart",
+  "speed": 1.15,
+  "lang": "en-us"
+ },
+ {
+  "id": "b3",
+  "text": "Here are three summaries of public reviews on Myntra. They're other brands' products, shown only as examples.",
+  "voice": "af_heart",
+  "speed": 1.15,
+  "lang": "en-us"
+ },
+ {
+  "id": "b4",
+  "text": "Positive: an Anouk cotton kurta set rated four point four, where buyers describe soft, breathable fabric, a comfortable fit and stitching that holds up.",
+  "voice": "af_heart",
+  "speed": 1.15,
+  "lang": "en-us"
+ },
+ {
+  "id": "b5",
+  "text": "Negative: another Anouk set rated three point seven, with complaints about sheer fabric, small trousers and weak stitching.",
+  "voice": "af_heart",
+  "speed": 1.15,
+  "lang": "en-us"
+ },
+ {
+  "id": "b6",
+  "text": "And mixed: a set buyers find soft and breathable, but whose sizing ran tight.",
+  "voice": "af_heart",
+  "speed": 1.15,
+  "lang": "en-us"
+ },
+ {
+  "id": "c1",
+  "text": "We gathered feedback from Myntra, Amazon India and Ajio reviews, Instagram comments, and YouTube haul and review videos. That's our secondary research.",
+  "voice": "af_heart",
+  "speed": 1.15,
+  "lang": "en-us"
+ },
+ {
+  "id": "c2",
+  "text": "Our primary research came from customer interviews. Customer surveys are the next step, to test what we found at a larger scale.",
+  "voice": "af_heart",
+  "speed": 1.15,
+  "lang": "en-us"
+ },
+ {
+  "id": "d1",
+  "text": "Here's how we analysed it, in five steps.",
+  "voice": "af_heart",
+  "speed": 1.15,
+  "lang": "en-us"
+ },
+ {
+  "id": "d2",
+  "text": "First, collect reviews and feedback. Second, clean the data: remove duplicates, spam and unusable comments. Some reviews even contained unfilled template text, a sign they may not be genuine.",
+  "voice": "af_heart",
+  "speed": 1.15,
+  "lang": "en-us"
+ },
+ {
+  "id": "d3",
+  "text": "Third, classify each one as positive, negative, neutral or mixed. Fourth, tag the themes: comfort, fabric, fit and sizing, transparency, colour, price, delivery and returns.",
+  "voice": "af_heart",
+  "speed": 1.15,
+  "lang": "en-us"
+ },
+ {
+  "id": "d4",
+  "text": "And fifth, turn the patterns into insights: what customers value, what they complain about, and what they wish existed.",
+  "voice": "af_heart",
+  "speed": 1.15,
+  "lang": "en-us"
+ },
+ {
+  "id": "e1",
+  "text": "In the reviews we read, three themes kept coming back.",
+  "voice": "af_heart",
+  "speed": 1.15,
+  "lang": "en-us"
+ },
+ {
+  "id": "e2",
+  "text": "Comfort and soft, breathable fabric earned the most praise. Fit and sizing caused the most frustration. And colour or sheerness that didn't match the photos created doubt.",
+  "voice": "af_heart",
+  "speed": 1.15,
+  "lang": "en-us"
+ },
+ {
+  "id": "e3",
+  "text": "Each pain point can become an opportunity: clearer size guidance for fit, better fabric choices for quality, comfort-led design, honest value, and true-to-life photos with transparent descriptions.",
+  "voice": "af_heart",
+  "speed": 1.15,
+  "lang": "en-us"
+ },
+ {
+  "id": "e4",
+  "text": "These are potential opportunities, not confirmed Aalayam insights. They need testing with Aalayam's own customers.",
+  "voice": "af_heart",
+  "speed": 1.15,
+  "lang": "en-us"
+ },
+ {
+  "id": "f1",
+  "text": "Sentiment tells us what people want. Market sizing tells us how big that opportunity is.",
+  "voice": "af_heart",
+  "speed": 1.15,
+  "lang": "en-us"
+ },
+ {
+  "id": "f2",
+  "text": "We use three layers: Tam, the total addressable market; Sam, the part Aalayam can serve; and Som, the part it could realistically win.",
+  "voice": "af_heart",
+  "speed": 1.15,
+  "lang": "en-us"
+ },
+ {
+  "id": "g1",
+  "text": "For the total market, we used Technopak's industry report from August twenty twenty-five. Indian women's apparel was worth about two point three trillion rupees in financial year twenty twenty-four, heading for about four trillion by twenty twenty-nine.",
+  "voice": "af_heart",
+  "speed": 1.15,
+  "lang": "en-us"
+ },
+ {
+  "id": "g2",
+  "text": "But Aalayam doesn't compete in all of it. We kept only the categories it sells: sarees, at five hundred and sixty-four billion rupees, and sets, at four hundred and fifteen billion.",
+  "voice": "af_heart",
+  "speed": 1.15,
+  "lang": "en-us"
+ },
+ {
+  "id": "g3",
+  "text": "That gives a Tam of roughly nine hundred and eighty billion rupees.",
+  "voice": "af_heart",
+  "speed": 1.15,
+  "lang": "en-us"
+ },
+ {
+  "id": "h1",
+  "text": "Next, we narrowed it to what Aalayam can actually serve.",
+  "voice": "af_heart",
+  "speed": 1.15,
+  "lang": "en-us"
+ },
+ {
+  "id": "h2",
+  "text": "Online sales were about twenty percent of women's apparel, so that leaves around one hundred and ninety-six billion rupees.",
+  "voice": "af_heart",
+  "speed": 1.15,
+  "lang": "en-us"
+ },
+ {
+  "id": "h3",
+  "text": "Aalayam sits in the mid-price segment, about twenty-seven percent of the market, which leaves around fifty-three billion.",
+  "voice": "af_heart",
+  "speed": 1.15,
+  "lang": "en-us"
+ },
+ {
+  "id": "h4",
+  "text": "And women aged twenty to forty are roughly forty-four percent of adult women. That gives a Sam of about twenty-three billion rupees, around two thousand three hundred crore.",
+  "voice": "af_heart",
+  "speed": 1.15,
+  "lang": "en-us"
+ },
+ {
+  "id": "j1",
+  "text": "Som is built from the bottom up, not by picking a percentage.",
+  "voice": "af_heart",
+  "speed": 1.15,
+  "lang": "en-us"
+ },
+ {
+  "id": "j2",
+  "text": "Revenue equals the customers we can reach, times the share who buy, times how often they buy, times the average order value.",
+  "voice": "af_heart",
+  "speed": 1.15,
+  "lang": "en-us"
+ },
+ {
+  "id": "j3",
+  "text": "As a planning example: if Aalayam reaches two and a half million women in year three, six percent visit the store, and one and a half percent of them buy, that's about two thousand two hundred new customers, plus returning ones.",
+  "voice": "af_heart",
+  "speed": 1.15,
+  "lang": "en-us"
+ },
+ {
+  "id": "j4",
+  "text": "At about one point three orders a year and fifteen hundred rupees per order, year-three revenue comes to roughly fifty lakh rupees, before returns.",
+  "voice": "af_heart",
+  "speed": 1.15,
+  "lang": "en-us"
+ },
+ {
+  "id": "k1",
+  "text": "That's about two hundredths of one percent of Sam. Simply taking one percent of Sam would suggest twenty-three crore, far more than this plan could support. So the bottom-up number is the realistic one, and every input can be replaced with Aalayam's real data.",
+  "voice": "af_heart",
+  "speed": 1.15,
+  "lang": "en-us"
+ },
+ {
+  "id": "m1",
+  "text": "Together, these tell Aalayam where to focus: women aged twenty to forty, comfortable everyday sets and sarees, better fit and fabric information, and growth plans built on real numbers.",
+  "voice": "af_heart",
+  "speed": 1.15,
+  "lang": "en-us"
+ },
+ {
+  "id": "m2",
+  "text": "Through our competitive analysis, we understood the market. Through sentiment analysis, we began to understand the customer. And through Tam, Sam and Som, we estimated the business opportunity.",
+  "voice": "af_heart",
+  "speed": 1.15,
+  "lang": "en-us"
+ },
+ {
+  "id": "m3",
+  "text": "Together, these insights help us move from research to informed product and business decisions.",
+  "voice": "af_heart",
+  "speed": 1.15,
+  "lang": "en-us"
+ }
+]
