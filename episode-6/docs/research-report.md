@@ -3,7 +3,7 @@
 
 **Strategic question:** *How should Aalayam by Anamika grow, and how can it build a distinctive position in the market instead of competing only on price?*
 
-**Status: for review, provisional.** This episode builds on Episodes 2–5. Aalayam's internal data is still not available: sales by category, conversion, returns, repeat rate, margins and customer numbers. Every finding about Aalayam's own performance is therefore owner-provided or a labelled hypothesis. Section 11 lists what to collect.
+**Status: provisional (video produced 25 Nov 2026).** This episode builds on Episodes 2–5. Aalayam's internal data is still not available: sales by category, conversion, returns, repeat rate, margins and customer numbers. Every finding about Aalayam's own performance is therefore owner-provided or a labelled hypothesis. Section 11 lists what to collect.
 
 ### Evidence labels (same as Episode 5)
 
@@ -75,6 +75,43 @@ Episode 5 answered *where* to focus: comfort co-ords as the hero, sarees as a fo
 | Fit and sizing (tight, small trousers, missing sizes) | Main complaint | [C] |
 | Colour and sheerness vs the photos | Doubt | [C] |
 | Stitching and quality | Split | [C] |
+
+### Customer pain points: expanded evidence (added after review)
+
+Real public evidence about **other brands' products**, not Aalayam's. Review lines are short summaries or quoted phrases as they appear in search results; they are illustrations, not a measured sample.
+
+| Pain point | Evidence | Source | Label |
+|---|---|---|---|
+| **1. Fit and sizing** | "Trousers too small" (cotton kurta set, 3.7★ from ~1.5k ratings) | Myntra listing 14925564 (Ep 4) | [C] |
+| | "No XS or S sizes" (Anarkali set, 2.6★ from 111 ratings) | Myntra listing 36366469 (Ep 4) | [C] |
+| | Poor fit found at **10 of 12 body sites** in a study of **400 plus-size women across six Indian cities** | *Exploration of Indian plus-size women's ready-to-wear: problems and preferences*, Journal of Fashion Marketing and Management, 2023 (https://www.emerald.com/insight/content/doi/10.1108/JFMM-10-2022-0206/full/html), read via search summary | [P] |
+| **2. Sets don't match bodies** | Tops and bottoms often need different sizes; trouser lengths suit only shorter buyers; plus and tall sizes often missing | Rayaa Atelier co-ord guide (https://therayaatelier.com/blogs/news/the-ultimate-co-ord-set-guide-what-are-they-how-to-style-them-why-the-fit-actually-matters), blog commentary | [P] |
+| | Sets sold in one size for both pieces | Observed on competitor listings | [P] |
+| **3. Looks different at home** | "Colour in the picture is different", "fabric is thin", "colour bleeding, even in cold water" | Customer reviews on a Jaipur Studio co-ord listing (https://thejaipurstudio.com/collections/buy-2-get-1-free/products/adams-muslin-coord-set), as summarised in search results | [C] |
+| | Co-ords look flawless online but slightly off in natural light | NDTV Shopping guide (https://www.ndtvshopping.com/fashion/why-co-ord-sets-don-t-match-in-real-life-and-how-to-identify-genuine-ones-before-buying-11295030) | [P] |
+| | Sheer fabric, weak stitching | Myntra listing 14925564 (Ep 4) | [C] |
+| **Context** | 72% of US shoppers say they wear different sizes from brand to brand | US survey cited in search results; non-Indian proxy | [P] |
+
+**The resulting customer journey (illustrative):** browse → doubt the size and colour → order two sizes → return one, or pay a tailor to fix the fit. The customer pays in time and fees; the brand pays in two-way shipping, a lost sale and unsold stock.
+
+### Customer interview programme (primary research, designed)
+
+Episode 4 recorded that the founder has held customer interviews, but their notes have not been shared or analysed, so **no interview findings are reported here**. Instead, this episode specifies the programme that will validate the strategy (Days 1–30).
+
+| Element | Design |
+|---|---|
+| Sample | 15–20 women, aged 24–38 |
+| Screener | Bought a co-ord online in the last 6 months · Kerala and Indian metros · include 3–4 women who still prefer a tailor (noncustomers) |
+| Format | 20–30 minute call or WhatsApp video; ask about the last real purchase, not opinions in general |
+| Recording | Notes tagged by theme: fit, size split, colour, fabric, returns, tailor use, price |
+
+| # | Question | Hypothesis tested | What would disprove it |
+|---|---|---|---|
+| Q1 | "Tell me about the last outfit you returned. Why?" | H1: fit drives returns | Most returns are for other reasons (style, delay, quality) |
+| Q2 | "Were your top and bottom the same size?" | H2: many need split sizes | Few respondents report different sizes |
+| Q3 | "What makes you trust a size online?" | H3: garment measurements beat size charts | Respondents rely on reviews or brand familiarity instead |
+| Q4 | "When do you go to a tailor instead?" | H4: tailor users are winnable | Tailor users value customisation that ready-made can't match |
+| Q5 | "What would you pay for a set that fits the first time?" | H5: the ₹1,000–1,700 price holds | Willingness to pay is below the band |
 
 ### Competitor offerings and practices (new research plus Episode 3)
 

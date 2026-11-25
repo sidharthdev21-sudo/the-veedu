@@ -1,0 +1,179 @@
+1
+00:00:00,500 --> 00:00:10,937
+In Episode 5, three frameworks agreed: comfort co-ords are Aalayam's best bet, sarees should stay a focused Kerala line, and the business needs evidence before it scales.
+
+2
+00:00:10,857 --> 00:00:14,294
+That told us where to focus. Now the question is how to grow.
+
+3
+00:00:14,874 --> 00:00:22,411
+Growth isn't simply more products or more markets. For a small brand, every new direction spreads the same team and budget thinner.
+
+4
+00:00:22,331 --> 00:00:29,766
+And in the thousand to two thousand rupee band, rivals sell similar co-ords at twenty-six to sixty-nine percent off M R P.
+
+5
+00:00:29,686 --> 00:00:39,384
+So how can Aalayam grow, and stand out, without competing only on price? We used three tools: the Ansoff Matrix, Blue Ocean Strategy, and the ERRC grid.
+
+6
+00:00:39,964 --> 00:00:47,711
+First, back to the customer. These are real pain points from public reviews and research, about other brands' products, not Aalayam's.
+
+7
+00:00:47,631 --> 00:00:58,881
+Fit comes first. Reviewers say trousers run small, and some sets skip the smallest sizes. A study of four hundred plus-size Indian women found poor fit at ten of twelve body points.
+
+8
+00:00:58,801 --> 00:01:06,055
+Second, sets don't match bodies. Tops and bottoms often need different sizes, and trouser lengths suit only shorter women.
+
+9
+00:01:05,975 --> 00:01:12,334
+Third, it looks different at home: colours that don't match the photos, thin fabric, and colour that bleeds in the wash.
+
+10
+00:01:12,254 --> 00:01:20,562
+The result is a familiar journey. Doubt the size, order two, return one, or pay a tailor. It costs the customer time, and the brand money.
+
+11
+00:01:21,142 --> 00:01:34,010
+Reviews tell us what goes wrong. Interviews tell us why. So we designed a programme: fifteen to twenty women aged twenty-four to thirty-eight who bought a co-ord online recently, including a few who still prefer a tailor.
+
+12
+00:01:33,930 --> 00:01:44,471
+Each question tests a hypothesis. Tell me about the last outfit you returned. Were your top and bottom the same size? What makes you trust a size? When do you go to a tailor instead?
+
+13
+00:01:44,391 --> 00:01:53,438
+The founder's earlier conversations point the same way, but those notes haven't been analysed yet. So interview findings here are a plan to test, not results.
+
+14
+00:01:54,018 --> 00:02:00,434
+The Ansoff Matrix crosses products with markets. We scored thirteen ideas on attractiveness and feasibility.
+
+15
+00:02:00,354 --> 00:02:08,931
+Market penetration: fit-transparent pages and a WhatsApp review loop score high. They're cheap and fix known doubts. Deeper discounts? Avoid.
+
+16
+00:02:08,851 --> 00:02:17,221
+Market development: Malayali women in Bengaluru, Chennai and Mumbai come next. NRI shipping is risky, so it stays a waitlist.
+
+17
+00:02:17,141 --> 00:02:25,680
+Product development: the top idea is a fit-confident comfort co-ord, with top and bottom in separate sizes, and a Kerala design detail.
+
+18
+00:02:25,600 --> 00:02:29,311
+Diversification would spread a small team too thin. Not now.
+
+19
+00:02:29,231 --> 00:02:38,241
+So the primary direction is product development. Penetration ideas score as high, but anyone can copy a size chart. They become the enablers.
+
+20
+00:02:38,821 --> 00:02:41,410
+Now look at how competitors actually compete.
+
+21
+00:02:41,330 --> 00:02:52,626
+Mass brands and unbranded sellers compete on price, discounts and range. Libas alone lists about three hundred co-ords. And almost everyone sells a set in one size for top and bottom.
+
+22
+00:02:52,546 --> 00:02:58,692
+Industry estimates put online fashion returns at twenty to thirty percent, driven mostly by size and fit.
+
+23
+00:02:58,612 --> 00:03:04,708
+Custom fit does exist, but mostly at premium prices, often with weeks of waiting and no returns.
+
+24
+00:03:05,288 --> 00:03:13,385
+Blue Ocean Strategy asks: instead of beating rivals on the same factors, what value could Aalayam create that the market isn't offering?
+
+25
+00:03:13,305 --> 00:03:21,439
+We developed three potential concepts: fit-confident co-ords, Kerala everyday wear, and winning women who skip online clothing for a tailor.
+
+26
+00:03:21,359 --> 00:03:29,672
+None is a proven blue ocean yet. The first has the strongest evidence, so we take it forward, with the Kerala detail as its design layer.
+
+27
+00:03:30,252 --> 00:03:37,729
+Here's the strategy canvas: eight factors customers weigh. The scores are research-based estimates, not customer ratings.
+
+28
+00:03:37,649 --> 00:03:43,688
+Unbranded sellers and mass brands follow the same shape: high on discounts and range, low on fit.
+
+29
+00:03:43,608 --> 00:03:47,151
+Premium brands solve fit, but at two to three times the price.
+
+30
+00:03:47,071 --> 00:03:56,283
+Aalayam's proposed curve breaks away: fewer discounts, a narrower range, and far more fit help, at a mid price. These are targets, not current performance.
+
+31
+00:03:56,863 --> 00:04:04,244
+The ERRC grid makes it concrete. Eliminate the inflated M R P, and the rule that a set comes in one size.
+
+32
+00:04:04,164 --> 00:04:08,958
+Reduce the range to six to eight core silhouettes, and rely less on marketplaces.
+
+33
+00:04:08,878 --> 00:04:15,602
+Raise fit information, with garment measurements, model size and daylight photos. Make one size exchange free.
+
+34
+00:04:15,522 --> 00:04:22,937
+Create split sizing with an adjustable waist and two lengths, plus a WhatsApp fit check that remembers each customer's sizes.
+
+35
+00:04:22,857 --> 00:04:29,825
+The promise shifts from comfortable, stylish and accessible, which everyone claims, to comfort co-ords that fit the first time.
+
+36
+00:04:30,405 --> 00:04:38,690
+Put together: Ansoff points to product development, Blue Ocean to fit confidence at a mid price, and ERRC defines the offer.
+
+37
+00:04:38,610 --> 00:04:46,696
+It builds on Episode 5: same hero category, same Kerala signature. What's new is that customer pain points move fit to the core.
+
+38
+00:04:46,616 --> 00:04:54,497
+The target customer: women aged twenty-four to thirty-eight, in Kerala and the metros, buying co-ords online, who've struggled with fit.
+
+39
+00:04:54,417 --> 00:05:01,850
+The risks: split sizing demand may be small, stock can fall out of balance, and exchanges cost money. So we test first.
+
+40
+00:05:02,430 --> 00:05:11,159
+Days one to thirty: validate. Run the interviews, survey how often sizes differ, audit five competitors, and record a Shopify baseline.
+
+41
+00:05:11,079 --> 00:05:20,191
+Days thirty-one to sixty: experiment. Launch a six-piece fit-confident capsule on pre-order, with fit-transparent pages and a WhatsApp fit check.
+
+42
+00:05:20,111 --> 00:05:28,592
+Days sixty-one to ninety: decide. Compare conversion, size returns and exchange costs with the baseline, then scale, iterate or stop.
+
+43
+00:05:28,512 --> 00:05:33,105
+No targets are invented. Every goal is set against Aalayam's own baseline.
+
+44
+00:05:33,685 --> 00:05:42,423
+Aalayam doesn't need to be the cheapest, or the biggest. It can grow by solving the problem customers complain about most, and making fit its promise.
+
+45
+00:05:42,343 --> 00:05:45,659
+That's Episode 6 of the Aalayam business research series.

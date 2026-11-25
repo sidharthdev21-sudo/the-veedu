@@ -1,0 +1,372 @@
+{
+ "fps": 30,
+ "durationInFrames": 10408,
+ "scenes": [
+  {
+   "id": "recap",
+   "title": "Recap",
+   "from": 0,
+   "durationInFrames": 431,
+   "lines": [
+    {
+     "id": "a1",
+     "text": "In Episode 5, three frameworks agreed: comfort co-ords are Aalayam's best bet, sarees should stay a focused Kerala line, and the business needs evidence before it scales.",
+     "from": 15,
+     "durationInFrames": 304
+    },
+    {
+     "id": "a2",
+     "text": "That told us where to focus. Now the question is how to grow.",
+     "from": 326,
+     "durationInFrames": 94
+    }
+   ]
+  },
+  {
+   "id": "challenge",
+   "title": "The growth challenge",
+   "from": 431,
+   "durationInFrames": 753,
+   "lines": [
+    {
+     "id": "b1",
+     "text": "Growth isn't simply more products or more markets. For a small brand, every new direction spreads the same team and budget thinner.",
+     "from": 15,
+     "durationInFrames": 217
+    },
+    {
+     "id": "b2",
+     "text": "And in the thousand to two thousand rupee band, rivals sell similar co-ords at twenty-six to sixty-nine percent off M R P.",
+     "from": 239,
+     "durationInFrames": 214
+    },
+    {
+     "id": "b3",
+     "text": "So how can Aalayam grow, and stand out, without competing only on price? We used three tools: the Ansoff Matrix, Blue Ocean Strategy, and the ERRC grid.",
+     "from": 460,
+     "durationInFrames": 282
+    }
+   ]
+  },
+  {
+   "id": "voice",
+   "title": "Customer pain points",
+   "from": 1184,
+   "durationInFrames": 1235,
+   "lines": [
+    {
+     "id": "v1",
+     "text": "First, back to the customer. These are real pain points from public reviews and research, about other brands' products, not Aalayam's.",
+     "from": 15,
+     "durationInFrames": 223
+    },
+    {
+     "id": "v2",
+     "text": "Fit comes first. Reviewers say trousers run small, and some sets skip the smallest sizes. A study of four hundred plus-size Indian women found poor fit at ten of twelve body points.",
+     "from": 245,
+     "durationInFrames": 328
+    },
+    {
+     "id": "v3",
+     "text": "Second, sets don't match bodies. Tops and bottoms often need different sizes, and trouser lengths suit only shorter women.",
+     "from": 580,
+     "durationInFrames": 209
+    },
+    {
+     "id": "v4",
+     "text": "Third, it looks different at home: colours that don't match the photos, thin fabric, and colour that bleeds in the wash.",
+     "from": 795,
+     "durationInFrames": 182
+    },
+    {
+     "id": "v5",
+     "text": "The result is a familiar journey. Doubt the size, order two, return one, or pay a tailor. It costs the customer time, and the brand money.",
+     "from": 984,
+     "durationInFrames": 240
+    }
+   ]
+  },
+  {
+   "id": "interviews",
+   "title": "Customer interviews",
+   "from": 2419,
+   "durationInFrames": 987,
+   "lines": [
+    {
+     "id": "i1",
+     "text": "Reviews tell us what goes wrong. Interviews tell us why. So we designed a programme: fifteen to twenty women aged twenty-four to thirty-eight who bought a co-ord online recently, including a few who still prefer a tailor.",
+     "from": 15,
+     "durationInFrames": 377
+    },
+    {
+     "id": "i2",
+     "text": "Each question tests a hypothesis. Tell me about the last outfit you returned. Were your top and bottom the same size? What makes you trust a size? When do you go to a tailor instead?",
+     "from": 399,
+     "durationInFrames": 307
+    },
+    {
+     "id": "i3",
+     "text": "The founder's earlier conversations point the same way, but those notes haven't been analysed yet. So interview findings here are a plan to test, not results.",
+     "from": 713,
+     "durationInFrames": 262
+    }
+   ]
+  },
+  {
+   "id": "ansoff",
+   "title": "Ansoff Matrix",
+   "from": 3406,
+   "durationInFrames": 1344,
+   "lines": [
+    {
+     "id": "c1",
+     "text": "The Ansoff Matrix crosses products with markets. We scored thirteen ideas on attractiveness and feasibility.",
+     "from": 15,
+     "durationInFrames": 183
+    },
+    {
+     "id": "c2",
+     "text": "Market penetration: fit-transparent pages and a WhatsApp review loop score high. They're cheap and fix known doubts. Deeper discounts? Avoid.",
+     "from": 205,
+     "durationInFrames": 248
+    },
+    {
+     "id": "c3",
+     "text": "Market development: Malayali women in Bengaluru, Chennai and Mumbai come next. NRI shipping is risky, so it stays a waitlist.",
+     "from": 460,
+     "durationInFrames": 242
+    },
+    {
+     "id": "c4",
+     "text": "Product development: the top idea is a fit-confident comfort co-ord, with top and bottom in separate sizes, and a Kerala design detail.",
+     "from": 708,
+     "durationInFrames": 247
+    },
+    {
+     "id": "c5",
+     "text": "Diversification would spread a small team too thin. Not now.",
+     "from": 962,
+     "durationInFrames": 102
+    },
+    {
+     "id": "c6",
+     "text": "So the primary direction is product development. Penetration ideas score as high, but anyone can copy a size chart. They become the enablers.",
+     "from": 1071,
+     "durationInFrames": 261
+    }
+   ]
+  },
+  {
+   "id": "landscape",
+   "title": "Competitive landscape",
+   "from": 4750,
+   "durationInFrames": 794,
+   "lines": [
+    {
+     "id": "d1",
+     "text": "Now look at how competitors actually compete.",
+     "from": 15,
+     "durationInFrames": 69
+    },
+    {
+     "id": "d2",
+     "text": "Mass brands and unbranded sellers compete on price, discounts and range. Libas alone lists about three hundred co-ords. And almost everyone sells a set in one size for top and bottom.",
+     "from": 90,
+     "durationInFrames": 330
+    },
+    {
+     "id": "d3",
+     "text": "Industry estimates put online fashion returns at twenty to thirty percent, driven mostly by size and fit.",
+     "from": 426,
+     "durationInFrames": 175
+    },
+    {
+     "id": "d4",
+     "text": "Custom fit does exist, but mostly at premium prices, often with weeks of waiting and no returns.",
+     "from": 608,
+     "durationInFrames": 174
+    }
+   ]
+  },
+  {
+   "id": "blueocean",
+   "title": "Blue Ocean opportunities",
+   "from": 5544,
+   "durationInFrames": 749,
+   "lines": [
+    {
+     "id": "e1",
+     "text": "Blue Ocean Strategy asks: instead of beating rivals on the same factors, what value could Aalayam create that the market isn't offering?",
+     "from": 15,
+     "durationInFrames": 234
+    },
+    {
+     "id": "e2",
+     "text": "We developed three potential concepts: fit-confident co-ords, Kerala everyday wear, and winning women who skip online clothing for a tailor.",
+     "from": 255,
+     "durationInFrames": 235
+    },
+    {
+     "id": "e3",
+     "text": "None is a proven blue ocean yet. The first has the strongest evidence, so we take it forward, with the Kerala detail as its design layer.",
+     "from": 497,
+     "durationInFrames": 240
+    }
+   ]
+  },
+  {
+   "id": "canvas",
+   "title": "Strategy canvas",
+   "from": 6293,
+   "durationInFrames": 798,
+   "lines": [
+    {
+     "id": "f1",
+     "text": "Here's the strategy canvas: eight factors customers weigh. The scores are research-based estimates, not customer ratings.",
+     "from": 15,
+     "durationInFrames": 215
+    },
+    {
+     "id": "f2",
+     "text": "Unbranded sellers and mass brands follow the same shape: high on discounts and range, low on fit.",
+     "from": 236,
+     "durationInFrames": 172
+    },
+    {
+     "id": "f3",
+     "text": "Premium brands solve fit, but at two to three times the price.",
+     "from": 415,
+     "durationInFrames": 97
+    },
+    {
+     "id": "f4",
+     "text": "Aalayam's proposed curve breaks away: fewer discounts, a narrower range, and far more fit help, at a mid price. These are targets, not current performance.",
+     "from": 519,
+     "durationInFrames": 267
+    }
+   ]
+  },
+  {
+   "id": "errc",
+   "title": "ERRC grid",
+   "from": 7091,
+   "durationInFrames": 1006,
+   "lines": [
+    {
+     "id": "g1",
+     "text": "The ERRC grid makes it concrete. Eliminate the inflated M R P, and the rule that a set comes in one size.",
+     "from": 15,
+     "durationInFrames": 212
+    },
+    {
+     "id": "g2",
+     "text": "Reduce the range to six to eight core silhouettes, and rely less on marketplaces.",
+     "from": 234,
+     "durationInFrames": 135
+    },
+    {
+     "id": "g3",
+     "text": "Raise fit information, with garment measurements, model size and daylight photos. Make one size exchange free.",
+     "from": 375,
+     "durationInFrames": 193
+    },
+    {
+     "id": "g4",
+     "text": "Create split sizing with an adjustable waist and two lengths, plus a WhatsApp fit check that remembers each customer's sizes.",
+     "from": 575,
+     "durationInFrames": 213
+    },
+    {
+     "id": "g5",
+     "text": "The promise shifts from comfortable, stylish and accessible, which everyone claims, to comfort co-ords that fit the first time.",
+     "from": 795,
+     "durationInFrames": 200
+    }
+   ]
+  },
+  {
+   "id": "synthesis",
+   "title": "Strategic synthesis",
+   "from": 8097,
+   "durationInFrames": 961,
+   "lines": [
+    {
+     "id": "h1",
+     "text": "Put together: Ansoff points to product development, Blue Ocean to fit confidence at a mid price, and ERRC defines the offer.",
+     "from": 15,
+     "durationInFrames": 240
+    },
+    {
+     "id": "h2",
+     "text": "It builds on Episode 5: same hero category, same Kerala signature. What's new is that customer pain points move fit to the core.",
+     "from": 261,
+     "durationInFrames": 234
+    },
+    {
+     "id": "h3",
+     "text": "The target customer: women aged twenty-four to thirty-eight, in Kerala and the metros, buying co-ords online, who've struggled with fit.",
+     "from": 501,
+     "durationInFrames": 227
+    },
+    {
+     "id": "h4",
+     "text": "The risks: split sizing demand may be small, stock can fall out of balance, and exchanges cost money. So we test first.",
+     "from": 736,
+     "durationInFrames": 214
+    }
+   ]
+  },
+  {
+   "id": "roadmap",
+   "title": "90-day roadmap",
+   "from": 9058,
+   "durationInFrames": 938,
+   "lines": [
+    {
+     "id": "j1",
+     "text": "Days one to thirty: validate. Run the interviews, survey how often sizes differ, audit five competitors, and record a Shopify baseline.",
+     "from": 15,
+     "durationInFrames": 253
+    },
+    {
+     "id": "j2",
+     "text": "Days thirty-one to sixty: experiment. Launch a six-piece fit-confident capsule on pre-order, with fit-transparent pages and a WhatsApp fit check.",
+     "from": 274,
+     "durationInFrames": 264
+    },
+    {
+     "id": "j3",
+     "text": "Days sixty-one to ninety: decide. Compare conversion, size returns and exchange costs with the baseline, then scale, iterate or stop.",
+     "from": 545,
+     "durationInFrames": 245
+    },
+    {
+     "id": "j4",
+     "text": "No targets are invented. Every goal is set against Aalayam's own baseline.",
+     "from": 797,
+     "durationInFrames": 129
+    }
+   ]
+  },
+  {
+   "id": "close",
+   "title": "Closing",
+   "from": 9996,
+   "durationInFrames": 412,
+   "lines": [
+    {
+     "id": "k1",
+     "text": "Aalayam doesn't need to be the cheapest, or the biggest. It can grow by solving the problem customers complain about most, and making fit its promise.",
+     "from": 15,
+     "durationInFrames": 253
+    },
+    {
+     "id": "k2",
+     "text": "That's Episode 6 of the Aalayam business research series.",
+     "from": 274,
+     "durationInFrames": 90
+    }
+   ]
+  }
+ ]
+}
