@@ -1,0 +1,127 @@
+1
+00:00:00,800 --> 00:00:07,640
+For families near a hospital, distance is why they choose a stay — and it's the fact listings state least consistently.
+
+2
+00:00:07,690 --> 00:00:10,360
+Even my own prototype shows straight-line distance.
+
+3
+00:00:10,410 --> 00:00:11,947
+That's where the strategy starts.
+
+4
+00:00:12,497 --> 00:00:14,017
+SWOT made the trade-off clear:
+
+5
+00:00:14,067 --> 00:00:18,917
+rental experience and a working prototype, but no demand data and no bookings.
+
+6
+00:00:18,967 --> 00:00:25,167
+On a GE–McKinsey grid, caregivers of admitted patients were the segment to invest in selectively.
+
+7
+00:00:25,217 --> 00:00:28,780
+BCG didn't apply — there's no market-share data to plot.
+
+8
+00:00:29,330 --> 00:00:30,940
+ERRC defined the difference.
+
+9
+00:00:30,990 --> 00:00:33,240
+Eliminate leisure content and discounts.
+
+10
+00:00:33,290 --> 00:00:35,170
+Reduce the race for listing volume.
+
+11
+00:00:35,220 --> 00:00:37,790
+Raise distance accuracy and all-in pricing.
+
+12
+00:00:37,840 --> 00:00:40,743
+And create verified facts, with the date they were checked.
+
+13
+00:00:41,293 --> 00:00:45,673
+On the research map, that's medical-stay focus with high information assurance.
+
+14
+00:00:45,723 --> 00:00:47,633
+And Ansoff keeps growth disciplined:
+
+15
+00:00:47,683 --> 00:00:49,517
+win one hospital cluster first.
+
+16
+00:00:50,067 --> 00:00:51,287
+The primary customer:
+
+17
+00:00:51,337 --> 00:00:56,427
+an out-of-town family caring for a patient admitted at Amrita or Aster Medcity.
+
+18
+00:00:56,477 --> 00:01:00,537
+Their problem isn't finding a room — it's trusting the facts behind it.
+
+19
+00:01:00,587 --> 00:01:01,687
+So the promise is:
+
+20
+00:01:01,737 --> 00:01:04,915
+know how far, how much, and for how long, before you call.
+
+21
+00:01:05,465 --> 00:01:07,305
+I scored nine features with RICE.
+
+22
+00:01:07,355 --> 00:01:12,655
+Hospital search and WhatsApp already exist in the prototype, so they score high for little effort.
+
+23
+00:01:12,705 --> 00:01:16,185
+Verified distance and clear pricing carry the most impact.
+
+24
+00:01:16,735 --> 00:01:17,725
+The MVP:
+
+25
+00:01:17,775 --> 00:01:24,905
+hospital-based discovery, verified distance, all-in pricing, verified details, and tracked WhatsApp enquiries.
+
+26
+00:01:24,955 --> 00:01:27,425
+Long-stay and family filters come next.
+
+27
+00:01:27,475 --> 00:01:31,951
+Online booking and payments wait — costly to build, with little evidence they'd help.
+
+28
+00:01:32,501 --> 00:01:40,224
+Underneath, a verification visit creates a facts record, every listing reads from it, and tracked enquiries make confirmed stays billable.
+
+29
+00:01:40,774 --> 00:01:42,534
+So what should The Veedu build first?
+
+30
+00:01:42,584 --> 00:01:44,874
+A verification layer, not more listings.
+
+31
+00:01:44,924 --> 00:01:50,264
+Measured distance to the hospital entrance, an all-in family price, and the date it was checked.
+
+32
+00:01:50,314 --> 00:01:56,694
+It's the narrowest product that answers the strongest insight — and the cheapest way to learn whether families will trust it.
