@@ -1,0 +1,414 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>The Veedu — Episode 01</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --obsidian: #08090C; --charcoal: #0E1015; --charcoal2: #14171E; --line: #22262F;
+    --white: #ECECF1; --grey: #A3A5B0; --dim: #6B6E79;
+    --cyan: #6CF0FF; --violet: #B48CFF; --lime: #D4FF6A; --green: #5EE6A8;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; background: var(--obsidian); }
+  #stage { position: relative; width: 1920px; height: 1080px; overflow: hidden; background: var(--obsidian);
+    font-family: 'Inter', system-ui, sans-serif; color: var(--white); }
+  h1, h2, h3, .sg { font-family: 'Space Grotesk', 'Inter', sans-serif; margin: 0; letter-spacing: -0.02em; }
+  p { margin: 0; }
+  .grid { position: absolute; inset: 0; opacity: 0.045;
+    background-image: linear-gradient(var(--grey) 1px, transparent 1px), linear-gradient(90deg, var(--grey) 1px, transparent 1px);
+    background-size: 160px 160px; background-position: 0 0, 0 0; }
+  .scene { position: absolute; inset: 0; opacity: 0; }
+  .cam { position: absolute; inset: 0; transform-origin: 50% 50%; }
+  .a { will-change: opacity, transform; }
+
+  /* chrome */
+  #bug { position: absolute; top: 56px; left: 96px; font-family: 'Space Grotesk'; font-size: 20px; letter-spacing: 4px; color: rgba(236,236,241,0.6); }
+  #bug b { color: var(--cyan); font-weight: 500; }
+  #chap { position: absolute; top: 56px; right: 96px; font-family: 'Space Grotesk'; font-size: 20px; letter-spacing: 2px; color: var(--grey); text-transform: uppercase; }
+  .src { position: absolute; left: 96px; bottom: 56px; font-size: 20px; color: var(--grey); letter-spacing: 0.2px; }
+  .src::before { content: "SOURCE  "; color: var(--dim); letter-spacing: 2px; font-family: 'Space Grotesk'; font-size: 17px; }
+
+  /* type */
+  .eyebrow { font-family: 'Space Grotesk'; font-size: 22px; letter-spacing: 5px; text-transform: uppercase; color: var(--cyan); }
+  .h-xl { font-size: 104px; font-weight: 500; line-height: 1.02; }
+  .h-l { font-size: 76px; font-weight: 500; line-height: 1.05; }
+  .h-m { font-size: 52px; font-weight: 500; line-height: 1.1; }
+  .soft { color: var(--grey); }
+  .pill { display: inline-block; padding: 14px 28px; border-radius: 999px; border: 1px solid var(--line); background: var(--charcoal); font-size: 26px; color: var(--white); margin-right: 14px; }
+  .pill.cy { border-color: rgba(108,240,255,0.5); color: var(--cyan); }
+  .panel { background: var(--charcoal); border: 1px solid var(--line); border-radius: 28px; }
+  .tag { display: inline-block; font-family: 'Space Grotesk'; font-size: 20px; letter-spacing: 4px; text-transform: uppercase; padding: 10px 20px; border-radius: 999px; border: 1.5px solid currentColor; }
+
+  /* scene 1 */
+  .sky { position: absolute; inset: 0; background: linear-gradient(180deg, #07080C 0%, #0B1220 45%, #13213A 62%, #0A0F18 63%, #06070A 100%); }
+  .horizon-glow { position: absolute; left: 0; right: 0; top: 560px; height: 160px; background: radial-gradient(900px 120px at 60% 50%, rgba(108,240,255,0.22), transparent 70%); }
+  .ripples line { stroke: rgba(108,240,255,0.25); stroke-width: 2; }
+
+  /* scene 2 */
+  .building { position: absolute; left: 0; top: 0; }
+  .ui-card { position: absolute; left: 50%; top: 50%; width: 1200px; transform: translate(-50%, -50%); padding: 72px 80px; text-align: left; }
+  .wordmark { font-family: 'Space Grotesk'; font-size: 132px; font-weight: 600; letter-spacing: -0.04em; }
+  .wordmark span { color: var(--cyan); }
+
+  /* scene 3 */
+  .laptop { position: absolute; left: 160px; top: 250px; width: 820px; height: 520px; }
+  .q-type { position: absolute; left: 1060px; top: 330px; width: 740px; }
+  .caret { display: inline-block; width: 4px; height: 0.9em; background: var(--cyan); vertical-align: -0.08em; margin-left: 6px; }
+
+  /* scene 4 */
+  .win { position: absolute; left: 0; top: 0; width: 1056px; height: 1080px; overflow: hidden; }
+  .hyp { position: absolute; left: 1120px; top: 250px; width: 700px; padding: 56px; border-left: 4px solid var(--violet); }
+  .chip { display: block; font-size: 30px; padding: 20px 26px; border-radius: 16px; background: var(--charcoal2); border: 1px solid var(--line); margin-top: 18px; }
+  .chip i { font-style: normal; color: var(--violet); margin-right: 14px; font-family: 'Space Grotesk'; }
+
+  /* map scenes */
+  .map { position: absolute; }
+  .map path { fill: rgba(163,165,176,0.04); stroke: rgba(163,165,176,0.55); stroke-width: 1; vector-effect: non-scaling-stroke; }
+  .map path.ekm { fill: rgba(108,240,255,0.0); stroke: var(--cyan); stroke-width: 2; }
+  .stat { position: absolute; padding: 48px 56px; }
+  .stat .num { font-family: 'Space Grotesk'; font-size: 132px; font-weight: 600; color: var(--lime); letter-spacing: -0.03em; line-height: 1; }
+  .stat .lbl { font-size: 26px; color: var(--grey); margin-top: 18px; line-height: 1.4; }
+
+  /* scene 8 */
+  .qgrid { position: absolute; left: 96px; right: 96px; top: 380px; display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+  .qcard { padding: 44px 48px; border-top: 3px solid var(--cyan); border-radius: 22px; background: var(--charcoal); border-left: 1px solid var(--line); border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .qcard .n { font-family: 'Space Grotesk'; color: var(--cyan); font-size: 22px; letter-spacing: 3px; }
+  .qcard h3 { font-size: 46px; font-weight: 500; margin-top: 14px; }
+</style>
+</head>
+<body>
+<div id="stage">
+  <div class="grid"></div>
+
+  <!-- S1 COLD OPEN -->
+  <section class="scene" data-i="0" data-chap="">
+    <div class="cam" data-cam="1.08">
+      <div class="sky"></div><div class="horizon-glow"></div>
+      <svg width="1920" height="1080" style="position:absolute;inset:0" aria-label="Cantilevered fishing nets at dusk">
+        <g fill="none" stroke="#020305" stroke-width="7" stroke-linecap="round">
+          <!-- net 1 -->
+          <path d="M520 630 L760 300 L1010 610"/><path d="M760 300 L760 620"/><path d="M640 470 L880 460"/>
+          <path d="M520 630 Q 765 690 1010 610" stroke-width="3"/>
+          <path d="M760 300 L430 640" stroke-width="4"/>
+          <!-- net 2 -->
+          <path d="M1250 625 L1430 380 L1620 615" stroke-width="5"/><path d="M1430 380 L1430 620" stroke-width="5"/>
+          <path d="M1250 625 Q 1435 670 1620 615" stroke-width="2.5"/>
+        </g>
+        <g stroke="#020305" stroke-width="1.2" opacity="0.8">
+          <path d="M560 640 L760 300 M620 652 L760 300 M690 660 L760 300 M830 660 L760 300 M900 650 L760 300 M960 630 L760 300"/>
+          <path d="M1290 632 L1430 380 M1350 642 L1430 380 M1510 642 L1430 380 M1570 630 L1430 380"/>
+        </g>
+        <rect x="0" y="628" width="1920" height="452" fill="#05070A"/>
+        <g class="ripples" opacity="0.9">
+          <line x1="560" y1="680" x2="980" y2="680"/><line x1="610" y1="720" x2="920" y2="720"/><line x1="680" y1="770" x2="860" y2="770"/>
+          <line x1="1280" y1="670" x2="1600" y2="670"/><line x1="1330" y1="705" x2="1550" y2="705"/>
+          <line x1="200" y1="740" x2="420" y2="740" style="stroke:rgba(108,240,255,0.12)"/>
+        </g>
+        <path d="M520 640 L760 990 L1010 640" stroke="rgba(108,240,255,0.06)" stroke-width="6" fill="none"/>
+      </svg>
+    </div>
+    <div style="position:absolute;left:96px;bottom:150px;width:1300px">
+      <div class="eyebrow a" data-t="0.9">The Veedu · Episode 01</div>
+      <h1 class="h-xl a" data-t="1.3" style="margin-top:28px">Not everyone in Kochi<br>is on holiday.</h1>
+    </div>
+  </section>
+
+  <!-- S2 PRODUCT INTRO -->
+  <section class="scene" data-i="1" data-chap="The product">
+    <div class="cam" data-cam="1.05">
+      <svg class="building a" data-t="0" data-a="fade" data-out="0.9" width="1920" height="1080" aria-label="Hospital forecourt at dusk, abstract">
+        <defs><linearGradient id="bg2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#090B10"/><stop offset="1" stop-color="#0D1119"/></linearGradient></defs>
+        <rect width="1920" height="1080" fill="url(#bg2)"/>
+        <rect x="560" y="210" width="800" height="560" fill="#0C0F15" stroke="#1B1F28"/>
+        <rect x="460" y="700" width="1000" height="40" fill="#11151D"/>
+        <g id="wins"></g>
+        <rect x="0" y="770" width="1920" height="310" fill="#07080B"/>
+        <path d="M560 790 L1360 790" stroke="rgba(108,240,255,0.25)" stroke-width="2"/>
+        <g fill="rgba(255,214,150,0.05)"><rect x="560" y="790" width="800" height="200"/></g>
+      </svg>
+    </div>
+    <div class="ui-card panel a" data-t="0.7">
+      <div class="eyebrow a" data-t="0.8">Introducing</div>
+      <div class="wordmark a" data-t="1.0" style="margin-top:18px">The <span>Veedu</span></div>
+      <div style="margin-top:44px">
+        <span class="pill a" data-t="2.4">Accommodation discovery</span><span class="pill a" data-t="3.7">Kerala</span><span class="pill cy a" data-t="5.0">Starting with medical travel</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- S3 WHY ME -->
+  <section class="scene" data-i="2" data-chap="Why I started">
+    <svg class="laptop a" data-t="0.1" viewBox="0 0 820 520" aria-label="Laptop showing wireframes beside house keys">
+      <rect x="40" y="10" width="740" height="440" rx="18" fill="#0E1015" stroke="#2A2E38" stroke-width="2"/>
+      <rect x="64" y="34" width="692" height="392" rx="8" fill="#0A0C11"/>
+      <g class="wire" stroke="#3A3F4B" stroke-width="2" fill="none">
+        <rect x="92" y="62" width="636" height="44" rx="8"/>
+        <rect x="92" y="124" width="300" height="276" rx="10"/>
+        <rect x="412" y="124" width="316" height="80" rx="10"/><rect x="412" y="220" width="316" height="80" rx="10"/><rect x="412" y="316" width="316" height="84" rx="10"/>
+        <path d="M120 160 L360 160 M120 190 L300 190 M120 220 L330 220"/>
+      </g>
+      <circle cx="240" cy="290" r="40" fill="none" stroke="#6CF0FF" stroke-width="2" opacity="0.7"/>
+      <path d="M240 276 L240 304 M226 290 L254 290" stroke="#6CF0FF" stroke-width="2" opacity="0.7"/>
+      <path d="M0 470 L820 470 L790 450 L30 450 Z" fill="#14171E"/>
+      <!-- keys -->
+      <g transform="translate(700,488)" stroke="#A3A5B0" stroke-width="3" fill="none" opacity="0.8">
+        <circle cx="0" cy="0" r="16"/><path d="M14 8 L60 30 M44 22 L48 14 M54 27 L58 19"/><path d="M-10 12 L-30 50 M-24 38 L-16 42"/>
+      </g>
+    </svg>
+    <div class="q-type">
+      <div class="eyebrow a" data-t="0.4">UX design + rental accommodation</div>
+      <h2 class="h-l a" data-t="6.7" data-type="When the trip is for a hospital…" style="margin-top:28px;min-height:170px"></h2>
+      <h2 class="h-m soft a" data-t="8.2" data-type="…does finding a stay work differently?" style="margin-top:22px;min-height:120px"></h2>
+    </div>
+  </section>
+
+  <!-- S4 HYPOTHESIS -->
+  <section class="scene" data-i="3" data-chap="The hypothesis">
+    <div class="win">
+      <div class="cam" data-cam="1.06">
+        <svg width="1056" height="1080" aria-label="Caregiver silhouette at a window at night">
+          <defs>
+            <radialGradient id="lamp" cx="0.15" cy="0.75" r="0.7"><stop offset="0" stop-color="rgba(255,196,120,0.16)"/><stop offset="1" stop-color="rgba(0,0,0,0)"/></radialGradient>
+            <linearGradient id="night" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0A1220"/><stop offset="1" stop-color="#101C30"/></linearGradient>
+          </defs>
+          <rect width="1056" height="1080" fill="#07080B"/>
+          <rect x="250" y="150" width="620" height="640" fill="url(#night)" stroke="#1C2029" stroke-width="10"/>
+          <path d="M560 150 L560 790 M250 470 L870 470" stroke="#1C2029" stroke-width="8"/>
+          <g fill="rgba(108,240,255,0.35)"><circle cx="330" cy="560" r="3"/><circle cx="380" cy="600" r="2"/><circle cx="700" cy="560" r="3"/><circle cx="780" cy="590" r="2"/><circle cx="650" cy="620" r="2"/></g>
+          <g fill="rgba(255,214,150,0.5)"><rect x="640" y="330" width="14" height="10"/><rect x="664" y="330" width="14" height="10"/><rect x="688" y="330" width="14" height="10"/><rect x="640" y="352" width="14" height="10"/><rect x="688" y="352" width="14" height="10"/><rect x="664" y="374" width="14" height="10"/></g>
+          <rect x="620" y="300" width="110" height="170" fill="none" stroke="rgba(236,236,241,0.08)"/>
+          <rect width="1056" height="1080" fill="url(#lamp)"/>
+          <!-- silhouette -->
+          <path d="M470 1080 C 470 900 480 820 520 780 C 540 760 600 760 620 780 C 660 820 670 900 670 1080 Z" fill="#030406"/>
+          <circle cx="570" cy="700" r="62" fill="#030406"/>
+          <rect x="636" y="800" width="34" height="58" rx="6" fill="rgba(108,240,255,0.35)"/>
+          <circle cx="653" cy="829" r="70" fill="rgba(108,240,255,0.06)"/>
+        </svg>
+      </div>
+    </div>
+    <div class="hyp panel a" data-t="0.4">
+      <span class="tag a" data-t="0.6" style="color:var(--violet)">Hypothesis</span>
+      <h2 class="h-m a" data-t="0.9" style="margin-top:26px">A medical trip may need a different kind of stay.</h2>
+      <span class="chip a" data-t="4.0"><i>01</i>Close to the hospital</span>
+      <span class="chip a" data-t="4.8"><i>02</i>Weeks, not nights</span>
+      <span class="chip a" data-t="5.6"><i>03</i>Clear costs &amp; access</span>
+      <p class="a" data-t="10.9" style="margin-top:28px;font-size:24px;color:var(--grey);letter-spacing:3px;font-family:'Space Grotesk';text-transform:uppercase">Not yet tested</p>
+    </div>
+  </section>
+
+  <!-- S5 WHY KOCHI -->
+  <section class="scene" data-i="4" data-chap="Why Kochi">
+    <div style="position:absolute;left:96px;top:150px" class="a" data-t="0.1"><div class="eyebrow">Why start in Kochi?</div></div>
+    <svg class="map a" id="map5" data-t="0.1" data-a="fade" style="left:140px;top:224px" width="560" height="740" aria-label="Map of Kerala districts with Ernakulam highlighted"></svg>
+    <div style="position:absolute;left:80px;top:664px;width:250px;text-align:right" class="a" data-t="9.2">
+      <div style="font-family:'Space Grotesk';font-size:22px;color:var(--cyan);letter-spacing:2px">ERNAKULAM</div>
+      <div style="font-size:20px;color:var(--grey)">Kochi's district</div>
+    </div>
+    <div class="stat panel a" data-t="1.0" style="left:860px;top:250px;width:960px">
+      <div class="num" data-count="2.5" data-dec="1" data-suffix=" crore" data-t="3.6" data-cd="1.6">0</div>
+      <div class="lbl">domestic tourist visits · Kerala · 2025</div>
+    </div>
+    <div class="stat panel a" data-t="10.2" style="left:860px;top:560px;width:960px;padding:40px 56px">
+      <div style="font-family:'Space Grotesk';font-size:64px;font-weight:600;color:var(--cyan);line-height:1">#1 district</div>
+      <div class="lbl">Ernakulam · domestic &amp; foreign visits · 2023</div>
+    </div>
+    <div class="src a" data-t="1.0">Kerala Tourism, Kerala Tourist Visits Statistics 2025 &amp; 2023</div>
+  </section>
+
+  <!-- S6 MEDICAL ≠ TOURISM -->
+  <section class="scene" data-i="5" data-chap="The data">
+    <div style="position:absolute;left:96px;top:170px" class="a" data-t="0.1"><div class="eyebrow">Medical travel ≠ tourism</div></div>
+    <div class="stat panel a" data-t="0.3" style="left:96px;top:300px;width:780px">
+      <div class="num" data-count="6.44" data-dec="2" data-suffix=" lakh" data-t="0.6" data-cd="1.6">0</div>
+      <div class="lbl">foreign arrivals for medical treatment<br>India · 2024</div>
+    </div>
+    <div class="a" data-t="7.8" style="position:absolute;left:910px;top:360px;width:100px;text-align:center;font-family:'Space Grotesk';font-size:150px;color:var(--violet);font-weight:300;line-height:1">≠</div>
+    <div class="stat panel a" data-t="7.3" style="left:1044px;top:300px;width:780px">
+      <div class="num" style="color:var(--grey);font-size:96px;line-height:1.38">Tourist visits</div>
+      <div class="lbl">all purposes · not a proxy for<br>medical travel</div>
+    </div>
+    <div class="a" data-t="10.1" style="position:absolute;left:96px;top:700px;display:flex;align-items:center;gap:22px">
+      <span style="width:12px;height:12px;border-radius:50%;background:var(--violet)"></span>
+      <span style="font-size:32px;color:var(--white)">No official state-wise medical tourism data</span>
+    </div>
+    <div class="src a" data-t="0.3">Bureau of Immigration, via Ministry of Tourism · Lok Sabha reply (PIB, Feb 2026)</div>
+  </section>
+
+  <!-- S7 DATA GAP -->
+  <section class="scene" data-i="6" data-chap="The gap">
+    <div class="cam" id="zoom7" style="transform-origin:0 0">
+      <svg class="map" id="map7" style="left:0;top:0" width="1920" height="1080" aria-label="Zoomed map of Ernakulam with a data gap marker"></svg>
+    </div>
+    <div class="a" data-t="1.6" style="position:absolute;left:96px;top:170px">
+      <div class="eyebrow" style="color:var(--violet)">Data gap</div>
+      <h2 class="h-m" style="margin-top:22px;width:720px">How many medical travellers stay in Kochi?</h2>
+      <p style="margin-top:20px;font-size:24px;color:var(--grey)">Kochi hospital cluster · schematic</p>
+    </div>
+  </section>
+
+  <!-- S8 RESEARCH AGENDA -->
+  <section class="scene" data-i="7" data-chap="The research">
+    <div style="position:absolute;left:96px;top:170px">
+      <div class="eyebrow a" data-t="0.1">Episode 01 · The questions</div>
+      <h2 class="h-l a" data-t="0.3" style="margin-top:24px">What the research must establish</h2>
+    </div>
+    <div class="qgrid">
+      <div class="qcard a" data-t="2.56"><div class="n">01</div><h3>Is the problem real?</h3></div>
+      <div class="qcard a" data-t="3.96"><div class="n">02</div><h3>Who feels it most?</h3></div>
+      <div class="qcard a" data-t="5.3"><div class="n">03</div><h3>What do families use today?</h3></div>
+      <div class="qcard a" data-t="7.06"><div class="n">04</div><h3>Is there a business?</h3></div>
+    </div>
+  </section>
+
+  <!-- S9 END CARD -->
+  <section class="scene" data-i="8" data-chap="">
+    <div class="cam" data-cam="1.05">
+      <svg width="1920" height="1080" style="position:absolute;inset:0" aria-label="Kochi backwaters at first light">
+        <defs><linearGradient id="dawn" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#08090C"/><stop offset="0.55" stop-color="#0F1A22"/><stop offset="0.66" stop-color="#1A2F33"/><stop offset="0.67" stop-color="#0A1013"/><stop offset="1" stop-color="#06080A"/></linearGradient></defs>
+        <rect width="1920" height="1080" fill="url(#dawn)"/>
+        <ellipse cx="1300" cy="715" rx="700" ry="60" fill="rgba(212,255,106,0.05)"/>
+        <g fill="#030405" id="palms"></g>
+        <g stroke="rgba(108,240,255,0.14)" stroke-width="2"><line x1="300" y1="780" x2="900" y2="780"/><line x1="1000" y1="830" x2="1600" y2="830"/><line x1="500" y1="880" x2="800" y2="880"/></g>
+        <path d="M1180 742 Q 1230 760 1290 742 L 1280 752 Q 1230 766 1190 752 Z" fill="#030405"/>
+      </svg>
+    </div>
+    <div style="position:absolute;left:96px;top:300px">
+      <div class="wordmark a" data-t="0.3" style="font-size:150px">The <span style="color:var(--cyan)">Veedu</span></div>
+      <div class="a" data-t="0.8" style="font-family:'Space Grotesk';font-size:36px;color:var(--grey);margin-top:12px">Episode 01 · Framing the problem</div>
+      <div class="a" data-t="1.4" style="margin-top:56px"><span class="pill">Next: Episode 02 — The Evidence</span></div>
+    </div>
+  </section>
+
+  <div id="bug" class="a">THE VEEDU <b>·</b> EP 01</div>
+  <div id="chap"></div>
+</div>
+
+<script src="mapdata.js"></script>
+<script src="timing.js"></script>
+<script>
+  const NS = 'http://www.w3.org/2000/svg';
+  const clamp = v => Math.max(0, Math.min(1, v));
+  const ease = p => 1 - Math.pow(1 - p, 3);
+  const easeIO = p => p < .5 ? 4*p*p*p : 1 - Math.pow(-2*p + 2, 3) / 2;
+
+  // --- build procedural art ---
+  (function windows() {
+    const g = document.getElementById('wins');
+    for (let r = 0; r < 7; r++) for (let c = 0; c < 12; c++) {
+      const lit = ((r * 7 + c * 13) % 5) < 2;
+      const rect = document.createElementNS(NS, 'rect');
+      rect.setAttribute('x', 600 + c * 64); rect.setAttribute('y', 250 + r * 62);
+      rect.setAttribute('width', 36); rect.setAttribute('height', 30);
+      rect.setAttribute('fill', lit ? 'rgba(255,214,150,0.32)' : 'rgba(108,240,255,0.05)');
+      g.appendChild(rect);
+    }
+  })();
+  (function palms() {
+    const g = document.getElementById('palms');
+    const tree = (x, h, lean) => {
+      const top = [x + lean, 712 - h];
+      let d = `M${x - 5} 716 Q ${x + lean * 0.3} ${712 - h / 2} ${top[0]} ${top[1]} L ${top[0] + 5} ${top[1]} Q ${x + lean * 0.3 + 6} ${712 - h / 2} ${x + 6} 716 Z`;
+      for (let i = 0; i < 7; i++) {
+        const a = -Math.PI + i * Math.PI / 6 + 0.15, L = 70 + (i % 3) * 18;
+        const ex = top[0] + Math.cos(a) * L, ey = top[1] + Math.sin(a) * L * 0.55 + 28;
+        d += ` M${top[0]} ${top[1]} Q ${(top[0] + ex) / 2} ${top[1] - 18} ${ex} ${ey} Q ${(top[0] + ex) / 2} ${top[1] - 4} ${top[0]} ${top[1] + 6} Z`;
+      }
+      const p = document.createElementNS(NS, 'path'); p.setAttribute('d', d); g.appendChild(p);
+    };
+    [[120, 330, 30], [260, 260, -20], [420, 380, 40], [1650, 300, -30], [1790, 360, 20], [1540, 220, 10]].forEach(a => tree(...a));
+    const bank = document.createElementNS(NS, 'path');
+    bank.setAttribute('d', 'M0 716 L560 708 L620 722 L0 730 Z M1380 712 L1920 704 L1920 726 L1330 724 Z'); g.appendChild(bank);
+  })();
+  function drawMap(svg, opts) {
+    const g = document.createElementNS(NS, 'g');
+    g.setAttribute('transform', opts.transform);
+    for (const [name, d] of Object.entries(MAP.districts)) {
+      const p = document.createElementNS(NS, 'path');
+      p.setAttribute('d', d); if (name === 'Ernakulam') p.setAttribute('class', 'ekm');
+      g.appendChild(p);
+    }
+    svg.appendChild(g); return g;
+  }
+  const s5 = 740 / MAP.h;
+  drawMap(document.getElementById('map5'), { transform: `scale(${s5})` });
+  const g7 = drawMap(document.getElementById('map7'), { transform: `translate(660,40) scale(${1000 / MAP.h})` });
+  (function gapMarker() {
+    const [kx, ky] = MAP.kochi;
+    const m = document.createElementNS(NS, 'g'); m.setAttribute('id', 'gap');
+    m.innerHTML = `<circle cx="${kx}" cy="${ky}" r="16" fill="none" stroke="#B48CFF" stroke-width="1.6" stroke-dasharray="3 3" vector-effect="non-scaling-stroke" id="gapring" pathLength="100"/>
+            <text x="${kx}" y="${ky + 6}" text-anchor="middle" font-family="Space Grotesk" font-weight="300" font-size="20" fill="#ECECF1" id="gapq">?</text>`;
+    g7.appendChild(m);
+  })();
+
+  // --- timeline ---
+  const scenes = [...document.querySelectorAll('.scene')].map(el => {
+    const T = TIMING.scenes[+el.dataset.i];
+    return { el, start: T.start, dur: T.dur, chap: el.dataset.chap, items: [...el.querySelectorAll('.a')], cams: [...el.querySelectorAll('[data-cam]')] };
+  });
+  const TOTAL = TIMING.total; window.TOTAL = TOTAL;
+  const chap = document.getElementById('chap'), bug = document.getElementById('bug');
+  const FADE = 0.45;
+  const ekm5 = document.querySelector('#map5 .ekm');
+  const z7 = document.getElementById('zoom7'), ring = () => document.getElementById('gapring'), q7 = () => document.getElementById('gapq');
+
+  function render(t) {
+    let active = null, activeVis = 0;
+    for (const s of scenes) {
+      const L = t - s.start;
+      if (L < -0.01 || L > s.dur + 0.01) { s.el.style.opacity = 0; continue; }
+      const vis = Math.min(clamp(L / FADE), clamp((s.dur - L) / FADE));
+      s.el.style.opacity = vis;
+      if (vis > activeVis) { active = s; activeVis = vis; }
+      for (const c of s.cams) { const k = 1 + (+c.dataset.cam - 1) * easeIO(clamp(L / s.dur)); c.style.transform = `scale(${k})`; }
+      for (const it of s.items) {
+        const t0 = +it.dataset.t || 0;
+        let p = ease(clamp((L - t0) / 0.7));
+        if (it.dataset.out) p *= 1 - ease(clamp((L - +it.dataset.out) / 0.8)) * 0.85;
+        it.style.opacity = p;
+        if (it.dataset.a !== 'fade' && !it.dataset.out) it.style.transform = (it.style.transform.includes('translate(-50%') || it.classList.contains('ui-card') ? 'translate(-50%, -50%) ' : '') + `translateY(${(1 - p) * 24}px)`;
+        if (it.dataset.type) {
+          const n = Math.round(clamp((L - t0) / (it.dataset.type.length * 0.035)) * it.dataset.type.length);
+          const blink = (L - t0) < it.dataset.type.length * 0.035 + 0.8;
+          it.innerHTML = it.dataset.type.slice(0, n) + (blink && L > t0 ? '<span class="caret"></span>' : '');
+        }
+      }
+      for (const n of s.el.querySelectorAll('[data-count]')) {
+        const p = easeIO(clamp((L - +n.dataset.t) / +n.dataset.cd));
+        n.textContent = (+n.dataset.count * p).toFixed(+n.dataset.dec) + n.dataset.suffix;
+      }
+      if (s.el.dataset.i === '4') { // Ernakulam highlight pulse
+        const p = ease(clamp((L - 9.0) / 0.9));
+        ekm5.style.fill = `rgba(108,240,255,${0.32 * p})`;
+      }
+      if (s.el.dataset.i === '6') { // zoom into Kochi + draw ring
+        const p = easeIO(clamp(L / 3.2));
+        const [kx, ky] = MAP.kochi, sc = 1000 / MAP.h;
+        const px = 660 + kx * sc, py = 40 + ky * sc, Z = 1 + 4.2 * p;
+        const tx = 1300, ty = 560; // where Kochi ends up on screen
+        z7.style.transform = `translate(${(tx - px * Z) * p + 0 * (1 - p)}px, ${(ty - py * Z) * p}px) scale(${Z})`;
+        const r = ease(clamp((L - 2.4) / 1.0));
+        ring().style.opacity = r; ring().setAttribute('stroke-dashoffset', 0);
+        q7().style.opacity = ease(clamp((L - 3.0) / 0.8));
+      }
+    }
+    if (active) {
+      chap.textContent = active.chap; chap.style.opacity = activeVis;
+      const showBug = active.el.dataset.i !== '0' && active.el.dataset.i !== '8';
+      bug.style.opacity = showBug ? activeVis : 0;
+    }
+  }
+  window.render = render;
+
+  if (!window.__RENDERING__) {
+    const t0 = performance.now() - (+(new URLSearchParams(location.search).get('t') || 0)) * 1000;
+    const fit = () => { const k = Math.min(innerWidth / 1920, innerHeight / 1080);
+      document.getElementById('stage').style.cssText += `;transform:scale(${k});transform-origin:0 0`; };
+    addEventListener('resize', fit); fit();
+    (function loop(){ render(((performance.now() - t0) / 1000) % TOTAL); requestAnimationFrame(loop); })();
+  }
+</script>
+</body>
+</html>
