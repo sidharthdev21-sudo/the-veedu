@@ -1,0 +1,374 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>The Veedu — Research Foundation (explainer)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400..700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0E1729; --bg2: #14213D; --panel: #1A2947; --panel2: #213357; --line: #2E4169;
+    --text: #F4F1E8; --soft: #B6BED0; --mute: #7F8AA3;
+    --teal: #5DB3AC; --clay: #E08A5F; --gold: #E3C26B; --iris: #9FB3F2;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; background: var(--bg); }
+  #stage { position: relative; width: 1920px; height: 1080px; overflow: hidden; background: var(--bg);
+    font-family: 'Inter', system-ui, sans-serif; color: var(--text); }
+  .bg-glow { position: absolute; inset: 0; background:
+    radial-gradient(1100px 700px at 85% 10%, rgba(93,179,172,0.13), transparent 60%),
+    radial-gradient(900px 600px at 5% 100%, rgba(224,138,95,0.10), transparent 60%); }
+  h1, h2, h3, .sg { font-family: 'Space Grotesk', 'Inter', sans-serif; margin: 0; letter-spacing: -0.01em; }
+  p { margin: 0; }
+
+  .scene { position: absolute; inset: 0; padding: 120px 128px 200px; opacity: 0; }
+  .eyebrow { font-family: 'Space Grotesk'; font-size: 24px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: var(--teal); margin-bottom: 22px; }
+  h2 { font-size: 68px; font-weight: 600; line-height: 1.08; max-width: 1500px; }
+  .lead { font-size: 32px; line-height: 1.45; color: var(--soft); max-width: 1400px; margin-top: 24px; }
+
+  /* chrome */
+  #brand { position: absolute; top: 48px; left: 128px; font-family: 'Space Grotesk'; font-size: 22px; color: var(--mute); letter-spacing: 1px; }
+  #brand b { color: var(--text); font-weight: 600; }
+  #chapter { position: absolute; top: 48px; right: 128px; font-family: 'Space Grotesk'; font-size: 22px; color: var(--mute); }
+  #caption { position: absolute; left: 128px; right: 128px; bottom: 64px; min-height: 96px; display: flex; align-items: center; gap: 20px; }
+  #caption .bar { width: 4px; align-self: stretch; background: var(--teal); border-radius: 2px; }
+  #caption p { font-size: 27px; line-height: 1.45; color: var(--soft); }
+  #progress { position: absolute; left: 0; bottom: 0; height: 6px; background: var(--teal); }
+  #chrome.hidden { opacity: 0; }
+
+  /* shared bits */
+  .cards { display: grid; gap: 28px; margin-top: 56px; }
+  .card { background: var(--panel); border: 1px solid var(--line); border-radius: 24px; padding: 34px 36px; }
+  .card h3 { font-size: 34px; font-weight: 600; margin-bottom: 14px; }
+  .card p { font-size: 25px; line-height: 1.45; color: var(--soft); }
+  .num { font-family: 'Space Grotesk'; font-size: 26px; font-weight: 600; color: var(--teal); margin-bottom: 14px; }
+  .tag { display: inline-block; font-family: 'Space Grotesk'; font-size: 20px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase;
+    padding: 8px 16px; border-radius: 999px; border: 2px solid currentColor; }
+  .t-fact { color: var(--teal); } .t-assume { color: var(--gold); } .t-hyp { color: var(--clay); } .t-rec { color: var(--iris); }
+  .t-lim { color: var(--mute); }
+
+  /* title */
+  .title-wrap { position: absolute; left: 128px; top: 300px; }
+  .title-wrap h1 { font-size: 148px; font-weight: 700; line-height: 1; }
+  .title-wrap h1 span { color: var(--teal); }
+  .title-wrap .sub { font-family: 'Space Grotesk'; font-size: 48px; color: var(--soft); margin-top: 28px; }
+  .title-wrap .rule { width: 160px; height: 6px; background: var(--clay); border-radius: 3px; margin-top: 48px; transform-origin: left; }
+  .title-wrap .line { font-size: 30px; color: var(--mute); margin-top: 32px; }
+
+  /* hypothesis */
+  .hyp-box { margin-top: 48px; border-left: 6px solid var(--clay); padding: 8px 0 8px 40px; max-width: 1500px; }
+  .hyp-box p.big { font-family: 'Space Grotesk'; font-size: 54px; font-weight: 500; line-height: 1.2; }
+  .tf { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; margin-top: 56px; }
+  .tf .card h3 { font-size: 28px; }
+  .tf .card li { font-size: 25px; line-height: 1.5; color: var(--soft); }
+  .tf ul { margin: 0; padding-left: 28px; }
+
+  /* legend */
+  .legend { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-top: 64px; }
+  .legend .card { border-top: 6px solid currentColor; }
+  .legend .card h3 { font-size: 36px; }
+
+  /* segments */
+  .seg { display: grid; grid-template-columns: 1.15fr 1.4fr 1.25fr 0.7fr; gap: 0; margin-top: 44px; font-size: 24px; }
+  .seg > div { padding: 17px 22px; border-bottom: 1px solid var(--line); line-height: 1.35; color: var(--soft); }
+  .seg .h { font-family: 'Space Grotesk'; font-size: 20px; letter-spacing: 2px; text-transform: uppercase; color: var(--mute); font-weight: 600; }
+  .seg .who { color: var(--text); font-weight: 600; }
+  .dots { display: flex; gap: 8px; align-items: center; }
+  .dot { width: 18px; height: 18px; border-radius: 50%; border: 2px solid var(--clay); }
+  .dot.on { background: var(--clay); }
+
+  /* geography */
+  .geo { display: grid; grid-template-columns: 1fr 1.05fr; gap: 64px; margin-top: 44px; align-items: start; }
+  .geo svg text { font-family: 'Inter'; }
+  .geo .card { margin-bottom: 18px; padding: 24px 32px; } .geo .card h3 { font-size: 30px; margin-bottom: 8px; } .geo .card p { font-size: 23px; }
+
+  /* questions */
+  .qs { grid-template-columns: repeat(3, 1fr); }
+  .qs .card h3 { font-size: 30px; line-height: 1.25; }
+
+  /* plan timeline */
+  .plan { margin-top: 56px; display: grid; grid-template-columns: 300px 1fr; row-gap: 20px; column-gap: 32px; align-items: center; }
+  .plan .ph { font-family: 'Space Grotesk'; font-size: 26px; font-weight: 600; }
+  .plan .ph small { display: block; font-family: 'Inter'; font-size: 20px; color: var(--mute); font-weight: 400; margin-top: 4px; }
+  .track { position: relative; height: 72px; }
+  .blk { position: absolute; top: 0; height: 72px; border-radius: 14px; padding: 0 22px; display: flex; align-items: center; font-size: 22px; color: #0E1729; font-weight: 600; transform-origin: left; white-space: nowrap; }
+  .weeks { display: grid; grid-template-columns: repeat(6, 1fr); font-size: 20px; color: var(--mute); grid-column: 2; }
+
+  /* register table */
+  table { border-collapse: collapse; width: 100%; margin-top: 40px; font-size: 23px; }
+  th { text-align: left; font-family: 'Space Grotesk'; font-size: 19px; letter-spacing: 2px; text-transform: uppercase; color: var(--mute); padding: 0 18px 14px; font-weight: 600; }
+  td { padding: 15px 18px; border-top: 1px solid var(--line); color: var(--soft); line-height: 1.35; vertical-align: top; }
+  td.id { font-family: 'Space Grotesk'; color: var(--teal); font-weight: 600; }
+  td.as { color: var(--text); }
+  .risk { font-family: 'Space Grotesk'; font-weight: 600; }
+  .risk.hi { color: var(--clay); } .risk.md { color: var(--gold); }
+
+  /* evidence */
+  .ev { grid-template-columns: repeat(5, 1fr); gap: 20px; }
+  .ev .card { padding: 28px; }
+  .ev .card h3 { font-size: 28px; }
+  .ev .card p { font-size: 22px; }
+  .ev .card .lim { margin-top: 16px; font-size: 20px; color: var(--mute); }
+  .rule-row { margin-top: 36px; display: flex; gap: 18px; flex-wrap: wrap; }
+  .rule-row .pill { font-size: 23px; padding: 12px 24px; border-radius: 999px; background: var(--panel2); color: var(--text); }
+
+  /* known */
+  .known { grid-template-columns: repeat(3, 1fr); }
+  .known .card .tag { margin-bottom: 20px; }
+
+  /* close */
+  .close-big { font-family: 'Space Grotesk'; font-size: 92px; font-weight: 600; line-height: 1.05; max-width: 1500px; }
+  .close-big span { color: var(--teal); }
+</style>
+</head>
+<body>
+<div id="stage">
+  <div class="bg-glow"></div>
+
+  <!-- 1 TITLE -->
+  <section class="scene" data-start="0" data-dur="8" data-chapter="" data-cap="Before building The Veedu, I want to find out — honestly — whether it deserves to be built. This is the research foundation for that question.">
+    <div class="title-wrap">
+      <div class="eyebrow a" data-t="0.2">Product Management case study</div>
+      <h1 class="a" data-t="0.5">The <span>Veedu</span></h1>
+      <div class="sub a" data-t="1.1">Research Foundation</div>
+      <div class="rule a" data-t="1.6" data-a="grow"></div>
+      <div class="line a" data-t="2.0">Kerala-focused accommodation discovery · starting with medical travel to Kochi</div>
+    </div>
+  </section>
+
+  <!-- 2 PRODUCT OVERVIEW -->
+  <section class="scene" data-start="8" data-dur="15" data-chapter="01 · Product overview" data-cap="The Veedu is an accommodation discovery platform for Kerala. The first wedge: people travelling to Kochi for medical treatment, and the families who come with them. Today it is a working prototype — no bookings, revenue or product-market fit yet.">
+    <div class="eyebrow a" data-t="0">01 · Product overview</div>
+    <h2 class="a" data-t="0.2">Find a stay that fits a hospital visit — not a holiday.</h2>
+    <div class="cards" style="grid-template-columns: repeat(3,1fr)">
+      <div class="card a" data-t="1.2"><div class="num">What</div><h3>Accommodation discovery</h3><p>A Kerala-focused platform for finding stays — homestays, serviced apartments, guest houses.</p></div>
+      <div class="card a" data-t="1.7"><div class="num">Who, first</div><h3>Medical travellers to Kochi</h3><p>Patients from other districts and states, and the caregivers and families who accompany them.</p></div>
+      <div class="card a" data-t="2.2"><div class="num">Where it stands</div><h3>Working prototype</h3><p>Listings, map, host dashboard and reviews exist. No proven demand, bookings or revenue yet.</p></div>
+    </div>
+    <p class="lead a" data-t="3.2" style="margin-top:48px">So this is treated as a <b style="color:var(--text)">pre-launch concept</b> — the research comes before the roadmap.</p>
+  </section>
+
+  <!-- 3 PROBLEM HYPOTHESIS -->
+  <section class="scene" data-start="23" data-dur="16" data-chapter="02 · Problem hypothesis" data-cap="The starting hypothesis: existing platforms may not serve medical travellers well. That's a hypothesis, not a finding. So I've written down in advance what evidence would support it — and what would prove it wrong.">
+    <div class="eyebrow a" data-t="0">02 · Problem hypothesis</div>
+    <div class="a" data-t="0.2"><span class="tag t-hyp">Hypothesis · not yet tested</span></div>
+    <div class="hyp-box a" data-t="0.6"><p class="big">Existing accommodation platforms may not adequately address the specific needs of medical travellers and their families.</p></div>
+    <div class="tf">
+      <div class="card a" data-t="2.0"><h3 style="color:var(--teal)">It holds if we find…</h3><ul>
+        <li>Caregivers struggle to judge distance, access and total cost</li>
+        <li>Long or uncertain stays don't fit nightly-booking platforms</li>
+        <li>Families fall back on referrals and word of mouth</li></ul></div>
+      <div class="card a" data-t="2.6"><h3 style="color:var(--clay)">It breaks if we find…</h3><ul>
+        <li>Hospitals already arrange stays that families are happy with</li>
+        <li>Booking apps or OTAs already meet these needs well enough</li>
+        <li>The pain is real but rare, or nobody will pay to fix it</li></ul></div>
+    </div>
+  </section>
+
+  <!-- 4 EVIDENCE LABELS -->
+  <section class="scene" data-start="39" data-dur="11" data-chapter="Research standard" data-cap="Every claim in this research carries one of four labels. Facts need a source and a date. Assumptions and hypotheses stay labelled until evidence moves them. And when the data isn't there, I'll say so rather than fill the gap.">
+    <div class="eyebrow a" data-t="0">Research standard</div>
+    <h2 class="a" data-t="0.2">Every claim gets a label.</h2>
+    <div class="legend">
+      <div class="card t-fact a" data-t="1.0"><h3>Fact</h3><p>Verifiable, with a source URL and a publication date.</p></div>
+      <div class="card t-assume a" data-t="1.4"><h3>Assumption</h3><p>Believed true and acted on, but not yet checked.</p></div>
+      <div class="card t-hyp a" data-t="1.8"><h3>Hypothesis</h3><p>A testable claim, with a defined way to prove it wrong.</p></div>
+      <div class="card t-rec a" data-t="2.2"><h3>Recommendation</h3><p>A decision that follows from the evidence.</p></div>
+    </div>
+    <p class="lead a" data-t="3.2">No invented interviews, reviews, statistics or competitor details. Gaps get reported as limitations.</p>
+  </section>
+
+  <!-- 5 TARGET CUSTOMERS -->
+  <section class="scene" data-start="50" data-dur="19" data-chapter="03 · Target customer hypotheses" data-cap="There are five candidate segments. My working bet is that caregivers on long or uncertain treatments feel the pain most — they have to stay close, stay for weeks, and make decisions under stress. That's also a hypothesis, and interviews will test it.">
+    <div class="eyebrow a" data-t="0">03 · Target customer hypotheses</div>
+    <h2 class="a" data-t="0.2" style="font-size:58px">Five segments. One working bet.</h2>
+    <div class="seg">
+      <div class="h a" data-t="0.8">Segment</div><div class="h a" data-t="0.8">Expected need</div><div class="h a" data-t="0.8">How we'd test it</div><div class="h a" data-t="0.8">Pain (est.)</div>
+
+      <div class="who a" data-t="1.2" style="color:var(--clay)">Caregivers on extended treatment</div><div class="a" data-t="1.2">Weeks-long stay, kitchen, near the hospital, flexible dates</div><div class="a" data-t="1.2">Caregiver interviews; long-stay supply audit</div><div class="a dots" data-t="1.2"><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i></div>
+
+      <div class="who a" data-t="1.6">Out-of-state &amp; international patients</div><div class="a" data-t="1.6">Trust from afar, language, total cost before arrival</div><div class="a" data-t="1.6">Hospital international desks; reviews</div><div class="a dots" data-t="1.6"><i class="dot on"></i><i class="dot on"></i><i class="dot"></i></div>
+
+      <div class="who a" data-t="2.0">Family groups with a patient</div><div class="a" data-t="2.0">Space for 3–5 people, accessibility, clear extra-person fees</div><div class="a" data-t="2.0">Listing audit; review themes</div><div class="a dots" data-t="2.0"><i class="dot on"></i><i class="dot on"></i><i class="dot"></i></div>
+
+      <div class="who a" data-t="2.4">Patients from other Kerala districts</div><div class="a" data-t="2.4">Short, repeat stays for scans and follow-ups</div><div class="a" data-t="2.4">Interviews; visit-frequency questions</div><div class="a dots" data-t="2.4"><i class="dot on"></i><i class="dot"></i><i class="dot"></i></div>
+
+      <div class="who a" data-t="2.8">General travellers near hospitals</div><div class="a" data-t="2.8">Clean, reliable, fairly priced rooms</div><div class="a" data-t="2.8">Control group in review analysis</div><div class="a dots" data-t="2.8"><i class="dot on"></i><i class="dot"></i><i class="dot"></i></div>
+    </div>
+    <p class="a" data-t="3.6" style="margin-top:22px;font-size:21px;color:var(--mute)">Pain ratings are my prior estimates to be tested — not data.</p>
+  </section>
+
+  <!-- 6 GEOGRAPHY -->
+  <section class="scene" data-start="69" data-dur="16" data-chapter="04 · Initial geography hypothesis" data-cap="Start with one hospital cluster, not all of Kerala. First candidate: the Edappally–Cheranalloor corridor, home to Aster Medcity and Amrita. Other clusters serve as comparisons.">
+    <div class="eyebrow a" data-t="0">04 · Initial geography hypothesis</div>
+    <h2 class="a" data-t="0.2" style="font-size:58px">Start with one cluster, not all of Kerala.</h2>
+    <div class="geo">
+      <svg class="a" data-t="0.8" width="820" height="560" viewBox="0 0 820 560" aria-label="Schematic of Kochi hospital clusters">
+        <rect x="1" y="1" width="818" height="558" rx="24" fill="#14213D" stroke="#2E4169" stroke-width="2"/>
+        <path d="M90 60 C 160 200, 120 360, 200 520" stroke="#2E4169" stroke-width="22" fill="none" stroke-linecap="round" opacity="0.7"/>
+        <text x="64" y="545" fill="#7F8AA3" font-size="18">backwaters (schematic)</text>
+        <!-- primary cluster -->
+        <circle cx="430" cy="230" r="120" fill="rgba(93,179,172,0.12)" stroke="#5DB3AC" stroke-width="2" stroke-dasharray="8 8"/>
+        <circle cx="390" cy="200" r="12" fill="#5DB3AC"/><text x="408" y="196" fill="#F4F1E8" font-size="21" font-weight="600">Aster Medcity</text><text x="408" y="220" fill="#B6BED0" font-size="17">Cheranalloor</text>
+        <circle cx="470" cy="280" r="12" fill="#5DB3AC"/><text x="488" y="276" fill="#F4F1E8" font-size="21" font-weight="600">Amrita</text><text x="488" y="300" fill="#B6BED0" font-size="17">Edappally</text>
+        <!-- comparison clusters -->
+        <circle cx="600" cy="80" r="10" fill="none" stroke="#B6BED0" stroke-width="3"/><text x="618" y="86" fill="#B6BED0" font-size="19">Rajagiri · Aluva</text>
+        <circle cx="520" cy="470" r="10" fill="none" stroke="#B6BED0" stroke-width="3"/><text x="538" y="476" fill="#B6BED0" font-size="19">Lakeshore · Maradu</text>
+        <text x="560" y="540" fill="#7F8AA3" font-size="16">Not to scale</text>
+      </svg>
+      <div>
+        <div class="card a" data-t="1.6"><span class="tag t-hyp">Hypothesis</span><h3 style="margin-top:12px">Edappally–Cheranalloor first</h3><p>Two major hospitals in one corridor, and listings that already use them as landmarks.</p></div>
+        <div class="card a" data-t="2.2"><h3>Why one cluster?</h3><p>Small enough to verify every property in person, and to build relationships with hospital coordinators.</p></div>
+        <div class="card a" data-t="2.8"><h3>Comparison clusters</h3><p>Rajagiri (Aluva) and Lakeshore (Maradu) — to check whether the pattern repeats.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7 RESEARCH QUESTIONS -->
+  <section class="scene" data-start="85" data-dur="17" data-chapter="05 · Research questions" data-cap="Six questions frame the work, in order. Each one has to be answered before the next is worth asking — there's no point sizing a market for a problem nobody has.">
+    <div class="eyebrow a" data-t="0">05 · Research questions</div>
+    <h2 class="a" data-t="0.2" style="font-size:58px">Six questions, answered in order.</h2>
+    <div class="cards qs" style="margin-top:44px">
+      <div class="card a" data-t="1.0"><div class="num">Q1 · Problem</div><h3>Is there a meaningful customer problem?</h3></div>
+      <div class="card a" data-t="1.4"><div class="num">Q2 · Who</div><h3>Who experiences it most strongly?</h3></div>
+      <div class="card a" data-t="1.8"><div class="num">Q3 · Today</div><h3>What do they use today instead?</h3></div>
+      <div class="card a" data-t="2.2"><div class="num">Q4 · Gaps</div><h3>Where does the current market fall short?</h3></div>
+      <div class="card a" data-t="2.6"><div class="num">Q5 · Business</div><h3>Is there a realistic business here?</h3></div>
+      <div class="card a" data-t="3.0"><div class="num">Q6 · First</div><h3>What should we build and validate first?</h3></div>
+    </div>
+  </section>
+
+  <!-- 8 RESEARCH PLAN -->
+  <section class="scene" data-start="102" data-dur="17" data-chapter="06 · Research plan" data-cap="The plan runs about six weeks in five phases: desk research, a supply audit, review mining, primary interviews, then synthesis. Interviews matter most — reviews alone can't tell us whether the guest was a caregiver.">
+    <div class="eyebrow a" data-t="0">06 · Research plan</div>
+    <h2 class="a" data-t="0.2" style="font-size:58px">Five phases over about six weeks.</h2>
+    <div class="plan">
+      <div class="ph a" data-t="0.9">Desk research<small>Q1 · Q5</small></div>
+      <div class="track"><div class="blk a" data-a="grow" data-t="1.0" style="left:0;width:33%;background:var(--teal)">Gov &amp; tourism data, hospital pages</div></div>
+      <div class="ph a" data-t="1.4">Supply audit<small>Q3 · Q4</small></div>
+      <div class="track"><div class="blk a" data-a="grow" data-t="1.5" style="left:16.6%;width:33%;background:var(--iris)">Listings near target hospitals</div></div>
+      <div class="ph a" data-t="1.9">Review mining<small>Q1 · Q4</small></div>
+      <div class="track"><div class="blk a" data-a="grow" data-t="2.0" style="left:33.3%;width:25%;background:var(--gold)">Theme-coded reviews</div></div>
+      <div class="ph a" data-t="2.4">Primary interviews<small>Q1 · Q2 · Q3</small></div>
+      <div class="track"><div class="blk a" data-a="grow" data-t="2.5" style="left:33.3%;width:50%;background:var(--clay)">Caregivers · patients · coordinators · hosts</div></div>
+      <div class="ph a" data-t="2.9">Synthesis<small>Q5 · Q6</small></div>
+      <div class="track"><div class="blk a" data-a="grow" data-t="3.0" style="left:83.3%;width:16.7%;background:var(--text)">Decide</div></div>
+      <div class="weeks a" data-t="3.4"><span>Wk 1</span><span>Wk 2</span><span>Wk 3</span><span>Wk 4</span><span>Wk 5</span><span>Wk 6</span></div>
+    </div>
+    <p class="a" data-t="3.8" style="margin-top:26px;font-size:21px;color:var(--mute)">Proposed timeline — a plan, not completed work.</p>
+  </section>
+
+  <!-- 9 ASSUMPTIONS REGISTER -->
+  <section class="scene" data-start="119" data-dur="19" data-chapter="07 · Assumptions register" data-cap="The assumptions register lists what the idea depends on, how risky each one is, and how we'll test it. The riskiest go first: do families actually arrange their own stays, and will hospital coordinators refer them?">
+    <div class="eyebrow a" data-t="0">07 · Assumptions register</div>
+    <h2 class="a" data-t="0.2" style="font-size:58px">What has to be true — riskiest first.</h2>
+    <table>
+      <tr class="a" data-t="0.8"><th>ID</th><th>Assumption</th><th>Type</th><th>Risk</th><th>How we test it</th></tr>
+      <tr class="a" data-t="1.2"><td class="id">A1</td><td class="as">Many families arrange their own stay rather than through the hospital</td><td>Customer</td><td class="risk hi">High</td><td>Interviews; hospital desk conversations</td></tr>
+      <tr class="a" data-t="1.6"><td class="id">A2</td><td class="as">Hospital coordinators would refer families to verified stays</td><td>Channel</td><td class="risk hi">High</td><td>3–5 coordinator conversations</td></tr>
+      <tr class="a" data-t="2.0"><td class="id">A3</td><td class="as">Distance, total cost and accessibility drive the choice more than price alone</td><td>Customer</td><td class="risk hi">High</td><td>Interviews; review theme counts</td></tr>
+      <tr class="a" data-t="2.4"><td class="id">A4</td><td class="as">Medical stays run longer than typical leisure stays</td><td>Market</td><td class="risk md">Med</td><td>Interviews; host booking records</td></tr>
+      <tr class="a" data-t="2.8"><td class="id">A5</td><td class="as">Enough suitable hosts near the hospitals will list and be verified</td><td>Supply</td><td class="risk md">Med</td><td>Supply audit; host outreach</td></tr>
+      <tr class="a" data-t="3.2"><td class="id">A6</td><td class="as">Hosts or guests will pay a fee for this service</td><td>Business</td><td class="risk hi">High</td><td>Pricing questions; small paid pilot</td></tr>
+    </table>
+  </section>
+
+  <!-- 10 EVIDENCE COLLECTION -->
+  <section class="scene" data-start="138" data-dur="17" data-chapter="08 · Evidence collection plan" data-cap="Each source answers a different question and has its own blind spot, so they're used together. Every item is logged with its URL, its publication date and the date it was accessed.">
+    <div class="eyebrow a" data-t="0">08 · Evidence collection plan</div>
+    <h2 class="a" data-t="0.2" style="font-size:58px">Five sources, each with a known blind spot.</h2>
+    <div class="cards ev" style="margin-top:44px">
+      <div class="card a" data-t="1.0"><div class="num">Government</div><h3>Tourism &amp; health reports</h3><p>Kerala Tourism, Ministry of Tourism, state budgets.</p><p class="lim">Blind spot: national scale, not accommodation-specific.</p></div>
+      <div class="card a" data-t="1.4"><div class="num">Hospitals</div><h3>Official websites</h3><p>International-patient desks, guest-house options, services offered.</p><p class="lim">Blind spot: marketing copy, not real usage.</p></div>
+      <div class="card a" data-t="1.8"><div class="num">Listings</div><h3>Accommodation supply</h3><p>Airbnb, Booking.com, MakeMyTrip, OYO, Kerala Tourism directory.</p><p class="lim">Blind spot: what hosts claim, not what guests found.</p></div>
+      <div class="card a" data-t="2.2"><div class="num">Reviews</div><h3>Guest feedback</h3><p>Google Maps and OTA reviews near target hospitals, theme-coded.</p><p class="lim">Blind spot: rarely says whether the guest was a medical traveller.</p></div>
+      <div class="card a" data-t="2.6"><div class="num" style="color:var(--clay)">Primary</div><h3>Interviews</h3><p>Caregivers, patients, hospital coordinators and hosts.</p><p class="lim">Blind spot: small sample; recruitment bias.</p></div>
+    </div>
+    <div class="rule-row">
+      <span class="pill a" data-t="3.4">Source URL</span><span class="pill a" data-t="3.6">Publication date</span><span class="pill a" data-t="3.8">Access date</span><span class="pill a" data-t="4.0">Evidence label</span><span class="pill a" data-t="4.2">Limitation noted</span>
+    </div>
+  </section>
+
+  <!-- 11 WHAT WE ALREADY KNOW -->
+  <section class="scene" data-start="155" data-dur="16" data-chapter="Starting evidence" data-cap="An earlier scan is a starting point, not a conclusion. Kerala already grades homestays, and no medical-stay platform turned up. Reviews flag hidden fees — but none came from confirmed medical travellers.">
+    <div class="eyebrow a" data-t="0">Starting evidence · earlier scan, Nov 2026</div>
+    <h2 class="a" data-t="0.2" style="font-size:58px">Signals so far — and their limits.</h2>
+    <div class="cards known" style="margin-top:44px">
+      <div class="card a" data-t="1.0"><span class="tag t-fact">Fact</span><h3 style="margin-top:20px">Kerala grades its homestays</h3><p>The District Tourism Office classifies them Diamond, Gold or Silver, with inspections. That's a trust signal The Veedu could display.</p><p style="margin-top:14px;font-size:19px;color:var(--mute)">Source: Kerala Tourism homestay classification</p></div>
+      <div class="card a" data-t="1.6"><span class="tag t-hyp">Signal</span><h3 style="margin-top:20px">No direct competitor found</h3><p>Medical-tourism facilitators deal with hospitals and visas, not where families stay. The search may have missed some.</p><p style="margin-top:14px;font-size:19px;color:var(--mute)">Desk scan · Nov 2026</p></div>
+      <div class="card a" data-t="2.2"><span class="tag t-lim">Limitation</span><h3 style="margin-top:20px">13 reviews, 8 properties</h3><p>Hidden extra-person fees and ratings that disagree across platforms came up repeatedly — but no reviewer mentioned a hospital visit.</p><p style="margin-top:14px;font-size:19px;color:var(--mute)">Directional only · not medical travellers</p></div>
+    </div>
+  </section>
+
+  <!-- 12 CLOSE -->
+  <section class="scene" data-start="171" data-dur="14" data-chapter="Next step" data-cap="So the first thing to build isn't more product. It's evidence: talk to caregivers in one hospital cluster, test the riskiest assumptions, and only then decide what The Veedu should become.">
+    <div class="eyebrow a" data-t="0">Next step</div>
+    <div class="a" data-t="0.2" style="margin-bottom:28px"><span class="tag t-rec">Recommendation</span></div>
+    <p class="close-big a" data-t="0.6">Build evidence <span>before</span> building product.</p>
+    <div class="cards" style="grid-template-columns: repeat(3,1fr); margin-top:64px">
+      <div class="card a" data-t="1.8"><div class="num">1</div><h3>Interview caregivers</h3><p>In the Edappally–Cheranalloor cluster, to test A1 and A3.</p></div>
+      <div class="card a" data-t="2.3"><div class="num">2</div><h3>Talk to coordinators</h3><p>At the hospitals' international-patient desks, to test A2.</p></div>
+      <div class="card a" data-t="2.8"><div class="num">3</div><h3>Then decide</h3><p>Build, narrow the scope, or stop — with the evidence to back the call.</p></div>
+    </div>
+  </section>
+
+  <div id="chrome">
+    <div id="brand"><b>The Veedu</b> · Research Foundation</div>
+    <div id="chapter"></div>
+    <div id="caption"><div class="bar"></div><p></p></div>
+  </div>
+  <div id="progress"></div>
+</div>
+
+<script>
+  const scenes = [...document.querySelectorAll('.scene')].map(el => ({
+    el, start: +el.dataset.start, dur: +el.dataset.dur,
+    items: [...el.querySelectorAll('.a')], cap: el.dataset.cap, chapter: el.dataset.chapter
+  }));
+  const TOTAL = scenes.at(-1).start + scenes.at(-1).dur;
+  const capEl = document.querySelector('#caption p'), capBox = document.getElementById('caption');
+  const chapEl = document.getElementById('chapter'), prog = document.getElementById('progress');
+  const brand = document.getElementById('brand');
+  const clamp = v => Math.max(0, Math.min(1, v));
+  const ease = p => 1 - Math.pow(1 - p, 3);
+  const FADE = 0.5;
+
+  function render(t) {
+    let active = null;
+    for (const s of scenes) {
+      const local = t - s.start;
+      if (local < -0.01 || local > s.dur + 0.01) { s.el.style.opacity = 0; continue; }
+      active = s;
+      const vis = Math.min(clamp(local / FADE), clamp((s.dur - local) / FADE));
+      s.el.style.opacity = vis;
+      for (const it of s.items) {
+        const p = ease(clamp((local - (+it.dataset.t || 0)) / 0.7));
+        it.style.opacity = p;
+        if (it.dataset.a === 'grow') it.style.transform = `scaleX(${p})`;
+        else if (it.dataset.a !== 'fade') it.style.transform = `translateY(${(1 - p) * 26}px)`;
+      }
+      // caption
+      const cp = ease(clamp((local - 0.6) / 0.6));
+      capBox.style.opacity = vis * cp;
+      capBox.style.transform = `translateY(${(1 - cp) * 12}px)`;
+      if (capEl.textContent !== s.cap) capEl.textContent = s.cap;
+      chapEl.textContent = s.chapter;
+      const showBrand = s !== scenes[0];
+      brand.style.opacity = showBrand ? vis : 0;
+      chapEl.style.opacity = vis;
+    }
+    prog.style.width = (clamp(t / TOTAL) * 100) + '%';
+  }
+  window.TOTAL = TOTAL; window.render = render;
+
+  // Live preview when opened directly in a browser (?t=seconds to jump).
+  if (!window.__RENDERING__) {
+    const t0 = performance.now() - (+(new URLSearchParams(location.search).get('t') || 0)) * 1000;
+    const fit = () => { const k = Math.min(innerWidth / 1920, innerHeight / 1080);
+      document.getElementById('stage').style.cssText += `;transform:scale(${k});transform-origin:0 0`; };
+    addEventListener('resize', fit); fit();
+    (function loop(){ render(((performance.now() - t0) / 1000) % TOTAL); requestAnimationFrame(loop); })();
+  }
+</script>
+</body>
+</html>
