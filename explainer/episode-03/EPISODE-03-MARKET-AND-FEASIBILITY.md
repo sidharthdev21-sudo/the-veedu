@@ -134,7 +134,7 @@ The November 2026 market scan sized demand from **international** medical arriva
 8. **Scenarios**: The conservative case loses money on every booking. The optimistic case breaks even with six properties. And at a fifteen percent commission, the base case roughly breaks even.
 9. **Conclusion**: So, does The Veedu deserve a pilot? Yes — a small, founder-led one. The numbers aren't proven, but they're close enough to test cheaply. First, validate three things: how many out-of-town families need a paid room, what it costs to reach them through hospital desks, and whether they'll book through The Veedu instead of going direct.
 
-Narration rules: "projects" is used for every money figure; "Fact" tags appear only on beds and occupancy.
+Narration rules: every money figure is introduced as a base-case projection (scene 3 opens with "In the base case", and scene 4 says "These are projections, not data"). "Fact" tags appear only on the bed counts and occupancy.
 
 ### 7b. Storyboard and visuals
 
