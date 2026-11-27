@@ -2,7 +2,7 @@
 
 **Series:** The Veedu, a Product Management case study
 **Episode:** 01, "Not everyone in Kochi is on holiday"
-**Runtime:** about 84 seconds · 16:9 · 24 fps cinematic · dark interface
+**Runtime:** about 85–90 seconds (scene timings are a guide; adjust them to the recorded VO) · 16:9 · 24 fps cinematic · dark interface
 **Purpose:** set up a serious product investigation. This episode does not present findings.
 
 ---
@@ -34,15 +34,15 @@ Alternatives:
 | # | Time | Voiceover |
 |---|---|---|
 | 1 | 0:00–0:06 | Not everyone who travels to Kochi is on holiday. // |
-| 2 | 0:06–0:16 | I'm building The Veedu — an accommodation discovery platform for Kerala. And I'm starting with one group: people coming to Kochi for medical treatment, and the families who come with them. |
-| 3 | 0:16–0:27 | My background is in UX design and running rental accommodation. Together, they led me to a product question: // when the reason for a trip is a hospital, does finding a place to stay work differently? |
-| 4 | 0:27–0:40 | My hypothesis is that it does. A caregiver may need to stay close — for weeks, not nights — with clear costs and easy access. General booking platforms may not surface that well. // But right now, that's a hypothesis. Not a finding. |
-| 5 | 0:40–0:52 | Kochi is a sensible place to start. Kerala recorded around two and a half crore domestic tourist visits in 2025. And in 2023, Ernakulam — Kochi's district — drew more domestic and foreign visitors than any other district in the state. |
-| 6 | 0:52–1:05 | Nationally, about six point four lakh foreign visitors came to India for medical treatment in 2024. // But tourist visits aren't medical travellers. And the Ministry of Tourism says it doesn't keep state-wise medical tourism data. |
+| 2 | 0:06–0:16 | I'm building The Veedu, an accommodation discovery platform for Kerala — starting with people coming to Kochi for medical treatment, and the families with them. |
+| 3 | 0:16–0:27 | My background is UX design and running rental accommodation. That led me to a product question: // when the trip is for a hospital, does finding a stay work differently? |
+| 4 | 0:27–0:40 | My hypothesis: it does. A caregiver may need to stay close, for weeks, with clear costs and easy access — needs general platforms may not surface. // But that's a hypothesis. Not a finding. |
+| 5 | 0:40–0:52 | Kochi is a sensible start. Kerala recorded around two and a half crore domestic tourist visits in 2025. And in 2023, Ernakulam — Kochi's district — led the state in both domestic and foreign visits. |
+| 6 | 0:52–1:05 | Nationally, about six point four lakh foreigners came to India for medical treatment in 2024. // But tourist visits aren't medical travellers. And the Ministry of Tourism doesn't keep state-wise data. |
 | 7 | 1:05–1:13 | So I can't yet say how many medical travellers stay in Kochi — or what they struggle with. |
-| 8 | 1:13–1:24 | That's what this research has to establish. Is the problem real? Who feels it most? What do families use today — and is there a business here? // Let's find out. |
+| 8 | 1:13–1:24 | That's what this research must establish: is the problem real, who feels it most, what do families use today — and is there a business? // Let's find out. |
 
-**Word count:** about 195 words, which runs about 84 seconds at a natural pace with pauses.
+**Word count:** 207 words, which runs about 88 seconds at around 150 words a minute plus about 5 seconds of pauses. Fits the 60–90 s target.
 
 ### Claim-to-source check for the voiceover
 
@@ -51,9 +51,9 @@ Every number in the voiceover traces to an official source in Section 9.
 | Voiceover claim | Source | Status |
 |---|---|---|
 | "around two and a half crore domestic tourist visits in 2025" (exact: 2,50,58,366) | S1: Kerala Tourism, *Kerala Tourist Visits Statistics 2025* | Official figure. ✅ |
-| "in 2023, Ernakulam drew more domestic and foreign visitors than any other district" (4,487,930 domestic; 279,904 foreign) | S2: Kerala Tourism, *Statistics 2023*; corroborated by S6 | Official, two sources. ✅ |
-| "about six point four lakh foreign visitors came to India for medical treatment in 2024" (exact: 6,44,387) | S3: PIB release of a Lok Sabha reply (Bureau of Immigration data); S4: DD News | Official, two sources. ✅ |
-| "the Ministry of Tourism says it doesn't keep state-wise medical tourism data" | S3: PIB, Lok Sabha reply, Feb 2026 | Official statement. ✅ |
+| "in 2023, Ernakulam led the state in both domestic and foreign visits" (4,487,930 domestic; 279,904 foreign) | S2: Kerala Tourism, *Statistics 2023*; corroborated by S6 | Official, two sources. ✅ |
+| "about six point four lakh foreigners came to India for medical treatment in 2024" (exact: 6,44,387) | S3: PIB release of a Lok Sabha reply (Bureau of Immigration data); S4: DD News | Official, two sources. ✅ |
+| "the Ministry of Tourism doesn't keep state-wise data" (on medical tourism arrivals) | S3: PIB, Lok Sabha reply, Feb 2026 | Official statement. ✅ |
 | "UX design and running rental accommodation" | Your own background | Personal fact. ✅ |
 | "A caregiver may need to stay close, for weeks…" | — | Hypothesis, and framed as one in the script. ⚠️ Not a claim. |
 
