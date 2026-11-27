@@ -1,0 +1,339 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>The Veedu — Episode 03</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --obsidian: #08090C; --charcoal: #0E1015; --charcoal2: #14171E; --line: #22262F;
+    --white: #ECECF1; --grey: #A3A5B0; --dim: #6B6E79;
+    --cyan: #6CF0FF; --violet: #B48CFF; --lime: #D4FF6A; --green: #5EE6A8;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; background: var(--obsidian); }
+  #stage { position: relative; width: 1920px; height: 1080px; overflow: hidden; background: var(--obsidian);
+    font-family: 'Inter', system-ui, sans-serif; color: var(--white); }
+  h1, h2, h3, .sg { font-family: 'Space Grotesk', 'Inter', sans-serif; margin: 0; letter-spacing: -0.02em; font-weight: 500; }
+  p { margin: 0; }
+  .grid { position: absolute; inset: 0; opacity: 0.045;
+    background-image: linear-gradient(var(--grey) 1px, transparent 1px), linear-gradient(90deg, var(--grey) 1px, transparent 1px);
+    background-size: 160px 160px; }
+  .scene { position: absolute; inset: 0; opacity: 0; }
+  .abs { position: absolute; }
+  #bug { position: absolute; top: 56px; left: 96px; font-family: 'Space Grotesk'; font-size: 20px; letter-spacing: 4px; color: rgba(236,236,241,0.6); }
+  #bug b { color: var(--cyan); font-weight: 500; }
+  #chap { position: absolute; top: 56px; right: 96px; font-family: 'Space Grotesk'; font-size: 20px; letter-spacing: 2px; color: var(--grey); text-transform: uppercase; }
+  .src { position: absolute; left: 96px; bottom: 56px; font-size: 20px; color: var(--grey); }
+  .src::before { content: "SOURCE  "; color: var(--dim); letter-spacing: 2px; font-family: 'Space Grotesk'; font-size: 17px; }
+  .eyebrow { font-family: 'Space Grotesk'; font-size: 22px; letter-spacing: 5px; text-transform: uppercase; color: var(--cyan); }
+  .h-xl { font-size: 92px; line-height: 1.04; }
+  .h-l { font-size: 64px; line-height: 1.06; }
+  .h-m { font-size: 44px; line-height: 1.12; }
+  .soft { color: var(--grey); }
+  .panel { background: var(--charcoal); border: 1px solid var(--line); border-radius: 22px; }
+  .tag { display: inline-block; font-family: 'Space Grotesk'; font-size: 16px; letter-spacing: 3px; text-transform: uppercase; padding: 6px 14px; border-radius: 999px; border: 1.5px solid currentColor; }
+  .fact { color: var(--cyan); } .asm { color: var(--lime); } .proj { color: var(--violet); }
+  .num { font-family: 'Space Grotesk'; font-weight: 600; letter-spacing: -0.03em; }
+
+  /* chain */
+  .step { position: absolute; padding: 28px 32px; }
+  .step .v { font-family: 'Space Grotesk'; font-size: 60px; font-weight: 600; line-height: 1; }
+  .step .l { font-size: 23px; color: var(--grey); margin-top: 12px; line-height: 1.35; }
+  .step .tag { margin-top: 16px; }
+  .op { position: absolute; font-family: 'Space Grotesk'; font-size: 56px; color: var(--dim); }
+
+  .crow { display: flex; align-items: baseline; gap: 18px; padding: 14px 0; border-bottom: 1px solid var(--line); font-size: 26px; }
+  .crow .k { width: 300px; color: var(--grey); font-size: 22px; }
+  .crow .v { font-family: 'Space Grotesk'; font-size: 34px; }
+
+  /* bars */
+  .bar { position: absolute; height: 44px; border-radius: 8px; transform-origin: left; }
+  .blab { position: absolute; font-size: 24px; }
+  .bval { position: absolute; font-family: 'Space Grotesk'; font-size: 30px; }
+
+  /* dashboard */
+  .tile { padding: 26px 30px; }
+  .tile .k { font-size: 19px; letter-spacing: 2px; text-transform: uppercase; color: var(--dim); font-family: 'Space Grotesk'; }
+  .tile .v { font-family: 'Space Grotesk'; font-size: 52px; font-weight: 600; margin-top: 10px; letter-spacing: -0.02em; }
+  .tile .s { font-size: 20px; color: var(--grey); margin-top: 6px; }
+
+  /* table */
+  .stbl { position: absolute; left: 96px; top: 290px; width: 1728px; border-collapse: collapse; }
+  .stbl th { text-align: right; font-family: 'Space Grotesk'; font-size: 24px; letter-spacing: 3px; text-transform: uppercase; color: var(--violet); font-weight: 500; padding: 0 28px 20px; }
+  .stbl th:first-child, .stbl td:first-child { text-align: left; padding-left: 0; }
+  .stbl td { text-align: right; font-size: 34px; font-family: 'Space Grotesk'; padding: 20px 28px; border-top: 1px solid var(--line); }
+  .stbl td:first-child { font-family: 'Inter'; font-size: 24px; color: var(--grey); }
+  .pos { color: var(--green); } .neg { color: var(--grey); }
+</style>
+</head>
+<body>
+<div id="stage">
+  <div class="grid"></div>
+
+  <!-- S1 METHOD -->
+  <section class="scene" data-i="0" data-chap="Episode 03 · Market & feasibility">
+    <div class="abs" style="left:96px;top:300px">
+      <div class="eyebrow a" data-t="0.2">How the market was estimated</div>
+      <div class="a" data-t="1.0" style="margin-top:40px;display:flex;align-items:center;gap:30px">
+        <span class="h-m soft" style="position:relative">Kerala tourist visits<span class="a" data-a="grow" data-t="2.2" style="position:absolute;left:-6px;right:-6px;top:52%;height:4px;background:var(--violet)"></span></span>
+        <span class="a" data-t="2.8" style="font-size:30px;color:var(--grey)">≠ medical-stay demand</span>
+      </div>
+      <h1 class="h-xl a" data-t="6.0" style="margin-top:56px">Start with what can be counted:<br><span style="color:var(--cyan)">hospital beds.</span></h1>
+    </div>
+  </section>
+
+  <!-- S2 BEDS → BED-DAYS -->
+  <section class="scene" data-i="1" data-chap="Bottom-up sizing">
+    <div class="abs" style="left:96px;top:160px"><div class="eyebrow a" data-t="0.1">Bottom-up · step 1</div></div>
+    <div class="step panel a" data-t="0.4" style="left:96px;top:260px;width:430px"><div class="v"><span data-count="1450" data-t="0.5" data-cd="1.0">0</span></div><div class="l">beds · Amrita Hospital, Kochi</div><span class="tag fact">Fact</span></div>
+    <div class="op a" data-t="3.4" style="left:552px;top:300px">+</div>
+    <div class="step panel a" data-t="3.6" style="left:610px;top:260px;width:430px"><div class="v"><span data-count="700" data-t="3.7" data-cd="0.9">0</span></div><div class="l">inpatient beds · Aster Medcity</div><span class="tag fact">Fact</span></div>
+    <div class="op a" data-t="6.3" style="left:1066px;top:300px">×</div>
+    <div class="step panel a" data-t="6.5" style="left:1124px;top:260px;width:700px"><div class="v">~65%</div><div class="l">occupancy · Aster reports 64–69% for its Kerala hospitals;<br>applied to both (Amrita doesn't publish)</div><span class="tag fact">Fact · used as proxy</span></div>
+    <div class="abs a" data-t="8.2" style="left:96px;top:600px;display:flex;align-items:baseline;gap:28px">
+      <span class="op" style="position:static">=</span>
+      <span class="num" style="font-size:150px;color:var(--cyan)">~<span data-count="510000" data-t="8.3" data-cd="1.4">0</span></span>
+      <span style="font-size:34px;color:var(--grey)">patient bed-days a year</span>
+    </div>
+    <div class="abs a" data-t="12.4" style="left:96px;top:850px;display:flex;gap:18px;align-items:center"><span class="tag asm">From here on: assumptions</span></div>
+    <div class="src a" data-t="0.4">Amrita Hospital (1,450 beds) · Aster DM Healthcare website (800 beds: 700 inpatient) · Aster investor presentation, Nov 2025 (Kerala occupancy)</div>
+  </section>
+
+  <!-- S3 TAM / SAM / SOM -->
+  <section class="scene" data-i="2" data-chap="TAM · SAM · SOM">
+    <div class="abs" style="left:96px;top:160px"><div class="eyebrow a" data-t="0.1">Base case · projected, not measured</div></div>
+    <div class="abs" style="left:96px;top:250px;width:760px">
+      <div class="crow a" data-t="0.5"><span class="k">Bed-days</span><span class="v">510,000</span></div>
+      <div class="crow a" data-t="1.0"><span class="k">× family lives too far to commute</span><span class="v asm">35%</span></div>
+      <div class="crow a" data-t="1.3"><span class="k">× needs a paid room</span><span class="v asm">40%</span></div>
+      <div class="crow a" data-t="1.6"><span class="k">= room-nights a year</span><span class="v" style="color:var(--cyan)">~71,400</span></div>
+      <div class="crow a" data-t="2.0"><span class="k">× average nightly rate</span><span class="v asm">₹2,200</span></div>
+      <div class="crow a" data-t="7.0"><span class="k">× self-arranged, mid-price</span><span class="v asm">50%</span></div>
+      <div class="crow a" data-t="12.0"><span class="k">Pilot capture of SAM</span><span class="v asm">~7%</span></div>
+    </div>
+    <svg class="abs" style="left:960px;top:200px" width="880" height="760" aria-label="Nested TAM SAM SOM circles">
+      <g class="a" data-t="2.4" data-a="fade"><circle cx="440" cy="400" r="350" fill="rgba(108,240,255,0.06)" stroke="#6CF0FF" stroke-width="2"/>
+        <text x="440" y="110" text-anchor="middle" font-family="Space Grotesk" font-size="22" letter-spacing="4" fill="#A3A5B0">TAM</text>
+        <text x="440" y="160" text-anchor="middle" font-family="Space Grotesk" font-size="58" font-weight="600" fill="#6CF0FF">₹15.7 cr</text>
+        <text x="440" y="192" text-anchor="middle" font-family="Inter" font-size="20" fill="#A3A5B0">medical-visitor stays · 2 hospitals</text></g>
+      <g class="a" data-t="7.2" data-a="fade"><circle cx="440" cy="490" r="250" fill="rgba(108,240,255,0.08)" stroke="#6CF0FF" stroke-width="1.5" stroke-opacity=".7"/>
+        <text x="440" y="300" text-anchor="middle" font-family="Space Grotesk" font-size="22" letter-spacing="4" fill="#A3A5B0">SAM</text>
+        <text x="440" y="350" text-anchor="middle" font-family="Space Grotesk" font-size="52" font-weight="600" fill="#6CF0FF">₹7.9 cr</text>
+        <text x="440" y="380" text-anchor="middle" font-family="Inter" font-size="20" fill="#A3A5B0">self-arranged, mid-price</text></g>
+      <g class="a" data-t="12.1" data-a="fade"><circle cx="440" cy="620" r="110" fill="rgba(108,240,255,0.16)" stroke="#6CF0FF" stroke-width="1.5"/>
+        <text x="440" y="592" text-anchor="middle" font-family="Space Grotesk" font-size="20" letter-spacing="4" fill="#A3A5B0">SOM · PILOT</text>
+        <text x="440" y="638" text-anchor="middle" font-family="Space Grotesk" font-size="44" font-weight="600" fill="#ECECF1">₹58 L</text>
+        <text x="440" y="668" text-anchor="middle" font-family="Inter" font-size="18" fill="#A3A5B0">bookings a year</text></g>
+    </svg>
+    <div class="src a" data-t="0.5">Bottom-up model, The Veedu · rates anchored to Nov 2026 listings near the cluster · all values are annual projections</div>
+  </section>
+
+  <!-- S4 UNCERTAINTY / SCENARIOS -->
+  <section class="scene" data-i="3" data-chap="What remains uncertain">
+    <div class="abs" style="left:96px;top:160px"><div class="eyebrow a" data-t="0.1">What remains uncertain</div><h2 class="h-l a" data-t="0.3" style="margin-top:22px">Projections, not data.</h2></div>
+    <div class="abs" style="left:96px;top:380px;width:620px">
+      <div class="panel a" data-t="2.4" style="padding:28px 32px"><span class="tag asm">Key assumption · no public source</span><div class="h-m" style="margin-top:18px">Families living too far to commute</div><div class="num asm" style="font-size:44px;margin-top:10px">25% – 45%</div></div>
+      <div class="panel a" data-t="4.6" style="padding:28px 32px;margin-top:22px"><span class="tag asm">Key assumption · no public source</span><div class="h-m" style="margin-top:18px">Of those, needing a paid room</div><div class="num asm" style="font-size:44px;margin-top:10px">30% – 50%</div></div>
+    </div>
+    <div class="abs a" data-t="9.9" style="left:820px;top:380px;font-family:'Space Grotesk';font-size:22px;letter-spacing:4px;color:var(--violet)">TAM BY SCENARIO</div>
+    <div id="scenbars"></div>
+  </section>
+
+  <!-- S5 REVENUE MODELS -->
+  <section class="scene" data-i="4" data-chap="How The Veedu could earn">
+    <div class="abs" style="left:96px;top:160px"><div class="eyebrow a" data-t="0.1">Revenue models · at base-case pilot volume</div><h2 class="h-m a" data-t="0.3" style="margin-top:20px">Projected platform revenue per year</h2></div>
+    <div id="revbars"></div>
+  </section>
+
+  <!-- S6 PILOT DASHBOARD -->
+  <section class="scene" data-i="5" data-chap="Pilot economics">
+    <div class="abs" style="left:96px;top:160px;display:flex;gap:20px;align-items:center"><div class="eyebrow a" data-t="0.1">Base-case pilot · year one</div><span class="tag proj a" data-t="0.3">Projected</span></div>
+    <div class="abs" style="left:96px;top:240px;width:1728px;display:grid;grid-template-columns:repeat(6,1fr);gap:16px">
+      <div class="tile panel a" data-t="1.3"><div class="k">Partner properties</div><div class="v">10</div></div>
+      <div class="tile panel a" data-t="1.6"><div class="k">Rooms</div><div class="v">40</div></div>
+      <div class="tile panel a" data-t="1.9"><div class="k">Nights via Veedu</div><div class="v asm">18%</div><div class="s">assumption</div></div>
+      <div class="tile panel a" data-t="2.2"><div class="k">Avg nightly rate</div><div class="v asm">₹2,200</div><div class="s">assumption</div></div>
+      <div class="tile panel a" data-t="2.5"><div class="k">Avg stay</div><div class="v asm">6 nts</div><div class="s">assumption</div></div>
+      <div class="tile panel a" data-t="2.8"><div class="k">Commission</div><div class="v asm">12%</div><div class="s">CAC ₹400 · assumption</div></div>
+    </div>
+    <div class="abs" style="left:96px;top:520px;width:1728px;display:grid;grid-template-columns:repeat(4,1fr);gap:16px">
+      <div class="tile panel a" data-t="5.0" style="padding:34px"><div class="k">Bookings</div><div class="v" style="font-size:72px"><span data-count="438" data-t="5.1" data-cd="1.0">0</span></div><div class="s">a year</div></div>
+      <div class="tile panel a" data-t="5.6" style="padding:34px"><div class="k">Gross booking value</div><div class="v" style="font-size:72px">₹<span data-count="57.8" data-dec="1" data-t="5.7" data-cd="1.0">0</span> L</div><div class="s">paid to properties</div></div>
+      <div class="tile panel a" data-t="6.6" style="padding:34px;border-color:rgba(108,240,255,.45)"><div class="k">Platform revenue</div><div class="v" style="font-size:72px;color:var(--cyan)">₹<span data-count="6.94" data-dec="2" data-t="6.7" data-cd="1.0">0</span> L</div><div class="s">12% commission</div></div>
+      <div class="tile panel a" data-t="8.0" style="padding:34px"><div class="k">Contribution</div><div class="v" style="font-size:72px">₹3.37 L</div><div class="s">49% margin · after CAC, payments, support</div></div>
+    </div>
+    <div class="src a" data-t="1.3">The Veedu pilot model · every figure is a projection from stated assumptions; no bookings have been made</div>
+  </section>
+
+  <!-- S7 BREAK-EVEN -->
+  <section class="scene" data-i="6" data-chap="Break-even">
+    <div class="abs" style="left:96px;top:160px"><div class="eyebrow a" data-t="0.1">Break-even · base case</div></div>
+    <svg class="abs" id="bechart" style="left:96px;top:220px" width="1180" height="720" aria-label="Break-even chart"></svg>
+    <div class="abs" style="left:1340px;top:260px;width:484px">
+      <div class="panel a" data-t="1.0" style="padding:26px 30px"><div style="font-size:19px;letter-spacing:2px;color:var(--dim);font-family:'Space Grotesk'">FIXED COSTS / YEAR</div><div class="num" style="font-size:50px;margin-top:8px">₹5.06 L</div><div style="font-size:20px;color:var(--grey);margin-top:8px;line-height:1.4">₹38k/month ops &amp; tools + verification visits</div><div class="asm" style="font-size:20px;margin-top:8px">Founder time unpaid</div></div>
+      <div class="panel a" data-t="4.4" style="padding:26px 30px;margin-top:16px"><div style="font-size:19px;letter-spacing:2px;color:var(--dim);font-family:'Space Grotesk'">BREAK-EVEN NEEDS</div><div class="num" style="font-size:50px;margin-top:8px">~55 / month</div><div style="font-size:22px;color:var(--grey);margin-top:6px">657 bookings a year · or 16 properties</div></div>
+      <div class="panel a" data-t="8.2" style="padding:26px 30px;margin-top:16px"><div style="font-size:19px;letter-spacing:2px;color:var(--dim);font-family:'Space Grotesk'">BASE PILOT PROJECTS</div><div class="num" style="font-size:50px;margin-top:8px;color:var(--violet)">438 / year</div><div style="font-size:22px;color:var(--grey);margin-top:6px">Short by ~₹1.7 L</div></div>
+    </div>
+  </section>
+
+  <!-- S8 SCENARIOS -->
+  <section class="scene" data-i="7" data-chap="Scenario comparison">
+    <div class="abs" style="left:96px;top:160px"><div class="eyebrow a" data-t="0.1">Three scenarios · projected</div></div>
+    <table class="stbl">
+      <tr class="a" data-t="0.2"><th></th><th class="a" data-t="0.3">Conservative</th><th class="a" data-t="1.8">Base</th><th class="a" data-t="3.4">Optimistic</th></tr>
+      <tr class="a" data-t="0.4"><td>Partner properties</td><td>8</td><td>10</td><td>14</td></tr>
+      <tr class="a" data-t="0.6"><td>Bookings a year</td><td>256</td><td>438</td><td>639</td></tr>
+      <tr class="a" data-t="0.8"><td>Platform revenue</td><td>₹1.96 L</td><td>₹6.94 L</td><td>₹17.2 L</td></tr>
+      <tr class="a" data-t="1.0"><td>Contribution per booking</td><td class="neg">−₹110</td><td>₹770</td><td class="pos">₹1,840</td></tr>
+      <tr class="a" data-t="1.2"><td>Year-one operating result</td><td class="neg">−₹5.2 L</td><td class="neg">−₹1.7 L</td><td class="pos">+₹6.5 L</td></tr>
+      <tr class="a" data-t="1.4"><td>Break-even properties</td><td class="neg">not reachable</td><td>16</td><td class="pos">6</td></tr>
+    </table>
+    <div class="abs panel a" data-t="6.6" style="left:96px;top:850px;padding:18px 28px;display:flex;gap:18px;align-items:center;border-color:rgba(94,230,168,.45)"><span class="tag" style="color:var(--green)">Sensitivity</span><span style="font-size:26px">At 15% commission, the base case breaks even at ~434 bookings, against 438 projected</span></div>
+  </section>
+
+  <!-- S9 CONCLUSION -->
+  <section class="scene" data-i="8" data-chap="Conclusion">
+    <div class="abs" style="left:96px;top:190px;width:1728px">
+      <div class="eyebrow a" data-t="0.1">Does The Veedu deserve a pilot?</div>
+      <h1 class="h-xl a" data-t="2.3" style="margin-top:28px"><span style="color:var(--green)">Yes</span>: small and founder-led.</h1>
+      <h2 class="h-m soft a" data-t="4.2" style="margin-top:20px">Not proven. Close enough to test cheaply.</h2>
+      <div class="a" data-t="8.0" style="margin-top:64px;font-family:'Space Grotesk';font-size:22px;letter-spacing:4px;color:var(--lime)">VALIDATE FIRST</div>
+      <div style="margin-top:20px;display:grid;grid-template-columns:repeat(3,1fr);gap:18px">
+        <div class="panel a" data-t="9.8" style="padding:28px 30px;border-top:3px solid var(--lime)"><div class="num asm" style="font-size:24px">01</div><div style="font-size:30px;margin-top:10px;line-height:1.3">How many out-of-town families need a paid room</div></div>
+        <div class="panel a" data-t="12.4" style="padding:28px 30px;border-top:3px solid var(--lime)"><div class="num asm" style="font-size:24px">02</div><div style="font-size:30px;margin-top:10px;line-height:1.3">What it costs to reach them through hospital desks</div></div>
+        <div class="panel a" data-t="15.0" style="padding:28px 30px;border-top:3px solid var(--lime)"><div class="num asm" style="font-size:24px">03</div><div style="font-size:30px;margin-top:10px;line-height:1.3">Whether they book through The Veedu, not direct</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- END -->
+  <section class="scene" data-i="9" data-chap="">
+    <div class="abs" style="left:96px;top:360px">
+      <div class="a" data-t="0.1" style="font-family:'Space Grotesk';font-size:140px;font-weight:600;letter-spacing:-0.04em">The <span style="color:var(--cyan)">Veedu</span></div>
+      <div class="a" data-t="0.4" style="font-family:'Space Grotesk';font-size:34px;color:var(--grey);margin-top:10px">Episode 03 · Market opportunity &amp; feasibility</div>
+    </div>
+  </section>
+
+  <div id="bug">THE VEEDU <b>·</b> EP 03</div>
+  <div id="chap"></div>
+</div>
+
+<script src="timing.js"></script>
+<script>
+  const NS = 'http://www.w3.org/2000/svg';
+  const clamp = v => Math.max(0, Math.min(1, v));
+  const ease = p => 1 - Math.pow(1 - p, 3);
+  const easeIO = p => p < .5 ? 4*p*p*p : 1 - Math.pow(-2*p + 2, 3) / 2;
+  const $ = id => document.getElementById(id);
+  const el = (html) => { const d = document.createElement('div'); d.innerHTML = html.trim(); return d.firstChild; };
+
+  // ---- scenario TAM bars (from model.json) ----
+  (function () {
+    const host = document.querySelector('[data-i="3"]');
+    const rows = [['Conservative', 5.3, 10.1], ['Base', 15.7, 10.5], ['Optimistic', 34.6, 10.9]];
+    const W = 760, max = 34.6;
+    rows.forEach(([n, v, t], i) => {
+      const y = 450 + i * 120;
+      host.appendChild(el(`<div class="blab a" data-t="${t}" style="left:820px;top:${y}px;color:var(--grey)">${n}</div>`));
+      host.appendChild(el(`<div class="bar a" data-a="grow" data-t="${t}" style="left:820px;top:${y + 38}px;width:${W * v / max}px;background:var(--violet);opacity:${0.55 + i * 0.2}"></div>`));
+      host.appendChild(el(`<div class="bval a" data-t="${t + 0.4}" style="left:${836 + W * v / max}px;top:${y + 38}px">₹${v} cr</div>`));
+    });
+  })();
+
+  // ---- revenue model bars ----
+  (function () {
+    const host = document.querySelector('[data-i="4"]');
+    const R = [
+      ['Booking commission · 12%', 6.94, 'Paid on results · leakage risk on long stays', 2.3, 'var(--cyan)'],
+      ['Hybrid · 10% + ₹1,000/mo listing', 6.98, 'Both sides pay · funds verification', 8.1, 'var(--cyan)'],
+      ['Guest service fee · 4%', 2.31, 'Adds cost for stressed families', 1.2, 'var(--dim)'],
+      ['Lead fee · ₹250 per enquiry', 2.19, 'Fits WhatsApp booking · low value', 1.4, 'var(--dim)'],
+      ['Listing subscription · ₹1,500/mo', 1.80, 'Hard to sell before demand is proven', 1.6, 'var(--dim)'],
+    ];
+    const W = 760, max = 7;
+    R.forEach(([n, v, note, t, col], i) => {
+      const y = 330 + i * 118;
+      host.appendChild(el(`<div class="blab a" data-t="${t}" style="left:96px;top:${y + 4}px;width:520px;font-size:26px">${n}<div style="font-size:20px;color:var(--grey);margin-top:6px">${note}</div></div>`));
+      host.appendChild(el(`<div class="bar a" data-a="grow" data-t="${t + 0.1}" style="left:660px;top:${y + 8}px;width:${W * v / max}px;background:${col}"></div>`));
+      host.appendChild(el(`<div class="bval a" data-t="${t + 0.4}" style="left:${680 + W * v / max}px;top:${y + 10}px">₹${v.toFixed(2)} L</div>`));
+    });
+    host.appendChild(el(`<div class="abs a" data-t="4.0" style="left:1400px;top:575px;width:400px"><span class="tag proj">Leakage risk</span><div style="font-size:22px;color:var(--grey);margin-top:12px;line-height:1.4">A family staying three weeks can rebook direct</div></div>`));
+    host.appendChild(el(`<div class="src a" data-t="1.0">Projected at base-case pilot volume (438 bookings, ₹57.8 L GBV) · rates are assumptions</div>`));
+  })();
+
+  // ---- break-even chart ----
+  const BE = { fixed: 5.06, contrib: 0.0077, be: 657, proj: 438, xmax: 900 };   // lakh; lakh per booking
+  (function () {
+    const svg = $('bechart'), W = 1180, H = 720, L = 110, B = 620, T = 40, R = 1140;
+    const X = b => L + (b / BE.xmax) * (R - L), Y = v => B - (v / 7) * (B - T);
+    let g = '';
+    for (let v = 0; v <= 7; v++) g += `<line x1="${L}" y1="${Y(v)}" x2="${R}" y2="${Y(v)}" stroke="#1B1E26"/><text x="${L - 16}" y="${Y(v) + 7}" text-anchor="end" font-size="20" fill="#6B6E79" font-family="Inter">₹${v}L</text>`;
+    for (let b = 0; b <= 900; b += 150) g += `<text x="${X(b)}" y="${B + 36}" text-anchor="middle" font-size="20" fill="#6B6E79" font-family="Inter">${b}</text>`;
+    g += `<text x="${(L + R) / 2}" y="${B + 78}" text-anchor="middle" font-size="21" fill="#A3A5B0" font-family="Inter">Bookings a year</text>`;
+    g += `<line id="fixl" x1="${L}" y1="${Y(BE.fixed)}" x2="${R}" y2="${Y(BE.fixed)}" stroke="#A3A5B0" stroke-width="3" stroke-dasharray="10 8"/>
+      <text id="fixt" x="${R}" y="${Y(BE.fixed) - 14}" text-anchor="end" font-size="21" fill="#A3A5B0" font-family="Inter">Fixed costs ₹5.06 L</text>
+      <line id="conl" x1="${L}" y1="${Y(0)}" x2="${X(BE.xmax)}" y2="${Y(BE.contrib * BE.xmax)}" stroke="#6CF0FF" stroke-width="4" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"/>
+      <text id="cont" x="${X(820)}" y="${Y(BE.contrib * 820) - 22}" text-anchor="end" font-size="21" fill="#6CF0FF" font-family="Inter">Contribution · ₹770 per booking</text>
+      <g id="bepoint"><line x1="${X(BE.be)}" y1="${Y(BE.fixed)}" x2="${X(BE.be)}" y2="${B}" stroke="#ECECF1" stroke-dasharray="4 6"/>
+        <circle cx="${X(BE.be)}" cy="${Y(BE.fixed)}" r="10" fill="#ECECF1"/>
+        <text x="${X(BE.be) + 16}" y="${B - 16}" font-size="22" fill="#ECECF1" font-family="Space Grotesk">Break-even · 657</text></g>
+      <g id="projpoint"><rect x="${X(BE.proj)}" y="${Y(BE.fixed)}" width="${X(BE.be) - X(BE.proj)}" height="${Y(BE.contrib * BE.proj) - Y(BE.fixed)}" fill="rgba(180,140,255,0.12)"/>
+        <line x1="${X(BE.proj)}" y1="${Y(BE.contrib * BE.proj)}" x2="${X(BE.proj)}" y2="${B}" stroke="#B48CFF" stroke-dasharray="4 6"/>
+        <circle cx="${X(BE.proj)}" cy="${Y(BE.contrib * BE.proj)}" r="10" fill="#B48CFF"/>
+        <text x="${X(BE.proj) - 16}" y="${B - 16}" text-anchor="end" font-size="22" fill="#B48CFF" font-family="Space Grotesk">Projected · 438</text>
+        <text x="${(X(BE.proj) + X(BE.be)) / 2}" y="${(Y(BE.fixed) + Y(BE.contrib * BE.proj)) / 2 + 8}" text-anchor="middle" font-size="20" fill="#B48CFF" font-family="Inter">gap</text></g>`;
+    svg.innerHTML = g;
+  })();
+
+  // ---- timeline ----
+  const scenes = [...document.querySelectorAll('.scene')].map(s => {
+    const T = TIMING.scenes[+s.dataset.i];
+    return { el: s, start: T.start, dur: T.dur, chap: s.dataset.chap, items: [...s.querySelectorAll('.a')] };
+  });
+  const TOTAL = TIMING.total; window.TOTAL = TOTAL;
+  const chap = $('chap'), bug = $('bug'), FADE = 0.4;
+
+  function render(t) {
+    let active = null, activeVis = 0;
+    for (const s of scenes) {
+      const L = t - s.start;
+      if (L < -0.01 || L > s.dur + 0.01) { s.el.style.opacity = 0; continue; }
+      const vis = Math.min(clamp(L / FADE), clamp((s.dur - L) / FADE));
+      s.el.style.opacity = vis;
+      if (vis > activeVis) { active = s; activeVis = vis; }
+      for (const it of s.items) {
+        const p = ease(clamp((L - (+it.dataset.t || 0)) / 0.6));
+        it.style.opacity = p;
+        if (it.dataset.a === 'grow') it.style.transform = `scaleX(${p})`;
+        else if (it.dataset.a !== 'fade' && it.tagName !== 'TR' && it.tagName !== 'TH') it.style.transform = `translateY(${(1 - p) * 22}px)`;
+      }
+      for (const n of s.el.querySelectorAll('[data-count]')) {
+        const p = easeIO(clamp((L - +n.dataset.t) / +n.dataset.cd));
+        const v = +n.dataset.count * p, dec = +(n.dataset.dec || 0);
+        n.textContent = dec ? v.toFixed(dec) : Math.round(v).toLocaleString('en-US');
+      }
+      if (s.el.dataset.i === '6') {
+        const a = ease(clamp((L - 0.6) / 0.8));
+        ['fixl', 'fixt'].forEach(id => $(id).style.opacity = a);
+        const c = easeIO(clamp((L - 1.6) / 2.0));
+        $('conl').setAttribute('stroke-dashoffset', 1 - c); $('cont').style.opacity = ease(clamp((L - 3.2) / 0.6));
+        $('bepoint').style.opacity = ease(clamp((L - 4.4) / 0.6));
+        $('projpoint').style.opacity = ease(clamp((L - 8.2) / 0.6));
+      }
+    }
+    if (active) { chap.textContent = active.chap; chap.style.opacity = activeVis; bug.style.opacity = active.el.dataset.i === '9' ? 0 : activeVis; }
+  }
+  window.render = render;
+
+  if (!window.__RENDERING__) {
+    const t0 = performance.now() - (+(new URLSearchParams(location.search).get('t') || 0)) * 1000;
+    const fit = () => { const k = Math.min(innerWidth / 1920, innerHeight / 1080);
+      document.getElementById('stage').style.cssText += `;transform:scale(${k});transform-origin:0 0`; };
+    addEventListener('resize', fit); fit();
+    (function loop(){ render(((performance.now() - t0) / 1000) % TOTAL); requestAnimationFrame(loop); })();
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,183 @@
+{
+ "scenarios": [
+  {
+   "scenario": "Conservative",
+   "inputs": {
+    "occupancy": 0.6,
+    "out_of_town": 0.25,
+    "paid_stay": 0.3,
+    "adr_market": 1500,
+    "sam_share": 0.4,
+    "properties": 8,
+    "rooms_per_prop": 3.5,
+    "platform_occ": 0.1,
+    "adr_pilot": 1600,
+    "nights_per_booking": 4,
+    "commission": 0.12,
+    "cac": 600,
+    "payment_fee": 0.02,
+    "support_per_booking": 150,
+    "verify_per_property": 5000,
+    "fixed_monthly": 38000
+   },
+   "bed_days": 470850,
+   "tam_room_nights": 35314,
+   "tam_inr": 52970625,
+   "sam_room_nights": 14126,
+   "sam_inr": 21188250,
+   "rooms": 28.0,
+   "som_room_nights": 1022,
+   "som_share_of_sam": 0.072,
+   "gbv": 1635200,
+   "bookings": 256,
+   "value_per_booking": 6400,
+   "rev_per_booking": 768,
+   "contrib_per_booking": -110,
+   "platform_revenue": 196224,
+   "contribution": -28105,
+   "contribution_margin_on_revenue": -0.143,
+   "fixed_costs": 496000,
+   "operating_result": -524105,
+   "breakeven_bookings_year": null,
+   "breakeven_bookings_month": null,
+   "breakeven_properties": null,
+   "max_cac_for_positive_contribution": 490
+  },
+  {
+   "scenario": "Base",
+   "inputs": {
+    "occupancy": 0.65,
+    "out_of_town": 0.35,
+    "paid_stay": 0.4,
+    "adr_market": 2200,
+    "sam_share": 0.5,
+    "properties": 10,
+    "rooms_per_prop": 4,
+    "platform_occ": 0.18,
+    "adr_pilot": 2200,
+    "nights_per_booking": 6,
+    "commission": 0.12,
+    "cac": 400,
+    "payment_fee": 0.02,
+    "support_per_booking": 150,
+    "verify_per_property": 5000,
+    "fixed_monthly": 38000
+   },
+   "bed_days": 510088,
+   "tam_room_nights": 71412,
+   "tam_inr": 157106950,
+   "sam_room_nights": 35706,
+   "sam_inr": 78553475,
+   "rooms": 40,
+   "som_room_nights": 2628,
+   "som_share_of_sam": 0.074,
+   "gbv": 5781600,
+   "bookings": 438,
+   "value_per_booking": 13200,
+   "rev_per_booking": 1584,
+   "contrib_per_booking": 770,
+   "platform_revenue": 693792,
+   "contribution": 337260,
+   "contribution_margin_on_revenue": 0.486,
+   "fixed_costs": 506000,
+   "operating_result": -168740,
+   "breakeven_bookings_year": 657,
+   "breakeven_bookings_month": 55,
+   "breakeven_properties": 16,
+   "max_cac_for_positive_contribution": 1170
+  },
+  {
+   "scenario": "Optimistic",
+   "inputs": {
+    "occupancy": 0.7,
+    "out_of_town": 0.45,
+    "paid_stay": 0.5,
+    "adr_market": 2800,
+    "sam_share": 0.6,
+    "properties": 14,
+    "rooms_per_prop": 4,
+    "platform_occ": 0.25,
+    "adr_pilot": 2800,
+    "nights_per_booking": 8,
+    "commission": 0.12,
+    "cac": 250,
+    "payment_fee": 0.02,
+    "support_per_booking": 150,
+    "verify_per_property": 5000,
+    "fixed_monthly": 38000
+   },
+   "bed_days": 549325,
+   "tam_room_nights": 123598,
+   "tam_inr": 346074750,
+   "sam_room_nights": 74159,
+   "sam_inr": 207644850,
+   "rooms": 56,
+   "som_room_nights": 5110,
+   "som_share_of_sam": 0.069,
+   "gbv": 14308000,
+   "bookings": 639,
+   "value_per_booking": 22400,
+   "rev_per_booking": 2688,
+   "contrib_per_booking": 1840,
+   "platform_revenue": 1716960,
+   "contribution": 1175300,
+   "contribution_margin_on_revenue": 0.685,
+   "fixed_costs": 526000,
+   "operating_result": 649300,
+   "breakeven_bookings_year": 286,
+   "breakeven_bookings_month": 24,
+   "breakeven_properties": 6,
+   "max_cac_for_positive_contribution": 2090
+  }
+ ],
+ "revenue_models": [
+  {
+   "model": "Booking commission (12%)",
+   "annual_inr": 693792,
+   "pro": "Paid only on results; familiar to hosts",
+   "con": "Leakage: multi-week guests may rebook direct"
+  },
+  {
+   "model": "Listing subscription (₹1,500/property/mo)",
+   "annual_inr": 180000,
+   "pro": "Predictable; no leakage",
+   "con": "Hard to sell before demand is proven"
+  },
+  {
+   "model": "Lead fee (₹250/qualified enquiry, ~2 per booking)",
+   "annual_inr": 219000,
+   "pro": "Fits WhatsApp/phone booking habits",
+   "con": "Low value per lead; disputes over 'qualified'"
+  },
+  {
+   "model": "Guest service fee (4% of booking)",
+   "annual_inr": 231264,
+   "pro": "Charges for verification value directly",
+   "con": "Adds cost for stressed, price-aware families"
+  },
+  {
+   "model": "Hybrid (10% commission + ₹1,000 verified-listing fee/mo)",
+   "annual_inr": 698160,
+   "pro": "Revenue from both sides; funds verification",
+   "con": "Most complex to explain in a pilot"
+  }
+ ],
+ "sensitivities_base": {
+  "commission_15": [
+   1166,
+   434
+  ],
+  "commission_10": [
+   506,
+   1000
+  ],
+  "founder_paid_50k": [
+   770,
+   1436
+  ],
+  "cac_200": [
+   970,
+   522
+  ]
+ }
+}
