@@ -1,0 +1,2 @@
+supplier_id,sourcing_city,sourcing_state,product_categories,ready_made_available,moq_units,unit_price_range,sample_available,fabric_info,size_range,l_to_3xl_available,customisation,lead_time_days,payment_terms,shipping_terms,quality_note,stage,stage_date,score_total,main_risk
+SUP-01,,,,yes|no,,,yes|no,,,yes|no,,,,,,identified|contacted|info_collected|sample_received|evaluated|selected|order_placed,,,

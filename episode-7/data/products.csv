@@ -1,0 +1,2 @@
+product_id,sku,category,product_name,design_concept,target_customer,supplier_id,fabric,size_range,purchase_cost,packaging_cost,shipping_cost,payment_fee_pct,gst_rate_pct,selling_price_incl_gst,gross_margin_pct,moq,lead_time_days,availability,customer_feedback,status
+P-001,AAL-COORD-OLIVE-L,Co-ord set,,,,,,L-3XL,,,,,,,,,,,,idea|sample_requested|sample_received|listed|live|discontinued
