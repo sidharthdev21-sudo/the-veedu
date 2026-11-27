@@ -1,0 +1,387 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>The Veedu — Episode 02</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --obsidian: #08090C; --charcoal: #0E1015; --charcoal2: #14171E; --line: #22262F;
+    --white: #ECECF1; --grey: #A3A5B0; --dim: #6B6E79;
+    --cyan: #6CF0FF; --violet: #B48CFF; --lime: #D4FF6A; --green: #5EE6A8;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; background: var(--obsidian); }
+  #stage { position: relative; width: 1920px; height: 1080px; overflow: hidden; background: var(--obsidian);
+    font-family: 'Inter', system-ui, sans-serif; color: var(--white); }
+  h1, h2, h3, .sg { font-family: 'Space Grotesk', 'Inter', sans-serif; margin: 0; letter-spacing: -0.02em; font-weight: 500; }
+  p { margin: 0; }
+  .grid { position: absolute; inset: 0; opacity: 0.045;
+    background-image: linear-gradient(var(--grey) 1px, transparent 1px), linear-gradient(90deg, var(--grey) 1px, transparent 1px);
+    background-size: 160px 160px; }
+  .scene { position: absolute; inset: 0; opacity: 0; }
+  .abs { position: absolute; }
+  #bug { position: absolute; top: 56px; left: 96px; font-family: 'Space Grotesk'; font-size: 20px; letter-spacing: 4px; color: rgba(236,236,241,0.6); }
+  #bug b { color: var(--cyan); font-weight: 500; }
+  #chap { position: absolute; top: 56px; right: 96px; font-family: 'Space Grotesk'; font-size: 20px; letter-spacing: 2px; color: var(--grey); text-transform: uppercase; }
+  .src { position: absolute; left: 96px; bottom: 56px; font-size: 20px; color: var(--grey); }
+  .src::before { content: "SOURCE  "; color: var(--dim); letter-spacing: 2px; font-family: 'Space Grotesk'; font-size: 17px; }
+  .eyebrow { font-family: 'Space Grotesk'; font-size: 22px; letter-spacing: 5px; text-transform: uppercase; color: var(--cyan); }
+  .h-xl { font-size: 80px; line-height: 1.08; }
+  .h-l { font-size: 68px; line-height: 1.06; }
+  .h-m { font-size: 46px; line-height: 1.12; }
+  .soft { color: var(--grey); }
+  .panel { background: var(--charcoal); border: 1px solid var(--line); border-radius: 24px; }
+  .tag { display: inline-block; font-family: 'Space Grotesk'; font-size: 18px; letter-spacing: 3px; text-transform: uppercase; padding: 8px 16px; border-radius: 999px; border: 1.5px solid currentColor; }
+  .caret { display: inline-block; width: 3px; height: 0.95em; background: var(--cyan); vertical-align: -0.1em; margin-left: 4px; }
+
+  /* S1 search */
+  .search { position: absolute; left: 96px; top: 200px; width: 1000px; height: 96px; padding: 0 36px; display: flex; align-items: center; gap: 24px; font-size: 36px; border-radius: 999px; }
+  .search .ico { width: 30px; height: 30px; border: 3px solid var(--grey); border-radius: 50%; position: relative; flex: none; }
+  .search .ico::after { content: ""; position: absolute; width: 12px; height: 3px; background: var(--grey); right: -11px; bottom: -4px; transform: rotate(45deg); }
+  .rcard { position: absolute; left: 96px; width: 1000px; height: 92px; padding: 0 32px; display: flex; align-items: center; justify-content: space-between; font-size: 26px; }
+  .rcard .bar { height: 12px; border-radius: 6px; background: #1E222B; }
+
+  /* S2 flow */
+  .flow { position: absolute; left: 96px; right: 96px; top: 380px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; }
+  .node { position: relative; padding: 0 28px 0 0; }
+  .node .dot { width: 22px; height: 22px; border-radius: 50%; border: 2px solid var(--cyan); background: var(--obsidian); position: relative; z-index: 2; }
+  .node .ln { position: absolute; left: 22px; right: 0; top: 10px; height: 2px; background: var(--line); transform-origin: left; }
+  .node .k { font-family: 'Space Grotesk'; color: var(--cyan); font-size: 20px; letter-spacing: 3px; margin-top: 34px; }
+  .node h3 { font-size: 36px; line-height: 1.18; margin-top: 14px; }
+  .node p { font-size: 23px; color: var(--grey); margin-top: 14px; line-height: 1.4; }
+
+  /* S3 provider grid */
+  .pgrid { position: absolute; left: 96px; right: 96px; top: 282px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+  .pc { padding: 22px 26px; border-radius: 18px; background: var(--charcoal); border: 1px solid var(--line); height: 212px; position: relative; }
+  .pc .t { font-family: 'Space Grotesk'; font-size: 17px; letter-spacing: 2px; text-transform: uppercase; color: var(--dim); }
+  .pc h3 { font-size: 30px; margin-top: 8px; }
+  .pc .m { font-size: 20px; color: var(--grey); margin-top: 10px; line-height: 1.45; }
+  .pc .flag { position: absolute; right: 18px; bottom: 18px; font-size: 15px; padding: 6px 12px; color: var(--violet); }
+  .pc.med { border-color: rgba(180,140,255,0.0); }
+
+  /* S4 counter */
+  .bignum { font-family: 'Space Grotesk'; font-size: 300px; font-weight: 600; line-height: 0.9; letter-spacing: -0.05em; }
+
+  /* S5 sentiment */
+  .srow { position: absolute; left: 96px; height: 56px; width: 1728px; display: flex; align-items: center; }
+  .srow .lab { width: 420px; font-size: 26px; }
+  .srow .neg, .srow .pos { position: absolute; height: 30px; top: 13px; border-radius: 6px; }
+  .srow .neg { background: var(--violet); right: calc(1728px - 900px); transform-origin: right; }
+  .srow .pos { background: var(--cyan); left: 900px; transform-origin: left; }
+  .srow .nn, .srow .pn { position: absolute; font-family: 'Space Grotesk'; font-size: 22px; top: 13px; }
+  .srow .nn { color: var(--violet); } .srow .pn { color: var(--cyan); }
+
+  /* S6 */
+  .chip { display: block; padding: 22px 28px; border-radius: 16px; background: var(--charcoal2); border: 1px solid var(--line); font-size: 30px; }
+  .chip small { display: block; font-size: 19px; color: var(--grey); margin-top: 8px; }
+  .sub { display: flex; align-items: center; gap: 22px; margin-top: 18px; font-size: 24px; }
+  .sub .tr { flex: 1; height: 16px; border-radius: 8px; background: #1B1E26; position: relative; overflow: hidden; }
+  .sub .fl { position: absolute; left: 0; top: 0; bottom: 0; border-radius: 8px; transform-origin: left; }
+
+  /* S7 map */
+  .pm text { font-family: 'Inter'; }
+
+  /* S8 persona */
+  .prow { display: grid; grid-template-columns: 220px 1fr; gap: 28px; padding: 22px 0; border-top: 1px solid var(--line); }
+  .prow .k { font-family: 'Space Grotesk'; font-size: 20px; letter-spacing: 3px; text-transform: uppercase; color: var(--cyan); padding-top: 6px; }
+  .prow .v { font-size: 28px; line-height: 1.4; }
+</style>
+</head>
+<body>
+<div id="stage">
+  <div class="grid"></div>
+
+  <!-- S1 HOOK -->
+  <section class="scene" data-i="0" data-chap="Episode 02">
+    <div class="search panel a" data-t="0.1"><span class="ico"></span><span class="a" data-t="0.9" data-type="hotels near Amrita Hospital"></span></div>
+    <div class="rcard panel a" data-t="2.4" style="top:330px"><span>Hotels near Amrita Hospital</span><span class="bar" style="width:260px"></span></div>
+    <div class="rcard panel a" data-t="2.7" style="top:438px"><span>Homestays near Amrita Hospital</span><span class="bar" style="width:200px"></span></div>
+    <div class="rcard panel a" data-t="3.0" style="top:546px"><span>Hotels near Aster Medcity</span><span class="bar" style="width:300px"></span></div>
+    <div class="rcard panel a" data-t="3.3" style="top:654px;opacity:.5"><span class="soft">Serviced apartments · Edappally</span><span class="bar" style="width:180px"></span></div>
+    <div class="abs" style="left:1200px;top:330px;width:640px">
+      <div class="eyebrow a" data-t="6.1">What the listings don't say</div>
+      <h1 class="h-l a" data-t="6.3" style="margin-top:26px">Options exist.</h1>
+      <h2 class="h-m soft a" data-t="9.3" style="margin-top:22px">What can't families see?</h2>
+    </div>
+    <div class="src a" data-t="2.4">Booking.com, MakeMyTrip, Goibibo &amp; Trip.com hospital landmark pages · Nov 2026</div>
+  </section>
+
+  <!-- S2 TODAY -->
+  <section class="scene" data-i="1" data-chap="What families use today">
+    <div class="abs" style="left:96px;top:170px">
+      <div class="eyebrow a" data-t="0.1">What families use today</div>
+      <h2 class="h-l a" data-t="0.3" style="margin-top:24px">A stay pieced together</h2>
+    </div>
+    <div class="flow">
+      <div class="node a" data-t="2.4"><div class="dot"></div><div class="ln a" data-a="grow" data-t="2.9"></div><div class="k">01 · In the room</div><h3>One family member stays with the patient</h3><p>Must step out during surgery</p></div>
+      <div class="node a" data-t="5.6"><div class="dot"></div><div class="ln a" data-a="grow" data-t="6.1"></div><div class="k">02 · On campus</div><h3>Other relatives → hospital guest house</h3><p>Booked at the admissions counter</p></div>
+      <div class="node a" data-t="9.2"><div class="dot"></div><div class="ln a" data-a="grow" data-t="9.7"></div><div class="k">03 · Hospital desk</div><h3>International desk arranges hotels</h3><p>Aster international patients</p></div>
+      <div class="node a" data-t="12.3"><div class="dot" style="border-color:var(--violet)"></div><div class="k" style="color:var(--violet)">04 · Everyone else</div><h3>Booking apps, private flats, relatives</h3><p>Self-arranged</p></div>
+    </div>
+    <div class="src a" data-t="2.4">Amrita Hospital Kochi (international patients; other facilities) · Aster DM Healthcare (international patients)</div>
+  </section>
+
+  <!-- S3 COMPETITORS -->
+  <section class="scene" data-i="2" data-chap="What competitors provide">
+    <div class="abs" style="left:96px;top:150px;width:1728px;display:flex;justify-content:space-between;align-items:flex-end">
+      <div><div class="eyebrow a" data-t="0.1">What competitors provide</div><h2 class="h-l a" data-t="0.3" style="margin-top:20px">12 providers mapped</h2></div>
+      <div class="a" data-t="10.9" style="font-family:'Space Grotesk';font-size:34px;color:var(--grey);text-align:right">Not an empty market.</div>
+    </div>
+    <div class="pgrid" id="pgrid"></div>
+    <div class="src a" data-t="0.6">Public listings via search extracts, Nov 2026 · distances &amp; prices as published (— = not published)</div>
+  </section>
+
+  <!-- S4 SAMPLE -->
+  <section class="scene" data-i="3" data-chap="What reviews reveal">
+    <div class="abs" style="left:96px;top:170px"><div class="eyebrow a" data-t="0.1">The review sample</div></div>
+    <div class="abs" style="left:96px;top:300px;display:flex;align-items:flex-end;gap:60px">
+      <div class="bignum a" data-t="1.6" data-a="fade"><span data-count="25" data-dec="0" data-suffix="" data-t="1.7" data-cd="1.2">0</span></div>
+      <div style="padding-bottom:36px">
+        <div class="h-m a" data-t="2.2">readable review excerpts</div>
+        <div class="a" data-t="3.4" style="font-size:30px;color:var(--grey);margin-top:16px">11 properties · 10 platforms · target was 100+</div>
+      </div>
+    </div>
+    <div class="abs a" data-t="3.4" style="left:96px;top:690px;width:1728px;height:14px;border-radius:7px;background:#1B1E26">
+      <div class="a" data-a="grow" data-t="3.6" style="position:absolute;left:0;top:0;bottom:0;width:25%;background:var(--grey);border-radius:7px"></div>
+    </div>
+    <div class="abs a" data-t="3.6" style="left:96px;top:722px;width:1728px;height:30px;font-size:20px;color:var(--dim)"><span class="abs" style="left:0">0</span><span class="abs" style="left:25%;transform:translateX(-50%);color:var(--grey)">25 achieved</span><span class="abs" style="right:0">100 target</span></div>
+    <div class="abs a" data-t="8.4" style="left:96px;top:800px;display:flex;align-items:center;gap:18px"><span class="tag" style="color:var(--violet)">Signal, not statistic</span><span style="font-size:24px;color:var(--grey)">Most review pages couldn't be accessed directly</span></div>
+  </section>
+
+  <!-- S5 SENTIMENT -->
+  <section class="scene" data-i="4" data-chap="What reviews reveal">
+    <div class="abs" style="left:96px;top:150px"><div class="eyebrow a" data-t="0.1">Review themes · n = 25</div><h2 class="h-m a" data-t="0.3" style="margin-top:18px">Praise for people. Complaints about practicalities.</h2></div>
+    <div class="abs a" data-t="0.5" style="left:516px;top:292px;width:384px;text-align:right;font-family:'Space Grotesk';font-size:20px;letter-spacing:3px;color:var(--violet)">COMPLAINTS ◂</div>
+    <div class="abs a" data-t="0.5" style="left:916px;top:292px;font-family:'Space Grotesk';font-size:20px;letter-spacing:3px;color:var(--cyan)">▸ PRAISE</div>
+    <div class="abs a" data-t="0.5" style="left:899px;top:330px;width:2px;height:540px;background:var(--line)"></div>
+    <div id="srows"></div>
+    <div class="src a" data-t="0.5">25 excerpts from search extracts of Booking.com, MakeMyTrip, Goibibo, Trip.com, OYO &amp; others · Nov 2026 · directional</div>
+  </section>
+
+  <!-- S6 DISTANCE -->
+  <section class="scene" data-i="5" data-chap="The hospital factor">
+    <div class="abs" style="left:96px;top:170px;width:760px">
+      <div class="eyebrow a" data-t="0.1">When the hospital comes up</div>
+      <div class="a" data-t="0.3" style="margin-top:26px;display:flex;align-items:baseline;gap:18px"><span style="font-family:'Space Grotesk';font-size:150px;font-weight:600;line-height:1">6</span><span style="font-size:40px;color:var(--grey)">of 25 excerpts</span></div>
+      <h2 class="h-m a" data-t="1.6" style="margin-top:20px">mention the hospital, and they're mostly about <span id="distword">distance</span>.</h2>
+    </div>
+    <div class="abs panel a" data-t="4.0" style="left:960px;top:200px;width:864px;padding:40px 44px">
+      <div style="font-size:20px;color:var(--dim);letter-spacing:3px;font-family:'Space Grotesk'">ONE GUEST HOUSE NAMED AFTER AMRITA</div>
+      <div class="chip a" data-t="6.2" style="margin-top:24px">About a 12-minute walk<small>Guest description (paraphrased) · Planet of Hotels</small></div>
+      <div class="chip a" data-t="8.7" style="margin-top:16px">“a little away from Amrita Hospital”<small>Guest review · Booking.com</small></div>
+      <div class="a" data-t="10.4" style="margin-top:34px">
+        <div style="font-size:20px;color:var(--dim);letter-spacing:3px;font-family:'Space Grotesk'">BOOKING.COM SUB-SCORES</div>
+        <div class="sub"><span style="width:180px">Cleanliness</span><span class="tr"><span class="fl a" data-a="grow" data-t="10.5" style="width:90%;background:var(--grey)"></span></span><span class="sg" style="width:50px">9.0</span></div>
+        <div class="sub"><span style="width:180px;color:var(--lime)">Location</span><span class="tr"><span class="fl a" data-a="grow" data-t="10.8" style="width:84%;background:var(--lime)"></span></span><span class="sg" style="width:50px;color:var(--lime)">8.4</span></div>
+      </div>
+    </div>
+    <div class="src a" data-t="4.0">Greenview Royal Stay on Booking.com &amp; Planet of Hotels, via search extracts · Nov 2026</div>
+  </section>
+
+  <!-- S7 PERCEPTUAL MAP -->
+  <section class="scene" data-i="6" data-chap="Perceptual map">
+    <div class="abs" style="left:96px;top:150px"><div class="eyebrow a" data-t="0.1">Perceptual map</div></div>
+    <svg class="pm abs" id="pmap" style="left:96px;top:200px" width="1728" height="760" aria-label="Perceptual map of accommodation options"></svg>
+    <div class="abs a" data-t="6.4" style="right:96px;top:150px;font-size:20px;color:var(--dim)">Positions: analyst judgement from public evidence</div>
+  </section>
+
+  <!-- S8 PERSONA -->
+  <section class="scene" data-i="7" data-chap="Segment to investigate">
+    <div class="abs" style="left:96px;top:170px;width:640px">
+      <div class="eyebrow a" data-t="0.1">Segment to investigate first</div>
+      <h2 class="h-l a" data-t="0.3" style="margin-top:24px">The caregiver who isn't in the room</h2>
+      <div class="a" data-t="1.0" style="margin-top:34px"><span class="tag" style="color:var(--violet)">Hypothesis · not an interview</span></div>
+      <p class="a" data-t="1.4" style="margin-top:24px;font-size:24px;color:var(--grey);line-height:1.5">Composite persona built from desk research</p>
+    </div>
+    <div class="abs panel" style="left:840px;top:190px;width:984px;padding:24px 44px 10px">
+      <div class="prow a" data-t="2.5" style="border-top:none"><div class="k">Situation</div><div class="v">Family from outside Kochi; a parent admitted for days or weeks</div></div>
+      <div class="prow a" data-t="4.6"><div class="k">Constraint</div><div class="v">One bystander fits in the room; the rest need a bed nearby</div></div>
+      <div class="prow a" data-t="6.9"><div class="k">Decides on</div><div class="v">Real distance · all-in price for everyone · weeks-long comfort · food nearby</div></div>
+      <div class="prow a" data-t="9.0"><div class="k">Today</div><div class="v">Hospital desk · "near Amrita" listings · WhatsApp hosts · relatives</div></div>
+    </div>
+  </section>
+
+  <!-- S9 INSIGHT -->
+  <section class="scene" data-i="8" data-chap="">
+    <div class="abs" style="left:96px;top:250px;width:1600px">
+      <div class="eyebrow a" data-t="0.1">The strongest insight</div>
+      <h1 class="h-xl a" data-t="2.1" style="margin-top:30px"><span style="color:var(--lime)">Distance</span> is why they choose a stay,</h1>
+      <h1 class="h-xl soft a" data-t="4.9" style="margin-top:6px">and the least consistent fact<br>in the listings.</h1>
+      <h2 class="h-m a" data-t="8.3" style="margin-top:70px;color:var(--white)">Can The Veedu verify what caregivers decide on, <span style="color:var(--cyan)">well enough to be trusted?</span></h2>
+    </div>
+  </section>
+
+  <!-- END CARD -->
+  <section class="scene" data-i="9" data-chap="">
+    <div class="abs" style="left:96px;top:360px">
+      <div class="a" data-t="0.1" style="font-family:'Space Grotesk';font-size:140px;font-weight:600;letter-spacing:-0.04em">The <span style="color:var(--cyan)">Veedu</span></div>
+      <div class="a" data-t="0.4" style="font-family:'Space Grotesk';font-size:34px;color:var(--grey);margin-top:10px">Episode 02 · What the listings don't say</div>
+    </div>
+  </section>
+
+  <div id="bug">THE VEEDU <b>·</b> EP 02</div>
+  <div id="chap"></div>
+</div>
+
+<script src="timing.js"></script>
+<script>
+  const NS = 'http://www.w3.org/2000/svg';
+  const clamp = v => Math.max(0, Math.min(1, v));
+  const ease = p => 1 - Math.pow(1 - p, 3);
+  const easeIO = p => p < .5 ? 4*p*p*p : 1 - Math.pow(-2*p + 2, 3) / 2;
+
+  // ---- provider grid (public listing snapshots, Nov 2026) ----
+  const PROVIDERS = [
+    ['Guest house', 'Greenview Royal Stay', '"Near Amrita" · Ponekkara', '~US$20 avg', 1],
+    ['Serviced apts', 'Casa Allay', '2.5 / ~6 km Amrita (own pages)', 'from ₹4,151', 1],
+    ['Apartment', 'Zensta Residency', 'Amrita Hospital Rd', '~US$27 avg', 0],
+    ['Apartments', 'Puthenkot Homes', '3.5 km Amrita · monthly', '₹2,500 2BHK', 0],
+    ['Budget hotel', 'Super Hotel O', '"Near Aster Medicity"', '~₹900', 0],
+    ['Budget hotel', 'Sulu Residency', 'Edappally', 'from ~₹1,900', 0],
+    ['Budget hotel', 'BLIZZ Regency', '1.35 km Amrita', '—', 0],
+    ['Hotel', 'The Lotaz Hotel', '1.33 km Amrita', '—', 0],
+    ['Budget hotel', 'Kira Palace', '2.5 km Aster', 'varies', 0],
+    ['Resort', 'Nihara Resort & Spa', '1.1 km Aster', '~₹6,050+', 0],
+    ['Chain hotel', 'Kochi Marriott', 'LuLu Mall', '~US$127+', 0],
+    ['Homestay', 'A Square Homestay', 'Near Aster (directory)', 'not published', 0],
+  ];
+  const pg = document.getElementById('pgrid');
+  PROVIDERS.forEach(([t, n, loc, price, med], i) => {
+    const d = document.createElement('div');
+    d.className = 'pc a' + (med ? ' med' : '');
+    d.dataset.t = (0.5 + i * 0.14).toFixed(2);
+    d.innerHTML = `<div class="t">${t}</div><h3>${n}</h3><div class="m">${loc}<br>${price}</div>` +
+      (med ? `<span class="tag flag a" data-t="7.1" data-a="fade">Patient-positioned</span>` : '');
+    pg.appendChild(d);
+  });
+
+  // ---- sentiment rows ----
+  const THEMES = [
+    ['Staff behaviour', 1, 8], ['Cleanliness', 3, 6], ['Distance from hospital', 1, 4], ['Calm / quiet', 0, 2],
+    ['Price, value & extra charges', 2, 2], ['Long-stay comfort', 4, 0], ['Transport & food access', 2, 0],
+    ['Family suitability', 0, 1], ['Safety', 0, 0],
+  ];
+  const U = 56, sr = document.getElementById('srows');
+  THEMES.forEach(([lab, neg, pos], i) => {
+    const r = document.createElement('div');
+    r.className = 'srow'; r.style.top = (330 + i * 60) + 'px';
+    const negT = ['Long-stay comfort', 'Transport & food access', 'Price, value & extra charges'].includes(lab) ? 4.0 + (lab === 'Price, value & extra charges' ? 0 : lab === 'Long-stay comfort' ? 0.8 : 1.6) : 1.0 + i * 0.15;
+    const posT = 0.6 + i * 0.15;
+    const safety = lab === 'Safety';
+    r.innerHTML = `<span class="lab a" data-t="${safety ? 10.7 : 0.5 + i * 0.1}" style="${safety ? 'color:var(--grey)' : ''}">${lab}</span>` +
+      (neg ? `<span class="neg a" data-a="grow" data-t="${negT}" style="width:${neg * U}px"></span><span class="nn a" data-t="${negT + 0.3}" style="left:${900 - neg * U - 34}px">${neg}</span>` : '') +
+      (pos ? `<span class="pos a" data-a="grow" data-t="${posT}" style="width:${pos * U}px"></span><span class="pn a" data-t="${posT + 0.3}" style="left:${912 + pos * U}px">${pos}</span>` : '') +
+      (safety ? `<span class="pn a" data-t="10.8" style="left:916px;color:var(--grey)">0 mentions in this sample</span>` : '');
+    sr.appendChild(r);
+  });
+
+  // ---- perceptual map ----
+  const PTS = [ // name, x, y, labelDx, labelDy, kind
+    ['Kochi Marriott', .10, .85, 22, 8, 'gen'], ['OTA landmark pages', .30, .60, 22, 8, 'gen'],
+    ['Business & budget hotels', .22, .38, 22, 8, 'gen'], ['Super Hotel O', .45, .30, 22, 8, 'gen'],
+    ['Kerala Tourism homestays', .35, .20, 22, 8, 'gen'], ['Airbnb bystander flats', .62, .28, 22, 8, 'med'],
+    ['Casa Allay', .68, .52, -22, -16, 'med'], ['Greenview Royal Stay', .75, .58, 22, 8, 'med'],
+    ['Hospital int’l desk', .85, .40, 0, 46, 'med'], ['Hospital guest house', .92, .45, 0, -34, 'med'],
+    ['Relatives / informal', .50, .10, 22, 8, 'gen'],
+  ];
+  const pm = document.getElementById('pmap');
+  const PX = 140, PY = 20, PW = 1540, PH = 640;
+  const X = x => PX + x * PW, Y = y => PY + (1 - y) * PH;
+  pm.innerHTML = `
+    <rect id="tr" x="${X(.5)}" y="${Y(1)}" width="${PW/2}" height="${PH/2}" rx="14" fill="rgba(180,140,255,0.05)" stroke="#B48CFF" stroke-width="1.5" stroke-dasharray="8 8"/>
+    <text id="trl" x="${X(.98)}" y="${Y(.93)}" text-anchor="end" font-size="22" fill="#B48CFF">No option clearly here, in this sample</text>
+    <line id="ax" x1="${PX}" y1="${Y(.5)}" x2="${PX+PW}" y2="${Y(.5)}" stroke="#2B303B" stroke-width="2"/>
+    <line id="ay" x1="${X(.5)}" y1="${PY}" x2="${X(.5)}" y2="${PY+PH}" stroke="#2B303B" stroke-width="2"/>
+    <text class="axl" x="${PX}" y="${PY+PH+48}" font-size="21" fill="#A3A5B0">General accommodation focus</text>
+    <text class="axl" x="${PX+PW}" y="${PY+PH+48}" text-anchor="end" font-size="21" fill="#A3A5B0">Medical-stay focus</text>
+    <text class="axl" x="${PX-24}" y="${PY+8}" text-anchor="end" font-size="21" fill="#A3A5B0">High</text>
+    <text class="axl" x="${PX-24}" y="${PY+PH}" text-anchor="end" font-size="21" fill="#A3A5B0">Low</text>
+    <text class="axl" x="${PX-24}" y="${Y(.5)+8}" text-anchor="end" font-size="18" fill="#6B6E79" transform="rotate(-90 ${PX-70} ${Y(.5)})">INFORMATION ASSURANCE</text>
+    <line id="trend" x1="${X(.1)}" y1="${Y(.85)}" x2="${X(.92)}" y2="${Y(.3)}" stroke="#6B6E79" stroke-width="1.5" stroke-dasharray="4 10"/>`;
+  const dots = PTS.map(([n, x, y, dx, dy, k], i) => {
+    const g = document.createElementNS(NS, 'g');
+    const col = k === 'med' ? '#B48CFF' : '#6CF0FF';
+    g.innerHTML = `<circle cx="${X(x)}" cy="${Y(y)}" r="11" fill="${col}"/><circle cx="${X(x)}" cy="${Y(y)}" r="22" fill="none" stroke="${col}" stroke-opacity=".35"/>
+      <text x="${X(x)+dx}" y="${Y(y)+dy}" text-anchor="${dx<0?'end':dx===0?'middle':'start'}" font-size="22" fill="#ECECF1">${n}</text>`;
+    pm.appendChild(g); return { g, k, i, x, y };
+  });
+
+  // ---- timeline ----
+  const scenes = [...document.querySelectorAll('.scene')].map(el => {
+    const T = TIMING.scenes[+el.dataset.i];
+    return { el, start: T.start, dur: T.dur, chap: el.dataset.chap, items: [...el.querySelectorAll('.a')] };
+  });
+  const TOTAL = TIMING.total; window.TOTAL = TOTAL;
+  const chap = document.getElementById('chap'), bug = document.getElementById('bug');
+  const FADE = 0.4;
+  const $ = id => document.getElementById(id);
+
+  function render(t) {
+    let active = null, activeVis = 0;
+    for (const s of scenes) {
+      const L = t - s.start;
+      if (L < -0.01 || L > s.dur + 0.01) { s.el.style.opacity = 0; continue; }
+      const vis = Math.min(clamp(L / FADE), clamp((s.dur - L) / FADE));
+      s.el.style.opacity = vis;
+      if (vis > activeVis) { active = s; activeVis = vis; }
+      for (const it of s.items) {
+        const t0 = +it.dataset.t || 0;
+        const p = ease(clamp((L - t0) / 0.6));
+        it.style.opacity = p;
+        if (it.dataset.a === 'grow') it.style.transform = `scaleX(${p})`;
+        else if (it.dataset.a !== 'fade') it.style.transform = `translateY(${(1 - p) * 22}px)`;
+        if (it.dataset.type) {
+          const dur = it.dataset.type.length * 0.055;
+          const n = Math.round(clamp((L - t0) / dur) * it.dataset.type.length);
+          it.innerHTML = it.dataset.type.slice(0, n) + (L > t0 && L < t0 + dur + 1.2 ? '<span class="caret"></span>' : '');
+        }
+      }
+      for (const n of s.el.querySelectorAll('[data-count]')) {
+        const p = easeIO(clamp((L - +n.dataset.t) / +n.dataset.cd));
+        n.textContent = Math.round(+n.dataset.count * p);
+      }
+      if (s.el.dataset.i === '0') { // results blur back behind the headline
+        const b = ease(clamp((L - 5.9) / 1.0));
+        s.el.querySelectorAll('.rcard, .search').forEach(c => c.style.filter = `blur(${b * 5}px)`);
+      }
+      if (s.el.dataset.i === '5') {
+        const p = ease(clamp((L - 1.9) / 0.6));
+        $('distword').style.color = p > 0.5 ? 'var(--lime)' : 'var(--white)';
+      }
+      if (s.el.dataset.i === '6') { // perceptual map
+        const ax = ease(clamp((L - 0.2) / 0.9));
+        ['ax', 'ay'].forEach(id => $(id).style.opacity = ax);
+        pm.querySelectorAll('.axl').forEach(e => e.style.opacity = ax);
+        $('trend').style.opacity = 0.9 * ease(clamp((L - 5.4) / 0.8));
+        for (const d of dots) {
+          const p = ease(clamp((L - (0.9 + d.i * 0.12)) / 0.7));
+          let o = p;
+          if (L > 2.4 && L < 5.4) o *= d.k === 'gen' ? 1 : 0.35;      // "general hotels…"
+          else if (L >= 5.4 && L < 7.0) o *= d.k === 'med' ? 1 : 0.35; // "…closest to medical needs"
+          d.g.style.opacity = o;
+          d.g.style.transform = `translateY(${(1 - p) * 30}px)`;
+        }
+        const q = ease(clamp((L - 6.6) / 0.8));
+        $('tr').style.opacity = q; $('trl').style.opacity = q;
+      }
+    }
+    if (active) {
+      chap.textContent = active.chap; chap.style.opacity = activeVis;
+      const i = active.el.dataset.i;
+      bug.style.opacity = (i === '9') ? 0 : activeVis;
+    }
+  }
+  window.render = render;
+
+  if (!window.__RENDERING__) {
+    const t0 = performance.now() - (+(new URLSearchParams(location.search).get('t') || 0)) * 1000;
+    const fit = () => { const k = Math.min(innerWidth / 1920, innerHeight / 1080);
+      document.getElementById('stage').style.cssText += `;transform:scale(${k});transform-origin:0 0`; };
+    addEventListener('resize', fit); fit();
+    (function loop(){ render(((performance.now() - t0) / 1000) % TOTAL); requestAnimationFrame(loop); })();
+  }
+</script>
+</body>
+</html>

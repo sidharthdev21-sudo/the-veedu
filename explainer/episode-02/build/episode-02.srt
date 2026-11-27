@@ -1,0 +1,127 @@
+1
+00:00:00,800 --> 00:00:06,230
+Search for a hotel near Amrita Hospital, and booking sites already have a page for it.
+
+2
+00:00:06,280 --> 00:00:09,270
+So the real question isn't whether options exist.
+
+3
+00:00:09,320 --> 00:00:12,713
+It's what families actually use — and what they still can't see.
+
+4
+00:00:13,363 --> 00:00:15,443
+Right now, families piece it together.
+
+5
+00:00:15,493 --> 00:00:22,253
+At Amrita, one family member can stay in the patient's room, and other relatives are pointed to a guest house on campus.
+
+6
+00:00:22,303 --> 00:00:25,283
+Aster's international desk helps arrange hotels.
+
+7
+00:00:25,333 --> 00:00:28,912
+Everyone else turns to booking apps, private flats, or relatives.
+
+8
+00:00:29,562 --> 00:00:32,942
+I mapped twelve providers around Aster Medcity and Amrita:
+
+9
+00:00:32,992 --> 00:00:36,342
+budget rooms, serviced apartments, guest houses, a Marriott.
+
+10
+00:00:36,392 --> 00:00:40,052
+Some already market directly to patients and bystanders.
+
+11
+00:00:40,102 --> 00:00:42,576
+So The Veedu wouldn't be starting in an empty market.
+
+12
+00:00:43,226 --> 00:00:44,596
+Then I read the reviews.
+
+13
+00:00:44,646 --> 00:00:51,266
+Twenty-five readable excerpts — well short of my target of a hundred, because most review pages weren't accessible.
+
+14
+00:00:51,316 --> 00:00:53,471
+So this is a signal, not a statistic.
+
+15
+00:00:54,121 --> 00:00:56,131
+Staff and cleanliness drew the most praise.
+
+16
+00:00:56,181 --> 00:00:57,741
+The complaints were practical:
+
+17
+00:00:57,791 --> 00:01:04,441
+extra-person charges at checkout, broken AC and water supply, small rooms, no food on site.
+
+18
+00:01:04,491 --> 00:01:06,388
+Safety never came up in this sample.
+
+19
+00:01:07,038 --> 00:01:10,928
+Six reviews mentioned the hospital — and they were mostly about distance.
+
+20
+00:01:10,978 --> 00:01:15,418
+At one guest house named after Amrita, a guest called it a twelve-minute walk.
+
+21
+00:01:15,468 --> 00:01:17,158
+Another said it was a little away.
+
+22
+00:01:17,208 --> 00:01:19,686
+Location was its lowest-scored category.
+
+23
+00:01:20,386 --> 00:01:22,466
+Plotting every option shows a pattern.
+
+24
+00:01:22,516 --> 00:01:25,586
+General hotels have the most consistent information.
+
+25
+00:01:25,636 --> 00:01:29,095
+The options built closest to medical needs often have the least.
+
+26
+00:01:29,745 --> 00:01:31,925
+The segment worth investigating first:
+
+27
+00:01:31,975 --> 00:01:36,295
+families from outside Kochi with a patient admitted for days or weeks.
+
+28
+00:01:36,345 --> 00:01:40,652
+More people than the hospital room allows, staying longer than a typical guest.
+
+29
+00:01:41,302 --> 00:01:43,102
+So here's the strongest insight.
+
+30
+00:01:43,152 --> 00:01:49,172
+Distance is why these families choose a stay — and it's the fact listings state least consistently.
+
+31
+00:01:49,222 --> 00:01:50,682
+The question for The Veedu:
+
+32
+00:01:50,732 --> 00:01:57,111
+can it verify what caregivers decide on, well enough to be trusted over a listing that already says near Amrita?
