@@ -1,0 +1,5 @@
+participant_id,proxy_sample(y/n),relationship_to_patient_stay,task,completed_unassisted(y/n),time_to_shortlist_sec,found_relevant_property(y/n),hospital_distance_understood(y/n),meaning_of_verified_in_own_words,missing_information_mentioned,confident_to_contact_host(1-5),observer_notes
+U-01,,,A: near Aster Medcity 5 nights 3 people,,,,,,,,
+U-01,,,B: compare two and shortlist one,,,,,,,,
+U-01,,,C: readiness and how to contact host,,,,,,,,
+U-01,,,D: what is still missing before booking,,,,,,,,

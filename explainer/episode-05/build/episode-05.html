@@ -1,0 +1,306 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>The Veedu — Episode 05: Validation Roadmap</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --obsidian: #08090C; --charcoal: #0E1015; --charcoal2: #14171E; --line: #22262F;
+    --white: #ECECF1; --grey: #A3A5B0; --dim: #6B6E79;
+    --cyan: #6CF0FF; --violet: #B48CFF; --lime: #D4FF6A; --green: #5EE6A8;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; background: var(--obsidian); }
+  #stage { position: relative; width: 1920px; height: 1080px; overflow: hidden; background: var(--obsidian);
+    font-family: 'Inter', system-ui, sans-serif; color: var(--white); }
+  h1, h2, h3, .sg { font-family: 'Space Grotesk', 'Inter', sans-serif; margin: 0; letter-spacing: -0.02em; font-weight: 500; }
+  p { margin: 0; }
+  .grid { position: absolute; inset: 0; opacity: 0.04;
+    background-image: linear-gradient(var(--grey) 1px, transparent 1px), linear-gradient(90deg, var(--grey) 1px, transparent 1px);
+    background-size: 160px 160px; }
+  .scene { position: absolute; inset: 0; opacity: 0; }
+  .abs { position: absolute; }
+  #bug { position: absolute; top: 56px; left: 96px; font-family: 'Space Grotesk'; font-size: 20px; letter-spacing: 4px; color: rgba(236,236,241,0.6); }
+  #bug b { color: var(--cyan); font-weight: 500; }
+  #chap { position: absolute; top: 56px; right: 96px; font-family: 'Space Grotesk'; font-size: 20px; letter-spacing: 2px; color: var(--grey); text-transform: uppercase; }
+  .eyebrow { font-family: 'Space Grotesk'; font-size: 22px; letter-spacing: 5px; text-transform: uppercase; color: var(--cyan); }
+  .h-l { font-size: 58px; line-height: 1.08; }
+  .h-m { font-size: 40px; line-height: 1.15; }
+  .panel { background: var(--charcoal); border: 1px solid var(--line); border-radius: 20px; }
+  .tag { display: inline-block; font-family: 'Space Grotesk'; font-size: 15px; letter-spacing: 3px; text-transform: uppercase; padding: 6px 14px; border-radius: 999px; border: 1.5px solid currentColor; white-space: nowrap; }
+  .k { font-family: 'Space Grotesk'; font-size: 17px; letter-spacing: 3px; text-transform: uppercase; color: var(--dim); }
+  .ph { color: var(--dim); font-family: 'Space Grotesk'; }
+  .map path { fill: rgba(163,165,176,0.04); stroke: rgba(163,165,176,0.5); stroke-width: 1; vector-effect: non-scaling-stroke; }
+  table.sheet { border-collapse: collapse; width: 100%; font-size: 21px; }
+  .sheet th { text-align: left; font-family: 'Space Grotesk'; font-size: 15px; letter-spacing: 2px; text-transform: uppercase; color: var(--dim); font-weight: 500; padding: 10px 14px; border-bottom: 1px solid var(--line); background: var(--charcoal2); }
+  .sheet td { padding: 12px 14px; border-bottom: 1px solid var(--line); color: var(--grey); }
+  .sheet td:first-child { color: var(--white); }
+  .hyp { display: grid; grid-template-columns: 90px 1fr auto; gap: 22px; align-items: center; padding: 18px 26px; border-radius: 16px; background: var(--charcoal); border: 1px solid var(--line); margin-top: 12px; }
+  .hyp .id { font-family: 'Space Grotesk'; font-size: 30px; color: var(--violet); }
+  .hyp .t { font-size: 25px; line-height: 1.35; }
+  .sticky { padding: 16px 18px; border-radius: 10px; background: var(--charcoal2); border: 1px dashed rgba(163,165,176,.35); font-size: 19px; color: var(--dim); font-family: 'Space Grotesk'; }
+  .q { font-size: 22px; padding: 12px 16px; border-left: 3px solid var(--cyan); background: var(--charcoal); margin-top: 10px; border-radius: 0 10px 10px 0; }
+  .branch { display: grid; grid-template-columns: 1fr 60px 1fr; align-items: center; margin-top: 14px; }
+  .branch .c { padding: 16px 22px; border-radius: 14px; background: var(--charcoal); border: 1px solid var(--line); font-size: 23px; line-height: 1.3; }
+  .branch .arr { height: 2px; background: var(--dim); margin: 0 10px; }
+  .branch .d { padding: 16px 22px; border-radius: 14px; background: var(--charcoal); border: 1px solid rgba(212,255,106,.5); font-size: 23px; line-height: 1.3; }
+</style>
+</head>
+<body>
+<div id="stage">
+  <div class="grid"></div>
+
+  <!-- 1 ROADMAP -->
+  <section class="scene" data-i="0" data-chap="Episode 05 · Validation roadmap">
+    <div class="abs" style="left:96px;top:170px;display:flex;gap:18px;align-items:center"><div class="eyebrow a" data-t="0.3">From hypothesis to a Kochi pilot</div><span class="tag a" data-t="0.5" style="color:var(--violet)">Next phase · not yet started</span></div>
+    <h1 class="h-l abs a" data-t="1.0" style="left:96px;top:240px;width:1600px">Four weeks. One hospital. Real families and real hosts.</h1>
+    <div class="abs a" data-t="1.4" style="left:96px;top:470px;width:1728px;height:2px;background:var(--line)"></div>
+    <div class="abs" style="left:96px;top:440px;width:1728px;display:grid;grid-template-columns:repeat(4,1fr);gap:18px">
+      <div class="a" data-t="2.0"><div style="width:22px;height:22px;border-radius:50%;border:2px solid var(--cyan);background:var(--obsidian);margin-top:19px"></div><div class="k" style="margin-top:22px;color:var(--cyan)">Week 1</div><div style="font-size:30px;margin-top:10px;font-family:'Space Grotesk'">Discover the real journey</div></div>
+      <div class="a" data-t="2.6"><div style="width:22px;height:22px;border-radius:50%;border:2px solid var(--cyan);background:var(--obsidian);margin-top:19px"></div><div class="k" style="margin-top:22px;color:var(--cyan)">Week 2</div><div style="font-size:30px;margin-top:10px;font-family:'Space Grotesk'">Test the website</div></div>
+      <div class="a" data-t="3.2"><div style="width:22px;height:22px;border-radius:50%;border:2px solid var(--cyan);background:var(--obsidian);margin-top:19px"></div><div class="k" style="margin-top:22px;color:var(--cyan)">Weeks 3–4</div><div style="font-size:30px;margin-top:10px;font-family:'Space Grotesk'">Run a small concierge pilot</div></div>
+      <div class="a" data-t="3.8"><div style="width:22px;height:22px;border-radius:50%;border:2px solid var(--lime);background:var(--obsidian);margin-top:19px"></div><div class="k" style="margin-top:22px;color:var(--lime)">End of week 4</div><div style="font-size:30px;margin-top:10px;font-family:'Space Grotesk'">Review evidence and decide</div></div>
+    </div>
+    <div class="abs a" data-t="11.7" style="left:96px;top:800px;display:flex;gap:16px;align-items:center"><span class="k" style="color:var(--grey)">Pilot area</span><span style="font-size:34px;font-family:'Space Grotesk'">Aster Medcity · Cheranalloor</span></div>
+  </section>
+
+  <!-- 2 PILOT AREA -->
+  <section class="scene" data-i="1" data-chap="Pilot area">
+    <div class="abs" style="left:96px;top:150px"><div class="eyebrow a" data-t="0.2">A focused pilot area</div></div>
+    <div class="abs a" data-t="0.3" data-a="fade" style="left:96px;top:220px;width:820px;height:720px;overflow:hidden;border-radius:22px;border:1px solid var(--line);background:#0A0C10">
+      <svg class="map" id="mapZ" width="820" height="720" aria-label="Schematic of pilot area"></svg>
+      <div class="abs" style="left:24px;bottom:18px;font-size:18px;color:var(--dim)">Schematic · approximate locations</div>
+    </div>
+    <div class="abs" style="left:980px;top:230px;width:844px">
+      <div class="panel a" data-t="0.8" style="padding:26px 30px"><div class="k" style="color:var(--cyan)">Pilot 1 · Aster Medcity</div><div style="font-size:27px;margin-top:10px;line-height:1.4">Its international patient services already include accommodation assistance</div></div>
+      <div class="a" data-t="5.6" style="margin-top:22px;font-size:30px;font-family:'Space Grotesk';line-height:1.3">So The Veedu must add value beyond a list of nearby rooms.</div>
+      <div class="panel a" data-t="9.0" style="padding:26px 30px;margin-top:30px;opacity:.85"><div class="k" style="color:var(--violet)">Cluster 2 · later</div><div style="font-size:27px;margin-top:10px;line-height:1.4">Amrita, Ponekkara · Edappally, only after the first pilot</div></div>
+      <div class="a" data-t="10.5" style="margin-top:26px"><span class="tag" style="color:var(--grey)">Proposed locations · not evidence of demand</span></div>
+    </div>
+  </section>
+
+  <!-- 3 HYPOTHESES -->
+  <section class="scene" data-i="2" data-chap="Assumptions to test">
+    <div class="abs" style="left:96px;top:150px"><div class="eyebrow a" data-t="0.2">Five hypotheses</div></div>
+    <div class="abs" style="left:96px;top:200px;width:1728px">
+      <div class="hyp a" data-t="2.3"><div class="id">H1</div><div class="t"><b>Discovery:</b> comparing stays by hospital distance, family needs, duration and availability is hard</div><span class="tag" style="color:var(--violet)">Untested</span></div>
+      <div class="hyp a" data-t="8.5"><div class="id">H2</div><div class="t"><b>Trust:</b> families need clearer readiness, amenity, access, location and host information before contacting</div><span class="tag" style="color:var(--violet)">Untested</span></div>
+      <div class="hyp a" data-t="11.9"><div class="id">H3</div><div class="t"><b>Long stays:</b> some prefer a home or serviced apartment to a hotel for days or weeks</div><span class="tag" style="color:var(--violet)">Untested</span></div>
+      <div class="hyp a" data-t="14.8"><div class="id">H4</div><div class="t"><b>Hosts:</b> owners will keep details and availability accurate for relevant enquiries</div><span class="tag" style="color:var(--violet)">Untested</span></div>
+      <div class="hyp a" data-t="20.0"><div class="id">H5</div><div class="t"><b>Usefulness:</b> hospital search, property details and direct contact reduce shortlisting effort</div><span class="tag" style="color:var(--violet)">Untested</span></div>
+    </div>
+    <div class="abs a" data-t="23.4" style="left:96px;top:930px;font-size:28px;font-family:'Space Grotesk'">None of these is proven. The roadmap exists to test them.</div>
+  </section>
+
+  <!-- 4 LIVE SITE CHECK (screen recording is overlaid in post at the browser frame) -->
+  <section class="scene" data-i="3" data-chap="Pre-flight · the live site">
+    <div class="abs" style="left:96px;top:140px;display:flex;gap:16px;align-items:center"><div class="eyebrow a" data-t="0.2">Before testing: the live site</div><span class="tag a" data-t="0.3" style="color:var(--grey)">Screen recording · 28 Nov 2026</span></div>
+    <div class="abs a" data-t="0.0" data-a="fade" style="left:96px;top:196px;width:1152px;height:760px;border-radius:16px;overflow:hidden;border:1px solid var(--line);background:#1A1D24">
+      <div style="height:40px;display:flex;align-items:center;gap:10px;padding:0 16px;background:#14171E">
+        <span style="width:12px;height:12px;border-radius:50%;background:#3A3F4B"></span><span style="width:12px;height:12px;border-radius:50%;background:#3A3F4B"></span><span style="width:12px;height:12px;border-radius:50%;background:#3A3F4B"></span>
+        <span style="margin-left:16px;font-size:16px;color:var(--grey);background:#0E1015;padding:5px 14px;border-radius:8px">sidharthdev21-sudo.github.io/the-veedu/</span>
+      </div>
+    </div>
+    <div class="abs" style="left:1300px;top:200px;width:524px">
+      <div class="panel a" data-t="3.1" style="padding:22px 26px"><div class="k">Listings</div><div style="font-size:34px;font-family:'Space Grotesk';margin-top:8px">0 published</div></div>
+      <div class="panel a" data-t="5.6" style="padding:22px 26px;margin-top:14px"><div class="k">Location picker</div><div style="font-size:26px;margin-top:8px;line-height:1.35">12 areas, no hospitals</div><div style="font-size:18px;color:var(--dim);margin-top:8px;line-height:1.4">Aluva · Airport · Edappally · Fort Kochi · Kakkanad · Kalamassery · Kaloor · Marine Drive · MG Road · Panampilly Nagar · Thripunithura · Vyttila</div></div>
+      <div class="panel a" data-t="8.4" style="padding:22px 26px;margin-top:14px;border-color:rgba(180,140,255,.55)"><div class="k" style="color:var(--violet)">Aster Medcity</div><div style="font-size:26px;margin-top:8px">Not in the picker</div></div>
+      <div class="panel a" data-t="10.5" style="padding:22px 26px;margin-top:14px;border-color:rgba(108,240,255,.5)"><div class="k" style="color:var(--cyan)">Week 1 prep</div><div style="font-size:23px;margin-top:8px;line-height:1.45">Add Aster Medcity as a search point<br>Onboard a few host-confirmed properties</div></div>
+    </div>
+  </section>
+
+  <!-- 5 WEEK 1 -->
+  <section class="scene" data-i="4" data-chap="Week 1 · Discovery">
+    <div class="abs" style="left:96px;top:150px"><div class="eyebrow a" data-t="0.2">Week 1 · understand the real journey</div></div>
+    <div class="abs" style="left:96px;top:210px;width:820px">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
+        <div class="panel a" data-t="1.9" style="padding:24px"><div class="num" style="font-family:'Space Grotesk';font-size:52px">8–12</div><div style="font-size:21px;color:var(--grey);margin-top:6px;line-height:1.4">people who recently arranged a stay for a family member's treatment in Kochi</div></div>
+        <div class="panel a" data-t="6.5" style="padding:24px"><div class="num" style="font-family:'Space Grotesk';font-size:52px">5–8</div><div style="font-size:21px;color:var(--grey);margin-top:6px;line-height:1.4">local hosts or serviced-apartment operators</div></div>
+      </div>
+      <div class="a" data-t="8.6" style="margin-top:16px;font-size:21px;color:var(--grey);line-height:1.5">Recruited via personal networks, hosts, community contacts and referrals.<br><span style="color:var(--white)">No hospital access or partnership implied.</span></div>
+      <div class="k a" data-t="14.0" style="margin-top:26px;color:var(--cyan)">Ask about past behaviour</div>
+      <div class="q a" data-t="14.3">How did you find the accommodation?</div>
+      <div class="q a" data-t="14.6">How did you judge it was close enough?</div>
+      <div class="q a" data-t="14.9">What was missing before you contacted the host?</div>
+      <div class="q a" data-t="15.2">What made you trust or reject a property?</div>
+    </div>
+    <div class="abs panel a" data-t="3.0" style="left:980px;top:210px;width:844px;padding:26px 28px">
+      <div style="display:flex;justify-content:space-between;align-items:center"><div class="k">Synthesis board</div><span class="tag" style="color:var(--grey)">Empty until interviews run</span></div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:18px">
+        <div class="k" style="color:var(--cyan)">Finding a stay</div><div class="k" style="color:var(--cyan)">Trust &amp; information</div><div class="k" style="color:var(--cyan)">Hosts</div>
+        <div class="sticky">[Theme, after interviews]</div><div class="sticky">[Theme, after interviews]</div><div class="sticky">[Theme, after interviews]</div>
+        <div class="sticky">[Evidence: P#]</div><div class="sticky">[Evidence: P#]</div><div class="sticky">[Evidence: H#]</div>
+        <div class="sticky">[Evidence: P#]</div><div class="sticky">[Evidence: P#]</div><div class="sticky">[Evidence: H#]</div>
+      </div>
+      <div style="margin-top:18px;font-size:18px;color:var(--dim)">No quotes or findings are shown until real interviews exist.</div>
+    </div>
+  </section>
+
+  <!-- 6 WEEK 2 -->
+  <section class="scene" data-i="5" data-chap="Week 2 · Usability">
+    <div class="abs" style="left:96px;top:150px;display:flex;gap:16px;align-items:center"><div class="eyebrow a" data-t="0.2">Week 2 · test the real website</div><span class="tag a" data-t="0.4" style="color:var(--grey)">6–8 participants · proxy sample labelled</span></div>
+    <div class="abs panel a" data-t="0.8" style="left:96px;top:220px;width:1160px;padding:6px 6px 0;overflow:hidden">
+      <table class="sheet">
+        <tr><th>Task</th><th>Found relevant?</th><th>Time</th><th>Distance understood?</th><th>Notes</th></tr>
+        <tr class="a" data-t="3.7"><td>A · Near Aster, 5 nights, 3 people</td><td class="ph">—</td><td class="ph">—</td><td class="ph">—</td><td class="ph">[observation]</td></tr>
+        <tr class="a" data-t="6.2"><td>B · Compare two, pick one</td><td class="ph">—</td><td class="ph">—</td><td class="ph">—</td><td class="ph">[reasoning]</td></tr>
+        <tr class="a" data-t="7.6"><td>C · Readiness &amp; host contact</td><td class="ph">—</td><td class="ph">—</td><td class="ph">—</td><td class="ph">["verified" read as?]</td></tr>
+        <tr class="a" data-t="9.5"><td>D · What's still missing?</td><td class="ph">—</td><td class="ph">—</td><td class="ph">—</td><td class="ph">[gaps]</td></tr>
+      </table>
+    </div>
+    <div class="abs" style="left:1310px;top:220px;width:514px">
+      <div class="k a" data-t="2.0">Measure</div>
+      <div class="a" data-t="2.2" style="font-size:22px;line-height:1.9;margin-top:10px;color:var(--grey)">Relevant property found<br>Time to shortlist<br>Hospital distance understood<br>Meaning of "verified"<br>Missing information<br>Confidence to contact host</div>
+    </div>
+    <div class="abs a" data-t="11.6" style="left:96px;top:740px;display:flex;gap:18px;align-items:center"><span class="tag" style="color:var(--violet)">Observe without guiding</span><span style="font-size:30px;font-family:'Space Grotesk'">A successful click isn't booking intent.</span></div>
+  </section>
+
+  <!-- 7 WEEKS 3-4 -->
+  <section class="scene" data-i="6" data-chap="Weeks 3–4 · Concierge pilot">
+    <div class="abs" style="left:96px;top:150px;display:flex;gap:16px;align-items:center"><div class="eyebrow a" data-t="0.2">Weeks 3–4 · concierge pilot</div><span class="tag a" data-t="0.4" style="color:var(--grey)">Manual work behind a simple website</span></div>
+    <div class="abs panel a" data-t="2.4" style="left:96px;top:215px;width:1728px;padding:6px 6px 0">
+      <div class="k" style="padding:14px 14px 4px">Property verification sheet · 10–15 properties</div>
+      <table class="sheet">
+        <tr><th>Property</th><th>Host confirmed</th><th>Distance to Aster</th><th>Travel time</th><th>Ready</th><th>Sleeps</th><th>Price / night</th><th>Checked on</th></tr>
+        <tr class="a" data-t="3.0"><td>[Property 01]</td><td class="ph">[ ]</td><td class="ph">[km]</td><td class="ph">[min]</td><td class="ph">[ ]</td><td class="ph">[n]</td><td class="ph">[₹]</td><td class="ph">[date]</td></tr>
+        <tr class="a" data-t="3.6"><td>[Property 02]</td><td class="ph">[ ]</td><td class="ph">[km]</td><td class="ph">[min]</td><td class="ph">[ ]</td><td class="ph">[n]</td><td class="ph">[₹]</td><td class="ph">[date]</td></tr>
+        <tr class="a" data-t="4.2"><td>[Property 03]</td><td class="ph">[ ]</td><td class="ph">[km]</td><td class="ph">[min]</td><td class="ph">[ ]</td><td class="ph">[n]</td><td class="ph">[₹]</td><td class="ph">[date]</td></tr>
+      </table>
+    </div>
+    <div class="abs panel a" data-t="10.1" style="left:96px;top:560px;width:1728px;padding:6px 6px 0">
+      <div class="k" style="padding:14px 14px 4px">Enquiry tracker · via existing WhatsApp flow</div>
+      <table class="sheet">
+        <tr><th>Enquiry</th><th>Property</th><th>Sent</th><th>Host replied &lt; 24 h</th><th>Useful info received</th><th>Outcome</th></tr>
+        <tr><td>[E-01]</td><td class="ph">[Property]</td><td class="ph">[time]</td><td class="ph">[ ]</td><td class="ph">[ ]</td><td class="ph">[recorded only with consent]</td></tr>
+        <tr><td>[E-02]</td><td class="ph">[Property]</td><td class="ph">[time]</td><td class="ph">[ ]</td><td class="ph">[ ]</td><td class="ph">[recorded only with consent]</td></tr>
+      </table>
+    </div>
+    <div class="abs a" data-t="7.0" style="left:96px;top:930px;font-size:24px;color:var(--grey)">Publish only properties whose details have been checked with the host.</div>
+  </section>
+
+  <!-- 8 SUCCESS CRITERIA -->
+  <section class="scene" data-i="7" data-chap="Decision criteria">
+    <div class="abs" style="left:96px;top:150px;display:flex;gap:16px;align-items:center"><div class="eyebrow a" data-t="0.2">Success, defined before the pilot</div><span class="tag a" data-t="0.4" style="color:var(--violet)">Proposed · not results</span></div>
+    <div class="abs panel a" data-t="0.8" style="left:96px;top:215px;width:1728px;padding:6px 6px 0">
+      <table class="sheet" style="font-size:24px">
+        <tr><th style="width:420px">Metric</th><th>Proposed signal</th></tr>
+        <tr class="a" data-t="2.8"><td>Task completion</td><td style="color:var(--lime)">≥ 5 of 8 shortlist a suitable property without help</td></tr>
+        <tr class="a" data-t="3.4"><td>Search usefulness</td><td style="color:var(--grey)">Participants can explain why their pick fits their needs</td></tr>
+        <tr class="a" data-t="4.0"><td>Information clarity</td><td style="color:var(--grey)">Readiness, hospital distance and host contact understood</td></tr>
+        <tr class="a" data-t="5.5"><td>Host participation</td><td style="color:var(--lime)">≥ 10 properties with host-confirmed details</td></tr>
+        <tr class="a" data-t="8.4"><td>Enquiry quality</td><td style="color:var(--lime)">Hosts say enquiries hold enough to respond usefully</td></tr>
+        <tr class="a" data-t="8.8"><td>Host response</td><td style="color:var(--grey)">Track the share of genuine enquiries answered within 24 h</td></tr>
+        <tr class="a" data-t="9.2"><td>User confidence</td><td style="color:var(--grey)">Did the site reduce uncertainty vs their previous search?</td></tr>
+      </table>
+    </div>
+    <div class="abs a" data-t="11.3" style="left:96px;top:880px;font-size:28px;font-family:'Space Grotesk'">Small-sample, directional signals, <span style="color:var(--violet)">not market validation.</span></div>
+  </section>
+
+  <!-- 9 DECISION TREE -->
+  <section class="scene" data-i="8" data-chap="Decide">
+    <div class="abs" style="left:96px;top:150px"><div class="eyebrow a" data-t="0.2">End of week 4 · the evidence decides</div></div>
+    <div class="abs" style="left:96px;top:200px;width:1728px">
+      <div class="branch a" data-t="3.7"><div class="c">Find stays, but don't trust the information</div><div class="arr"></div><div class="d">Verification standards, photos, amenities, host response info</div></div>
+      <div class="branch a" data-t="7.9"><div class="c">Struggle to find suitable stays</div><div class="arr"></div><div class="d">Hospital search, filters, distance display, comparison</div></div>
+      <div class="branch a" data-t="10.5"><div class="c">Enquiries sent, hosts don't respond</div><div class="arr"></div><div class="d">Host onboarding, response expectations, availability upkeep</div></div>
+      <div class="branch a" data-t="13.6"><div class="c">Prefer the hospital's own recommendations</div><div class="arr"></div><div class="d">Complement hospital support, don't replace it</div></div>
+      <div class="branch a" data-t="18.9"><div class="c">No real value over today's search</div><div class="arr"></div><div class="d" style="border-color:rgba(180,140,255,.6)">Revisit the core problem; narrow or change the proposition</div></div>
+    </div>
+  </section>
+
+  <!-- 10 REFLECTION -->
+  <section class="scene" data-i="9" data-chap="">
+    <div class="abs" style="left:96px;top:190px;width:1100px">
+      <div class="eyebrow a" data-t="0.2">The next milestone</div>
+      <h1 class="h-l a" data-t="0.6" style="margin-top:26px">Not scaling the platform.</h1>
+      <h2 class="h-m a" data-t="3.9" style="margin-top:26px;color:var(--grey);line-height:1.3">Proving a small group of families can find a suitable stay <span style="color:var(--white)">with less uncertainty</span>, and that local hosts can <span style="color:var(--white)">reliably fulfil</span> those enquiries.</h2>
+      <div class="a" data-t="13.9" style="margin-top:44px;font-size:28px;font-family:'Space Grotesk'">Evidence from real users and real providers comes before more hospitals or automation.</div>
+    </div>
+    <div class="abs panel a" data-t="6.0" style="left:1270px;top:220px;width:554px;padding:6px 6px 0">
+      <div class="k" style="padding:14px 14px 4px">Decision log</div>
+      <table class="sheet" style="font-size:19px">
+        <tr><th>Date</th><th>Evidence</th><th>Decision</th></tr>
+        <tr><td class="ph">[wk 1]</td><td class="ph">[link]</td><td class="ph">[ ]</td></tr>
+        <tr><td class="ph">[wk 2]</td><td class="ph">[link]</td><td class="ph">[ ]</td></tr>
+        <tr><td class="ph">[wk 4]</td><td class="ph">[link]</td><td class="ph">[build · fix · narrow · stop]</td></tr>
+      </table>
+    </div>
+  </section>
+
+  <!-- 11 END -->
+  <section class="scene" data-i="10" data-chap="">
+    <div class="abs" style="left:96px;top:360px">
+      <div class="a" data-t="0.2" style="font-family:'Space Grotesk';font-size:140px;font-weight:600;letter-spacing:-0.04em">The <span style="color:var(--cyan)">Veedu</span></div>
+      <div class="a" data-t="0.5" style="font-family:'Space Grotesk';font-size:34px;color:var(--grey);margin-top:10px">Episode 05 · Validation roadmap · proposed, not yet run</div>
+    </div>
+  </section>
+
+  <div id="bug">THE VEEDU <b>·</b> EP 05</div>
+  <div id="chap"></div>
+</div>
+
+<script src="mapdata.js"></script>
+<script src="timing.js"></script>
+<script>
+  const NS = 'http://www.w3.org/2000/svg';
+  const clamp = v => Math.max(0, Math.min(1, v));
+  const ease = p => 1 - Math.pow(1 - p, 3);
+  const $ = id => document.getElementById(id);
+
+  (function () {
+    const svg = $('mapZ'), Z = 14, [cx, cy] = [(MAP.amrita[0] + MAP.aster[0]) / 2, (MAP.amrita[1] + MAP.aster[1]) / 2];
+    const g = document.createElementNS(NS, 'g'); g.setAttribute('transform', `translate(${410 - cx * Z},${360 - cy * Z}) scale(${Z})`);
+    for (const d of Object.values(MAP.districts)) { const p = document.createElementNS(NS, 'path'); p.setAttribute('d', d); g.appendChild(p); }
+    const mk = (pt, label, col, dash, dx, dy, anchor, id) => {
+      const m = document.createElementNS(NS, 'g'); m.setAttribute('id', id);
+      m.innerHTML = `<circle cx="${pt[0]}" cy="${pt[1]}" r="${16 / Z}" fill="${dash ? 'none' : col}" stroke="${col}" stroke-width="${3 / Z}" ${dash ? `stroke-dasharray="${4 / Z} ${4 / Z}"` : ''}/>
+        <circle cx="${pt[0]}" cy="${pt[1]}" r="${40 / Z}" fill="none" stroke="${col}" stroke-opacity=".4" stroke-width="${2 / Z}"/>
+        <text x="${pt[0] + dx / Z}" y="${pt[1] + dy / Z}" text-anchor="${anchor}" font-family="Space Grotesk" font-size="${26 / Z}" fill="#ECECF1">${label}</text>`;
+      g.appendChild(m);
+    };
+    mk(MAP.aster, 'Aster Medcity · pilot 1', '#6CF0FF', false, 0, -56, 'middle', 'mAster');
+    mk(MAP.amrita, 'Amrita · later', '#B48CFF', true, 54, 10, 'start', 'mAmrita');
+    svg.appendChild(g);
+  })();
+
+  const scenes = [...document.querySelectorAll('.scene')].map(s => {
+    const T = TIMING.scenes[+s.dataset.i];
+    return { el: s, start: T.start, dur: T.dur, chap: s.dataset.chap, items: [...s.querySelectorAll('.a')] };
+  });
+  const TOTAL = TIMING.total; window.TOTAL = TOTAL;
+  const chap = $('chap'), bug = $('bug'), FADE = 0.5;
+
+  function render(t) {
+    let active = null, activeVis = 0;
+    for (const s of scenes) {
+      const L = t - s.start;
+      if (L < -0.01 || L > s.dur + 0.01) { s.el.style.opacity = 0; continue; }
+      const vis = Math.min(clamp(L / FADE), clamp((s.dur - L) / FADE));
+      s.el.style.opacity = vis;
+      if (vis > activeVis) { active = s; activeVis = vis; }
+      for (const it of s.items) {
+        const p = ease(clamp((L - (+it.dataset.t || 0)) / 0.7));
+        it.style.opacity = p;
+        if (it.dataset.a !== 'fade' && it.tagName !== 'TR') it.style.transform = `translateY(${(1 - p) * 20}px)`;
+      }
+      if (s.el.dataset.i === '1') {
+        $('mAster').style.opacity = ease(clamp((L - 0.6) / 0.7));
+        $('mAmrita').style.opacity = ease(clamp((L - 9.0) / 0.7));
+      }
+    }
+    if (active) { chap.textContent = active.chap; chap.style.opacity = activeVis; bug.style.opacity = ['9', '10'].includes(active.el.dataset.i) ? 0 : activeVis; }
+  }
+  window.render = render;
+
+  if (!window.__RENDERING__) {
+    const t0 = performance.now() - (+(new URLSearchParams(location.search).get('t') || 0)) * 1000;
+    const fit = () => { const k = Math.min(innerWidth / 1920, innerHeight / 1080);
+      document.getElementById('stage').style.cssText += `;transform:scale(${k});transform-origin:0 0`; };
+    addEventListener('resize', fit); fit();
+    (function loop(){ render(((performance.now() - t0) / 1000) % TOTAL); requestAnimationFrame(loop); })();
+  }
+</script>
+</body>
+</html>

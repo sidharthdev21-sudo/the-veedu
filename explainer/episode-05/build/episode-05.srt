@@ -1,0 +1,175 @@
+1
+00:00:01,000 --> 00:00:03,440
+Everything so far has been desk research.
+
+2
+00:00:03,490 --> 00:00:05,670
+The next milestone isn't building more.
+
+3
+00:00:05,720 --> 00:00:11,660
+It's finding out whether the problem, and my product, hold up with real families and real hosts.
+
+4
+00:00:11,710 --> 00:00:14,680
+So the roadmap is four weeks, around one hospital:
+
+5
+00:00:14,730 --> 00:00:16,715
+Aster Medcity, in Cheranalloor.
+
+6
+00:00:17,615 --> 00:00:26,115
+Aster already offers accommodation assistance to international patients, so The Veedu has to add value beyond a list of nearby rooms.
+
+7
+00:00:26,165 --> 00:00:30,901
+Amrita, in Ponekkara, is the second cluster — but only after the first pilot.
+
+8
+00:00:31,801 --> 00:00:33,771
+I'm testing five hypotheses.
+
+9
+00:00:33,821 --> 00:00:39,861
+That families struggle to compare stays by hospital distance, needs, duration and availability.
+
+10
+00:00:39,911 --> 00:00:43,291
+That they need clearer information before contacting a host.
+
+11
+00:00:43,341 --> 00:00:46,181
+That some prefer a home to a hotel for longer stays.
+
+12
+00:00:46,231 --> 00:00:51,381
+That hosts will keep their details accurate in exchange for relevant enquiries.
+
+13
+00:00:51,431 --> 00:00:54,791
+And that The Veedu actually reduces the effort of shortlisting.
+
+14
+00:00:54,841 --> 00:00:56,183
+None of these is proven.
+
+15
+00:00:57,083 --> 00:00:59,733
+Before testing anything, I checked the live site.
+
+16
+00:00:59,783 --> 00:01:05,013
+Today it has no published listings, and the location picker lists areas, not hospitals.
+
+17
+00:01:05,063 --> 00:01:07,163
+Aster Medcity isn't in it.
+
+18
+00:01:07,213 --> 00:01:14,705
+So week one also means adding the hospital, and onboarding a few host-confirmed properties, so there's something real to test.
+
+19
+00:01:15,605 --> 00:01:17,145
+Week one is discovery.
+
+20
+00:01:17,195 --> 00:01:29,135
+Eight to twelve people who've recently arranged a stay for a family member's treatment in Kochi, and five to eight hosts, recruited through my own network and host referrals, not through the hospital.
+
+21
+00:01:29,185 --> 00:01:32,638
+The questions are about what they actually did, not what they'd like.
+
+22
+00:01:33,538 --> 00:01:36,788
+Week two tests the real website with six to eight people.
+
+23
+00:01:36,838 --> 00:01:39,258
+Find a place near Aster for five nights.
+
+24
+00:01:39,308 --> 00:01:40,698
+Compare two properties.
+
+25
+00:01:40,748 --> 00:01:42,568
+Work out how to contact the host.
+
+26
+00:01:42,618 --> 00:01:44,648
+Then tell me what's still missing.
+
+27
+00:01:44,698 --> 00:01:48,584
+I'll watch without guiding, and a successful click isn't booking intent.
+
+28
+00:01:49,484 --> 00:01:51,884
+Weeks three and four are a concierge pilot.
+
+29
+00:01:51,934 --> 00:01:59,574
+I'll confirm ten to fifteen properties with their hosts, record real distance and travel time, and publish only what's been checked.
+
+30
+00:01:59,624 --> 00:02:04,679
+Enquiries go through the existing WhatsApp flow, and a simple spreadsheet tracks every one.
+
+31
+00:02:05,579 --> 00:02:08,299
+Success is defined before the pilot starts.
+
+32
+00:02:08,349 --> 00:02:10,979
+Five of eight participants shortlist without help.
+
+33
+00:02:11,029 --> 00:02:13,889
+At least ten properties with host-confirmed details.
+
+34
+00:02:13,939 --> 00:02:16,469
+Hosts saying the enquiries are useful.
+
+35
+00:02:16,519 --> 00:02:19,780
+These are small-sample signals, not market validation.
+
+36
+00:02:20,680 --> 00:02:23,950
+At the end of week four, the evidence decides the next step.
+
+37
+00:02:24,000 --> 00:02:28,120
+If people find stays but don't trust them, verification comes first.
+
+38
+00:02:28,170 --> 00:02:30,760
+If they can't find them, search and distance do.
+
+39
+00:02:30,810 --> 00:02:33,850
+If hosts don't respond, onboarding is the problem.
+
+40
+00:02:33,900 --> 00:02:39,090
+If families prefer the hospital's own recommendations, The Veedu should complement them.
+
+41
+00:02:39,140 --> 00:02:43,747
+And if there's no real value over today's search, I go back to the problem itself.
+
+42
+00:02:44,647 --> 00:02:48,067
+The next milestone for The Veedu is not scaling the platform.
+
+43
+00:02:48,117 --> 00:02:58,067
+It's proving that a small group of families can find suitable accommodation with less uncertainty, and that local hosts can reliably fulfil those enquiries.
+
+44
+00:02:58,117 --> 00:03:07,056
+Before expanding to more hospitals, or automating the whole workflow, the product needs evidence from real users and real accommodation providers.

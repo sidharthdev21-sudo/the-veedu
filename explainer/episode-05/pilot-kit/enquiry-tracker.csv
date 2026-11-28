@@ -1,0 +1,3 @@
+enquiry_id,date_time_sent,property_id,source(site/referral),party_size,nights_requested,hospital,host_replied_within_24h(y/n),reply_time_hours,traveller_got_useful_info(y/n),host_rated_enquiry_quality(1-5),outcome(no_reply/declined/info_only/stay_confirmed/unknown),consent_to_use_outcome(y/n),notes
+E-01,,,,,,,,,,,,,
+E-02,,,,,,,,,,,,,
