@@ -1,0 +1,251 @@
+1
+00:00:01,800 --> 00:00:05,410
+Not everyone who travels to Kochi is on holiday.
+
+2
+00:00:05,460 --> 00:00:09,030
+Some come because someone they love has been admitted to hospital.
+
+3
+00:00:09,080 --> 00:00:12,400
+And for the rest of the family, one question arrives quickly:
+
+4
+00:00:12,450 --> 00:00:13,970
+where do we stay?
+
+5
+00:00:14,020 --> 00:00:16,217
+That's the moment I wanted to understand.
+
+6
+00:00:17,317 --> 00:00:21,417
+I'm building The Veedu, an accommodation discovery platform for Kerala.
+
+7
+00:00:21,467 --> 00:00:28,457
+My background is in UX design and running rental accommodation, and I already had a working prototype.
+
+8
+00:00:28,507 --> 00:00:30,517
+But a prototype isn't evidence.
+
+9
+00:00:30,567 --> 00:00:35,152
+So before building any further, I set out to find whether it deserved to exist.
+
+10
+00:00:36,252 --> 00:00:38,412
+My starting hypothesis was simple.
+
+11
+00:00:38,462 --> 00:00:44,062
+Medical travellers and their families need things general booking platforms don't surface well:
+
+12
+00:00:44,112 --> 00:00:48,552
+being close to the hospital, staying for weeks, and knowing the real cost.
+
+13
+00:00:48,602 --> 00:00:53,127
+I wrote down what would prove that wrong before I looked for anything that proved it right.
+
+14
+00:00:54,227 --> 00:00:57,267
+The official data gave me context — and a warning.
+
+15
+00:00:57,317 --> 00:01:07,877
+Kerala recorded around two and a half crore domestic tourist visits in 2025, and in 2023, Ernakulam, Kochi's district, led the state.
+
+16
+00:01:07,927 --> 00:01:14,207
+About six point four lakh foreigners came to India for medical treatment in 2024.
+
+17
+00:01:14,257 --> 00:01:16,827
+But tourist visits aren't medical travellers.
+
+18
+00:01:16,877 --> 00:01:21,037
+And the Ministry of Tourism doesn't keep state-wise medical tourism data.
+
+19
+00:01:21,087 --> 00:01:23,118
+The number I needed most didn't exist.
+
+20
+00:01:24,218 --> 00:01:25,588
+So I went to the ground:
+
+21
+00:01:25,638 --> 00:01:30,298
+Amrita Hospital and Aster Medcity, in the Edappally–Cheranalloor corridor.
+
+22
+00:01:30,348 --> 00:01:36,498
+At Amrita, one family member can stay in the patient's room, and other relatives are pointed to a guest house.
+
+23
+00:01:36,548 --> 00:01:44,068
+I mapped twelve providers nearby, from budget rooms to a Marriott, and some already market to patients and bystanders.
+
+24
+00:01:44,118 --> 00:01:45,998
+So this wasn't an empty market.
+
+25
+00:01:46,048 --> 00:01:49,312
+The question changed from whether there's supply, to what's missing.
+
+26
+00:01:50,412 --> 00:01:52,462
+The reviews were where it got interesting.
+
+27
+00:01:52,512 --> 00:01:59,772
+I could only read twenty-five excerpts, well short of the hundred I wanted, so I treat them as a signal, not a statistic.
+
+28
+00:01:59,822 --> 00:02:01,882
+Guests praised staff and cleanliness.
+
+29
+00:02:01,932 --> 00:02:06,992
+They complained about extra charges at checkout, and maintenance on longer stays.
+
+30
+00:02:07,042 --> 00:02:10,502
+And when reviewers mentioned the hospital, they wrote about distance.
+
+31
+00:02:10,552 --> 00:02:16,701
+One guest house named after Amrita was a twelve-minute walk to one guest — and a little away to another.
+
+32
+00:02:17,801 --> 00:02:20,601
+That became the insight everything else builds on.
+
+33
+00:02:20,651 --> 00:02:26,421
+Distance is why families choose a stay, and it's the fact listings state least consistently.
+
+34
+00:02:26,471 --> 00:02:29,571
+To size the market, I started with something I could count:
+
+35
+00:02:29,621 --> 00:02:32,481
+over two thousand beds across the two hospitals.
+
+36
+00:02:32,531 --> 00:02:35,421
+Every step after that is an explicit assumption.
+
+37
+00:02:35,471 --> 00:02:44,196
+The base case projects around sixteen crore rupees a year in accommodation spend, with about eight crore a platform could realistically serve.
+
+38
+00:02:45,296 --> 00:02:46,736
+Then the harder question:
+
+39
+00:02:46,786 --> 00:02:48,236
+could a small pilot work?
+
+40
+00:02:48,286 --> 00:03:00,226
+With ten partner properties and a twelve percent commission, the base case projects about seven lakh in platform revenue, and falls short of break-even, which needs around fifty-five bookings a month.
+
+41
+00:03:00,276 --> 00:03:03,026
+Short, cheap stays lose money on every booking.
+
+42
+00:03:03,076 --> 00:03:08,016
+The model only works for longer stays — the same families the research pointed to.
+
+43
+00:03:08,066 --> 00:03:12,438
+So the pilot should be small, founder-led, and built to measure, not to scale.
+
+44
+00:03:13,538 --> 00:03:15,468
+From there, the strategy narrowed.
+
+45
+00:03:15,518 --> 00:03:22,578
+The primary customer is an out-of-town family caring for a patient admitted at Amrita or Aster Medcity.
+
+46
+00:03:22,628 --> 00:03:24,618
+Their problem isn't finding a room.
+
+47
+00:03:24,668 --> 00:03:26,988
+It's trusting the facts behind it.
+
+48
+00:03:27,038 --> 00:03:29,328
+So the position I want to earn is simple:
+
+49
+00:03:29,378 --> 00:03:32,723
+know how far, how much, and for how long, before you call.
+
+50
+00:03:33,823 --> 00:03:37,943
+I scored nine features on reach, impact, confidence and effort.
+
+51
+00:03:37,993 --> 00:03:39,623
+The MVP keeps five:
+
+52
+00:03:39,673 --> 00:03:49,963
+hospital-based discovery, verified distance to the entrance, all-in pricing for the whole family, dated verification, and tracked WhatsApp enquiries.
+
+53
+00:03:50,013 --> 00:03:52,053
+Online booking and payment can wait.
+
+54
+00:03:52,103 --> 00:03:58,264
+And because my own prototype still shows straight-line distance, verification is the first thing to build.
+
+55
+00:03:59,364 --> 00:04:04,064
+None of this is validated yet, so the next stage is a set of small experiments.
+
+56
+00:04:04,114 --> 00:04:06,534
+Interview caregivers near both hospitals.
+
+57
+00:04:06,584 --> 00:04:10,364
+Talk to hospital coordinators about how families are referred.
+
+58
+00:04:10,414 --> 00:04:14,324
+Verify ten properties in person, and measure what it costs.
+
+59
+00:04:14,374 --> 00:04:23,143
+Then run a few weeks of WhatsApp-led matching, tracking how many enquiries become confirmed stays, and how many families go direct the next time.
+
+60
+00:04:24,243 --> 00:04:25,853
+I haven't proven a business.
+
+61
+00:04:25,903 --> 00:04:33,883
+What I've done is narrow an idea I care about into a specific customer, a specific problem, and a test small enough to run.
+
+62
+00:04:33,933 --> 00:04:35,433
+For me, that's the job.
+
+63
+00:04:35,483 --> 00:04:42,014
+Not to be right at the start — but to find out, honestly and as cheaply as possible, what deserves to be built.
