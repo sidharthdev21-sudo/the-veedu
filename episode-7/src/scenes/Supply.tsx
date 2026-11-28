@@ -2,7 +2,7 @@ import React from 'react';
 import { AbsoluteFill, interpolate, useCurrentFrame } from 'remotion';
 import { Backdrop, DrawPath, Heading, Line, useLit, wordAt } from '../components/ui';
 import { Pop, Reveal, clamp } from '../components/anim';
-import { SUPPLIER_STAGES, CRITERIA, ILL_SUPPLIERS, wScore, COST, costModel, LOOP, ENTITIES } from '../data';
+import { SUPPLIER_STAGES, CRITERIA, ILL_SUPPLIERS, wScore, COST, costModel, LOOP, ENTITIES, coords, SIZES, PROMISE, fullPromise } from '../data';
 import { C, alpha } from '../theme';
 import { StatusChip, Stamp } from './Journey';
 
@@ -16,8 +16,10 @@ const PINS = [P(0.22, 0.36), P(0.33, 0.27), P(0.4, 0.1), P(0.66, 0.43), P(0.46, 
 // ─── 4 · The sourcing journey
 export const Sourcing: React.FC<{ lines: Line[] }> = ({ lines }) => {
   const f = useCurrentFrame();
-  const [l0, l1, l2, l3] = lines;
+  const [l0, lc, l1, l2, l3] = lines;
   const out = interpolate(f, [l2.from - 8, l2.from + 4], [1, 0], clamp);
+  const covOut = interpolate(f, [l1.from - 8, l1.from + 4], [1, 0], clamp);
+  const co = coords();
   const outline = 'M' + INDIA.map(([x, y]) => P(x, y).join(' ')).join(' L') + ' Z';
   const w = CRITERIA.map((c) => c.w);
   return (
@@ -39,7 +41,33 @@ export const Sourcing: React.FC<{ lines: Line[] }> = ({ lines }) => {
         <Reveal at={wordAt(l0, 'travelled') + 80} style={{ left: 110, top: 940 }}>
           <div style={{ display: 'flex', gap: 12, alignItems: 'center' }}><StatusChip s="unquantified" /><span className="muted" style={{ fontSize: 20 }}>Stylised map · cities visited to be confirmed · no supplier names shown</span></div>
         </Reveal>
-        <div style={{ position: 'absolute', left: 900, top: 250, width: 910 }}>
+        <div style={{ position: 'absolute', left: 900, top: 250, width: 910, opacity: covOut }}>
+          <Reveal at={lc.from - 4} style={{ position: 'relative' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 14 }}><div className="head" style={{ fontSize: 34 }}>A sourcing signal in the catalogue</div><StatusChip s="actual" size={14} /></div>
+            <div className="muted" style={{ fontSize: 21, marginTop: 6 }}>Co-ord sizes listed · promise = L to 3XL (highlighted)</div>
+          </Reveal>
+          <div style={{ marginTop: 18 }}>
+            <div style={{ display: 'flex', gap: 8, marginLeft: 330 }}>{SIZES.map((z) => <div key={z} className="head" style={{ width: 92, textAlign: 'center', fontSize: 20, color: PROMISE.includes(z) ? C.lime : C.grey }}>{z}</div>)}</div>
+            {co.map((c, i) => {
+              const full = fullPromise(c), one = c.sizes.length === 1;
+              return (
+                <Reveal key={c.t} at={lc.from + 20 + i * 8} dir="left" style={{ position: 'relative', marginTop: 8 }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+                    <div style={{ width: 322, fontSize: 21, fontWeight: full ? 700 : 500, color: full ? C.green : C.text, whiteSpace: 'nowrap' }}>{c.t}</div>
+                    {SIZES.map((z) => { const has = c.sizes.includes(z); return <div key={z} style={{ width: 92, height: 34, borderRadius: 8, background: has ? alpha(PROMISE.includes(z) ? C.lime : C.grey, 0.75) : alpha(C.text, 0.04), border: `1px solid ${PROMISE.includes(z) ? alpha(C.lime, 0.3) : C.line}` }} />; })}
+                    {full && <span className="badge" style={{ fontSize: 13, color: C.green, border: `1.5px solid ${C.green}` }}>FULL</span>}
+                    {one && <span className="badge" style={{ fontSize: 13, color: C.violet, border: `1.5px dashed ${C.violet}` }}>1 SIZE</span>}
+                  </div>
+                </Reveal>
+              );
+            })}
+            <Reveal at={wordAt(lc, 'only two')} style={{ position: 'relative', marginTop: 20 }}>
+              <div style={{ fontSize: 26 }}><b style={{ color: C.green }}>{co.filter(fullPromise).length} of {co.length}</b> cover all of L–3XL · <b style={{ color: C.violet }}>{co.filter((c) => c.sizes.length === 1).length}</b> listed in one size</div>
+              <div className="muted" style={{ fontSize: 19, marginTop: 6 }}>Possible small ready-made lots: a hypothesis, to be confirmed by the owner</div>
+            </Reveal>
+          </div>
+        </div>
+        <div style={{ position: 'absolute', left: 900, top: 250, width: 910, opacity: 1 - covOut }}>
           <Reveal at={l1.from - 4} style={{ position: 'relative' }}><div className="head" style={{ fontSize: 36 }}>Finding a supplier <span style={{ color: C.lime }}>isn’t validating one</span></div></Reveal>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 10, marginTop: 26 }}>
             {SUPPLIER_STAGES.map((s, i) => (
@@ -102,7 +130,7 @@ export const Economics: React.FC<{ lines: Line[] }> = ({ lines }) => {
   const [l0, l1, l2, l3] = lines;
   const m = costModel();
   const bars: { t: string; v: number; kind: 'total' | 'minus' }[] = [
-    { t: 'Price', v: COST.price, kind: 'total' }, { t: 'GST 5%', v: COST.price - m.net, kind: 'minus' }, { t: 'Net', v: m.net, kind: 'total' },
+    { t: 'Price (actual)', v: COST.price, kind: 'total' }, { t: 'GST 5%', v: COST.price - m.net, kind: 'minus' }, { t: 'Net', v: m.net, kind: 'total' },
     { t: 'Garment', v: COST.garment, kind: 'minus' }, { t: 'Packaging', v: COST.packaging, kind: 'minus' }, { t: 'Shipping', v: COST.shipping, kind: 'minus' },
     { t: 'Fees 2%', v: m.fee, kind: 'minus' }, { t: 'Returns', v: m.ret, kind: 'minus' }, { t: 'Left', v: m.contrib, kind: 'total' },
   ];
@@ -128,7 +156,7 @@ export const Economics: React.FC<{ lines: Line[] }> = ({ lines }) => {
         );
       })}
       {bars.map((b, i) => <Reveal key={b.t} at={l1.from + i * 22} style={{ left: 120 + i * 130, top: Y0 + 14, width: 104, textAlign: 'center' }}><div style={{ fontSize: 19, lineHeight: 1.15 }}>{b.t}</div></Reveal>)}
-      <Reveal at={wordAt(l1, 'forty percent')} style={{ left: 120, top: 965 }}>
+      <Reveal at={wordAt(l1, 'about a third')} style={{ left: 120, top: 965 }}>
         <div style={{ fontSize: 24 }}>Contribution = {rs(m.contrib)} ÷ {rs(m.net)} ≈ <b style={{ color: C.lime }}>{Math.floor(m.margin)}%</b> · returns allowance = {COST.returnRate}% × {rs(COST.twoWayShip)} two-way shipping</div>
       </Reveal>
       <Pop at={l2.from} style={{ left: 1350, top: 250, width: 460 }}>
@@ -147,7 +175,7 @@ export const Economics: React.FC<{ lines: Line[] }> = ({ lines }) => {
           <div className="muted" style={{ fontSize: 19, marginTop: 10 }}>Must sell before the next order</div>
         </div>
       </Pop>
-      <Reveal at={l0.from + 40} style={{ left: 110, top: 220 }}><div className="muted" style={{ fontSize: 22 }}>Price band ₹1,000–1,700 is actual · every cost below is a placeholder for a real quote</div></Reveal>
+      <Reveal at={l0.from + 40} style={{ left: 110, top: 220 }}><div className="muted" style={{ fontSize: 22 }}>Price ₹1,200 = actual median co-ord price (store catalogue) · every cost below is illustrative, a placeholder for a real quote</div></Reveal>
     </AbsoluteFill>
   );
 };

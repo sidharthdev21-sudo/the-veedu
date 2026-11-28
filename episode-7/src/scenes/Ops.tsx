@@ -25,7 +25,7 @@ export const Dashboard: React.FC<{ lines: Line[] }> = ({ lines }) => {
             </Reveal>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 16, marginTop: 22 }}>
               {TOOLS.filter((t) => t.s === s).map((t, i) => (
-                <Pop key={t.t} at={wordAt(l0, ['Shopify', 'Instagram', 'One shared', 'UTM'][Math.min(3, k * 2 + i)]) + (k && i === 2 ? 40 : 0)} style={{ position: 'relative' }}>
+                <Pop key={t.t} at={wordAt(l0, ['Shopify', 'Instagram', 'one shared', 'UTM'][Math.min(3, k * 2 + i)]) + (k && i === 2 ? 40 : 0)} style={{ position: 'relative' }}>
                   <div className="card" style={{ position: 'relative', padding: '24px 30px', borderColor: alpha(k ? C.violet : C.green, 0.5), borderStyle: k ? 'dashed' : 'solid' }}>
                     <div className="head" style={{ fontSize: 34 }}>{t.t}</div>
                   </div>
@@ -49,10 +49,10 @@ export const Dashboard: React.FC<{ lines: Line[] }> = ({ lines }) => {
                 <div className="head" style={{ fontSize: 30, color: ac[i] }}>{a.area}</div>
                 <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12, marginTop: 14 }}>
                   {a.tiles.map((t) => (
-                    <div key={t} style={{ borderRadius: 14, background: alpha(C.text, 0.03), border: `1px solid ${C.line}`, padding: '12px 16px' }}>
-                      <div style={{ fontSize: 21 }}>{t}</div>
-                      <div className="head" style={{ fontSize: 30, color: C.grey, marginTop: 2 }}>—</div>
-                      <div style={{ fontSize: 14, color: C.grey }}>n · source · confidence</div>
+                    <div key={t.t} style={{ borderRadius: 14, background: t.v ? alpha(C.green, 0.07) : alpha(C.text, 0.03), border: `1px solid ${t.v ? alpha(C.green, 0.4) : C.line}`, padding: '12px 16px' }}>
+                      <div style={{ fontSize: 21 }}>{t.t}</div>
+                      <div className="head" style={{ fontSize: 30, color: t.v ? C.green : C.grey, marginTop: 2 }}>{t.v ?? '—'}</div>
+                      <div style={{ fontSize: 14, color: C.grey }}>{t.src ?? 'n · source · confidence'}</div>
                     </div>
                   ))}
                 </div>
@@ -124,7 +124,7 @@ export const Validate: React.FC<{ lines: Line[] }> = ({ lines }) => {
             );
           })}
         </div>
-        <Reveal at={wordAt(l2, 'matches')} style={{ position: 'relative', marginTop: 18 }}><div className="muted" style={{ fontSize: 22 }}>Consistent with Episode 5: prune generic kurta sets</div></Reveal>
+        <Reveal at={wordAt(l2, 'matching')} style={{ position: 'relative', marginTop: 18 }}><div className="muted" style={{ fontSize: 22 }}>Consistent with Episode 5: prune generic kurta sets</div></Reveal>
       </div>
     </AbsoluteFill>
   );
@@ -133,7 +133,7 @@ export const Validate: React.FC<{ lines: Line[] }> = ({ lines }) => {
 // ─── 9 · What we learned
 export const Learned: React.FC<{ lines: Line[] }> = ({ lines }) => {
   const [l0, l1, l2, l3] = lines;
-  const rows = [FINDINGS[0], FINDINGS[2], FINDINGS[1]];
+  const rows = FINDINGS;
   const at = [l0.from + 20, l1.from, l2.from + 30];
   const head = ['Observation', 'Interpretation', 'Action'];
   return (

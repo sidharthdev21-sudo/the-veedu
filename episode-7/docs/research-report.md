@@ -3,7 +3,7 @@
 
 **Question:** *Can Aalayam operate as a real clothing business? What did the move from research to real-world activity teach us, and what should be decided next?*
 
-**Status: provisional. The video was produced on 28 Nov 2026, on the owner's instruction, with the real data still unavailable (an "awaiting data" version).** The audit in section 1 found that **most of the performance data from Aalayam's real activities is not available in this project**: Instagram insights, Shopify analytics and supplier records. This report therefore:
+**Status: provisional. The video was produced on 28 Nov 2026 with all real information available: the owner's Notion notes, Canva posters, and the live store's public catalogue and pages. Instagram insights, store analytics and supplier records remain unavailable.** The audit in section 1 found that **most of the performance data from Aalayam's real activities is not available in this project**: Instagram insights, Shopify analytics and supplier records. This report therefore:
 1. documents what *actually exists*,
 2. builds the data model, frameworks and dashboard that the real data should flow into, and
 3. uses **clearly labelled illustrative values** only where a worked example is needed.
@@ -33,9 +33,9 @@
 | E2 | Canva: three Aalayam poster designs | Social and event creative | Created 12 Dec 2025 | Messaging ("Feel the comfort. Flaunt the style.", "Cotton Comfy Wear", "Style that moves with you"); a **live pop-up at Olive Courtyard, Kakkanad** | **Actual**, but the posters give **two different dates** (15 Dec, 4–9 PM; and 16 Dec, 4 PM), and whether the event took place is not recorded |
 | E3 | Owner answers (Episode 5) | Business facts | Nov 2026 | Portfolio; four channels (Shopify, Instagram/WhatsApp, marketplaces, exhibitions); NRI not live | **Actual** |
 | E4 | The Episode 7 brief | Owner statement | 2025–2026 | Social pages created and content published; Shopify store built; **travel across India to find ready-made suppliers**; sourcing information collected | **Actual, unquantified**: activities confirmed; records not in the project |
-| E5 | Instagram / Facebook insights | Reach, engagement, saves, profile visits, link taps | — | Audience validation | **Unavailable**: no export or screenshot in the project, and no connector |
+| E5 | Instagram / Facebook insights (profile instagram.com/aalayambyanamika) | Reach, engagement, saves, profile visits, link taps | — | Audience validation | **Unavailable**: the public profile page shows only a login wall; no export or screenshots |
 | E6 | Shopify analytics and orders | Sessions, funnel, orders, revenue | — | Store validation | **Unavailable**: the Shopify connector needs the owner to sign in again; the store domain did not resolve from this environment |
-| E7 | Public store pages (aalayambyanamika.com) | Catalogue, prices, policies | — | Product and policy audit | **Unavailable**: not reachable from this environment, and not found by public web search |
+| E7 | Public store pages (aalayambyanamika.com): catalogue, homepage, policies, size guide, About page | Products, prices, sizes, SKUs, descriptions, policies | Read 28 Nov 2026 | Store and product audit (section 4A) | **Actual** (public data, shared by the owner on 28 Nov 2026) |
 | E8 | Supplier notes, quotations, catalogues, samples | Sourcing records | — | Supply-chain feasibility | **Unavailable**: nothing in the repository or Notion ("sourcing", "supplier", "MOQ" all return nothing) |
 | E9 | Product photos and design assets | Creative | — | Product presentation audit | **Unavailable** (only the three posters in E2) |
 | E10 | Customer interview notes | Qualitative | — | Customer needs | **Unavailable** (held, per Episode 4, but not shared) |
@@ -158,7 +158,7 @@ Fields: date · channel · source content · product · **question type** (size,
 
 ## 4. Shopify store as a digital product
 
-**Actual (E1):** built on Shopify after comparing Dukaan and WooCommerce; a structured SKU system; brand-voice copy; a **UX and conversion review was carried out**, but its findings are not recorded in the project. **The store itself and its analytics could not be accessed in this session.**
+**Actual (E1, E7):** built on Shopify after comparing Dukaan and WooCommerce; a structured SKU system; brand-voice copy; a UX and conversion review was carried out, but its findings are not recorded. **The public store was audited on 28 Nov 2026 (section 4A). Its analytics (sessions, funnel, orders) remain unavailable.**
 
 ### Customer journey framework
 
@@ -180,6 +180,63 @@ Fields: date · channel · source content · product · **question type** (size,
 | Daylight, unedited photos | "Colour different from the picture" |
 | Delivery time and return or exchange policy near the Buy button | Reduces the risk of ordering |
 | Reviews (once there are some) | No public reviews yet (Episode 5) |
+
+
+### 4A. Store audit: actual public data (read 28 Nov 2026)
+
+Source: `aalayambyanamika.com/products.json` and the store's public pages, read on 28 Nov 2026. No customer data was accessed.
+
+**Catalogue: 13 live products**
+
+| Product | Type | Price | Sizes listed | Listed |
+|---|---|---|---|---|
+| Half Collar Cotton Co-ord Set | Co-ord | ₹1,200 | M, L, XXL (2 colours) | 26 Jul 2026 |
+| Blue Cotton Co-ord Set | Co-ord | ₹1,000 | L | 26 Jul |
+| Orange Cotton Co-ord Set | Co-ord | ₹1,000 | L | 26 Jul |
+| Rani Embroidered Cotton Co-ord Set | Co-ord | ₹1,500 | L | 26 Jul |
+| White Embroidered Co-ord Set | Co-ord | ₹1,000 | M | 26 Jul |
+| Dark Green Embroidered Co-ord Set | Co-ord | ₹1,200 | XL | 26 Jul |
+| Beige Floral Block-Print Co-ord Set | Co-ord | ₹1,500 | M, L, XL, XXL, XXXL | 2 Aug |
+| Mustard Floral Watercolor Co-ord Set | Co-ord | ₹1,500 | L, XL, XXL, XXXL | 2 Aug |
+| Brown Floral Block-Print Co-ord Set | Co-ord | ₹1,700 | M, L, XL, XXL | 2 Aug |
+| Teal Embroidered Anarkali 3-piece Set | Kurta set | ₹2,000 | M, L, XL, XXXL | 2 Aug |
+| Classic Stripe Onam Saree | Saree | ₹900 | — | 9 Aug |
+| Set Mundu ("Onam-ready…" listing) | Set mundu | ₹850 | — | 10 Aug |
+| Ajrakh Print Flared Skirt | Skirt | ₹1,500 | Free size (4 colours) | 29 Aug |
+
+**Calculated from the catalogue**
+
+| Metric | Formula and inputs | Result | Confidence |
+|---|---|---|---|
+| Co-ord price range and median | 9 co-ord prices: 1,000 ×3; 1,200 ×2; 1,500 ×3; 1,700 | ₹1,000–1,700; **median ₹1,200** | High (listed prices) |
+| Full L–3XL coverage | Co-ords listing all of L, XL, XXL, XXXL ÷ co-ords = 2 ÷ 9 | **2 of 9** (Beige, Mustard) | High |
+| Single-size co-ords | 5 ÷ 9 | **5 of 9** | High |
+| Inflated MRP shown | Products with a compare-at price ÷ 13 = 0 ÷ 13 | **0 of 13** | High |
+| SKU format followed | 11 ÷ 13 (the two Onam listings have no SKU or product type) | **11 of 13** | High |
+| Garment measurements on page | 1 ÷ 13 (Rani: top front 32", back 36", palazzo 38") | **1 of 13** | High |
+| Fabric named (cotton) | 6 ÷ 13 | **6 of 13** | High |
+| Wash care stated | 5 ÷ 13 | **5 of 13** | High |
+| Shipping weight set | Variants with weight above 0 g = 0 | **0 of 13** | High; matters if shipping rates use weight |
+| Catalogue activity | No new listings since 29 Aug 2026 | ~3 months | High |
+
+**Pages and policies (actual)**
+
+- **Navigation:** Co-ord sets (long and short length), Sarees, About, Size guide, Track order, Contact. WhatsApp chat widget ("typically replies within a few hours") with prompts on material, sizing and exchanges.
+- **Size guide:** relaxed fit in L–XXXL, a few styles in M; how to measure; *"Garment measurements for each style are being added to every product page. Until they're all up, send us your bust, waist and hip on WhatsApp and we'll tell you honestly which size to buy."* This is the **WhatsApp fit check recommended in Episode 6, already live.** It also has a cotton shrinkage and care note.
+- **Shipping:** pan-India delivery in 5–7 days. **Returns:** 30 days, unworn with tags. The wording closely follows Shopify's standard policy template, so confirm it reflects actual practice.
+- **About:** "Soft fabrics, honest fits, minimal fuss."
+- **Announcement bar:** "All India shipping available · 30% discount · International shipping available." **Two flags to confirm:** no product shows a discounted price, and the owner said in Episode 5 that NRI shipping was not live.
+
+**What the audit means**
+
+| Observation | Interpretation | Implication | Action |
+|---|---|---|---|
+| Honest prices; WhatsApp fit help live | Episode 6 ideas are already partly in practice | Strengthen, don't reinvent | Finish garment measurements on all 13 pages |
+| Only 2 of 9 co-ords in full L–3XL; 5 of 9 in one size | The plus-size promise isn't yet delivered in stock; this may reflect small ready-made lots (**hypothesis**) | Size coverage is a sourcing problem | Make L–3XL a supplier gate (section 5) |
+| SKU, product-type and weight gaps | Minor data-quality issues | Reporting by category and shipping cost will be unreliable | Fix the two Onam listings; set weights |
+| Conflicting announcement-bar claims | Messages have drifted from practice | Trust risk for an "honest" brand | Confirm or remove |
+
+**Cost model update:** the illustrative cost model in section 5 now uses the **actual median co-ord price of ₹1,200**. Net revenue is ₹1,200 ÷ 1.05 = ₹1,143. With illustrative costs (garment ₹600, packaging ₹40, shipping ₹80, fee 2% = ₹24, returns ₹32), contribution is ₹367, or **≈ 32%**. To keep 35%, the garment must cost no more than 1,143 × 0.65 − 176 ≈ **₹570**. Only the price is actual; every cost is illustrative.
 
 ### What zero or low sales would, and would not, mean
 

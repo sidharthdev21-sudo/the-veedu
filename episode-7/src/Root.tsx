@@ -9,8 +9,10 @@ export const RemotionRoot: React.FC = () => (
     <Composition id="Episode7" component={Episode7} durationInFrames={timeline.durationInFrames} fps={timeline.fps} width={1920} height={1080} />
     {S('EvidenceInventory', 'reality')}
     {S('ContentExperiments', 'audience')}
-    {S('StoreJourney', 'store')}
-    {S('SupplierPipeline', 'sourcing', 2)}
+    {S('StoreCatalogue', 'store')}
+    {S('StoreAudit', 'storeaudit')}
+    {S('SizeCoverage', 'sourcing', 2)}
+    {S('SupplierPipeline', 'sourcing', 3)}
     {S('SupplierScorecard', 'sourcing')}
     {S('UnitEconomics', 'economics')}
     {S('OperatingLoop', 'connect', 2)}

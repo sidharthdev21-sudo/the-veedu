@@ -5,13 +5,13 @@ import './styles.css';
 import timeline from './timeline.json';
 import type { Line } from './components/ui';
 import { C } from './theme';
-import { Reality, Audience, StoreScene } from './scenes/Journey';
+import { Reality, Audience, StoreScene, StoreAudit } from './scenes/Journey';
 import { Sourcing, Economics, Connect } from './scenes/Supply';
 import { Dashboard, Validate, Learned, Next } from './scenes/Ops';
 
 // Scene id (from scripts/narration.json) → component. Data lives in src/data.ts.
 export const SCENES: Record<string, React.FC<{ lines: Line[] }>> = {
-  reality: Reality, audience: Audience, store: StoreScene, sourcing: Sourcing, economics: Economics, connect: Connect,
+  reality: Reality, audience: Audience, store: StoreScene, storeaudit: StoreAudit, sourcing: Sourcing, economics: Economics, connect: Connect,
   dashboard: Dashboard, validate: Validate, learned: Learned, next: Next,
 };
 const OVERLAP = 14;
