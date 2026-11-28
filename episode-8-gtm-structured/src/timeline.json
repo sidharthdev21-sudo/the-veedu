@@ -1,0 +1,318 @@
+{
+ "fps": 30,
+ "durationInFrames": 7893,
+ "scenes": [
+  {
+   "id": "intro",
+   "title": "The GTM workflow",
+   "from": 0,
+   "durationInFrames": 513,
+   "lines": [
+    {
+     "id": "a1",
+     "text": "A go-to-market strategy answers three questions: what we sell, who we sell to, and how we reach them.",
+     "from": 15,
+     "durationInFrames": 171
+    },
+    {
+     "id": "a2",
+     "text": "We'll build Aalayam's step by step. First we study the situation. Then we choose the customer and the position. Then we plan the offer, launch it, record the data, and measure.",
+     "from": 193,
+     "durationInFrames": 309
+    }
+   ]
+  },
+  {
+   "id": "fivec",
+   "title": "Step 1: the 5Cs",
+   "from": 513,
+   "durationInFrames": 975,
+   "lines": [
+    {
+     "id": "b1",
+     "text": "Step one: the five Cs.",
+     "from": 15,
+     "durationInFrames": 48
+    },
+    {
+     "id": "b2",
+     "text": "Customers: women who wear L to triple XL. A study of four hundred plus-size Indian women found poor fit at ten of twelve body points.",
+     "from": 70,
+     "durationInFrames": 258
+    },
+    {
+     "id": "b3",
+     "text": "Company: a Kochi brand with thirteen products live, honest prices, and a WhatsApp size check.",
+     "from": 335,
+     "durationInFrames": 172
+    },
+    {
+     "id": "b4",
+     "text": "Context: women's clothing is growing about twelve percent a year, and online's share is rising from twenty to twenty-five percent.",
+     "from": 513,
+     "durationInFrames": 223
+    },
+    {
+     "id": "b5",
+     "text": "Collaborators: suppliers, Shopify and WhatsApp. Competitors: big brands selling hundreds of styles at heavy discounts.",
+     "from": 742,
+     "durationInFrames": 221
+    }
+   ]
+  },
+  {
+   "id": "segment",
+   "title": "Step 2: segment",
+   "from": 1488,
+   "durationInFrames": 522,
+   "lines": [
+    {
+     "id": "c1",
+     "text": "Step two: split the market into groups.",
+     "from": 15,
+     "durationInFrames": 64
+    },
+    {
+     "id": "c2",
+     "text": "By place: Kerala, and Malayali women in big cities. By age and size: twenty-five to forty, L to triple XL. By behaviour: women who have returned clothes that didn't fit. And by mindset: comfort first, no fuss.",
+     "from": 86,
+     "durationInFrames": 425
+    }
+   ]
+  },
+  {
+   "id": "target",
+   "title": "Step 3: target",
+   "from": 2010,
+   "durationInFrames": 606,
+   "lines": [
+    {
+     "id": "d1",
+     "text": "Step three: choose who to focus on. We compare each group on two things: how attractive it is, and how well Aalayam can serve it.",
+     "from": 15,
+     "durationInFrames": 215
+    },
+    {
+     "id": "d2",
+     "text": "Plus-size women in Kerala win on both, so they're our main target. Malayali women in big cities come next. Festival shoppers are seasonal. Overseas buyers can wait. And everyone else? We avoid.",
+     "from": 237,
+     "durationInFrames": 358
+    }
+   ]
+  },
+  {
+   "id": "position",
+   "title": "Step 4: position",
+   "from": 2616,
+   "durationInFrames": 810,
+   "lines": [
+    {
+     "id": "e1",
+     "text": "Step four: own a place in her mind. Look at the market.",
+     "from": 15,
+     "durationInFrames": 90
+    },
+    {
+     "id": "e2",
+     "text": "Unbranded sets sell for around five hundred rupees. Big brands sell for eleven hundred to eighteen hundred, after discounts of up to sixty-nine percent. Premium labels start at twenty-five hundred.",
+     "from": 112,
+     "durationInFrames": 350
+    },
+    {
+     "id": "e3",
+     "text": "Aalayam sits in the middle on price, but stands apart on fit: real measurements, sizes L to triple XL, and no fake discounts.",
+     "from": 468,
+     "durationInFrames": 238
+    },
+    {
+     "id": "e4",
+     "text": "Our position: comfort co-ords that fit the first time.",
+     "from": 713,
+     "durationInFrames": 86
+    }
+   ]
+  },
+  {
+   "id": "fourps",
+   "title": "Step 5: the 4Ps",
+   "from": 3426,
+   "durationInFrames": 928,
+   "lines": [
+    {
+     "id": "f1",
+     "text": "Step five: the marketing mix, the four Ps.",
+     "from": 15,
+     "durationInFrames": 75
+    },
+    {
+     "id": "f2",
+     "text": "Product: a six-piece capsule, every style in L, XL, double XL and triple XL, with measurements on every page.",
+     "from": 97,
+     "durationInFrames": 230
+    },
+    {
+     "id": "f3",
+     "text": "Price: one thousand to seventeen hundred rupees, with no inflated M R P.",
+     "from": 334,
+     "durationInFrames": 136
+    },
+    {
+     "id": "f4",
+     "text": "Place: our own store first, WhatsApp for help, try-on days in Kochi, and marketplaces only for bestsellers.",
+     "from": 477,
+     "durationInFrames": 199
+    },
+    {
+     "id": "f5",
+     "text": "Promotion: Instagram Reels with real women, a dozen small creators paid a flat fee, and Google for people searching nearby.",
+     "from": 683,
+     "durationInFrames": 234
+    }
+   ]
+  },
+  {
+   "id": "journey",
+   "title": "Step 6: customer journey",
+   "from": 4354,
+   "durationInFrames": 542,
+   "lines": [
+    {
+     "id": "g1",
+     "text": "Step six: map her journey, from first seeing us to coming back.",
+     "from": 15,
+     "durationInFrames": 101
+    },
+    {
+     "id": "g2",
+     "text": "She notices a Reel. She checks the size guide. She sees real measurements and wants it. She sends her size on WhatsApp and orders. And seven days later, we ask how it fits.",
+     "from": 123,
+     "durationInFrames": 308
+    },
+    {
+     "id": "g3",
+     "text": "Each step has its own message, and its own number to watch.",
+     "from": 438,
+     "durationInFrames": 93
+    }
+   ]
+  },
+  {
+   "id": "launch",
+   "title": "Step 7: launch",
+   "from": 4896,
+   "durationInFrames": 828,
+   "lines": [
+    {
+     "id": "h1",
+     "text": "Step seven: launch small, and fix the basics first.",
+     "from": 15,
+     "durationInFrames": 86
+    },
+    {
+     "id": "h2",
+     "text": "Today, only two of nine co-ords come in every size from L to triple XL, and only one of thirteen product pages shows measurements. Those get fixed before we spend on ads.",
+     "from": 108,
+     "durationInFrames": 321
+    },
+    {
+     "id": "h3",
+     "text": "Forty-five days out, we lock six styles and check suppliers can make every size. Thirty days out, samples are tested on real women. Fourteen days out, a waitlist opens. Then we launch to the waitlist first.",
+     "from": 436,
+     "durationInFrames": 381
+    }
+   ]
+  },
+  {
+   "id": "budget",
+   "title": "Step 8: budget",
+   "from": 5724,
+   "durationInFrames": 738,
+   "lines": [
+    {
+     "id": "j1",
+     "text": "Step eight: set the budget by working backwards from a goal. These numbers are an example, to be replaced with real ones.",
+     "from": 15,
+     "durationInFrames": 198
+    },
+    {
+     "id": "j2",
+     "text": "Say we want thirty orders a month from ads. If one visit in a hundred buys, we need three thousand visits. At ten rupees a click, that's thirty thousand rupees.",
+     "from": 220,
+     "durationInFrames": 279
+    },
+    {
+     "id": "j3",
+     "text": "Then check it pays. Each order must cost less than what it earns us after costs. If it doesn't, fix the store before spending more.",
+     "from": 506,
+     "durationInFrames": 221
+    }
+   ]
+  },
+  {
+   "id": "record",
+   "title": "Step 9: record data",
+   "from": 6462,
+   "durationInFrames": 672,
+   "lines": [
+    {
+     "id": "k1",
+     "text": "Step nine: record the data, because last time the results weren't written down.",
+     "from": 15,
+     "durationInFrames": 125
+    },
+    {
+     "id": "k2",
+     "text": "Every post gets a tracking tag. That tag follows the visit into the store, so each order shows which post it came from.",
+     "from": 147,
+     "durationInFrames": 202
+    },
+    {
+     "id": "k3",
+     "text": "One shared sheet holds five tabs: posts, enquiries, orders, products and suppliers. No customer names or phone numbers. And every Monday, thirty minutes to update it.",
+     "from": 355,
+     "durationInFrames": 305
+    }
+   ]
+  },
+  {
+   "id": "measure",
+   "title": "Step 10: measure",
+   "from": 7134,
+   "durationInFrames": 481,
+   "lines": [
+    {
+     "id": "m1",
+     "text": "Step ten: measure, and decide.",
+     "from": 15,
+     "durationInFrames": 53
+    },
+    {
+     "id": "m2",
+     "text": "Watch one number per stage: reach, saves, add to cart, size checks that turn into orders, and size exchanges.",
+     "from": 74,
+     "durationInFrames": 202
+    },
+    {
+     "id": "m3",
+     "text": "Wait about four weeks and a few hundred visits. Then scale what works, change what's close, and stop what isn't working.",
+     "from": 282,
+     "durationInFrames": 187
+    }
+   ]
+  },
+  {
+   "id": "close",
+   "title": "Close",
+   "from": 7615,
+   "durationInFrames": 278,
+   "lines": [
+    {
+     "id": "n1",
+     "text": "That's Aalayam's go-to-market: know the situation, choose her, stand apart, launch small, write it down, and decide with data.",
+     "from": 15,
+     "durationInFrames": 216
+    }
+   ]
+  }
+ ]
+}

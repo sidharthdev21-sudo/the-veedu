@@ -1,0 +1,143 @@
+1
+00:00:00,500 --> 00:00:06,511
+A go-to-market strategy answers three questions: what we sell, who we sell to, and how we reach them.
+
+2
+00:00:06,431 --> 00:00:17,032
+We'll build Aalayam's step by step. First we study the situation. Then we choose the customer and the position. Then we plan the offer, launch it, record the data, and measure.
+
+3
+00:00:17,612 --> 00:00:19,519
+Step one: the five Cs.
+
+4
+00:00:19,439 --> 00:00:28,332
+Customers: women who wear L to triple XL. A study of four hundred plus-size Indian women found poor fit at ten of twelve body points.
+
+5
+00:00:28,252 --> 00:00:34,271
+Company: a Kochi brand with thirteen products live, honest prices, and a WhatsApp size check.
+
+6
+00:00:34,191 --> 00:00:41,911
+Context: women's clothing is growing about twelve percent a year, and online's share is rising from twenty to twenty-five percent.
+
+7
+00:00:41,831 --> 00:00:49,511
+Collaborators: suppliers, Shopify and WhatsApp. Competitors: big brands selling hundreds of styles at heavy discounts.
+
+8
+00:00:50,091 --> 00:00:52,532
+Step two: split the market into groups.
+
+9
+00:00:52,452 --> 00:01:06,932
+By place: Kerala, and Malayali women in big cities. By age and size: twenty-five to forty, L to triple XL. By behaviour: women who have returned clothes that didn't fit. And by mindset: comfort first, no fuss.
+
+10
+00:01:07,512 --> 00:01:14,988
+Step three: choose who to focus on. We compare each group on two things: how attractive it is, and how well Aalayam can serve it.
+
+11
+00:01:14,908 --> 00:01:27,131
+Plus-size women in Kerala win on both, so they're our main target. Malayali women in big cities come next. Festival shoppers are seasonal. Overseas buyers can wait. And everyone else? We avoid.
+
+12
+00:01:27,711 --> 00:01:31,002
+Step four: own a place in her mind. Look at the market.
+
+13
+00:01:30,922 --> 00:01:42,879
+Unbranded sets sell for around five hundred rupees. Big brands sell for eleven hundred to eighteen hundred, after discounts of up to sixty-nine percent. Premium labels start at twenty-five hundred.
+
+14
+00:01:42,799 --> 00:01:51,031
+Aalayam sits in the middle on price, but stands apart on fit: real measurements, sizes L to triple XL, and no fake discounts.
+
+15
+00:01:50,951 --> 00:01:54,107
+Our position: comfort co-ords that fit the first time.
+
+16
+00:01:54,687 --> 00:01:57,498
+Step five: the marketing mix, the four Ps.
+
+17
+00:01:57,418 --> 00:02:05,398
+Product: a six-piece capsule, every style in L, XL, double XL and triple XL, with measurements on every page.
+
+18
+00:02:05,318 --> 00:02:10,167
+Price: one thousand to seventeen hundred rupees, with no inflated M R P.
+
+19
+00:02:10,087 --> 00:02:17,031
+Place: our own store first, WhatsApp for help, try-on days in Kochi, and marketplaces only for bestsellers.
+
+20
+00:02:16,951 --> 00:02:25,059
+Promotion: Instagram Reels with real women, a dozen small creators paid a flat fee, and Google for people searching nearby.
+
+21
+00:02:25,639 --> 00:02:29,307
+Step six: map her journey, from first seeing us to coming back.
+
+22
+00:02:29,227 --> 00:02:39,809
+She notices a Reel. She checks the size guide. She sees real measurements and wants it. She sends her size on WhatsApp and orders. And seven days later, we ask how it fits.
+
+23
+00:02:39,729 --> 00:02:43,131
+Each step has its own message, and its own number to watch.
+
+24
+00:02:43,711 --> 00:02:46,878
+Step seven: launch small, and fix the basics first.
+
+25
+00:02:46,798 --> 00:02:57,805
+Today, only two of nine co-ords come in every size from L to triple XL, and only one of thirteen product pages shows measurements. Those get fixed before we spend on ads.
+
+26
+00:02:57,725 --> 00:03:10,735
+Forty-five days out, we lock six styles and check suppliers can make every size. Thirty days out, samples are tested on real women. Fourteen days out, a waitlist opens. Then we launch to the waitlist first.
+
+27
+00:03:11,315 --> 00:03:18,228
+Step eight: set the budget by working backwards from a goal. These numbers are an example, to be replaced with real ones.
+
+28
+00:03:18,148 --> 00:03:27,739
+Say we want thirty orders a month from ads. If one visit in a hundred buys, we need three thousand visits. At ten rupees a click, that's thirty thousand rupees.
+
+29
+00:03:27,659 --> 00:03:35,321
+Then check it pays. Each order must cost less than what it earns us after costs. If it doesn't, fix the store before spending more.
+
+30
+00:03:35,901 --> 00:03:40,367
+Step nine: record the data, because last time the results weren't written down.
+
+31
+00:03:40,287 --> 00:03:47,309
+Every post gets a tracking tag. That tag follows the visit into the store, so each order shows which post it came from.
+
+32
+00:03:47,229 --> 00:03:57,705
+One shared sheet holds five tabs: posts, enquiries, orders, products and suppliers. No customer names or phone numbers. And every Monday, thirty minutes to update it.
+
+33
+00:03:58,285 --> 00:04:00,347
+Step ten: measure, and decide.
+
+34
+00:04:00,267 --> 00:04:07,287
+Watch one number per stage: reach, saves, add to cart, size checks that turn into orders, and size exchanges.
+
+35
+00:04:07,207 --> 00:04:13,745
+Wait about four weeks and a few hundred visits. Then scale what works, change what's close, and stop what isn't working.
+
+36
+00:04:14,325 --> 00:04:21,825
+That's Aalayam's go-to-market: know the situation, choose her, stand apart, launch small, write it down, and decide with data.

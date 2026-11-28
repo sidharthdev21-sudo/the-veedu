@@ -1,0 +1,62 @@
+[
+ {"scene": "intro", "title": "The GTM workflow", "lines": [
+  ["a1", "A go-to-market strategy answers three questions: what we sell, who we sell to, and how we reach them."],
+  ["a2", "We'll build Aalayam's step by step. First we study the situation. Then we choose the customer and the position. Then we plan the offer, launch it, record the data, and measure."]
+ ]},
+ {"scene": "fivec", "title": "Step 1: the 5Cs", "lines": [
+  ["b1", "Step one: the five Cs."],
+  ["b2", "Customers: women who wear L to triple XL. A study of four hundred plus-size Indian women found poor fit at ten of twelve body points."],
+  ["b3", "Company: a Kochi brand with thirteen products live, honest prices, and a WhatsApp size check."],
+  ["b4", "Context: women's clothing is growing about twelve percent a year, and online's share is rising from twenty to twenty-five percent."],
+  ["b5", "Collaborators: suppliers, Shopify and WhatsApp. Competitors: big brands selling hundreds of styles at heavy discounts."]
+ ]},
+ {"scene": "segment", "title": "Step 2: segment", "lines": [
+  ["c1", "Step two: split the market into groups."],
+  ["c2", "By place: Kerala, and Malayali women in big cities. By age and size: twenty-five to forty, L to triple XL. By behaviour: women who have returned clothes that didn't fit. And by mindset: comfort first, no fuss."]
+ ]},
+ {"scene": "target", "title": "Step 3: target", "lines": [
+  ["d1", "Step three: choose who to focus on. We compare each group on two things: how attractive it is, and how well Aalayam can serve it."],
+  ["d2", "Plus-size women in Kerala win on both, so they're our main target. Malayali women in big cities come next. Festival shoppers are seasonal. Overseas buyers can wait. And everyone else? We avoid."]
+ ]},
+ {"scene": "position", "title": "Step 4: position", "lines": [
+  ["e1", "Step four: own a place in her mind. Look at the market."],
+  ["e2", "Unbranded sets sell for around five hundred rupees. Big brands sell for eleven hundred to eighteen hundred, after discounts of up to sixty-nine percent. Premium labels start at twenty-five hundred."],
+  ["e3", "Aalayam sits in the middle on price, but stands apart on fit: real measurements, sizes L to triple XL, and no fake discounts."],
+  ["e4", "Our position: comfort co-ords that fit the first time."]
+ ]},
+ {"scene": "fourps", "title": "Step 5: the 4Ps", "lines": [
+  ["f1", "Step five: the marketing mix, the four Ps."],
+  ["f2", "Product: a six-piece capsule, every style in L, XL, double XL and triple XL, with measurements on every page."],
+  ["f3", "Price: one thousand to seventeen hundred rupees, with no inflated M R P."],
+  ["f4", "Place: our own store first, WhatsApp for help, try-on days in Kochi, and marketplaces only for bestsellers."],
+  ["f5", "Promotion: Instagram Reels with real women, a dozen small creators paid a flat fee, and Google for people searching nearby."]
+ ]},
+ {"scene": "journey", "title": "Step 6: customer journey", "lines": [
+  ["g1", "Step six: map her journey, from first seeing us to coming back."],
+  ["g2", "She notices a Reel. She checks the size guide. She sees real measurements and wants it. She sends her size on WhatsApp and orders. And seven days later, we ask how it fits."],
+  ["g3", "Each step has its own message, and its own number to watch."]
+ ]},
+ {"scene": "launch", "title": "Step 7: launch", "lines": [
+  ["h1", "Step seven: launch small, and fix the basics first."],
+  ["h2", "Today, only two of nine co-ords come in every size from L to triple XL, and only one of thirteen product pages shows measurements. Those get fixed before we spend on ads."],
+  ["h3", "Forty-five days out, we lock six styles and check suppliers can make every size. Thirty days out, samples are tested on real women. Fourteen days out, a waitlist opens. Then we launch to the waitlist first."]
+ ]},
+ {"scene": "budget", "title": "Step 8: budget", "lines": [
+  ["j1", "Step eight: set the budget by working backwards from a goal. These numbers are an example, to be replaced with real ones."],
+  ["j2", "Say we want thirty orders a month from ads. If one visit in a hundred buys, we need three thousand visits. At ten rupees a click, that's thirty thousand rupees."],
+  ["j3", "Then check it pays. Each order must cost less than what it earns us after costs. If it doesn't, fix the store before spending more."]
+ ]},
+ {"scene": "record", "title": "Step 9: record data", "lines": [
+  ["k1", "Step nine: record the data, because last time the results weren't written down."],
+  ["k2", "Every post gets a tracking tag. That tag follows the visit into the store, so each order shows which post it came from."],
+  ["k3", "One shared sheet holds five tabs: posts, enquiries, orders, products and suppliers. No customer names or phone numbers. And every Monday, thirty minutes to update it."]
+ ]},
+ {"scene": "measure", "title": "Step 10: measure", "lines": [
+  ["m1", "Step ten: measure, and decide."],
+  ["m2", "Watch one number per stage: reach, saves, add to cart, size checks that turn into orders, and size exchanges."],
+  ["m3", "Wait about four weeks and a few hundred visits. Then scale what works, change what's close, and stop what isn't working."]
+ ]},
+ {"scene": "close", "title": "Close", "lines": [
+  ["n1", "That's Aalayam's go-to-market: know the situation, choose her, stand apart, launch small, write it down, and decide with data."]
+ ]}
+]
