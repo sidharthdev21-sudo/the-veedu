@@ -3,7 +3,7 @@
 
 **Question:** *Can Aalayam operate as a real clothing business? What did the move from research to real-world activity teach us, and what should be decided next?*
 
-**Status: draft for review, before rendering.** The audit in section 1 found that **most of the performance data from Aalayam's real activities is not available in this project**: Instagram insights, Shopify analytics and supplier records. This report therefore:
+**Status: provisional. The video was produced on 28 Nov 2026, on the owner's instruction, with the real data still unavailable (an "awaiting data" version).** The audit in section 1 found that **most of the performance data from Aalayam's real activities is not available in this project**: Instagram insights, Shopify analytics and supplier records. This report therefore:
 1. documents what *actually exists*,
 2. builds the data model, frameworks and dashboard that the real data should flow into, and
 3. uses **clearly labelled illustrative values** only where a worked example is needed.
