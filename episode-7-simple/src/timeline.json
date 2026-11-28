@@ -1,0 +1,174 @@
+{
+ "fps": 30,
+ "durationInFrames": 3594,
+ "scenes": [
+  {
+   "id": "intro",
+   "title": "From research to reality",
+   "from": 0,
+   "durationInFrames": 568,
+   "lines": [
+    {
+     "id": "a1",
+     "text": "For six episodes, we researched the market. Now it's time to ask a simpler question: can Aalayam work as a real business?",
+     "from": 15,
+     "durationInFrames": 220
+    },
+    {
+     "id": "a2",
+     "text": "To find out, we did four real things. We posted on Instagram. We opened an online store. We travelled across India to meet suppliers. And we planned a pop-up event in Kochi.",
+     "from": 241,
+     "durationInFrames": 315
+    }
+   ]
+  },
+  {
+   "id": "store",
+   "title": "The store today",
+   "from": 568,
+   "durationInFrames": 464,
+   "lines": [
+    {
+     "id": "b1",
+     "text": "Here's what the store looks like today.",
+     "from": 15,
+     "durationInFrames": 50
+    },
+    {
+     "id": "b2",
+     "text": "Thirteen products are live. Most are cotton co-ord sets, priced between one thousand and seventeen hundred rupees.",
+     "from": 71,
+     "durationInFrames": 196
+    },
+    {
+     "id": "b3",
+     "text": "The brand's promise is simple: comfortable clothes, in sizes L to triple XL, at an honest price.",
+     "from": 274,
+     "durationInFrames": 179
+    }
+   ]
+  },
+  {
+   "id": "working",
+   "title": "What's working",
+   "from": 1032,
+   "durationInFrames": 431,
+   "lines": [
+    {
+     "id": "c1",
+     "text": "Two things are already working well.",
+     "from": 15,
+     "durationInFrames": 53
+    },
+    {
+     "id": "c2",
+     "text": "First, honest prices. No product shows a fake original price with a big discount.",
+     "from": 75,
+     "durationInFrames": 152
+    },
+    {
+     "id": "c3",
+     "text": "Second, help with size. Customers can send their measurements on WhatsApp, and the team tells them which size to buy.",
+     "from": 233,
+     "durationInFrames": 186
+    }
+   ]
+  },
+  {
+   "id": "fix",
+   "title": "What to fix",
+   "from": 1463,
+   "durationInFrames": 790,
+   "lines": [
+    {
+     "id": "d1",
+     "text": "And three things need fixing.",
+     "from": 15,
+     "durationInFrames": 42
+    },
+    {
+     "id": "d2",
+     "text": "One: sizes. The promise is L to triple XL, but only two of the nine co-ord sets come in all four of those sizes.",
+     "from": 63,
+     "durationInFrames": 220
+    },
+    {
+     "id": "d3",
+     "text": "Two: product pages. Only one of thirteen shows the garment's actual measurements, and fit is what shoppers worry about most.",
+     "from": 289,
+     "durationInFrames": 214
+    },
+    {
+     "id": "d4",
+     "text": "Three: results weren't written down. The first Instagram campaign went well, but nobody recorded the numbers. Without numbers, you can't tell what really worked.",
+     "from": 511,
+     "durationInFrames": 268
+    }
+   ]
+  },
+  {
+   "id": "rule",
+   "title": "A simple rule",
+   "from": 2253,
+   "durationInFrames": 523,
+   "lines": [
+    {
+     "id": "e1",
+     "text": "So before adding any new product, Aalayam can ask three simple questions.",
+     "from": 15,
+     "durationInFrames": 124
+    },
+    {
+     "id": "e2",
+     "text": "Do customers want it? Can a supplier make it in L to triple XL? And after all the costs, is there money left over?",
+     "from": 145,
+     "durationInFrames": 202
+    },
+    {
+     "id": "e3",
+     "text": "Three yeses means: order a small batch and test it. Any no means: fix it first, or skip it.",
+     "from": 354,
+     "durationInFrames": 158
+    }
+   ]
+  },
+  {
+   "id": "next",
+   "title": "Next 90 days",
+   "from": 2776,
+   "durationInFrames": 818,
+   "lines": [
+    {
+     "id": "f1",
+     "text": "The plan for the next ninety days has three steps.",
+     "from": 15,
+     "durationInFrames": 77
+    },
+    {
+     "id": "f2",
+     "text": "First, write things down: every post, every enquiry, every supplier, and add measurements to every product.",
+     "from": 99,
+     "durationInFrames": 186
+    },
+    {
+     "id": "f3",
+     "text": "Then, test: talk to customers, get samples from suppliers, and try new posts.",
+     "from": 292,
+     "durationInFrames": 135
+    },
+    {
+     "id": "f4",
+     "text": "Finally, decide: launch a small batch, change the plan, or stop.",
+     "from": 434,
+     "durationInFrames": 109
+    },
+    {
+     "id": "f5",
+     "text": "We moved from understanding the market to testing the business. Next, we turn what we learned into a business that works, again and again.",
+     "from": 549,
+     "durationInFrames": 221
+    }
+   ]
+  }
+ ]
+}
