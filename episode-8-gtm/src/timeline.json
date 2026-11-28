@@ -1,0 +1,210 @@
+{
+ "fps": 30,
+ "durationInFrames": 4326,
+ "scenes": [
+  {
+   "id": "intro",
+   "title": "What is go-to-market?",
+   "from": 0,
+   "durationInFrames": 349,
+   "lines": [
+    {
+     "id": "a1",
+     "text": "A great product nobody hears about doesn't sell. A go-to-market strategy fixes that.",
+     "from": 15,
+     "durationInFrames": 147
+    },
+    {
+     "id": "a2",
+     "text": "It answers three simple questions. What are we selling? Who are we selling to? And how will we reach them?",
+     "from": 168,
+     "durationInFrames": 169
+    }
+   ]
+  },
+  {
+   "id": "what",
+   "title": "What we sell",
+   "from": 349,
+   "durationInFrames": 507,
+   "lines": [
+    {
+     "id": "b1",
+     "text": "What are we selling? Comfortable cotton co-ord sets, in sizes L to triple XL, priced from one thousand to seventeen hundred rupees.",
+     "from": 15,
+     "durationInFrames": 238
+    },
+    {
+     "id": "b2",
+     "text": "And one clear promise: clothes that fit the first time. Real measurements on every product, honest prices, and size help on WhatsApp.",
+     "from": 259,
+     "durationInFrames": 236
+    }
+   ]
+  },
+  {
+   "id": "who",
+   "title": "Who we sell to",
+   "from": 856,
+   "durationInFrames": 610,
+   "lines": [
+    {
+     "id": "c1",
+     "text": "Who are we selling to? Not everyone. Women aged twenty-five to forty who wear L to triple XL, in Kerala, and Malayali women in India's big cities.",
+     "from": 15,
+     "durationInFrames": 294
+    },
+    {
+     "id": "c2",
+     "text": "Picture Anu. She's thirty-two, wears an XL top and a double XL pant, and has sent back clothes that didn't fit. She trusts real women more than models.",
+     "from": 316,
+     "durationInFrames": 282
+    }
+   ]
+  },
+  {
+   "id": "how",
+   "title": "How we reach her",
+   "from": 1466,
+   "durationInFrames": 486,
+   "lines": [
+    {
+     "id": "d1",
+     "text": "How will we reach her? Through the places she already is.",
+     "from": 15,
+     "durationInFrames": 79
+    },
+    {
+     "id": "d2",
+     "text": "Instagram Reels showing real women in every size. A WhatsApp size check. Our own online store. Google, for people searching nearby. Small creators who wear our sizes. And try-on days in Kochi.",
+     "from": 100,
+     "durationInFrames": 374
+    }
+   ]
+  },
+  {
+   "id": "launch",
+   "title": "Launch in three steps",
+   "from": 1952,
+   "durationInFrames": 444,
+   "lines": [
+    {
+     "id": "e1",
+     "text": "We won't launch big. We'll launch small, and learn.",
+     "from": 15,
+     "durationInFrames": 71
+    },
+    {
+     "id": "e2",
+     "text": "Step one: get noticed. Step two: win a first order. Step three: bring her back for a second.",
+     "from": 93,
+     "durationInFrames": 164
+    },
+    {
+     "id": "e3",
+     "text": "We start with just six styles, each in every size from L to triple XL, and grow what works.",
+     "from": 263,
+     "durationInFrames": 170
+    }
+   ]
+  },
+  {
+   "id": "why",
+   "title": "Why record data",
+   "from": 2396,
+   "durationInFrames": 482,
+   "lines": [
+    {
+     "id": "f1",
+     "text": "But a plan only works if we can see what's working. And last time, the results weren't written down.",
+     "from": 15,
+     "durationInFrames": 162
+    },
+    {
+     "id": "f2",
+     "text": "So from now on, we record five things: every post, every enquiry, every order, every product, and every supplier. All in one shared sheet, with five tabs.",
+     "from": 184,
+     "durationInFrames": 287
+    }
+   ]
+  },
+  {
+   "id": "recordhow",
+   "title": "How to record",
+   "from": 2878,
+   "durationInFrames": 691,
+   "lines": [
+    {
+     "id": "g1",
+     "text": "Recording is simple.",
+     "from": 15,
+     "durationInFrames": 33
+    },
+    {
+     "id": "g2",
+     "text": "After each post, note six numbers from Instagram: reach, likes, saves, shares, profile visits, and link clicks.",
+     "from": 55,
+     "durationInFrames": 196
+    },
+    {
+     "id": "g3",
+     "text": "For every message, note the date, the channel, what she asked about, her size, and whether she ordered. No names, no phone numbers.",
+     "from": 257,
+     "durationInFrames": 211
+    },
+    {
+     "id": "g4",
+     "text": "Put a tracking tag on every link, so we know which post brought each visit.",
+     "from": 475,
+     "durationInFrames": 114
+    },
+    {
+     "id": "g5",
+     "text": "And every Monday, spend thirty minutes updating the sheet.",
+     "from": 596,
+     "durationInFrames": 84
+    }
+   ]
+  },
+  {
+   "id": "decide",
+   "title": "From records to decisions",
+   "from": 3569,
+   "durationInFrames": 437,
+   "lines": [
+    {
+     "id": "h1",
+     "text": "Then we watch three numbers. How many people save our posts. How many size checks turn into orders. And how many orders come back for a different size.",
+     "from": 15,
+     "durationInFrames": 251
+    },
+    {
+     "id": "h2",
+     "text": "One rule: don't judge too early. Wait about four weeks, and a few hundred visits, before deciding.",
+     "from": 273,
+     "durationInFrames": 153
+    }
+   ]
+  },
+  {
+   "id": "close",
+   "title": "Next 90 days",
+   "from": 4006,
+   "durationInFrames": 320,
+   "lines": [
+    {
+     "id": "k1",
+     "text": "So, the next ninety days: fix the basics, launch small, measure and decide.",
+     "from": 15,
+     "durationInFrames": 134
+    },
+    {
+     "id": "k2",
+     "text": "Know who you're for. Reach her where she is. Write it all down. Then decide.",
+     "from": 156,
+     "durationInFrames": 117
+    }
+   ]
+  }
+ ]
+}

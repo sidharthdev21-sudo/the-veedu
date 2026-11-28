@@ -1,0 +1,42 @@
+[
+ {"scene": "intro", "title": "What is go-to-market?", "lines": [
+  ["a1", "A great product nobody hears about doesn't sell. A go-to-market strategy fixes that."],
+  ["a2", "It answers three simple questions. What are we selling? Who are we selling to? And how will we reach them?"]
+ ]},
+ {"scene": "what", "title": "What we sell", "lines": [
+  ["b1", "What are we selling? Comfortable cotton co-ord sets, in sizes L to triple XL, priced from one thousand to seventeen hundred rupees."],
+  ["b2", "And one clear promise: clothes that fit the first time. Real measurements on every product, honest prices, and size help on WhatsApp."]
+ ]},
+ {"scene": "who", "title": "Who we sell to", "lines": [
+  ["c1", "Who are we selling to? Not everyone. Women aged twenty-five to forty who wear L to triple XL, in Kerala, and Malayali women in India's big cities."],
+  ["c2", "Picture Anu. She's thirty-two, wears an XL top and a double XL pant, and has sent back clothes that didn't fit. She trusts real women more than models."]
+ ]},
+ {"scene": "how", "title": "How we reach her", "lines": [
+  ["d1", "How will we reach her? Through the places she already is."],
+  ["d2", "Instagram Reels showing real women in every size. A WhatsApp size check. Our own online store. Google, for people searching nearby. Small creators who wear our sizes. And try-on days in Kochi."]
+ ]},
+ {"scene": "launch", "title": "Launch in three steps", "lines": [
+  ["e1", "We won't launch big. We'll launch small, and learn."],
+  ["e2", "Step one: get noticed. Step two: win a first order. Step three: bring her back for a second."],
+  ["e3", "We start with just six styles, each in every size from L to triple XL, and grow what works."]
+ ]},
+ {"scene": "why", "title": "Why record data", "lines": [
+  ["f1", "But a plan only works if we can see what's working. And last time, the results weren't written down."],
+  ["f2", "So from now on, we record five things: every post, every enquiry, every order, every product, and every supplier. All in one shared sheet, with five tabs."]
+ ]},
+ {"scene": "recordhow", "title": "How to record", "lines": [
+  ["g1", "Recording is simple."],
+  ["g2", "After each post, note six numbers from Instagram: reach, likes, saves, shares, profile visits, and link clicks."],
+  ["g3", "For every message, note the date, the channel, what she asked about, her size, and whether she ordered. No names, no phone numbers."],
+  ["g4", "Put a tracking tag on every link, so we know which post brought each visit."],
+  ["g5", "And every Monday, spend thirty minutes updating the sheet."]
+ ]},
+ {"scene": "decide", "title": "From records to decisions", "lines": [
+  ["h1", "Then we watch three numbers. How many people save our posts. How many size checks turn into orders. And how many orders come back for a different size."],
+  ["h2", "One rule: don't judge too early. Wait about four weeks, and a few hundred visits, before deciding."]
+ ]},
+ {"scene": "close", "title": "Next 90 days", "lines": [
+  ["k1", "So, the next ninety days: fix the basics, launch small, measure and decide."],
+  ["k2", "Know who you're for. Reach her where she is. Write it all down. Then decide."]
+ ]}
+]
