@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>The Veedu — Go-to-Market Strategy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root { --obsidian:#08090C; --charcoal:#0E1015; --charcoal2:#14171E; --line:#22262F; --white:#ECECF1; --grey:#A3A5B0; --dim:#6B6E79; --cyan:#6CF0FF; --violet:#B48CFF; --lime:#D4FF6A; --green:#5EE6A8; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; background: var(--obsidian); }
+  #stage { position: relative; width: 1920px; height: 1080px; overflow: hidden; background: var(--obsidian); font-family: 'Inter', system-ui, sans-serif; color: var(--white); }
+  h1, h2, h3, .sg { font-family: 'Space Grotesk', 'Inter', sans-serif; margin: 0; letter-spacing: -0.02em; font-weight: 500; }
+  p { margin: 0; }
+  .grid { position: absolute; inset: 0; opacity: 0.04; background-image: linear-gradient(var(--grey) 1px, transparent 1px), linear-gradient(90deg, var(--grey) 1px, transparent 1px); background-size: 160px 160px; }
+  .glow { position: absolute; inset: 0; background: radial-gradient(900px 600px at 85% 15%, rgba(108,240,255,0.08), transparent 60%), radial-gradient(800px 500px at 10% 95%, rgba(180,140,255,0.07), transparent 60%); }
+  .scene { position: absolute; inset: 0; opacity: 0; }
+  .abs { position: absolute; }
+  #bug { position: absolute; top: 56px; left: 96px; font-family: 'Space Grotesk'; font-size: 20px; letter-spacing: 4px; color: rgba(236,236,241,0.6); }
+  #bug b { color: var(--cyan); font-weight: 500; }
+  #chap { position: absolute; top: 56px; right: 96px; font-family: 'Space Grotesk'; font-size: 20px; letter-spacing: 3px; color: var(--grey); text-transform: uppercase; }
+  #chap b { color: var(--cyan); font-weight: 600; }
+  #prog { position: absolute; left: 0; bottom: 0; height: 4px; background: var(--cyan); }
+  .eyebrow { font-family: 'Space Grotesk'; font-size: 22px; letter-spacing: 5px; text-transform: uppercase; color: var(--cyan); }
+  .mega { font-family: 'Space Grotesk'; font-weight: 600; letter-spacing: -0.04em; line-height: 0.95; }
+  .h-xl { font-size: 88px; line-height: 1.04; }
+  .h-l { font-size: 62px; line-height: 1.08; }
+  .h-m { font-size: 42px; line-height: 1.15; }
+  .soft { color: var(--grey); }
+  .panel { background: var(--charcoal); border: 1px solid var(--line); border-radius: 22px; }
+  .tag { display: inline-block; font-family: 'Space Grotesk'; font-size: 16px; letter-spacing: 3px; text-transform: uppercase; padding: 7px 15px; border-radius: 999px; border: 1.5px solid currentColor; white-space: nowrap; }
+  .k { font-family: 'Space Grotesk'; font-size: 18px; letter-spacing: 3px; text-transform: uppercase; color: var(--dim); }
+  .chip { display: inline-block; padding: 14px 24px; border-radius: 14px; background: var(--charcoal2); border: 1px solid var(--line); font-size: 26px; margin-right: 12px; }
+  .tile { padding: 30px 34px; }
+  .tile .v { font-family: 'Space Grotesk'; font-weight: 600; font-size: 60px; letter-spacing: -0.03em; line-height: 1; }
+  .tile .l { font-size: 23px; color: var(--grey); margin-top: 12px; line-height: 1.4; }
+  .row3 { display: grid; grid-template-columns: 1fr 70px 1fr 70px 1.2fr; align-items: center; }
+  .arrow { height: 2px; background: var(--dim); margin: 0 14px; position: relative; }
+  .arrow::after { content: ''; position: absolute; right: -2px; top: -5px; border-left: 10px solid var(--dim); border-top: 6px solid transparent; border-bottom: 6px solid transparent; }
+</style>
+</head>
+<body>
+<div id="stage">
+  <div class="glow"></div><div class="grid"></div>
+
+  <!-- 1 HOOK -->
+  <section class="scene" data-i="0" data-chap="">
+    <div class="abs" style="left:96px;top:250px;width:1728px">
+      <h1 class="h-xl a" data-t="1.6">Families arrive in Kochi<br>with someone in a hospital bed.</h1>
+      <h2 class="h-m soft a" data-t="5.6" style="margin-top:36px">None of them are looking for a holiday.</h2>
+      <h2 class="h-l a" data-t="8.1" style="margin-top:20px;color:var(--cyan)">They're looking for certainty.</h2>
+    </div>
+    <div class="abs a" data-t="9.7" style="left:96px;top:860px;display:flex;gap:18px;align-items:center"><span style="font-family:'Space Grotesk';font-size:30px;font-weight:600">The <span style="color:var(--cyan)">Veedu</span></span><span class="tag" style="color:var(--grey)">Go-to-market strategy</span></div>
+  </section>
+
+  <!-- 2 INSIGHT -->
+  <section class="scene" data-i="1" data-chap="01 · The insight">
+    <div class="abs a" data-t="0.4" style="left:96px;top:170px;display:flex;gap:10px">
+      <span class="chip" style="font-size:19px;padding:10px 16px">01 Market data</span><span class="chip" style="font-size:19px;padding:10px 16px">02 Competitors &amp; reviews</span><span class="chip" style="font-size:19px;padding:10px 16px">03 Market sizing</span><span class="chip" style="font-size:19px;padding:10px 16px">04 Strategy</span><span class="chip" style="font-size:19px;padding:10px 16px">05 Validation</span>
+    </div>
+    <div class="abs" style="left:96px;top:330px;width:1728px">
+      <div class="mega a" data-t="3.2" style="font-size:230px;color:var(--lime)">DISTANCE</div>
+      <h2 class="h-l a" data-t="3.6" style="margin-top:30px">is why families choose a stay,</h2>
+      <h2 class="h-l soft a" data-t="5.9">and the least consistent fact in listings.</h2>
+      <div class="a" data-t="8.9" style="margin-top:44px;font-size:28px;color:var(--grey)">Every decision below follows from this · <span class="tag" style="color:var(--cyan)">Research finding · Ep02</span></div>
+    </div>
+  </section>
+
+  <!-- 3 TARGET -->
+  <section class="scene" data-i="2" data-chap="02 · Where to play">
+    <div class="abs" style="left:96px;top:160px"><div class="eyebrow a" data-t="0.2">Focus, not everywhere</div></div>
+    <div class="abs" style="left:96px;top:240px;width:1728px;display:grid;grid-template-columns:1fr 1.4fr;gap:24px">
+      <div class="tile panel a" data-t="2.2" style="border-color:rgba(108,240,255,.5)"><div class="k" style="color:var(--cyan)">One hospital</div><div class="v" style="margin-top:16px">Aster Medcity</div><div class="l">Cheranalloor, Kochi · Amrita comes next</div></div>
+      <div class="tile panel a" data-t="5.8"><div class="k" style="color:var(--cyan)">One customer</div><div style="font-family:'Space Grotesk';font-size:44px;margin-top:16px;line-height:1.15">Out-of-town family caring for an admitted patient</div></div>
+    </div>
+    <div class="abs" style="left:96px;top:640px">
+      <span class="chip a" data-t="9.0">More people than the room allows</span><span class="chip a" data-t="10.2">Stays of days to weeks</span>
+    </div>
+    <div class="abs a" data-t="10.8" style="left:96px;top:790px"><span class="tag" style="color:var(--violet)">Target segment · hypothesis to confirm in interviews</span></div>
+  </section>
+
+  <!-- 4 POSITIONING -->
+  <section class="scene" data-i="3" data-chap="03 · Positioning">
+    <div class="abs" style="left:96px;top:160px"><div class="eyebrow a" data-t="0.2">The position we will earn</div></div>
+    <h1 class="h-l abs a" data-t="1.8" style="left:96px;top:230px;width:1700px">The stay-finder that <span style="color:var(--cyan)">checks</span> what caregivers decide on.</h1>
+    <div class="abs" style="left:96px;top:470px;width:1728px;display:grid;grid-template-columns:repeat(3,1fr);gap:18px">
+      <div class="tile panel a" data-t="5.4"><div class="k">✓ Checked</div><div style="font-size:32px;margin-top:12px;font-family:'Space Grotesk'">Walking time to the entrance</div></div>
+      <div class="tile panel a" data-t="7.6"><div class="k">✓ Checked</div><div style="font-size:32px;margin-top:12px;font-family:'Space Grotesk'">All-in price for the family</div></div>
+      <div class="tile panel a" data-t="9.9"><div class="k">✓ Checked</div><div style="font-size:32px;margin-top:12px;font-family:'Space Grotesk'">Works for a stay of weeks</div></div>
+    </div>
+    <div class="abs" style="left:96px;top:760px;display:flex;gap:30px;align-items:center">
+      <span class="a" data-t="12.2" style="font-size:36px;font-family:'Space Grotesk';color:var(--grey);text-decoration:line-through">Near the hospital.</span>
+      <span class="a" data-t="13.6" style="font-size:36px;font-family:'Space Grotesk';padding:12px 24px;border:2px solid var(--cyan);border-radius:12px;color:var(--cyan)">CHECKED · [date]</span>
+    </div>
+  </section>
+
+  <!-- 5 BRAND -->
+  <section class="scene" data-i="4" data-chap="04 · Brand">
+    <div class="abs" style="left:96px;top:160px"><div class="eyebrow a" data-t="0.2">The promise is the brand</div></div>
+    <div class="abs" style="left:96px;top:230px;width:900px;display:grid;grid-template-columns:repeat(3,1fr);gap:12px">
+      <div class="panel a" data-t="0.6" style="padding:18px 20px"><div class="k">Physique</div><div style="font-size:21px;margin-top:8px">Big plain numbers, a date stamp</div></div>
+      <div class="panel a" data-t="0.8" style="padding:18px 20px"><div class="k">Personality</div><div style="font-size:21px;margin-top:8px">Calm, organised local friend</div></div>
+      <div class="panel a" data-t="1.0" style="padding:18px 20px"><div class="k">Culture</div><div style="font-size:21px;margin-top:8px">Honesty over hype</div></div>
+      <div class="panel a" data-t="1.2" style="padding:18px 20px"><div class="k">Relationship</div><div style="font-size:21px;margin-top:8px">A guide in a hard week</div></div>
+      <div class="panel a" data-t="1.4" style="padding:18px 20px"><div class="k">Reflection</div><div style="font-size:21px;margin-top:8px">The one who has it in hand</div></div>
+      <div class="panel a" data-t="1.6" style="padding:18px 20px"><div class="k">Self-image</div><div style="font-size:21px;margin-top:8px">"I can focus on Amma now"</div></div>
+    </div>
+    <h1 class="h-l abs a" data-t="3.3" style="left:96px;top:560px;width:1000px">Checked, so you don't have to.</h1>
+    <div class="abs panel a" data-t="5.4" style="left:1120px;top:230px;width:704px;padding:30px 34px;border-color:rgba(212,255,106,.5)">
+      <div class="k" style="color:var(--lime)">Marketing task #1</div>
+      <div style="font-family:'Space Grotesk';font-size:36px;margin-top:14px;line-height:1.2">Remove any claim we can't yet prove</div>
+      <div class="a" data-t="8.3" style="margin-top:26px;font-size:24px;color:var(--grey)">Live homepage today: <span style="text-decoration:line-through;color:var(--white)">"Verified &amp; ready"</span></div>
+    </div>
+  </section>
+
+  <!-- 6 PRICING -->
+  <section class="scene" data-i="5" data-chap="05 · Pricing">
+    <div class="abs" style="left:96px;top:160px"><div class="eyebrow a" data-t="0.2">Price is more than money</div></div>
+    <div class="abs" style="left:96px;top:230px"><span class="chip a" data-t="2.5">Time</span><span class="chip a" data-t="2.9">Effort</span><span class="chip a" data-t="3.3">Risk</span></div>
+    <div class="abs" style="left:96px;top:380px;width:1728px;display:grid;grid-template-columns:1fr 1.5fr;gap:24px">
+      <div class="tile panel a" data-t="4.6"><div class="k">Families</div><div class="v" style="font-size:130px;color:var(--cyan);margin-top:10px">₹0</div><div class="l">No booking or service fee. They pay the host directly.</div></div>
+      <div class="tile panel a" data-t="7.5"><div class="k">Hosts</div><div style="display:flex;align-items:baseline;gap:30px;margin-top:10px"><span class="v" style="font-size:90px">₹0</span><span style="font-size:26px;color:var(--grey)">during the pilot</span><span style="font-size:40px;color:var(--dim)">→</span><span class="v" style="font-size:90px;color:var(--cyan)">12%</span></div><div class="l">on host-confirmed stays only · below big-platform commissions</div></div>
+    </div>
+    <div class="abs a" data-t="11.9" style="left:96px;top:760px"><span class="tag" style="color:var(--violet)">Proposed pricing · penetration on supply</span></div>
+  </section>
+
+  <!-- 7 MESSAGING -->
+  <section class="scene" data-i="6" data-chap="06 · Messaging">
+    <div class="abs" style="left:96px;top:160px"><div class="eyebrow a" data-t="0.2">Feature → advantage → benefit</div></div>
+    <div class="abs" style="left:96px;top:260px;width:1728px">
+      <div class="row3"><div class="panel a" data-t="3.0" style="padding:24px 26px;font-size:28px">Measured walking time</div><div class="arrow a" data-t="3.6"></div><div class="panel a" data-t="3.8" style="padding:24px 26px;font-size:28px">You know how close you are</div><div class="arrow a" data-t="4.6"></div><div class="panel a" data-t="4.9" style="padding:24px 26px;font-size:30px;border-color:rgba(108,240,255,.5);font-family:'Space Grotesk'">"You can reach your mother in minutes"</div></div>
+      <div class="row3" style="margin-top:28px"><div class="panel a" data-t="6.6" style="padding:24px 26px;font-size:28px">One all-in price</div><div class="arrow a" data-t="7.2"></div><div class="panel a" data-t="7.4" style="padding:24px 26px;font-size:28px">Every person is included</div><div class="arrow a" data-t="8.0"></div><div class="panel a" data-t="8.3" style="padding:24px 26px;font-size:30px;border-color:rgba(108,240,255,.5);font-family:'Space Grotesk'">"No surprise at checkout"</div></div>
+    </div>
+    <h2 class="h-l abs a" data-t="10.2" style="left:96px;top:700px">Evidence, <span style="color:var(--cyan)">not hype.</span></h2>
+    <div class="abs a" data-t="10.6" style="left:96px;top:800px;font-size:24px;color:var(--grey)">High-involvement decision → rational route · no patient imagery, no fear, no discounts</div>
+  </section>
+
+  <!-- 8 CHANNELS -->
+  <section class="scene" data-i="7" data-chap="07 · Channels">
+    <div class="abs" style="left:96px;top:160px"><div class="eyebrow a" data-t="0.2">Go where the need shows up</div></div>
+    <div class="abs" style="left:96px;top:240px;width:1728px;display:grid;grid-template-columns:repeat(4,1fr);gap:18px">
+      <div class="tile panel a" data-t="1.9"><div class="k" style="color:var(--cyan)">Search</div><div style="font-family:'Space Grotesk';font-size:30px;margin-top:14px;line-height:1.25">"rooms near Aster Medcity for bystanders"</div><div class="l">Long-tail · SEO + small SEM</div></div>
+      <div class="tile panel a" data-t="4.5"><div class="k" style="color:var(--cyan)">WhatsApp</div><div style="font-family:'Space Grotesk';font-size:30px;margin-top:14px;line-height:1.25">Where families actually decide</div><div class="l">Pre-filled enquiry · share card</div></div>
+      <div class="tile panel a" data-t="6.5"><div class="k" style="color:var(--cyan)">Walk-time videos</div><div style="font-family:'Space Grotesk';font-size:30px;margin-top:14px;line-height:1.25">Hospital gate → every door</div><div class="l">YouTube · listing pages</div></div>
+      <div class="tile panel a" data-t="10.0"><div class="k" style="color:var(--cyan)">AI answers (GEO)</div><div style="font-family:'Space Grotesk';font-size:30px;margin-top:14px;line-height:1.25">Answer-ready, dated Q&amp;A pages</div><div class="l">Quoted by AI search</div></div>
+    </div>
+    <div class="abs a" data-t="12.7" style="left:96px;top:720px;display:flex;gap:18px;align-items:center"><span class="tag" style="color:var(--violet)">Posting Zero</span><span style="font-size:32px;font-family:'Space Grotesk'">Social media supports. It doesn't lead.</span></div>
+  </section>
+
+  <!-- 9 LAUNCH -->
+  <section class="scene" data-i="8" data-chap="08 · Launch">
+    <div class="abs" style="left:96px;top:160px"><div class="eyebrow a" data-t="0.2">Soft launch, on purpose</div></div>
+    <div class="abs a" data-t="2.0" style="left:96px;top:230px;display:flex;align-items:baseline;gap:30px"><span class="mega" style="font-size:180px">10–15</span><span style="font-size:36px;color:var(--grey)">properties, every one checked in person</span></div>
+    <div class="abs a" data-t="5.2" style="left:96px;top:520px;width:1728px;height:2px;background:var(--line)"></div>
+    <div class="abs" style="left:96px;top:490px;width:1728px;display:grid;grid-template-columns:repeat(4,1fr)">
+      <div class="a" data-t="5.2"><div style="width:20px;height:20px;border-radius:50%;border:2px solid var(--cyan);background:var(--obsidian);margin-top:20px"></div><div class="k" style="margin-top:18px;color:var(--cyan)">T−21</div><div style="font-size:24px;margin-top:8px">Fix copy · add Aster</div></div>
+      <div class="a" data-t="5.7"><div style="width:20px;height:20px;border-radius:50%;border:2px solid var(--cyan);background:var(--obsidian);margin-top:20px"></div><div class="k" style="margin-top:18px;color:var(--cyan)">T−14</div><div style="font-size:24px;margin-top:8px">Interviews · host guide</div></div>
+      <div class="a" data-t="6.2"><div style="width:20px;height:20px;border-radius:50%;border:2px solid var(--cyan);background:var(--obsidian);margin-top:20px"></div><div class="k" style="margin-top:18px;color:var(--cyan)">T−7</div><div style="font-size:24px;margin-top:8px">Listings verified · videos live</div></div>
+      <div class="a" data-t="8.5"><div style="width:20px;height:20px;border-radius:50%;border:2px solid var(--lime);background:var(--lime);margin-top:20px"></div><div class="k" style="margin-top:18px;color:var(--lime)">T0 · go live</div><div style="font-size:24px;margin-top:8px">Watch every enquiry · fix fast</div></div>
+    </div>
+    <div class="abs a" data-t="10.5" style="left:96px;top:760px;font-size:28px;font-family:'Space Grotesk'">First impressions stick. <span class="soft">Earn trust small, then go wide.</span></div>
+  </section>
+
+  <!-- 10 BUDGET -->
+  <section class="scene" data-i="9" data-chap="09 · Budget">
+    <div class="abs" style="left:96px;top:160px;display:flex;gap:16px;align-items:center"><div class="eyebrow a" data-t="0.2">Ground-up pilot budget</div><span class="tag a" data-t="0.4" style="color:var(--lime)">Assumption</span></div>
+    <div class="abs a" data-t="0.6" style="left:96px;top:230px"><span class="mega" style="font-size:200px">₹<span data-count="25000" data-t="0.7" data-cd="1.6">0</span></span></div>
+    <div class="abs" style="left:96px;top:500px;width:1728px;display:grid;grid-template-columns:1fr 60px 1fr 60px 1fr 60px 1fr;align-items:center">
+      <div class="panel a" data-t="3.0" style="padding:22px"><div class="k">Goal</div><div style="font-size:34px;font-family:'Space Grotesk';margin-top:8px">40 enquiries</div></div><div class="arrow a" data-t="3.4"></div>
+      <div class="panel a" data-t="3.6" style="padding:22px"><div class="k">At 4% conversion</div><div style="font-size:34px;font-family:'Space Grotesk';margin-top:8px">1,000 visits</div></div><div class="arrow a" data-t="4.0"></div>
+      <div class="panel a" data-t="4.2" style="padding:22px"><div class="k">Half paid</div><div style="font-size:34px;font-family:'Space Grotesk';margin-top:8px">500 clicks</div></div><div class="arrow a" data-t="4.6"></div>
+      <div class="panel a" data-t="4.8" style="padding:22px"><div class="k">At ₹15 CPC</div><div style="font-size:34px;font-family:'Space Grotesk';margin-top:8px">₹7,500 search</div></div>
+    </div>
+    <div class="abs a" data-t="7.6" style="left:96px;top:700px;font-size:30px">Cost per stay will start high: <span style="color:var(--violet)">~₹2,100 vs a ₹400 target</span></div>
+    <div class="abs a" data-t="10.6" style="left:96px;top:770px;font-size:30px;font-family:'Space Grotesk'">The price of learning, <span class="soft">not a growth engine.</span></div>
+  </section>
+
+  <!-- 11 LOOP -->
+  <section class="scene" data-i="10" data-chap="10 · Growth loop">
+    <div class="abs" style="left:96px;top:150px"><div class="eyebrow a" data-t="0.2">The real engine</div></div>
+    <svg class="abs" id="loop" style="left:420px;top:200px" width="1080" height="760" aria-label="Verified-facts flywheel"></svg>
+    <div class="abs a" data-t="9.1" style="left:96px;top:880px;font-size:26px;color:var(--grey)">The moat: a dataset of verified facts a copycat can't buy.</div>
+  </section>
+
+  <!-- 12 ROADMAP -->
+  <section class="scene" data-i="11" data-chap="11 · 90-day plan">
+    <div class="abs" style="left:96px;top:160px"><div class="eyebrow a" data-t="0.2">90 days · two gates</div></div>
+    <div class="abs" style="left:96px;top:260px;width:1728px;display:grid;grid-template-columns:repeat(4,1fr);gap:18px">
+      <div class="tile panel a" data-t="3.1"><div class="k">Weeks 1–2</div><div style="font-family:'Space Grotesk';font-size:40px;margin-top:12px">Prepare</div><div class="l">Interviews · fix site · verify supply</div></div>
+      <div class="tile panel a" data-t="4.1" style="border-color:rgba(108,240,255,.5)"><div class="k" style="color:var(--cyan)">Weeks 3–4</div><div style="font-family:'Space Grotesk';font-size:40px;margin-top:12px">Soft launch</div><div class="l">Concierge pilot · videos · search</div></div>
+      <div class="tile panel a" data-t="5.2"><div class="k">Weeks 5–8</div><div style="font-family:'Space Grotesk';font-size:40px;margin-top:12px">Grow the loop</div><div class="l">Share cards · host referrals · Q&amp;A</div></div>
+      <div class="tile panel a" data-t="6.2"><div class="k">Weeks 9–13</div><div style="font-family:'Space Grotesk';font-size:40px;margin-top:12px">Monetise</div><div class="l">12% commission · repeat stays</div></div>
+    </div>
+    <div class="abs" style="left:96px;top:560px;width:1728px;height:60px">
+      <div class="a" data-t="7.4" style="position:absolute;left:calc(50% - 9px);top:0;text-align:center;width:300px;margin-left:-150px"><div style="width:22px;height:22px;transform:rotate(45deg);border:2px solid var(--lime);margin:0 auto"></div><div style="font-size:22px;margin-top:16px;font-family:'Space Grotesk'">Gate 1 · week 4</div></div>
+      <div class="a" data-t="7.8" style="position:absolute;left:calc(75% - 9px);top:0;text-align:center;width:300px;margin-left:-150px"><div style="width:22px;height:22px;transform:rotate(45deg);border:2px solid var(--lime);margin:0 auto"></div><div style="font-size:22px;margin-top:16px;font-family:'Space Grotesk'">Gate 2 · week 8</div></div>
+    </div>
+    <div class="abs a" data-t="7.6" style="left:96px;top:760px;font-size:30px;font-family:'Space Grotesk'">Money is committed only after each gate is passed.</div>
+  </section>
+
+  <!-- 13 CLOSE -->
+  <section class="scene" data-i="12" data-chap="">
+    <div class="abs" style="left:96px;top:220px">
+      <div class="mega a" data-t="1.7" style="font-size:150px">One hospital.</div>
+      <div class="mega a" data-t="2.9" style="font-size:150px;margin-top:10px">One promise.</div>
+      <div class="mega a" data-t="3.9" style="font-size:150px;margin-top:10px;color:var(--cyan)">One loop.</div>
+      <div class="a" data-t="5.3" style="font-size:40px;font-family:'Space Grotesk';margin-top:50px;color:var(--lime)">Win it honestly, then earn the next.</div>
+    </div>
+  </section>
+
+  <!-- END -->
+  <section class="scene" data-i="13" data-chap="">
+    <div class="abs" style="left:96px;top:340px">
+      <div class="a" data-t="0.2" style="font-family:'Space Grotesk';font-size:150px;font-weight:600;letter-spacing:-0.04em">The <span style="color:var(--cyan)">Veedu</span></div>
+      <div class="a" data-t="0.6" style="font-family:'Space Grotesk';font-size:38px;margin-top:8px">Go-to-market strategy</div>
+      <div class="a" data-t="1.2" style="font-size:20px;color:var(--dim);margin-top:60px">Proposed plan · pre-pilot · no bookings or interviews yet · figures are assumptions unless sourced</div>
+    </div>
+  </section>
+
+  <div id="bug">THE VEEDU <b>·</b> GTM</div>
+  <div id="chap"></div>
+  <div id="prog"></div>
+</div>
+
+<script src="timing.js"></script>
+<script>
+  const clamp = v => Math.max(0, Math.min(1, v));
+  const ease = p => 1 - Math.pow(1 - p, 3);
+  const easeIO = p => p < .5 ? 4*p*p*p : 1 - Math.pow(-2*p + 2, 3) / 2;
+  const $ = id => document.getElementById(id);
+
+  // flywheel (same structure as the marketing-plan diagram, scaled)
+  (function () {
+    const N = [['Host-confirmed listing', 'distance, price, date checked', 540, 90, 0], ['Family finds it', 'search or a shared link', 900, 230, 2.0],
+      ['WhatsApp enquiry', 'fast reply, confirmed stay', 900, 470, 2.0], ['Post-stay check', 'were distance and price right?', 540, 610, 4.3],
+      ['Better data', 'ratings and ranked Q&A pages', 180, 470, 4.3], ['More families and hosts', 'families share, hosts refer', 180, 230, 6.2]];
+    const W = 320, H = 92;
+    let g = `<defs><marker id='ar' viewBox='0 0 10 10' refX='9' refY='5' markerWidth='7' markerHeight='7' orient='auto-start-reverse'><path d='M0 0L10 5L0 10z' fill='#6B6E79'/></marker></defs>`;
+    const E = [[700, 100, 900, 182], [900, 278, 900, 422], [900, 518, 702, 600], [380, 610, 180, 518], [180, 422, 180, 278], [180, 182, 380, 100]];
+    E.forEach(([a, b, c, d], i) => g += `<path class='ed' data-k='${i}' d='M${a} ${b}L${c} ${d}' stroke='#6B6E79' stroke-width='2' fill='none' marker-end='url(#ar)'/>`);
+    N.forEach(([n, s, x, y, t], i) => g += `<g class='nd' data-t='${t}'><rect x='${x - W / 2}' y='${y - H / 2}' width='${W}' height='${H}' rx='14' fill='${i === 0 ? 'rgba(108,240,255,0.12)' : '#0E1015'}' stroke='${i === 0 ? '#6CF0FF' : '#22262F'}' stroke-width='${i === 0 ? 2 : 1}'/><text x='${x}' y='${y - 6}' text-anchor='middle' font-family='Space Grotesk' font-size='26' fill='#ECECF1'>${n}</text><text x='${x}' y='${y + 26}' text-anchor='middle' font-family='Inter' font-size='19' fill='#A3A5B0'>${s}</text></g>`);
+    g += `<g class='nd' data-t='8.9'><text x='540' y='350' text-anchor='middle' font-family='Space Grotesk' font-size='34' font-weight='600' fill='#D4FF6A'>Verified-facts flywheel</text><text x='540' y='390' text-anchor='middle' font-family='Inter' font-size='20' fill='#A3A5B0'>every checked stay improves the next</text></g>`;
+    $('loop').innerHTML = g;
+  })();
+
+  const scenes = [...document.querySelectorAll('.scene')].map(s => { const T = TIMING.scenes[+s.dataset.i]; return { el: s, start: T.start, dur: T.dur, chap: s.dataset.chap, items: [...s.querySelectorAll('.a')] }; });
+  const TOTAL = TIMING.total; window.TOTAL = TOTAL;
+  const chap = $('chap'), bug = $('bug'), prog = $('prog'), FADE = 0.4;
+
+  function render(t) {
+    let active = null, av = 0;
+    for (const s of scenes) {
+      const L = t - s.start;
+      if (L < -0.01 || L > s.dur + 0.01) { s.el.style.opacity = 0; continue; }
+      const vis = Math.min(clamp(L / FADE), clamp((s.dur - L) / FADE));
+      s.el.style.opacity = vis; if (vis > av) { active = s; av = vis; }
+      for (const it of s.items) {
+        const p = ease(clamp((L - (+it.dataset.t || 0)) / 0.55));
+        it.style.opacity = p;
+        if (it.classList.contains('arrow')) { it.style.transformOrigin = 'left'; it.style.transform = `scaleX(${p})`; }
+        else if (it.classList.contains('mega')) it.style.transform = `translateY(${(1 - p) * 40}px) scale(${0.96 + 0.04 * p})`;
+        else it.style.transform = `translateY(${(1 - p) * 24}px)`;
+      }
+      for (const n of s.el.querySelectorAll('[data-count]')) n.textContent = Math.round(+n.dataset.count * easeIO(clamp((L - +n.dataset.t) / +n.dataset.cd))).toLocaleString('en-IN');
+      if (s.el.dataset.i === '10') {
+        s.el.querySelectorAll('.nd').forEach(g => g.style.opacity = ease(clamp((L - +g.dataset.t) / 0.6)));
+        s.el.querySelectorAll('.ed').forEach((e, k) => e.style.opacity = ease(clamp((L - [1.6, 2.0, 3.9, 4.3, 5.8, 6.2].at(k)) / 0.6)));
+      }
+    }
+    if (active) {
+      chap.innerHTML = active.chap ? active.chap.replace(/^(\d+)/, '<b>$1</b> / 11 ·').replace(' · ·', ' ·') : ''; chap.style.opacity = av;
+      bug.style.opacity = ['0', '12', '13'].includes(active.el.dataset.i) ? 0 : av;
+    }
+    prog.style.width = (clamp(t / TOTAL) * 100) + '%';
+  }
+  window.render = render;
+
+  if (!window.__RENDERING__) {
+    const t0 = performance.now() - (+(new URLSearchParams(location.search).get('t') || 0)) * 1000;
+    const fit = () => { const k = Math.min(innerWidth / 1920, innerHeight / 1080); document.getElementById('stage').style.cssText += `;transform:scale(${k});transform-origin:0 0`; };
+    addEventListener('resize', fit); fit();
+    (function loop(){ render(((performance.now() - t0) / 1000) % TOTAL); requestAnimationFrame(loop); })();
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+# The Veedu: Go-to-Market Strategy film
+
+`the-veedu-gtm-strategy.mp4` · 2:55 · 1920×1080 · first-person AI voiceover · rhythmic score (96 BPM pulse under the ambient bed) · soft English subtitles.
+
+This film combines the storyboards of Episodes 01–05, the final case-study film and the marketing plan into one go-to-market narrative. Every figure is either sourced in those episodes or labelled on screen as an assumption or proposal. Nothing here is a launch result.
+
+| # | Time | Beat | Draws on | Visual | Voiceover |
+|---|---|---|---|---|---|
+| 1 | 0:00–0:12 | Hook | Ep01 cold open (holiday vs hospital) | Kinetic headline; cyan payoff line; GTM title chip | Families arrive in Kochi with someone they love in a hospital bed. None of them are looking for a holiday. … They're looking for certainty. This is how The Veedu goes to market to give it to them. |
+| 2 | 0:12–0:24 | The insight | Ep02 sentiment + Ep05 strongest insight | Episode chips 01–05; giant lime DISTANCE | Five stages of research came down to one insight. Distance is why families choose a stay, and it's the fact listings state least consistently. … That one finding drives every decision that follows. |
+| 3 | 0:24–0:38 | Where to play | Ep02 segmentation, Ep04 GE–McKinsey, Ep05 pilot area | Two cards: one hospital, one customer; hypothesis tag | So we don't go to market everywhere. We start with one hospital, Aster Medcity, and one customer: an out-of-town family caring for a patient who's admitted. More people than the hospital room allows, staying longer than a typical guest. |
+| 4 | 0:38–0:53 | Positioning | Ep04 positioning, marketing plan Step 4 | Three ✓ Checked tiles; 'Near the hospital' struck through → CHECKED · [date] stamp | Our position is simple. The Veedu is the stay-finder that checks what caregivers decide on: the walking time to the hospital entrance, the all-in price for the whole family, and whether a place works for weeks. … Not near the hospital. Checked, and dated. |
+| 5 | 0:53–1:04 | Brand | Marketing plan Step 6 (prism), Ep05 pre-flight | Six prism tiles; tagline; 'Verified & ready' struck through | That promise is the brand. Calm, local, honest. Checked, so you don't have to. … Which means the first marketing task isn't an ad. It's removing any claim we can't yet prove. |
+| 6 | 1:04–1:20 | Pricing | Ep03 revenue models, marketing plan Step 7 | Time · Effort · Risk chips; ₹0 families; ₹0 → 12% hosts | Pricing follows the same logic. For a caregiver, the real price is time, effort and risk, so families pay nothing. Hosts list free during the pilot, then pay twelve percent on confirmed stays: less than the big platforms, and only when it works. |
+| 7 | 1:20–1:34 | Messaging | Ep01/Final F-A-B, marketing plan Step 5 | Two F-A-B ladders with arrows; 'Evidence, not hype' | Every message climbs from feature to benefit. A measured walking time becomes: you can reach your mother in minutes. One all-in price becomes: no surprise at checkout. … This is a high-stakes decision, so we lead with evidence, not hype. |
+| 8 | 1:34–1:49 | Channels | Marketing plan Steps 8–10 | Four channel tiles; Posting Zero tag | We go where the need shows up. Search, when a family types the hospital's name. WhatsApp, where they actually decide. Walk-time videos, filmed from the hospital gate to every door. And answer-ready pages for AI search. … Social media supports. It doesn't lead. |
+| 9 | 1:49–2:03 | Launch | Ep05 roadmap, marketing plan Step 11 | Giant 10–15; T−21 → T0 timeline | The launch is soft on purpose. Ten to fifteen properties, every one checked in person. A short pre-launch to fix the site and verify supply. Then go live, watch every enquiry, and fix fast, because first impressions stick. |
+| 10 | 2:03–2:17 | Budget | Ep03 economics, marketing plan Step 10 | ₹25,000 count-up (assumption); ground-up chain; CAC reality check | The pilot budget is about twenty-five thousand rupees, built ground-up from a target of forty qualified enquiries. … That's an assumption, and the cost per stay will start high. We treat it as the price of learning, not a growth engine. |
+| 11 | 2:17–2:32 | Growth loop | Marketing plan Step 12 flywheel | Six-node flywheel draws in sequence; lime centre | The real engine is a loop. Every checked stay produces better data. Better data ranks and earns trust. Trust brings more families, and more hosts. … Over time, that dataset of verified facts becomes the moat a copycat can't buy. |
+| 12 | 2:32–2:42 | 90-day plan | Marketing plan Step 13, Ep05 gates | Four phase tiles; two gate diamonds | It all runs on a ninety-day plan with two gates. Prepare. Soft launch. Grow the loop. Then monetise. Money is committed only after each gate is passed. |
+| 13 | 2:42–2:50 | Close | Final film reflection | Three stacked mega lines; lime last line | That's the go-to-market. One hospital. One promise. One loop. … Win it honestly, then earn the next. |
+| End | 2:50–2:55 | End card | — | Wordmark + 'Proposed plan · pre-pilot · no bookings or interviews yet' | — |
+
+**Sound:** the series' ambient pad plus a soft kick-and-shaker pulse from the end of the hook to the close. The pulse drops out for the final three lines and the music dips before the last sentence. Ticks mark tile reveals; whooshes mark chapter turns.
+
+**Integrity on screen:** "Research finding · Ep02", "Target segment · hypothesis", "Proposed pricing", "Assumption" (budget) and the end-card scope line. Illustrative values use placeholders ("CHECKED · [date]"), never invented measurements.
+
+**Rebuild:** `build/vo.py` → `build/build.py <vo_dir>` → render `build/the-veedu-gtm.html` with Playwright and mux with ffmpeg (same pipeline as the other episodes).

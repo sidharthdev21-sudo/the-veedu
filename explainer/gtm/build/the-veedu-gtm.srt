@@ -1,0 +1,243 @@
+1
+00:00:01,600 --> 00:00:05,570
+Families arrive in Kochi with someone they love in a hospital bed.
+
+2
+00:00:05,620 --> 00:00:08,090
+None of them are looking for a holiday.
+
+3
+00:00:08,140 --> 00:00:09,610
+They're looking for certainty.
+
+4
+00:00:09,660 --> 00:00:12,289
+This is how The Veedu goes to market to give it to them.
+
+5
+00:00:13,039 --> 00:00:15,899
+Five stages of research came down to one insight.
+
+6
+00:00:15,949 --> 00:00:21,489
+Distance is why families choose a stay, and it's the fact listings state least consistently.
+
+7
+00:00:21,539 --> 00:00:24,589
+That one finding drives every decision that follows.
+
+8
+00:00:25,339 --> 00:00:27,159
+So we don't go to market everywhere.
+
+9
+00:00:27,209 --> 00:00:30,709
+We start with one hospital, Aster Medcity, and one customer:
+
+10
+00:00:30,759 --> 00:00:33,989
+an out-of-town family caring for a patient who's admitted.
+
+11
+00:00:34,039 --> 00:00:38,350
+More people than the hospital room allows, staying longer than a typical guest.
+
+12
+00:00:39,100 --> 00:00:40,510
+Our position is simple.
+
+13
+00:00:40,560 --> 00:00:44,130
+The Veedu is the stay-finder that checks what caregivers decide on:
+
+14
+00:00:44,180 --> 00:00:50,910
+the walking time to the hospital entrance, the all-in price for the whole family, and whether a place works for weeks.
+
+15
+00:00:50,960 --> 00:00:52,350
+Not near the hospital.
+
+16
+00:00:52,400 --> 00:00:53,535
+Checked, and dated.
+
+17
+00:00:54,285 --> 00:00:55,805
+That promise is the brand.
+
+18
+00:00:55,855 --> 00:00:57,185
+Calm, local, honest.
+
+19
+00:00:57,235 --> 00:00:59,295
+Checked, so you don't have to.
+
+20
+00:00:59,345 --> 00:01:02,185
+Which means the first marketing task isn't an ad.
+
+21
+00:01:02,235 --> 00:01:04,454
+It's removing any claim we can't yet prove.
+
+22
+00:01:05,204 --> 00:01:07,324
+Pricing follows the same logic.
+
+23
+00:01:07,374 --> 00:01:12,304
+For a caregiver, the real price is time, effort and risk, so families pay nothing.
+
+24
+00:01:12,354 --> 00:01:16,774
+Hosts list free during the pilot, then pay twelve percent on confirmed stays:
+
+25
+00:01:16,824 --> 00:01:19,601
+less than the big platforms, and only when it works.
+
+26
+00:01:20,351 --> 00:01:22,961
+Every message climbs from feature to benefit.
+
+27
+00:01:23,011 --> 00:01:24,871
+A measured walking time becomes:
+
+28
+00:01:24,921 --> 00:01:26,531
+you can reach your mother in minutes.
+
+29
+00:01:26,581 --> 00:01:28,201
+One all-in price becomes:
+
+30
+00:01:28,251 --> 00:01:30,161
+no surprise at checkout.
+
+31
+00:01:30,211 --> 00:01:33,840
+This is a high-stakes decision, so we lead with evidence, not hype.
+
+32
+00:01:34,590 --> 00:01:36,130
+We go where the need shows up.
+
+33
+00:01:36,180 --> 00:01:38,730
+Search, when a family types the hospital's name.
+
+34
+00:01:38,780 --> 00:01:40,680
+WhatsApp, where they actually decide.
+
+35
+00:01:40,730 --> 00:01:44,210
+Walk-time videos, filmed from the hospital gate to every door.
+
+36
+00:01:44,260 --> 00:01:46,940
+And answer-ready pages for AI search.
+
+37
+00:01:46,990 --> 00:01:48,490
+Social media supports.
+
+38
+00:01:48,540 --> 00:01:49,521
+It doesn't lead.
+
+39
+00:01:50,271 --> 00:01:51,901
+The launch is soft on purpose.
+
+40
+00:01:51,951 --> 00:01:55,051
+Ten to fifteen properties, every one checked in person.
+
+41
+00:01:55,101 --> 00:01:58,351
+A short pre-launch to fix the site and verify supply.
+
+42
+00:01:58,401 --> 00:02:03,090
+Then go live, watch every enquiry, and fix fast, because first impressions stick.
+
+43
+00:02:03,840 --> 00:02:11,040
+The pilot budget is about twenty-five thousand rupees, built ground-up from a target of forty qualified enquiries.
+
+44
+00:02:11,090 --> 00:02:14,040
+That's an assumption, and the cost per stay will start high.
+
+45
+00:02:14,090 --> 00:02:17,075
+We treat it as the price of learning, not a growth engine.
+
+46
+00:02:17,825 --> 00:02:19,455
+The real engine is a loop.
+
+47
+00:02:19,505 --> 00:02:21,705
+Every checked stay produces better data.
+
+48
+00:02:21,755 --> 00:02:23,635
+Better data ranks and earns trust.
+
+49
+00:02:23,685 --> 00:02:26,575
+Trust brings more families, and more hosts.
+
+50
+00:02:26,625 --> 00:02:31,663
+Over time, that dataset of verified facts becomes the moat a copycat can't buy.
+
+51
+00:02:32,413 --> 00:02:35,133
+It all runs on a ninety-day plan with two gates.
+
+52
+00:02:35,183 --> 00:02:36,063
+Prepare.
+
+53
+00:02:36,113 --> 00:02:37,163
+Soft launch.
+
+54
+00:02:37,213 --> 00:02:38,173
+Grow the loop.
+
+55
+00:02:38,223 --> 00:02:39,383
+Then monetise.
+
+56
+00:02:39,433 --> 00:02:42,186
+Money is committed only after each gate is passed.
+
+57
+00:02:42,936 --> 00:02:44,306
+That's the go-to-market.
+
+58
+00:02:44,356 --> 00:02:45,456
+One hospital.
+
+59
+00:02:45,506 --> 00:02:46,466
+One promise.
+
+60
+00:02:46,516 --> 00:02:47,806
+One loop.
+
+61
+00:02:47,856 --> 00:02:49,755
+Win it honestly, then earn the next.
